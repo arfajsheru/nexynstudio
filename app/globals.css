@@ -128,5 +128,26 @@
     }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
     }
+
+  /* ── Selection ───────────────────────────────────── */
+  ::selection {
+    @apply bg-foreground/10 text-foreground;
+  }
+
+  /* ── Scrollbar ───────────────────────────────────── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-border;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
 }

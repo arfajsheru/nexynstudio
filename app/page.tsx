@@ -1,19 +1,36 @@
-import { Button } from "@/components/ui/button"
+import { Navbar, HeroSection, ServicesSection, ContactSection, FAQSection } from "@/components/sections";
+import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Page() {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
-  )
+    <>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <ServicesSection />
+        <FAQSection />
+        <ContactSection />
+      </main>
+
+      {/* ── JSON-LD Structured Data ──────────────────────────── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: SITE_CONFIG.name,
+            url: SITE_CONFIG.url,
+            description: SITE_CONFIG.description,
+            sameAs: [],
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "sales",
+              availableLanguage: "English",
+            },
+          }),
+        }}
+      />
+    </>
+  );
 }
