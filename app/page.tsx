@@ -1,4 +1,19 @@
-import { Navbar, HeroSection, ServicesSection, ContactSection, FAQSection } from "@/components/sections";
+import {
+  Navbar,
+  HeroSection,
+  ServicesSection,
+  ChallengesSection,
+  SolutionsSection,
+  IndustriesSection,
+  WhyChooseUsSection,
+  ProcessSection,
+  TechStackSection,
+  AfterLaunchSection,
+  FAQSection,
+  ContactSection,
+  CTASection,
+  FooterSection,
+} from "@/components/sections";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Page() {
@@ -8,9 +23,18 @@ export default function Page() {
       <main>
         <HeroSection />
         <ServicesSection />
+        <ChallengesSection />
+        <SolutionsSection />
+        <IndustriesSection />
+        <WhyChooseUsSection />
+        <ProcessSection />
+        <TechStackSection />
+        <AfterLaunchSection />
         <FAQSection />
         <ContactSection />
+        <CTASection />
       </main>
+      <FooterSection />
 
       {/* ── JSON-LD Structured Data ──────────────────────────── */}
       <script

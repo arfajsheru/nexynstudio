@@ -1,5 +1,14 @@
 export { Navbar } from "./navbar";
 export { HeroSection } from "./hero";
 export { ServicesSection } from "./services";
-export { ContactSection } from "./contact";
+export { ChallengesSection } from "./challenges";
+export { SolutionsSection } from "./solutions";
+export { IndustriesSection } from "./industries";
+export { WhyChooseUsSection } from "./why-choose-us";
+export { ProcessSection } from "./process";
+export { TechStackSection } from "./tech-stack";
+export { AfterLaunchSection } from "./after-launch";
 export { FAQSection } from "./faq";
+export { ContactSection } from "./contact";
+export { CTASection } from "./cta";
+export { FooterSection } from "./footer";
