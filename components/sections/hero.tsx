@@ -11,7 +11,12 @@ import { cn } from "@/lib/utils";
 
 function HeroBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden bg-background" aria-hidden="true">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 mix-blend-luminosity dark:opacity-40"
+        style={{ backgroundImage: 'url(/herobackground.png)' }}
+      />
 
       {/* Fine grid — radially masked so it stays center-focused */}
       <div
