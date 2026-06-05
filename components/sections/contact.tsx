@@ -198,7 +198,7 @@ export function ContactSection() {
     <section
       id="contact"
       ref={ref}
-      className="relative overflow-hidden py-24 lg:py-32"
+      className="relative overflow-hidden py-16 lg:py-24"
     >
       <ContactBg />
 

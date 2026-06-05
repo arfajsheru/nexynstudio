@@ -51,7 +51,7 @@ export function AfterLaunchSection() {
   const { ref, isInView } = useInView(0.05);
 
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
+    <section className="relative overflow-hidden py-16 lg:py-24">
       <div
         className={cn(
           "relative z-10 mx-auto w-full",
@@ -67,47 +67,42 @@ export function AfterLaunchSection() {
           className="flex flex-col"
         >
           {/* ── Header ─────────────────────────────────────────────── */}
-          <div className="mb-20 flex flex-col justify-between gap-8 border-b border-border/40 pb-12 lg:flex-row lg:items-end">
-            <motion.div variants={fadeUp} className="max-w-2xl">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                <span className="h-1 w-1 rounded-full bg-foreground/40" />
-                Long-Term Partnership
-              </div>
-              <h2 className="text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[42px]">
-                What Happens{" "}
-                <span className="text-foreground/50">After Launch</span>
-              </h2>
-            </motion.div>
-            <motion.p
-              variants={fadeUp}
-              className="max-w-sm text-[14px] leading-relaxed text-muted-foreground lg:text-right"
-            >
-              Launch day is just the beginning. We stay by your side to ensure
-              your software continues to perform, scale, and evolve.
-            </motion.p>
-          </div>
+          <motion.div variants={fadeUp} className="mb-16 lg:mb-24 flex flex-col items-center text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-foreground/50" />
+              Long-Term Partnership
+            </div>
+            <h2 className="mx-auto text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl max-w-3xl">
+              What Happens <br className="hidden sm:block" />
+              <span className="text-foreground/50">After Launch</span>
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Launch day is just the beginning. We stay by your side to ensure your software continues to perform, scale, and evolve.
+            </p>
+          </motion.div>
 
           {/* ── Content Grid ───────────────────────────────────────── */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 lg:gap-x-24 lg:gap-y-20">
+            {/* Subtle background glow */}
+            <div className="absolute left-1/2 top-1/2 -z-10 h-[400px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/[0.02] blur-[120px]" />
+
             {AFTER_LAUNCH_ITEMS.map((item) => (
               <motion.div
                 key={item.title}
                 variants={fadeUp}
-                className="group relative flex flex-col rounded-2xl border border-border/50 bg-background p-7 transition-all duration-300 hover:border-foreground/20"
+                className="group flex flex-col items-start gap-5 sm:flex-row sm:gap-6"
               >
-                {/* Subtle top gradient */}
-                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl border border-border/50 bg-foreground/5 transition-transform duration-300 group-hover:scale-110">
-                  <item.icon className="h-4 w-4 text-foreground/60" />
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-foreground/[0.04] transition-all duration-500 group-hover:scale-105 group-hover:bg-foreground/10">
+                  <item.icon className="h-6 w-6 text-foreground/80 transition-colors group-hover:text-foreground" />
                 </div>
-
-                <h3 className="mb-2 text-[16px] font-bold text-foreground">
-                  {item.title}
-                </h3>
-                <p className="text-[13px] leading-relaxed text-muted-foreground">
-                  {item.desc}
-                </p>
+                <div>
+                  <h3 className="mb-2.5 text-xl font-bold tracking-tight text-foreground transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-muted-foreground">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

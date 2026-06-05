@@ -52,7 +52,7 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" ref={ref} className="relative py-24 lg:py-32 border-t border-border/40">
+    <section id="faq" ref={ref} className="relative py-16 lg:py-24 border-t border-border/40">
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
           variants={staggerContainer}

@@ -11,7 +11,7 @@ export function CTASection() {
   const { ref, isInView } = useInView(0.1);
 
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
+    <section className="relative overflow-hidden py-16 lg:py-24">
       {/* Radial glow */}
       <div
         className="pointer-events-none absolute inset-0"

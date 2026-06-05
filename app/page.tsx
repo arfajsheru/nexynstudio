@@ -37,6 +37,7 @@ export default function Page() {
       <FooterSection />
 
       {/* ── JSON-LD Structured Data ──────────────────────────── */}
+      {/* (Spacing updated project-wide) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

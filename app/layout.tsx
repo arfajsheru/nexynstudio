@@ -26,17 +26,38 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: [
-    "software development",
-    "web development",
-    "mobile development",
-    "CRM systems",
-    "business software",
-    "cloud solutions",
+    // Core Services
+    "software development company",
+    "custom software development",
+    "web app development",
+    "mobile app development",
+    "UI/UX design agency",
+    "cloud architecture",
+    "DevOps services",
+    "digital marketing agency",
+    "IT consulting",
+    
+    // Tech & Stacks
+    "Next.js developers",
+    "React.js agency",
+    "Node.js backend",
+    "cloud deployment",
+    "AWS infrastructure",
+    
+    // Business Needs
+    "CRM software development",
+    "ERP systems",
+    "business automation software",
+    "SaaS MVP development",
+    "startup tech partner",
+    "enterprise software solutions",
+    "legacy system modernization",
+    "scalable web applications",
+    
+    // Brand
     "Nexyn Studios",
-    "custom software",
-    "enterprise applications",
-    "Next.js development",
-    "React development",
+    "Nexyn",
+    "Nexyn technology partner"
   ],
   authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   creator: SITE_CONFIG.name,

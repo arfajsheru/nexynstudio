@@ -130,7 +130,7 @@ export function HeroSection() {
     <section
       id="home"
       ref={ref}
-      className="relative flex min-h-svh  flex-col items-center justify-center overflow-hidden pt-20 pb-16"
+      className="relative flex min-h-svh  flex-col items-center justify-center overflow-hidden pt-12 pb-16"
     >
       <HeroBackground />
 

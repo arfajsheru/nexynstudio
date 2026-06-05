@@ -62,7 +62,7 @@ export function TechStackSection() {
   const { ref, isInView } = useInView(0.05);
 
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32 bg-foreground/[0.02]">
+    <section className="relative overflow-hidden py-16 lg:py-24 bg-foreground/[0.02]">
       {/* Subtle blueprint grid */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -89,7 +89,7 @@ export function TechStackSection() {
           className="flex flex-col items-center"
         >
           {/* ── Header ─────────────────────────────────────────────── */}
-          <motion.div variants={fadeUp} className="mb-20 text-center">
+          <motion.div variants={fadeUp} className="mb-10 lg:mb-14 text-center">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
               <span className="h-1 w-1 rounded-full bg-foreground/40" />
               Engineering Foundation

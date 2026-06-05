@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { AlertCircle, CheckCircle2, ArrowDown } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
@@ -123,6 +123,16 @@ export function ChallengesSection() {
   // The tall outer container — drives the scroll progress
   const containerRef = useRef<HTMLDivElement>(null);
   const { ref: headerRef, isInView: headerInView } = useInView(0.1);
+  const [viewportW, setViewportW] = useState(1200);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setViewportW(window.innerWidth);
+      const handleResize = () => setViewportW(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   // Track scroll progress relative to the tall outer container
   const { scrollYProgress } = useScroll({
@@ -130,11 +140,12 @@ export function ChallengesSection() {
     offset: ["start start", "end end"],
   });
 
-  // Total track width = (card + gap) × count  minus one viewport width
-  // We clamp it: at progress 0 → translateX 0, at progress 1 → translateX -totalTrack
-  const totalTrack = (CARD_W + CARD_GAP) * CHALLENGES.length - CARD_GAP;
-  // Add 5% extra padding so last card is fully visible
-  const maxTranslate = -(totalTrack - CARD_W + 80);
+  // Total track width = (card + gap) × count - gap + paddingLeft(60) + paddingRight(60)
+  const totalTrack = (CARD_W + CARD_GAP) * CHALLENGES.length - CARD_GAP + 120;
+  
+  // Max translate should only go as far as the remaining width outside the viewport.
+  // This prevents scrolling past the last card and leaving blank space on the right.
+  const maxTranslate = -Math.max(0, totalTrack - viewportW);
 
   const rawX = useTransform(scrollYProgress, [0, 1], [0, maxTranslate]);
   // Spring smoothing so motion feels natural
@@ -163,7 +174,7 @@ export function ChallengesSection() {
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col">
 
         {/* ── Header ──────────────────────────────────────────── */}
-        <div className={cn("relative z-10 mx-auto w-full flex-shrink-0 pt-20 pb-10", LAYOUT.maxWidth, LAYOUT.paddingX)}>
+        <div className={cn("relative z-10 mx-auto w-full flex-shrink-0 pt-12 pb-10", LAYOUT.maxWidth, LAYOUT.paddingX)}>
           <motion.div
             ref={headerRef}
             variants={staggerContainer}

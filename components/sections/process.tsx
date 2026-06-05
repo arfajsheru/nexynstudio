@@ -1,47 +1,87 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Search, Map, PenTool, Code2, ShieldCheck, Rocket, Headphones } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
-const STEPS = [
-  {
-    title: "Discovery",
-    desc: "We analyze your business processes, identify bottlenecks, and define the exact scope of the software needed to solve them.",
+const PROCESS_STAGES = [
+  { 
+    id: "discovery", 
+    title: "Discovery", 
+    icon: Search, 
+    x: 15, y: 25, 
+    explanation: "Deep dive into your business operations and market landscape to identify exact bottlenecks.", 
+    deliverables: ["Product Roadmap", "Technical Scope", "User Personas"], 
+    outcome: "Clear project definition" 
   },
-  {
-    title: "Planning",
-    desc: "We architect the system data models, user flows, and technical stack, providing you with a transparent roadmap and timeline.",
+  { 
+    id: "planning", 
+    title: "Planning", 
+    icon: Map, 
+    x: 38, y: 25, 
+    explanation: "System architecture and data modeling to ensure scalable foundations.", 
+    deliverables: ["Database Schema", "Architecture Diagram", "Sprint Schedule"], 
+    outcome: "Scalable foundation" 
   },
-  {
-    title: "Design",
-    desc: "Our UI/UX team creates high-fidelity prototypes, ensuring the software is intuitive and requires minimal training for your team.",
+  { 
+    id: "design", 
+    title: "Design", 
+    icon: PenTool, 
+    x: 61, y: 25, 
+    explanation: "Creating intuitive, high-fidelity prototypes centered around user experience.", 
+    deliverables: ["Wireframes", "UI Prototypes", "Design System"], 
+    outcome: "Pixel-perfect blueprints" 
   },
-  {
-    title: "Development",
-    desc: "Our engineers build the core application using agile methodology, giving you access to staging environments to see progress live.",
+  { 
+    id: "development", 
+    title: "Development", 
+    icon: Code2, 
+    x: 85, y: 25, 
+    explanation: "Agile engineering sprints transforming design into robust, scalable code.", 
+    deliverables: ["Frontend App", "Backend API", "Admin Dashboard"], 
+    outcome: "Functional software" 
   },
-  {
-    title: "Testing",
-    desc: "Rigorous QA testing, security audits, and edge-case simulations ensure the platform is bulletproof before it touches production data.",
+  { 
+    id: "testing", 
+    title: "Testing", 
+    icon: ShieldCheck, 
+    x: 85, y: 75, 
+    explanation: "Rigorous QA testing, security audits, and edge-case simulations.", 
+    deliverables: ["Test Reports", "Security Audit", "Performance Metrics"], 
+    outcome: "Bulletproof system" 
   },
-  {
-    title: "Deployment",
-    desc: "We handle the infrastructure setup, data migration, and seamless launch, ensuring zero downtime for your existing operations.",
+  { 
+    id: "deployment", 
+    title: "Deployment", 
+    icon: Rocket, 
+    x: 50, y: 75, 
+    explanation: "Seamless cloud infrastructure setup and zero-downtime launch.", 
+    deliverables: ["Cloud Architecture", "CI/CD Pipeline", "Production Launch"], 
+    outcome: "Live product" 
   },
-  {
-    title: "Support",
-    desc: "Post-launch, we provide continuous monitoring, server maintenance, and feature enhancements as your business scales.",
+  { 
+    id: "support", 
+    title: "Support", 
+    icon: Headphones, 
+    x: 15, y: 75, 
+    explanation: "Continuous monitoring, maintenance, and iteration as you scale.", 
+    deliverables: ["Uptime Monitoring", "Monthly Updates", "Feature Scaling"], 
+    outcome: "Long-term partnership" 
   },
 ];
 
+const DESKTOP_PATH = "M -100 100 L 850 100 A 100 100 0 0 1 850 300 L -100 300";
+
 export function ProcessSection() {
-  const { ref, isInView } = useInView(0.05);
+  const { ref, isInView } = useInView(0.1);
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative w-full bg-background py-16 lg:py-24 border-t border-border/40 z-20">
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
           ref={ref}
@@ -51,30 +91,173 @@ export function ProcessSection() {
           className="flex flex-col items-center"
         >
           {/* ── Header ─────────────────────────────────────────────── */}
-          <motion.div variants={fadeUp} className="mb-20 text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-              <span className="h-1 w-1 rounded-full bg-foreground/40" />
-              How We Work
+          <motion.div variants={fadeUp} className="mb-12 lg:mb-16 text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-foreground/50" />
+              Software Delivery Journey
             </div>
-            <h2 className="text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl">
-              Development <span className="text-foreground/50">Process</span>
+            <h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              From Idea to{" "}
+              <span className="text-foreground/40">Production</span>
             </h2>
+            <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+              Watch how we systematically transform business bottlenecks into robust, scalable digital products through our connected architecture pipeline.
+            </p>
           </motion.div>
 
-          {/* ── Vertical Timeline ──────────────────────────────────── */}
-          <div className="relative mx-auto w-full max-w-2xl">
-            {/* The Line */}
-            <div className="absolute left-[27px] top-4 bottom-4 w-px bg-border/40 md:left-1/2 md:-translate-x-1/2" />
+          {/* ── Interactive Architecture Diagram (Desktop) ───────── */}
+          <motion.div variants={fadeUp} className="hidden lg:block relative w-full max-w-5xl mx-auto h-[400px]">
+            
+            {/* Background SVG Path & Animations */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 400" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="pathGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="var(--foreground)" stopOpacity="0" />
+                  <stop offset="50%" stopColor="var(--foreground)" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="var(--foreground)" stopOpacity="0" />
+                </linearGradient>
+                <filter id="particleGlow">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
 
-            {STEPS.map((step, index) => (
-              <TimelineItem 
-                key={step.title} 
-                step={step} 
-                index={index} 
-                total={STEPS.length}
-              />
-            ))}
-          </div>
+              {/* Substantial base track */}
+              <path d={DESKTOP_PATH} stroke="currentColor" strokeOpacity="0.1" strokeWidth="6" fill="none" strokeLinecap="round" />
+              
+              {/* Dashed data track overlay */}
+              <path d={DESKTOP_PATH} stroke="url(#pathGlow)" strokeWidth="2" strokeDasharray="6 12" fill="none" strokeLinecap="round" />
+              
+              {/* Animated drawing line */}
+              <path 
+                d={DESKTOP_PATH} 
+                stroke="currentColor" 
+                strokeOpacity="0.4" 
+                strokeWidth="2" 
+                fill="none" 
+                strokeDasharray="2000" 
+                strokeDashoffset="2000"
+              >
+                <animate attributeName="stroke-dashoffset" values="2000;0" dur="12s" repeatCount="indefinite" />
+              </path>
+
+              {/* Traveling Glowing Particle */}
+              <circle r="6" className="fill-foreground" filter="url(#particleGlow)">
+                <animateMotion dur="12s" repeatCount="indefinite" path={DESKTOP_PATH} />
+              </circle>
+              <circle r="3" className="fill-background">
+                <animateMotion dur="12s" repeatCount="indefinite" path={DESKTOP_PATH} />
+              </circle>
+            </svg>
+
+            {/* Interactive Nodes */}
+            {PROCESS_STAGES.map((stage) => {
+              const isHovered = hoveredNode === stage.id;
+              
+              return (
+                <div 
+                  key={stage.id}
+                  className={cn(
+                    "absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300",
+                    isHovered ? "z-50" : "z-10"
+                  )}
+                  style={{ left: `${stage.x}%`, top: `${stage.y}%` }}
+                  onMouseEnter={() => setHoveredNode(stage.id)}
+                  onMouseLeave={() => setHoveredNode(null)}
+                >
+                  <div className="relative group flex flex-col items-center justify-center cursor-pointer">
+                    <div className={cn(
+                      "w-16 h-16 rounded-full border-[3px] bg-background flex items-center justify-center transition-all duration-500 relative z-20", 
+                      isHovered ? "border-foreground scale-110 shadow-[0_0_40px_rgba(var(--foreground-rgb),0.2)]" : "border-border/60"
+                    )}>
+                      <stage.icon className={cn(
+                        "w-6 h-6 transition-colors duration-500", 
+                        isHovered ? "text-foreground" : "text-muted-foreground/40"
+                      )} strokeWidth={1.5} />
+                    </div>
+                    
+                    {/* Node pulsing background when active */}
+                    <div className={cn(
+                      "absolute top-0 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full bg-foreground/10 transition-all duration-500 z-10 pointer-events-none",
+                      isHovered ? "scale-[2] opacity-100 animate-pulse" : "scale-100 opacity-0"
+                    )} />
+
+                    <span className={cn(
+                      "absolute -bottom-10 font-bold text-[14px] tracking-tight transition-colors duration-300 whitespace-nowrap", 
+                      isHovered ? "text-foreground" : "text-muted-foreground/50"
+                    )}>
+                      {stage.title}
+                    </span>
+                  </div>
+
+                  {/* Professional Tooltip */}
+                  <AnimatePresence>
+                    {isHovered && (
+                      <Tooltip stage={stage} position={stage.y < 50 ? 'bottom' : 'top'} />
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </motion.div>
+
+          {/* ── Horizontal Scroll Workflow (Mobile) ──────────────── */}
+          <motion.div variants={fadeUp} className="block lg:hidden w-full overflow-x-auto snap-x snap-mandatory pb-12 mt-4 no-scrollbar">
+            <div className="flex gap-6 w-max relative pt-6 px-6">
+              
+              {/* Connecting Line */}
+              <div className="absolute top-[56px] left-6 right-6 h-[3px] bg-border/40 z-0" />
+
+              {PROCESS_STAGES.map((stage) => (
+                <div key={stage.id} className="snap-center w-[280px] sm:w-[320px] relative z-10 flex flex-col items-center">
+                  
+                  {/* Node Circle */}
+                  <div className="w-16 h-16 rounded-full border-[3px] border-border bg-background flex items-center justify-center mb-6 relative z-10 shadow-sm">
+                    <stage.icon className="w-6 h-6 text-foreground/80" strokeWidth={1.5} />
+                  </div>
+                  
+                  {/* Content Card */}
+                  <div className="bg-foreground/[0.02] border border-border/40 rounded-2xl p-6 text-left w-full shadow-sm">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 bg-foreground/5 rounded-lg border border-border/50">
+                        <stage.icon className="w-4 h-4 text-foreground" />
+                      </div>
+                      <h4 className="font-bold text-foreground text-lg">{stage.title}</h4>
+                    </div>
+                    
+                    <p className="text-[13px] text-muted-foreground leading-relaxed mb-5">
+                      {stage.explanation}
+                    </p>
+                    
+                    <div className="mb-5">
+                      <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-foreground/40 mb-2 block">
+                        Deliverables
+                      </span>
+                      <ul className="flex flex-wrap gap-2">
+                        {stage.deliverables.map(d => (
+                          <li key={d} className="px-2 py-1 bg-background border border-border/40 rounded-md text-[11px] font-medium text-foreground/70">
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4 border-t border-border/30">
+                      <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-foreground/40 block mb-1">
+                        Outcome
+                      </span>
+                      <span className="text-[13px] font-semibold text-foreground">
+                        {stage.outcome}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
 
         </motion.div>
       </div>
@@ -82,52 +265,62 @@ export function ProcessSection() {
   );
 }
 
-function TimelineItem({ step, index, total }: { step: any, index: number, total: number }) {
-  const { ref, isInView } = useInView(0.5); // trigger when 50% in view
-  const isEven = index % 2 === 0;
+function Tooltip({ stage, position }: { stage: any, position: 'top' | 'bottom' }) {
+  // Prevent tooltip from overflowing screen edges
+  const xOffset = stage.x <= 20 ? 100 : stage.x >= 80 ? -100 : 0;
 
   return (
-    <div ref={ref} className="relative mb-12 flex items-center md:justify-center w-full last:mb-0 group">
+    <motion.div
+      initial={{ opacity: 0, y: position === 'top' ? 10 : -10, scale: 0.95 }}
+      animate={{ 
+        opacity: 1, 
+        y: 0, 
+        x: `calc(-50% + ${xOffset}px)`, 
+        scale: 1 
+      }}
+      exit={{ opacity: 0, y: position === 'top' ? 10 : -10, scale: 0.95 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className={cn(
+        "absolute left-1/2 w-[340px] bg-background/95 backdrop-blur-xl border border-border/40 rounded-2xl p-6 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_30px_60px_-15px_rgba(255,255,255,0.1)] z-[100] pointer-events-none text-left",
+        position === 'top' ? "bottom-full mb-10" : "top-full mt-10"
+      )}
+    >
+      <div className="flex items-center gap-3 mb-3">
+        <div className="p-2 bg-foreground/5 rounded-lg border border-border/50">
+          <stage.icon className="w-4 h-4 text-foreground" />
+        </div>
+        <h4 className="font-bold text-foreground text-lg">{stage.title}</h4>
+      </div>
       
-      {/* Node indicator */}
-      <div 
-        className={cn(
-          "absolute left-5 z-10 flex h-4 w-4 -translate-y-1/2 items-center justify-center rounded-full border-2 bg-background transition-all duration-700 md:left-1/2 md:-translate-x-1/2",
-          isInView ? "border-foreground scale-110" : "border-border/50 scale-100",
-          index === 0 && "top-0 translate-y-0",
-          index === total - 1 && "bottom-0 translate-y-0",
-          index !== 0 && index !== total - 1 && "top-1/2"
-        )}
-      >
-        <div className={cn(
-          "h-1.5 w-1.5 rounded-full transition-all duration-700",
-          isInView ? "bg-foreground scale-100" : "bg-transparent scale-0"
-        )} />
+      <p className="text-[13px] text-muted-foreground leading-relaxed mb-5">
+        {stage.explanation}
+      </p>
+      
+      <div className="mb-5">
+        <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-foreground/40 mb-2 block">
+          Deliverables
+        </span>
+        <ul className="flex flex-wrap gap-2">
+          {stage.deliverables.map((d: string) => (
+            <li key={d} className="px-2 py-1 bg-foreground/[0.03] border border-border/40 rounded-md text-[11px] font-medium text-foreground/70">
+              {d}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      {/* Content Box */}
-      <div className={cn(
-        "ml-14 w-full md:w-[45%] md:ml-0",
-        isEven ? "md:pr-14 md:text-right" : "md:pl-14 md:ml-auto"
-      )}>
-        <div className={cn(
-          "transition-all duration-700",
-          isInView ? "opacity-100 translate-y-0" : "opacity-40 translate-y-4"
-        )}>
-          <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/60 mb-2">
-            Phase 0{index + 1}
-          </div>
-          <h3 className={cn(
-            "mb-2 text-[18px] font-bold transition-colors duration-700",
-            isInView ? "text-foreground" : "text-foreground/50"
-          )}>
-            {step.title}
-          </h3>
-          <p className="text-[13px] leading-relaxed text-muted-foreground">
-            {step.desc}
-          </p>
-        </div>
+      <div className="pt-4 border-t border-border/30">
+        <span className="text-[10px] uppercase tracking-[0.15em] font-bold text-foreground/40 block mb-1">
+          Expected Outcome
+        </span>
+        <span className="text-[13px] font-semibold text-foreground">
+          {stage.outcome}
+        </span>
       </div>
-    </div>
+    </motion.div>
   );
 }
+
+
+
+
