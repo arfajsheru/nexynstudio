@@ -112,6 +112,7 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
+          suppressHydrationWarning
           {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
         />
       ) : (
@@ -120,6 +121,7 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
           onFocus={handleFocus}
           onBlur={handleBlur}
           onChange={handleChange}
+          suppressHydrationWarning
           {...(props as React.InputHTMLAttributes<HTMLInputElement>)}
         />
       )}
