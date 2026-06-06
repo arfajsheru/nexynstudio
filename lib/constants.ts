@@ -12,11 +12,11 @@ export const SITE_CONFIG = {
 // ─── Navigation ─────────────────────────────────────────────────────────────
 
 export const NAV_ITEMS = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 export const NAV_CTA = {
@@ -32,8 +32,8 @@ export const HERO_CONTENT = {
   headlinePart2: "Built To Scale",
   description:
     "We architect and build custom software, web applications, and mobile apps. Delivering enterprise-grade business automation designed for long-term growth and reliability.",
-  primaryCta: { label: "Get Free Consultation", href: "#contact" },
-  secondaryCta: { label: "View Our Work", href: "#portfolio" },
+  primaryCta: { label: "Get Free Consultation", href: "/#contact" },
+  secondaryCta: { label: "View Our Work", href: "/portfolio" },
 } as const;
 
 // ─── Trust Row ──────────────────────────────────────────────────────────────

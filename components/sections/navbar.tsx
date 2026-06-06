@@ -3,11 +3,13 @@
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { NAV_ITEMS, NAV_CTA, SITE_CONFIG } from "@/lib/constants"
 import { useActiveSection, useMediaQuery } from "@/hooks/use-interactions"
 import { cn } from "@/lib/utils"
 
-const SECTION_IDS = NAV_ITEMS.map((item) => item.href.replace("#", ""))
+const SECTION_IDS = ["home", ...NAV_ITEMS.map((item) => item.href.split("#")[1]).filter(Boolean)] as string[]
 
 const SCROLL_THRESHOLD = 20
 
@@ -17,6 +19,8 @@ export function Navbar() {
   const activeSection = useActiveSection(SECTION_IDS)
   const isDesktop = useMediaQuery("(min-width: 1024px)")
   const isMobileMenuVisible = isMobileOpen && !isDesktop
+
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,13 +38,21 @@ export function Navbar() {
     }
   }, [isMobileMenuVisible])
 
-  const handleNavClick = useCallback((href: string) => {
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setIsMobileOpen(false)
-    const el = document.getElementById(href.replace("#", ""))
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" })
+    
+    // Smooth scroll for hash links on the home page
+    if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault()
+      const hash = href.split("#")[1]
+      const el = document.getElementById(hash)
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" })
+        window.history.pushState(null, "", href)
+      }
     }
-  }, [])
+    // Let Next.js Link handle cross-page navigation normally
+  }, [pathname])
 
   return (
     <>
@@ -60,12 +72,9 @@ export function Navbar() {
           aria-label="Main navigation"
         >
           {/* ── Logo ──────────────────────────────────────────────── */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault()
-              handleNavClick("#home")
-            }}
+          <Link
+            href="/"
+            onClick={(e) => handleNavClick(e, "/")}
             className="group relative z-10 flex items-center gap-2"
             aria-label={`${SITE_CONFIG.name} - Home`}
           >
@@ -76,22 +85,32 @@ export function Navbar() {
                 className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] dark:invert"
               />
             </div>
-          </a>
+          </Link>
 
           {/* ── Desktop Nav ───────────────────────────────────────── */}
           <div className="hidden items-center gap-1 lg:flex">
             {NAV_ITEMS.map((item) => {
-              const sectionId = item.href.replace("#", "")
-              const isActive = activeSection === sectionId
+              const sectionId = item.href === "/" ? "home" : item.href.split("#")[1] || ""
+              const isHomePage = pathname === "/"
+              
+              let isActive = false
+              if (isHomePage) {
+                if (item.href === "/") {
+                  isActive = activeSection === "home" || !activeSection
+                } else if (item.href.startsWith("/#")) {
+                  isActive = activeSection === sectionId
+                }
+              } else {
+                if (item.href !== "/" && !item.href.startsWith("/#")) {
+                  isActive = pathname.startsWith(item.href)
+                }
+              }
 
               return (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleNavClick(item.href)
-                  }}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={cn(
                     "relative rounded-lg px-3.5 py-2 text-sm font-medium transition-colors duration-200",
                     isActive
@@ -112,7 +131,7 @@ export function Navbar() {
                       }}
                     />
                   )}
-                </a>
+                </Link>
               )
             })}
           </div>
@@ -120,17 +139,14 @@ export function Navbar() {
           {/* ── Desktop Right Actions ─────────────────────────────── */}
           <div className="hidden items-center gap-3 lg:flex">
             {/* CTA Button */}
-            <a
+            <Link
               href={NAV_CTA.href}
-              onClick={(e) => {
-                e.preventDefault()
-                handleNavClick(NAV_CTA.href)
-              }}
+              onClick={(e) => handleNavClick(e, NAV_CTA.href)}
               className="group inline-flex h-9 items-center gap-2 rounded-lg bg-foreground px-4 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
             >
               {NAV_CTA.label}
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </a>
+            </Link>
           </div>
 
           {/* ── Mobile Menu Button ─────────────────────────────────── */}
@@ -183,30 +199,44 @@ export function Navbar() {
               <div className="mx-auto max-w-7xl px-6 py-6">
                 <div className="flex flex-col gap-1">
                   {NAV_ITEMS.map((item, i) => {
-                    const sectionId = item.href.replace("#", "")
-                    const isActive = activeSection === sectionId
+                    const sectionId = item.href === "/" ? "home" : item.href.split("#")[1] || ""
+                    const isHomePage = pathname === "/"
+                    
+                    let isActive = false
+                    if (isHomePage) {
+                      if (item.href === "/") {
+                        isActive = activeSection === "home" || !activeSection
+                      } else if (item.href.startsWith("/#")) {
+                        isActive = activeSection === sectionId
+                      }
+                    } else {
+                      if (item.href !== "/" && !item.href.startsWith("/#")) {
+                        isActive = pathname.startsWith(item.href)
+                      }
+                    }
 
                     return (
-                      <motion.a
+                      <Link
                         key={item.label}
                         href={item.href}
-                        onClick={(e) => {
-                          e.preventDefault()
-                          handleNavClick(item.href)
-                        }}
-                        initial={{ opacity: 0, x: -12 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.05, duration: 0.2 }}
+                        onClick={(e) => handleNavClick(e, item.href)}
                         className={cn(
-                          "rounded-lg px-4 py-3 text-base font-medium transition-colors duration-200",
+                          "rounded-lg px-4 py-3 text-base font-medium transition-colors duration-200 block",
                           isActive
                             ? "bg-muted/60 text-foreground"
                             : "text-muted-foreground hover:bg-muted/40 hover:text-foreground"
                         )}
                         aria-current={isActive ? "page" : undefined}
                       >
-                        {item.label}
-                      </motion.a>
+                        <motion.span
+                          initial={{ opacity: 0, x: -12 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.05, duration: 0.2 }}
+                          className="block"
+                        >
+                          {item.label}
+                        </motion.span>
+                      </Link>
                     )
                   })}
                 </div>
@@ -217,17 +247,14 @@ export function Navbar() {
                   transition={{ delay: 0.25, duration: 0.2 }}
                   className="mt-4 border-t border-border pt-4"
                 >
-                  <a
+                  <Link
                     href={NAV_CTA.href}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      handleNavClick(NAV_CTA.href)
-                    }}
+                    onClick={(e) => handleNavClick(e, NAV_CTA.href)}
                     className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-foreground px-4 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                   >
                     {NAV_CTA.label}
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>

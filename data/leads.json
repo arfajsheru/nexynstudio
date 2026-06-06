@@ -1,0 +1,54 @@
+[
+  {
+    "id": "lead_1780713912609_5n81u",
+    "name": "Arfat Sheru",
+    "email": "arfatsheru74@gmail.com",
+    "phone": "98787877788",
+    "company": "xyz",
+    "service": "Mobile App Development",
+    "budget": "₹50K - ₹1L",
+    "timeline": "Within 1 Month",
+    "message": "testing",
+    "preferredContact": "WhatsApp",
+    "createdAt": "2026-06-06T02:45:12.609Z"
+  },
+  {
+    "id": "lead_1780714207521_5xxvg",
+    "name": "Arfat Sheru",
+    "email": "arfatsheru74@gmail.com",
+    "phone": "874847484874",
+    "company": "xyz",
+    "service": "Web Development",
+    "budget": "₹1L - ₹5L",
+    "timeline": "Immediately",
+    "message": "testing",
+    "preferredContact": "WhatsApp",
+    "createdAt": "2026-06-06T02:50:07.521Z"
+  },
+  {
+    "id": "lead_1780714315109_a3wws",
+    "name": "Arfat Sheru",
+    "email": "arfatsheru74@gmail.com",
+    "phone": "9898321112",
+    "company": "xyz",
+    "service": "UI/UX Design",
+    "budget": "₹1L - ₹5L",
+    "timeline": "Within 1 Month",
+    "message": "testing",
+    "preferredContact": "WhatsApp",
+    "createdAt": "2026-06-06T02:51:55.109Z"
+  },
+  {
+    "id": "lead_1780714771245_6v05b",
+    "name": "Arfat Sheru",
+    "email": "arfatsheru74@gmail.com",
+    "phone": "9898888888",
+    "company": "xtz",
+    "service": "Web Development",
+    "budget": "₹1L - ₹5L",
+    "timeline": "Within 3 Months",
+    "message": "testing. hhbjhb kgguyftd ftrres5se tty",
+    "preferredContact": "Call",
+    "createdAt": "2026-06-06T02:59:31.245Z"
+  }
+]
