@@ -38,7 +38,18 @@ const TARGET_TECHNOLOGIES = [
   { search: 'Python', filename: 'python.svg' },
   { search: 'Vue', filename: 'vue.svg', fallbackSearch: 'Vue.js' },
   { search: 'Angular', filename: 'angular.svg' },
-  { search: 'MySQL', filename: 'mysql.svg' }
+  { search: 'MySQL', filename: 'mysql.svg' },
+  { search: 'Framer', filename: 'framer.svg', fallbackSearch: 'Framer Motion' },
+  { search: 'shadcn/ui', filename: 'shadcn.svg', fallbackSearch: 'shadcn' },
+  { search: 'GSAP', filename: 'gsap.svg' },
+  { search: 'NestJS', filename: 'nestjs.svg' },
+  { search: 'Supabase', filename: 'supabase.svg' },
+  { search: 'GraphQL', filename: 'graphql.svg' },
+  { search: 'Redis', filename: 'redis.svg' },
+  { search: 'Kubernetes', filename: 'kubernetes.svg' },
+  { search: 'Android', filename: 'android.svg' },
+  { search: 'Apple', filename: 'apple.svg', fallbackSearch: 'iOS' },
+  { search: 'Google Cloud', filename: 'googlecloud.svg' }
 ];
 
 async function fetchSVGLIcons() {
