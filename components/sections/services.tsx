@@ -21,10 +21,10 @@ import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── Image imports ─────────────────────────────────────────────────────────────
-import imgSoftware from "@/assets/service/Custom-Software-Development.png";
-import imgDesign from "@/assets/service/UI-UX-Design.png";
+import imgSoftware from "@/assets/service/Custom-Software.png";
+import imgDesign from "@/assets/service/UI&UX-Design.png";
 import imgWeb from "@/assets/service/Web-Development.png";
-import imgMobile from "@/assets/service/Mobile-App-Development.png";
+import imgMobile from "@/assets/service/Mobile-Apps.png";
 import imgCloud from "@/assets/service/Cloud-DevOps.png";
 import imgMarketing from "@/assets/service/Digital-Marketing.png";
 
@@ -148,69 +148,79 @@ function ServicesBg() {
   );
 }
 
-function ServiceCard({ s, onClick }: { s: (typeof SERVICES)[0], onClick: () => void }) {
+function ServiceCard({ s, onClick, index }: { s: (typeof SERVICES)[0], onClick: () => void, index: number }) {
   const Icon = s.icon;
+  // Create an asymmetric bento grid layout
+  const isLarge = index === 0 || index === 3 || index === 4;
+  const isReversed = index === 3; // Flip the layout of one of the large cards for visual variety
 
   return (
     <motion.article
       variants={fadeUp}
       onClick={onClick}
-      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border/40 bg-foreground/[0.01] transition-all duration-300 hover:-translate-y-1 hover:border-border/80 hover:bg-foreground/[0.02] hover:shadow-xl"
+      className={cn(
+        "group relative flex cursor-pointer overflow-hidden rounded-[2.5rem] border border-border/40 bg-foreground/[0.01] transition-all duration-500 hover:-translate-y-1 hover:border-border/80 hover:bg-foreground/[0.02] hover:shadow-2xl",
+        isLarge ? "md:col-span-2 flex-col md:flex-row" : "col-span-1 flex-col",
+        isReversed && isLarge ? "md:flex-row-reverse" : ""
+      )}
     >
-      {/* ── Image: fixed 220px height, object-cover ── */}
-      <div className="relative h-[220px] w-full overflow-hidden bg-muted/10">
+      {/* ── Image Container ── */}
+      <div className={cn(
+        "relative shrink-0 overflow-hidden bg-muted/10 flex items-center justify-center",
+        isLarge ? "h-[300px] md:h-auto md:w-1/2" : "h-[280px] w-full"
+      )}>
+        {/* Subtle glow behind image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent opacity-50" />
         <Image
           src={s.img}
           alt={s.imgAlt}
           fill
-          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-110"
+          sizes={isLarge ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 100vw, 33vw"}
         />
-        {/* Subtle gradient overlay at the bottom of the image for contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-40" />
       </div>
 
-      {/* ── Content ─────────────────────────────────────────── */}
-      <div className="flex flex-1 flex-col p-6">
+      {/* ── Content Container ─────────────────────────────────────────── */}
+      <div className={cn(
+        "flex flex-1 flex-col p-8 sm:p-10",
+        isLarge ? "justify-center" : ""
+      )}>
 
         {/* Icon + tag */}
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-foreground/[0.05]">
-              <Icon className="h-4 w-4 text-foreground/80" />
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-              {s.tag}
-            </span>
+        <div className="mb-6 flex items-center gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-background border border-border/40 shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:border-foreground/20">
+            <Icon className="h-5 w-5 text-foreground/80 transition-colors group-hover:text-foreground" />
           </div>
+          <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground/80">
+            {s.tag}
+          </span>
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 text-[19px] font-bold leading-snug tracking-tight text-foreground">
+        <h3 className="mb-4 text-2xl font-bold leading-snug tracking-tight text-foreground sm:text-3xl">
           {s.title}
         </h3>
 
         {/* Description */}
-        <p className="mb-6 text-[13px] leading-[1.6] text-muted-foreground line-clamp-3">
+        <p className="mb-8 text-[15px] leading-[1.6] text-muted-foreground line-clamp-3">
           {s.desc}
         </p>
 
         {/* Bottom Area: Pills & Arrow Button */}
-        <div className="mt-auto flex items-center justify-between border-t border-border/30 pt-4">
-          <div className="flex flex-wrap gap-1.5">
-            {s.caps.slice(0, 2).map((cap) => (
+        <div className="mt-auto flex items-center justify-between border-t border-border/30 pt-6">
+          <div className="flex flex-wrap gap-2">
+            {s.caps.slice(0, isLarge ? 3 : 2).map((cap) => (
               <span
                 key={cap}
-                className="rounded-md bg-foreground/[0.03] px-2.5 py-1 text-[10px] font-semibold text-muted-foreground"
+                className="rounded-lg bg-foreground/[0.03] border border-border/40 px-3 py-1.5 text-[11px] font-semibold text-muted-foreground transition-colors group-hover:border-foreground/20 group-hover:text-foreground"
               >
                 {cap}
               </span>
             ))}
           </div>
           
-          {/* Prominent Arrow Button */}
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background">
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-foreground/5 text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background group-hover:shadow-md">
+            <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
         </div>
       </div>
@@ -263,12 +273,13 @@ export function ServicesSection() {
             </p>
           </motion.div>
 
-          {/* ── 3-column grid, all 6 services ───────────────────── */}
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((s) => (
+          {/* ── Bento Grid, all 6 services ───────────────────── */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((s, i) => (
               <ServiceCard 
                 key={s.key} 
                 s={s} 
+                index={i}
                 onClick={() => setSelectedService(s)} 
               />
             ))}
@@ -288,7 +299,7 @@ export function ServicesSection() {
               onClick={() => setSelectedService(null)}
               className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
             />
-            
+
             {/* Modal Container */}
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 pointer-events-none">
               <motion.div
@@ -307,16 +318,16 @@ export function ServicesSection() {
                 </button>
 
                 {/* Left Side: Image */}
-                <div className="relative h-[250px] w-full shrink-0 bg-muted/10 lg:h-auto lg:w-[45%]">
+                <div className="relative h-[320px] w-full shrink-0 bg-muted/10 lg:h-auto lg:w-[45%]">
                   <Image
                     src={selectedService.img}
                     alt={selectedService.imgAlt}
                     fill
-                    className="object-cover object-top"
+                    className="object-contain p-4 lg:p-6"
                     sizes="(max-width: 1024px) 100vw, 45vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 lg:bg-gradient-to-r" />
-                  
+
                   {/* Floating badge on image */}
                   <div className="absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full border border-border/20 bg-background/50 px-4 py-1.5 text-[12px] font-semibold uppercase tracking-[0.12em] text-foreground backdrop-blur-md">
                     <selectedService.icon className="h-4 w-4" />
@@ -329,22 +340,22 @@ export function ServicesSection() {
                   <h3 className="mb-4 text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                     {selectedService.title}
                   </h3>
-                  
+
                   <p className="mb-8 text-[15px] leading-relaxed text-muted-foreground">
                     {selectedService.desc}
                   </p>
-                  
+
                   <h4 className="mb-5 text-[12px] font-bold uppercase tracking-[0.15em] text-foreground">
                     Core Capabilities & Features
                   </h4>
-                  
+
                   <ul className="mb-10 flex flex-col gap-4">
                     {selectedService.features.map((feature, i) => (
-                      <motion.li 
+                      <motion.li
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 + i * 0.05 }}
-                        key={i} 
+                        key={i}
                         className="flex items-start gap-3"
                       >
                         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-foreground" />
@@ -356,8 +367,8 @@ export function ServicesSection() {
                   </ul>
 
                   <div className="mt-auto pt-6 border-t border-border/30">
-                    <a 
-                      href="#contact" 
+                    <a
+                      href="#contact"
                       onClick={() => setSelectedService(null)}
                       className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-[14px] font-semibold text-background transition-all hover:bg-foreground/90 hover:shadow-lg"
                     >
