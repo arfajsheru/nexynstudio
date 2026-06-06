@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/constants";
-import { LAYOUT } from "@/lib/constants";
+import { SITE_CONFIG, LAYOUT, NAV_CTA } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
@@ -32,10 +31,10 @@ const FOOTER_LINKS = {
   ],
 };
 
-const SOCIALS = [
-  { label: "LinkedIn", href: "#" },
-  { label: "GitHub", href: "#" },
-  { label: "X / Twitter", href: "#" },
+const SOCIALS: { label: string; href: string }[] = [
+  // { label: "LinkedIn", href: "#" },
+  // { label: "GitHub", href: "#" },
+  // { label: "X / Twitter", href: "#" },
 ];
 
 export function FooterSection() {
@@ -128,10 +127,10 @@ export function FooterSection() {
                 </li>
                 <li>
                   <a
-                    href="#contact"
+                    href={NAV_CTA.href}
                     className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-2 text-[12px] font-semibold text-foreground transition-all duration-200 hover:border-foreground/30 hover:bg-foreground/5"
                   >
-                    Book a Call
+                    {NAV_CTA.label}
                     <ArrowUpRight className="h-3 w-3" />
                   </a>
                 </li>
