@@ -11,6 +11,7 @@ import {
   GitBranch,
   Layers,
   Smartphone,
+  Sparkles,
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
@@ -24,14 +25,14 @@ const STACK_LAYERS = [
     subtitle: "User Interface Layer",
     icon: Monitor,
     technologies: [
-      { name: "React", icon: "/icons/react.svg" },
-      { name: "Next.js", icon: "/icons/nextjs.svg" },
-      { name: "TypeScript", icon: "/icons/typescript.svg" },
-      { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
-      { name: "Framer Motion", icon: "/icons/framer.svg" },
-      { name: "shadcn/ui", icon: "/icons/shadcn.svg" },
-      { name: "GSAP", icon: "/icons/gsap.svg" },
-      { name: "Vue", icon: "/icons/vue.svg" },
+      { name: "React", icon: "/icons/react.svg", url: "https://react.dev" },
+      { name: "Next.js", icon: "/icons/nextjs.svg", url: "https://nextjs.org" },
+      { name: "TypeScript", icon: "/icons/typescript.svg", url: "https://www.typescriptlang.org" },
+      { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg", url: "https://tailwindcss.com" },
+      { name: "Framer Motion", icon: "/icons/framer.svg", url: "https://www.framer.com/motion/" },
+      { name: "shadcn/ui", icon: "/icons/shadcn.svg", url: "https://ui.shadcn.com" },
+      { name: "GSAP", icon: "/icons/gsap.svg", url: "https://gsap.com" },
+      { name: "Vue", icon: "/icons/vue.svg", url: "https://vuejs.org" },
     ],
     color: "from-foreground/10 to-foreground/5",
   },
@@ -41,13 +42,13 @@ const STACK_LAYERS = [
     subtitle: "Business Logic Layer",
     icon: Server,
     technologies: [
-      { name: "Node.js", icon: "/icons/nodejs.svg" },
-      { name: "NestJS", icon: "/icons/nestjs.svg" },
-      { name: "Express", icon: "/icons/express.svg" },
-      { name: "GraphQL", icon: "/icons/graphql.svg" },
-      { name: "Python", icon: "/icons/python.svg" },
-      { name: "Java", icon: "/icons/java.svg" },
-      { name: "PHP", icon: "/icons/php.svg" },
+      { name: "Node.js", icon: "/icons/nodejs.svg", url: "https://nodejs.org" },
+      { name: "NestJS", icon: "/icons/nestjs.svg", url: "https://nestjs.com" },
+      { name: "Express", icon: "/icons/express.svg", url: "https://expressjs.com" },
+      { name: "GraphQL", icon: "/icons/graphql.svg", url: "https://graphql.org" },
+      { name: "Python", icon: "/icons/python.svg", url: "https://www.python.org" },
+      { name: "Java", icon: "/icons/java.svg", url: "https://www.java.com" },
+      { name: "PHP", icon: "/icons/php.svg", url: "https://www.php.net" },
     ],
     color: "from-foreground/8 to-foreground/3",
   },
@@ -57,10 +58,10 @@ const STACK_LAYERS = [
     subtitle: "Cross-Platform Layer",
     icon: Smartphone,
     technologies: [
-      { name: "React Native", icon: "/icons/reactnative.svg" },
-      { name: "Expo", icon: "/icons/expo.svg" },
-      { name: "Android", icon: "/icons/android.svg" },
-      { name: "Apple/iOS", icon: "/icons/apple.svg" },
+      { name: "React Native", icon: "/icons/reactnative.svg", url: "https://reactnative.dev" },
+      { name: "Expo", icon: "/icons/expo.svg", url: "https://expo.dev" },
+      { name: "Android", icon: "/icons/android.svg", url: "https://developer.android.com" },
+      { name: "Apple/iOS", icon: "/icons/apple.svg", url: "https://developer.apple.com" },
     ],
     color: "from-foreground/7 to-foreground/2",
   },
@@ -70,12 +71,12 @@ const STACK_LAYERS = [
     subtitle: "Data Persistence Layer",
     icon: Database,
     technologies: [
-      { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
-      { name: "MongoDB", icon: "/icons/mongodb.svg" },
-      { name: "MySQL", icon: "/icons/mysql.svg" },
-      { name: "Redis", icon: "/icons/redis.svg" },
-      { name: "Supabase", icon: "/icons/supabase.svg" },
-      { name: "Prisma", icon: "/icons/prisma.svg" },
+      { name: "PostgreSQL", icon: "/icons/postgresql.svg", url: "https://www.postgresql.org" },
+      { name: "MongoDB", icon: "/icons/mongodb.svg", url: "https://www.mongodb.com" },
+      { name: "MySQL", icon: "/icons/mysql.svg", url: "https://www.mysql.com" },
+      { name: "Redis", icon: "/icons/redis.svg", url: "https://redis.io" },
+      { name: "Supabase", icon: "/icons/supabase.svg", url: "https://supabase.com" },
+      { name: "Prisma", icon: "/icons/prisma.svg", url: "https://www.prisma.io" },
     ],
     color: "from-foreground/6 to-foreground/2",
   },
@@ -85,14 +86,27 @@ const STACK_LAYERS = [
     subtitle: "Infrastructure Layer",
     icon: Cloud,
     technologies: [
-      { name: "AWS", icon: "/icons/aws.svg" },
-      { name: "Google Cloud", icon: "/icons/googlecloud.svg" },
-      { name: "Docker", icon: "/icons/docker.svg" },
-      { name: "Kubernetes", icon: "/icons/kubernetes.svg" },
-      { name: "Vercel", icon: "/icons/vercel.svg" },
-      { name: "GitHub", icon: "/icons/github.svg" },
+      { name: "AWS", icon: "/icons/aws.svg", url: "https://aws.amazon.com" },
+      { name: "Google Cloud", icon: "/icons/googlecloud.svg", url: "https://cloud.google.com" },
+      { name: "Docker", icon: "/icons/docker.svg", url: "https://www.docker.com" },
+      { name: "Kubernetes", icon: "/icons/kubernetes.svg", url: "https://kubernetes.io" },
+      { name: "Vercel", icon: "/icons/vercel.svg", url: "https://vercel.com" },
     ],
     color: "from-foreground/5 to-foreground/[0.01]",
+  },
+  {
+    id: "tools",
+    title: "AI & Workflow",
+    subtitle: "Productivity Layer",
+    icon: Sparkles,
+    technologies: [
+      { name: "OpenAI", icon: "/icons/openai.svg", url: "https://openai.com" },
+      { name: "Figma", icon: "/icons/figma.svg", url: "https://www.figma.com" },
+      { name: "GitHub", icon: "/icons/github.svg", url: "https://github.com" },
+      { name: "Git", icon: "/icons/git.svg", url: "https://git-scm.com" },
+      { name: "Postman", icon: "/icons/postman.svg", url: "https://www.postman.com" },
+    ],
+    color: "from-foreground/4 to-transparent",
   },
 ];
 
@@ -150,70 +164,65 @@ export function TechStackSection() {
             </p>
           </motion.div>
 
-          {/* ── Architecture Blueprint ─────────────────────────────── */}
-          <motion.div variants={fadeUp} className="w-full max-w-5xl">
-            <div className="relative flex flex-col gap-4">
-              {/* Connecting line */}
-              <div className="absolute left-8 top-12 bottom-12 hidden w-px bg-gradient-to-b from-foreground/20 via-foreground/10 to-foreground/5 lg:block" />
-
+          {/* ── Modern Bento Grid Architecture ─────────────────────────────── */}
+          <motion.div variants={fadeUp} className="w-full max-w-6xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {STACK_LAYERS.map((layer, index) => (
                 <motion.div
                   key={layer.id}
                   variants={fadeUp}
-                  className="group relative"
+                  className={cn(
+                    "group relative flex flex-col overflow-hidden rounded-[2rem] border border-border/50 bg-background/40 p-6 sm:p-8 transition-all duration-500 hover:border-foreground/30 hover:bg-background/80 hover:shadow-2xl hover:shadow-foreground/5",
+                    // Make the first two cards span slightly larger on tablets, but standard on large screens
+                    index === 0 || index === 1 ? "md:col-span-1" : ""
+                  )}
                 >
-                  <div
-                    className={cn(
-                      "relative overflow-hidden rounded-2xl border border-border/50 bg-background p-6 transition-all duration-300 hover:border-foreground/20",
-                      "lg:ml-16",
-                    )}
-                  >
-                    {/* Top gradient line */}
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
-
-                    <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-                      {/* Left: Layer Info */}
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border/50 bg-foreground/5 transition-transform duration-300 group-hover:scale-110">
-                          <layer.icon className="h-5 w-5 text-foreground/70" />
-                        </div>
-                        <div>
-                          <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/60">
-                            Layer 0{index + 1}
-                          </div>
-                          <h3 className="text-[16px] font-bold text-foreground">
-                            {layer.title}
-                          </h3>
-                          <p className="text-[12px] text-muted-foreground">
-                            {layer.subtitle}
-                          </p>
-                        </div>
+                  {/* Subtle hover gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  
+                  {/* Layer Header */}
+                  <div className="mb-8 flex items-start justify-between relative z-10">
+                    <div className="flex items-center gap-4">
+                      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-border/50 bg-background shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:bg-foreground/[0.02]">
+                        <layer.icon className="h-6 w-6 text-foreground/80 transition-colors duration-500 group-hover:text-foreground" />
                       </div>
-
-                      {/* Right: Tech Tags */}
-                      <div className="flex flex-wrap gap-2.5 sm:justify-end">
-                        {layer.technologies.map((tech) => (
-                          <span
-                            key={tech.name}
-                            className="group/tech inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] pr-3 pl-1 py-1 text-[12px] font-medium text-muted-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/[0.06] hover:text-foreground hover:shadow-sm"
-                          >
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/95 p-1 shadow-sm transition-transform duration-300 group-hover/tech:scale-110">
-                              <img src={tech.icon} alt={tech.name} className="h-full w-full object-contain" />
-                            </span>
-                            {tech.name}
-                          </span>
-                        ))}
+                      <div>
+                        <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/60 mb-1">
+                          Layer 0{index + 1}
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground">
+                          {layer.title}
+                        </h3>
+                        <p className="text-sm font-medium text-muted-foreground line-clamp-1">
+                          {layer.subtitle}
+                        </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Node on the vertical line */}
-                  <div className="absolute left-[26px] top-1/2 hidden h-4 w-4 -translate-y-1/2 items-center justify-center rounded-full border-2 border-border/50 bg-background transition-all duration-300 group-hover:border-foreground group-hover:scale-110 lg:flex">
-                    <div className="h-1.5 w-1.5 rounded-full bg-foreground/30 transition-colors duration-300 group-hover:bg-foreground" />
+                  {/* Tech Grid (Bento Boxes) */}
+                  <div className="relative z-10 mt-auto grid grid-cols-3 sm:grid-cols-4 gap-3">
+                    {layer.technologies.map((tech) => (
+                      <a
+                        key={tech.name}
+                        href={tech.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/tech flex flex-col items-center justify-center gap-2.5 rounded-2xl border border-border/40 bg-foreground/[0.02] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground/[0.05] hover:shadow-md"
+                      >
+                        <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white p-2.5 shadow-sm transition-transform duration-300 group-hover/tech:scale-110">
+                          <img
+                            src={tech.icon}
+                            alt={tech.name}
+                            className="h-full w-full object-contain"
+                          />
+                        </div>
+                        <span className="text-center text-[10px] font-bold text-muted-foreground transition-colors duration-300 group-hover/tech:text-foreground line-clamp-1">
+                          {tech.name}
+                        </span>
+                      </a>
+                    ))}
                   </div>
-
-                  {/* Connection to card */}
-                  <div className="absolute left-[34px] top-1/2 hidden h-px w-[calc(4rem-34px)] bg-border/40 lg:block" />
                 </motion.div>
               ))}
             </div>
