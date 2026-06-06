@@ -151,7 +151,7 @@ export function TechStackSection() {
           </motion.div>
 
           {/* ── Architecture Blueprint ─────────────────────────────── */}
-          <motion.div variants={fadeUp} className="w-full max-w-4xl">
+          <motion.div variants={fadeUp} className="w-full max-w-5xl">
             <div className="relative flex flex-col gap-4">
               {/* Connecting line */}
               <div className="absolute left-8 top-12 bottom-12 hidden w-px bg-gradient-to-b from-foreground/20 via-foreground/10 to-foreground/5 lg:block" />
@@ -191,13 +191,15 @@ export function TechStackSection() {
                       </div>
 
                       {/* Right: Tech Tags */}
-                      <div className="flex flex-wrap gap-2 sm:justify-end">
+                      <div className="flex flex-wrap gap-2.5 sm:justify-end">
                         {layer.technologies.map((tech) => (
                           <span
                             key={tech.name}
-                            className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-foreground/[0.03] px-3 py-1.5 text-[11px] font-medium text-muted-foreground transition-colors duration-200 hover:border-foreground/20 hover:text-foreground"
+                            className="group/tech inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] pr-3 pl-1 py-1 text-[12px] font-medium text-muted-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/[0.06] hover:text-foreground hover:shadow-sm"
                           >
-                            <img src={tech.icon} alt={tech.name} className="w-3.5 h-3.5 object-contain" />
+                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/95 p-1 shadow-sm transition-transform duration-300 group-hover/tech:scale-110">
+                              <img src={tech.icon} alt={tech.name} className="h-full w-full object-contain" />
+                            </span>
                             {tech.name}
                           </span>
                         ))}
@@ -220,7 +222,7 @@ export function TechStackSection() {
           {/* ── Bottom Capabilities Row ─────────────────────────────── */}
           <motion.div
             variants={fadeUp}
-            className="mt-16 grid w-full max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4"
+            className="mt-16 grid w-full max-w-5xl grid-cols-2 gap-4 sm:grid-cols-4"
           >
             {CAPABILITIES.map((cap) => (
               <div
