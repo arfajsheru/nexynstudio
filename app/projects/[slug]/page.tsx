@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { PROJECTS } from "@/lib/data/projects";
 import { Navbar, FooterSection, CTASection } from "@/components/sections";
 import { ParallaxImage } from "@/components/ui/parallax-image";
-import { LAYOUT } from "@/lib/constants";
+import { LAYOUT, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface PageProps {
