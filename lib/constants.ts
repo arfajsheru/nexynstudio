@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   name: "Nexyn Studios",
   tagline: "Premium Custom Software Development Partner",
   description:
-    "We architect and build premium custom software, scalable web applications, and mobile apps that drive business automation, efficiency, and long-term growth.",
+    "We build premium custom software, scalable web apps, and mobile solutions that drive business automation, efficiency, and long-term growth.",
   url: "https://nexynstudios.com",
   ogImage: "/og-image.png",
 } as const;

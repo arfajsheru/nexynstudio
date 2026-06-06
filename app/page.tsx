@@ -19,7 +19,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "/",
+    canonical: SITE_CONFIG.url,
   },
 };
 

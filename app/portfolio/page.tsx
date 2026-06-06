@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/portfolio`,
   },
   alternates: {
-    canonical: "/portfolio",
+    canonical: `${SITE_CONFIG.url}/portfolio`,
   },
 };
 

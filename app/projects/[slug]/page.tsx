@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${project.name} | Case Study`,
     description: project.shortDescription,
     alternates: {
-      canonical: `/projects/${slug}`,
+      canonical: `${SITE_CONFIG.url}/projects/${slug}`,
     },
   };
 }
