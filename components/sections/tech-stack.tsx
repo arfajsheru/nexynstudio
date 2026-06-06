@@ -22,7 +22,14 @@ const STACK_LAYERS = [
     title: "Frontend",
     subtitle: "User Interface Layer",
     icon: Monitor,
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    technologies: [
+      { name: "React", icon: "/icons/react.svg" },
+      { name: "Next.js", icon: "/icons/nextjs.svg" },
+      { name: "TypeScript", icon: "/icons/typescript.svg" },
+      { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg" },
+      { name: "Vue", icon: "/icons/vue.svg" },
+      { name: "Angular", icon: "/icons/angular.svg" },
+    ],
     color: "from-foreground/10 to-foreground/5",
   },
   {
@@ -30,7 +37,13 @@ const STACK_LAYERS = [
     title: "Backend",
     subtitle: "Business Logic Layer",
     icon: Server,
-    technologies: ["Node.js", "Express", "REST APIs", "GraphQL"],
+    technologies: [
+      { name: "Node.js", icon: "/icons/nodejs.svg" },
+      { name: "Express", icon: "/icons/express.svg" },
+      { name: "Python", icon: "/icons/python.svg" },
+      { name: "Java", icon: "/icons/java.svg" },
+      { name: "PHP", icon: "/icons/php.svg" },
+    ],
     color: "from-foreground/8 to-foreground/3",
   },
   {
@@ -38,7 +51,12 @@ const STACK_LAYERS = [
     title: "Database",
     subtitle: "Data Persistence Layer",
     icon: Database,
-    technologies: ["PostgreSQL", "MongoDB", "Redis", "Prisma ORM"],
+    technologies: [
+      { name: "PostgreSQL", icon: "/icons/postgresql.svg" },
+      { name: "MongoDB", icon: "/icons/mongodb.svg" },
+      { name: "MySQL", icon: "/icons/mysql.svg" },
+      { name: "Prisma", icon: "/icons/prisma.svg" },
+    ],
     color: "from-foreground/6 to-foreground/2",
   },
   {
@@ -46,7 +64,13 @@ const STACK_LAYERS = [
     title: "Cloud & DevOps",
     subtitle: "Infrastructure Layer",
     icon: Cloud,
-    technologies: ["AWS", "Docker", "CI/CD", "Vercel"],
+    technologies: [
+      { name: "AWS", icon: "/icons/aws.svg" },
+      { name: "Docker", icon: "/icons/docker.svg" },
+      { name: "Vercel", icon: "/icons/vercel.svg" },
+      { name: "GitHub", icon: "/icons/github.svg" },
+      { name: "Git", icon: "/icons/git.svg" },
+    ],
     color: "from-foreground/5 to-foreground/[0.01]",
   },
 ];
@@ -149,10 +173,11 @@ export function TechStackSection() {
                       <div className="flex flex-wrap gap-2 sm:justify-end">
                         {layer.technologies.map((tech) => (
                           <span
-                            key={tech}
-                            className="inline-flex items-center rounded-full border border-border/50 bg-foreground/[0.03] px-3 py-1 text-[11px] font-medium text-muted-foreground transition-colors duration-200 hover:border-foreground/20 hover:text-foreground"
+                            key={tech.name}
+                            className="inline-flex items-center gap-1.5 rounded-full border border-border/50 bg-foreground/[0.03] px-3 py-1.5 text-[11px] font-medium text-muted-foreground transition-colors duration-200 hover:border-foreground/20 hover:text-foreground"
                           >
-                            {tech}
+                            <img src={tech.icon} alt={tech.name} className="w-3.5 h-3.5 object-contain" />
+                            {tech.name}
                           </span>
                         ))}
                       </div>
