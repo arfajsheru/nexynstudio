@@ -361,7 +361,7 @@ export function ServicesSection() {
                       onClick={() => setSelectedService(null)}
                       className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-[14px] font-semibold text-background transition-all hover:bg-foreground/90 hover:shadow-lg"
                     >
-                      Start Your Project
+                      Discuss Your Project
                       <ArrowRight className="h-4 w-4" />
                     </a>
                   </div>

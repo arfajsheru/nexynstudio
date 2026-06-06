@@ -2,9 +2,9 @@
 
 export const SITE_CONFIG = {
   name: "Nexyn Studios",
-  tagline: "Trusted Technology Partner",
+  tagline: "Premium Custom Software Development Partner",
   description:
-    "We architect and build custom software, web applications, and mobile apps that drive business automation and long-term growth.",
+    "We architect and build premium custom software, scalable web applications, and mobile apps that drive business automation, efficiency, and long-term growth.",
   url: "https://nexynstudios.com",
   ogImage: "/og-image.png",
 } as const;
@@ -20,8 +20,8 @@ export const NAV_ITEMS = [
 ] as const;
 
 export const NAV_CTA = {
-  label: "Book a Call",
-  href: "#contact",
+  label: "Chat with us",
+  href: "https://wa.me/910000000000",
 } as const;
 
 // ─── Hero ───────────────────────────────────────────────────────────────────
