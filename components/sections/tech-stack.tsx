@@ -60,8 +60,14 @@ const STACK_LAYERS = [
     technologies: [
       { name: "React Native", icon: "/icons/reactnative.svg", url: "https://reactnative.dev" },
       { name: "Expo", icon: "/icons/expo.svg", url: "https://expo.dev" },
+      { name: "Reanimated", icon: "/icons/react.svg", url: "https://docs.swmansion.com/react-native-reanimated/" },
+      { name: "Firebase", icon: "/icons/firebase.svg", url: "https://firebase.google.com" },
+      { name: "SQLite", icon: "/icons/sqlite.svg", url: "https://www.sqlite.org" },
+      { name: "Redux", icon: "/icons/redux.svg", url: "https://redux-toolkit.js.org" },
+      { name: "Swift", icon: "/icons/swift.svg", url: "https://developer.apple.com/swift/" },
+      { name: "Kotlin", icon: "/icons/kotlin.svg", url: "https://kotlinlang.org" },
       { name: "Android", icon: "/icons/android.svg", url: "https://developer.android.com" },
-      { name: "Apple/iOS", icon: "/icons/apple.svg", url: "https://developer.apple.com" },
+      { name: "Apple", icon: "/icons/apple.svg", url: "https://developer.apple.com" },
     ],
     color: "from-foreground/7 to-foreground/2",
   },
@@ -96,7 +102,7 @@ const STACK_LAYERS = [
   },
   {
     id: "tools",
-    title: "AI & Workflow",
+    title: "Tools & Ecosystem",
     subtitle: "Productivity Layer",
     icon: Sparkles,
     technologies: [
