@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     description: "Explore our recent work across web applications, mobile apps, and custom enterprise software.",
     url: `${SITE_CONFIG.url}/portfolio`,
   },
+  alternates: {
+    canonical: "/portfolio",
+  },
 };
 
 export default function PortfolioPage() {

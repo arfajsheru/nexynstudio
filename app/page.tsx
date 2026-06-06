@@ -15,6 +15,13 @@ import {
   FooterSection,
 } from "@/components/sections";
 import { SITE_CONFIG } from "@/lib/constants";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Page() {
   return (
