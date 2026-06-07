@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
+import Script from "next/script";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -110,6 +111,20 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased", geist.variable, inter.variable)}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7L57K8LWLC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {\`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7L57K8LWLC');
+          \`}
+        </Script>
+      </head>
       <body className="min-h-svh font-sans">
         <ThemeProvider>{children}</ThemeProvider>
         {/* ── JSON-LD Structured Data ──────────────────────────── */}
@@ -122,8 +137,8 @@ export default function RootLayout({
               "name": SITE_CONFIG.name,
               "image": SITE_CONFIG.url + SITE_CONFIG.ogImage,
               "url": SITE_CONFIG.url,
-              "telephone": "+91 XXXXX XXXXX",
-              "email": "hello@nexynstudios.com",
+              "telephone": "+91 9913690041",
+              "email": "nexynstudios@gmail.com",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Malad, Mumbai",
