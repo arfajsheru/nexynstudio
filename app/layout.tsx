@@ -116,14 +116,18 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-7L57K8LWLC"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {\`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-7L57K8LWLC');
-          \`}
-        </Script>
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-7L57K8LWLC');
+            `,
+          }}
+        />
       </head>
       <body className="min-h-svh font-sans">
         <ThemeProvider>{children}</ThemeProvider>
