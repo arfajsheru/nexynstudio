@@ -159,8 +159,6 @@ export function ContactSection() {
     email: "",
     company: "",
     service: "",
-    budget: "",
-    timeline: "",
     details: "",
     preferredContact: "Email",
     consent: false,
@@ -175,8 +173,6 @@ export function ContactSection() {
     if (!formState.phone) newErrors.phone = "Required";
     if (!formState.email) newErrors.email = "Required";
     else if (!/\S+@\S+\.\S+/.test(formState.email)) newErrors.email = "Invalid email";
-    if (!formState.service) newErrors.service = "Required";
-    if (!formState.budget) newErrors.budget = "Required";
     if (!formState.details) newErrors.details = "Required";
     if (!formState.consent) newErrors.consent = "You must agree to be contacted";
 
@@ -339,8 +335,6 @@ export function ContactSection() {
                           email: "",
                           company: "",
                           service: "",
-                          budget: "",
-                          timeline: "",
                           details: "",
                           preferredContact: "Email",
                           consent: false,
@@ -412,9 +406,8 @@ export function ContactSection() {
 
                     <FloatingInput
                       icon={Briefcase}
-                      label="Service Required"
+                      label="Service Required (Optional)"
                       as="select"
-                      required
                       value={formState.service}
                       onChange={(e) => {
                         setFormState({ ...formState, service: e.target.value });
@@ -431,46 +424,9 @@ export function ContactSection() {
                       error={errors.service}
                     />
 
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                      <FloatingInput
-                        icon={Wallet}
-                        label="Project Budget"
-                        as="select"
-                        required
-                        value={formState.budget}
-                        onChange={(e) => {
-                          setFormState({ ...formState, budget: e.target.value });
-                          if (errors.budget) setErrors({ ...errors, budget: "" });
-                        }}
-                        options={[
-                          "Under ₹50K",
-                          "₹50K - ₹1L",
-                          "₹1L - ₹5L",
-                          "₹5L - ₹10L",
-                          "₹10L+",
-                        ]}
-                        error={errors.budget}
-                      />
-                      <FloatingInput
-                        icon={Calendar}
-                        label="Project Timeline"
-                        as="select"
-                        value={formState.timeline}
-                        onChange={(e) =>
-                          setFormState({ ...formState, timeline: e.target.value })
-                        }
-                        options={[
-                          "Immediately",
-                          "Within 1 Month",
-                          "Within 3 Months",
-                          "Flexible",
-                        ]}
-                      />
-                    </div>
-
                     <FloatingInput
                       icon={MessageSquare}
-                      label="Project Details"
+                      label="Notes"
                       as="textarea"
                       required
                       placeholder="Tell us about your project goals, business challenges and expected outcomes."
@@ -485,7 +441,7 @@ export function ContactSection() {
 
                     <div className="pt-1 space-y-2.5">
                       <label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                        Preferred Contact Method
+                        Preferred Contact Method (Optional)
                       </label>
                       <div className="flex flex-wrap gap-5">
                         {["WhatsApp", "Call", "Email"].map((method) => (

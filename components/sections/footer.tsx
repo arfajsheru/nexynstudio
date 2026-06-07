@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -9,25 +10,25 @@ import { cn } from "@/lib/utils";
 
 const FOOTER_LINKS = {
   Services: [
-    { label: "Custom Software", href: "#services" },
-    { label: "Web Applications", href: "#services" },
-    { label: "Mobile Apps", href: "#services" },
-    { label: "CRM Systems", href: "#services" },
-    { label: "Business Automation", href: "#services" },
+    { label: "Custom Software", href: "/#services" },
+    { label: "Web Applications", href: "/#services" },
+    { label: "Mobile Apps", href: "/#services" },
+    { label: "CRM Systems", href: "/#services" },
+    { label: "Business Automation", href: "/#services" },
   ],
   Company: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Process", href: "#process" },
-    { label: "Portfolio", href: "#portfolio" },
-    { label: "Technology", href: "#tech-stack" },
-    { label: "Careers", href: "#careers" },
+    { label: "About Us", href: "/#about" },
+    { label: "Our Process", href: "/#process" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Technology", href: "/#tech-stack" },
+    { label: "Careers", href: "/#careers" },
   ],
   Resources: [
-    { label: "Blog", href: "#blog" },
-    { label: "Case Studies", href: "#portfolio" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Support", href: "#contact" },
-    { label: "Privacy Policy", href: "#privacy" },
+    { label: "Blog", href: "/blog" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Support", href: "/support" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
   ],
 };
 
@@ -98,13 +99,13 @@ export function FooterSection() {
                 <ul className="flex flex-col gap-3">
                   {links.map((link) => (
                     <li key={link.label}>
-                      <a
+                      <Link
                         href={link.href}
                         className="group inline-flex items-center gap-1 text-[13px] text-muted-foreground transition-colors duration-200 hover:text-foreground"
                       >
                         {link.label}
                         <ArrowUpRight className="h-3 w-3 opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -147,24 +148,24 @@ export function FooterSection() {
               © {currentYear} {SITE_CONFIG.name}. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <a
-                href="#privacy"
+              <Link
+                href="/privacy-policy"
                 className="text-[11px] text-muted-foreground/60 transition-colors duration-200 hover:text-muted-foreground"
               >
                 Privacy
-              </a>
-              <a
-                href="#terms"
+              </Link>
+              <Link
+                href="/privacy-policy"
                 className="text-[11px] text-muted-foreground/60 transition-colors duration-200 hover:text-muted-foreground"
               >
                 Terms
-              </a>
-              <a
-                href="#cookies"
+              </Link>
+              <Link
+                href="/privacy-policy#cookies"
                 className="text-[11px] text-muted-foreground/60 transition-colors duration-200 hover:text-muted-foreground"
               >
                 Cookies
-              </a>
+              </Link>
             </div>
           </motion.div>
         </motion.div>
