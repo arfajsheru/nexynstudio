@@ -284,7 +284,7 @@ export function ContactSection() {
                       Location
                     </div>
                     <div className="mt-0.5 text-[13px] font-medium text-foreground">
-                      Surat, Gujarat, India
+                      Malad, Mumbai, Maharashtra, India
                     </div>
                   </div>
                 </div>

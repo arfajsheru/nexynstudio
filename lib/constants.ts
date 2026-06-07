@@ -2,9 +2,9 @@
 
 export const SITE_CONFIG = {
   name: "Nexyn Studios",
-  tagline: "Premium Custom Software Development Partner",
+  tagline: "Custom Software & CRM Development Company in Mumbai",
   description:
-    "We build premium custom software, scalable web apps, and mobile solutions that drive business automation, efficiency, and long-term growth.",
+    "Premium custom software engineering, bespoke CRM/ERP systems, and scalable web & mobile apps for enterprises in Malad, Mumbai. Get a free tech audit today.",
   url: "https://nexynstudios.com",
   ogImage: "/og-image.png",
 } as const;
@@ -21,15 +21,15 @@ export const NAV_ITEMS = [
 
 export const NAV_CTA = {
   label: "Chat with us",
-  href: "https://wa.me/910000000000",
+  href: "https://wa.me/919913690041",
 } as const;
 
 // ─── Hero ───────────────────────────────────────────────────────────────────
 
 export const HERO_CONTENT = {
   badge: "Trusted Technology Partner",
-  headlinePart1: "Engineering Digital Products",
-  headlinePart2: "Built To Scale",
+  headlinePart1: "Custom Software & Business",
+  headlinePart2: "Automation Development",
   description:
     "We architect and build custom software, web applications, and mobile apps. Delivering enterprise-grade business automation designed for long-term growth and reliability.",
   primaryCta: { label: "Get Free Consultation", href: "/#contact" },

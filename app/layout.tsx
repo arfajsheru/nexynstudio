@@ -112,6 +112,36 @@ export default function RootLayout({
     >
       <body className="min-h-svh font-sans">
         <ThemeProvider>{children}</ThemeProvider>
+        {/* ── JSON-LD Structured Data ──────────────────────────── */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              "name": SITE_CONFIG.name,
+              "image": SITE_CONFIG.url + SITE_CONFIG.ogImage,
+              "url": SITE_CONFIG.url,
+              "telephone": "+91 XXXXX XXXXX",
+              "email": "hello@nexynstudios.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Malad, Mumbai",
+                "addressRegion": "Maharashtra",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "19.1828", 
+                "longitude": "72.8402"
+              },
+              "sameAs": [
+                "https://linkedin.com/company/nexynstudios",
+                "https://twitter.com/nexynstudios"
+              ]
+            }),
+          }}
+        />
       </body>
     </html>
   );
