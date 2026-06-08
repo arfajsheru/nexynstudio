@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── Case Studies Data ─────────────────────────────────────────────────────────
@@ -226,7 +225,6 @@ function CaseStudyCard({
 // ── Case Studies Client ───────────────────────────────────────────────────────
 
 export function CaseStudiesClient() {
-  const { ref, isInView } = useInView(0.05);
   const [activeIndustry, setActiveIndustry] = useState("All");
 
   const filtered = CASE_STUDIES.filter((s) => {
@@ -236,14 +234,13 @@ export function CaseStudiesClient() {
 
   return (
     <div
-      ref={ref}
       className={cn("mx-auto w-full pb-24", LAYOUT.maxWidth, LAYOUT.paddingX)}
     >
       {/* Header */}
       <motion.header
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="py-16 md:py-24 max-w-3xl"
       >
         <motion.div
@@ -273,7 +270,7 @@ export function CaseStudiesClient() {
       <motion.div
         variants={fadeUp}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="flex flex-wrap items-center gap-2 mb-12"
       >
         {INDUSTRIES.map((industry) => (
@@ -296,7 +293,7 @@ export function CaseStudiesClient() {
       <motion.div
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="flex flex-col gap-8"
       >
         {filtered.map((study, index) => (

@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── Background ───────────────────────────────────────────────────────────────
@@ -151,7 +150,6 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
 // ── Contact Section ──────────────────────────────────────────────────────────
 
 export function ContactSection() {
-  const { ref, isInView } = useInView(0.05);
 
   const [formState, setFormState] = useState({
     fullName: "",
@@ -210,7 +208,6 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      ref={ref}
       className="relative overflow-hidden py-16 lg:py-24"
     >
       <ContactBg />
@@ -219,7 +216,7 @@ export function ContactSection() {
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12"
         >
           {/* ── Left Side: Header & Info (40%) ────────────────────── */}

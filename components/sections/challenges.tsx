@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { AlertCircle, CheckCircle2, ArrowDown } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── Challenge Data ────────────────────────────────────────────────────────────
@@ -120,9 +119,7 @@ function ChallengeCard({ item }: { item: (typeof CHALLENGES)[0] }) {
 // ── Challenges Section ────────────────────────────────────────────────────────
 
 export function ChallengesSection() {
-  // The tall outer container — drives the scroll progress
   const containerRef = useRef<HTMLDivElement>(null);
-  const { ref: headerRef, isInView: headerInView } = useInView(0.1);
   const [viewportW, setViewportW] = useState(1200);
 
   useEffect(() => {
@@ -176,10 +173,10 @@ export function ChallengesSection() {
         {/* ── Header ──────────────────────────────────────────── */}
         <div className={cn("relative z-10 mx-auto w-full flex-shrink-0 pt-12 pb-10", LAYOUT.maxWidth, LAYOUT.paddingX)}>
           <motion.div
-            ref={headerRef}
             variants={staggerContainer}
             initial="hidden"
-            animate={headerInView ? "visible" : "hidden"}
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
             className="text-center"
           >
             <motion.div

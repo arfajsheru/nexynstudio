@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── Image imports ─────────────────────────────────────────────────────────────
@@ -219,7 +218,6 @@ function ServiceCard({ s, onClick }: { s: (typeof SERVICES)[0], onClick: () => v
 }
 
 export function ServicesSection() {
-  const { ref, isInView } = useInView(0.05);
   const [selectedService, setSelectedService] = useState<(typeof SERVICES)[0] | null>(null);
 
   // Prevent background scrolling when modal is open
@@ -235,14 +233,14 @@ export function ServicesSection() {
   }, [selectedService]);
 
   return (
-    <section id="services" ref={ref} className="relative overflow-hidden py-16 lg:py-24">
+    <section id="services" className="relative overflow-hidden py-16 lg:py-24">
       <ServicesBg />
 
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         >
           {/* ── Header ──────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-14 text-center">

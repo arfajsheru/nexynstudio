@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Check } from "lucide-react";
 import { HERO_CONTENT, LAYOUT, TRUST_ROW, STATS } from "@/lib/constants";
 import { fadeUp, staggerContainer, fadeIn } from "@/lib/motion";
-import { useInView, useCountUp } from "@/hooks/use-interactions";
+import { useCountUp } from "@/hooks/use-interactions";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 // ─── Hero Background & Visuals ──────────────────────────────────────────────
@@ -71,17 +73,17 @@ function StatCard({
   value,
   suffix,
   label,
-  isInView,
 }: {
   value: number;
   suffix: string;
   label: string;
-  isInView: boolean;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const count = useCountUp(value, isInView, 1500);
 
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/30 p-5 text-left backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-muted/30 dark:border-border/30 dark:bg-card/20 dark:hover:border-foreground/30 dark:hover:bg-card/40">
+    <div ref={ref} className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/30 p-5 text-left backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-muted/30 dark:border-border/30 dark:bg-card/20 dark:hover:border-foreground/30 dark:hover:bg-card/40">
       <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       
       <div className="relative flex flex-col gap-1">
@@ -124,27 +126,25 @@ function ScrollIndicator() {
 // ─── Hero Section (Main Export) ──────────────────────────────────────────────
 
 export function HeroSection() {
-  const { ref, isInView } = useInView(0.1);
-
   return (
     <section
       id="home"
-      ref={ref}
-      className="relative flex min-h-svh  flex-col items-center justify-center overflow-hidden pt-12 pb-16"
+      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden pt-12 pb-16"
     >
       <HeroBackground />
 
-      <div className={cn("relative z-10 mx-auto w-full flex-1 flex flex-col justify-center",  LAYOUT.maxWidth, LAYOUT.paddingX)}>
+      <div className={cn("relative z-10 mx-auto w-full flex-1 flex flex-col justify-center", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col items-center text-center"
         >
           {/* Animated Trust Badge */}
           <motion.div variants={fadeUp} className="mb-6 relative flex overflow-hidden rounded-full p-[1px]">
-            {/* Spinning gradient border */}
-            <div className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,hsl(var(--foreground))_50%,transparent_100%)] opacity-30 dark:bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,hsl(var(--foreground))_50%,transparent_100%)] dark:opacity-40" />
+            {/* Spinning gradient border - Optimized inset and will-change */}
+            <div className="absolute inset-[-200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,hsl(var(--foreground))_50%,transparent_100%)] opacity-30 will-change-transform dark:opacity-40" />
             
             {/* Inner badge content */}
             <div className="relative inline-flex items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground backdrop-blur-xl">
@@ -222,7 +222,6 @@ export function HeroSection() {
                 value={stat.value}
                 suffix={stat.suffix}
                 label={stat.label}
-                isInView={isInView}
               />
             ))}
           </motion.div>

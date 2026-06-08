@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Search, Map, PenTool, Code2, ShieldCheck, Rocket, Headphones, ArrowRight } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 const PROCESS_STAGES = [
@@ -67,7 +66,6 @@ const PROCESS_STAGES = [
 ];
 
 export function ProcessSection() {
-  const { ref, isInView } = useInView(0.05);
 
   return (
     <section id="process" className="relative overflow-hidden py-20 lg:py-28 border-t border-border/40 bg-background">
@@ -77,10 +75,9 @@ export function ProcessSection() {
 
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
-          ref={ref}
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col"
         >
           {/* Header */}

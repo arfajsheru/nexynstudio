@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { LAYOUT, NAV_CTA } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -111,18 +110,16 @@ const QUICK_LINKS = [
 // ── Support Client Component ──────────────────────────────────────────────────
 
 export function SupportClient() {
-  const { ref, isInView } = useInView(0.05);
 
   return (
     <div
-      ref={ref}
       className={cn("mx-auto w-full pb-24", LAYOUT.maxWidth, LAYOUT.paddingX)}
     >
       {/* Header */}
       <motion.header
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="py-16 md:py-24 text-center max-w-3xl mx-auto"
       >
         <motion.div
@@ -152,7 +149,7 @@ export function SupportClient() {
       <motion.div
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
       >
         {CONTACT_METHODS.map((method) => (
@@ -195,7 +192,7 @@ export function SupportClient() {
       <motion.div
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="mb-20"
       >
         <motion.div variants={fadeUp} className="mb-10">
@@ -237,7 +234,7 @@ export function SupportClient() {
       <motion.div
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="mb-20"
       >
         <motion.div variants={fadeUp} className="mb-10">
@@ -277,7 +274,7 @@ export function SupportClient() {
       <motion.div
         variants={fadeUp}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
       >
         <div className="rounded-2xl border border-border/50 bg-foreground/[0.01] p-8 sm:p-10">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">

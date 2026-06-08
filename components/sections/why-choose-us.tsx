@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 const REASONS = [
@@ -47,16 +46,14 @@ const REASONS = [
 ];
 
 export function WhyChooseUsSection() {
-  const { ref, isInView } = useInView(0.05);
 
   return (
     <section className="relative w-full bg-background py-16 lg:py-24 overflow-hidden">
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
-          ref={ref}
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col"
         >
           {/* ── Header ─────────────────────────────────────────────── */}

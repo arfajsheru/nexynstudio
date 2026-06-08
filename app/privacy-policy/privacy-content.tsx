@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Shield, ArrowUp } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── Privacy Sections ──────────────────────────────────────────────────────────
@@ -137,7 +136,6 @@ India`,
 // ── Privacy Content Component ─────────────────────────────────────────────────
 
 export function PrivacyContent() {
-  const { ref, isInView } = useInView(0.02);
   const [activeSection, setActiveSection] = useState("introduction");
 
   // Track scroll position for active nav highlight
@@ -166,14 +164,13 @@ export function PrivacyContent() {
 
   return (
     <div
-      ref={ref}
       className={cn("mx-auto w-full pb-24", LAYOUT.maxWidth, LAYOUT.paddingX)}
     >
       {/* Header */}
       <motion.header
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="py-16 md:py-24 max-w-3xl"
       >
         <motion.div
@@ -204,7 +201,7 @@ export function PrivacyContent() {
         <motion.nav
           variants={fadeUp}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="hidden lg:block lg:col-span-3"
         >
           <div className="sticky top-28">
@@ -241,7 +238,7 @@ export function PrivacyContent() {
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="lg:col-span-9"
         >
           {SECTIONS.map((section) => (

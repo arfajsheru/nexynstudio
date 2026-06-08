@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 const STACK_LAYERS = [
@@ -121,7 +120,6 @@ const CAPABILITIES = [
 ];
 
 export function TechStackSection() {
-  const { ref, isInView } = useInView(0.05);
 
   return (
     <section className="relative overflow-hidden py-16 lg:py-24 bg-foreground/[0.02]">
@@ -144,10 +142,9 @@ export function TechStackSection() {
         )}
       >
         <motion.div
-          ref={ref}
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col items-center"
         >
           {/* ── Header ─────────────────────────────────────────────── */}

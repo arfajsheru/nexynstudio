@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── Per-solution accent colours ───────────────────────────────────────────────
@@ -419,7 +418,6 @@ const SOLUTIONS = [
 // ── Solutions Section ────────────────────────────────────────────────────────
 
 export function SolutionsSection() {
-  const { ref, isInView } = useInView(0.05);
   const [activeId, setActiveId] = useState<string>(SOLUTIONS[0].id);
   const activeTab = SOLUTIONS.find((s) => s.id === activeId) ?? SOLUTIONS[0];
 
@@ -427,10 +425,9 @@ export function SolutionsSection() {
     <section id="solutions" className="relative overflow-hidden py-16 lg:py-24">
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
-          ref={ref}
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col"
         >
           {/* ── Header ─────────────────────────────────────────────── */}

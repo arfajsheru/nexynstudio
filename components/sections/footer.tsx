@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SITE_CONFIG, LAYOUT, NAV_CTA } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 const FOOTER_LINKS = {
@@ -39,7 +38,6 @@ const SOCIALS: { label: string; href: string }[] = [
 ];
 
 export function FooterSection() {
-  const { ref, isInView } = useInView(0.05);
   const currentYear = new Date().getFullYear();
 
   return (
@@ -52,10 +50,9 @@ export function FooterSection() {
         )}
       >
         <motion.div
-          ref={ref}
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col"
         >
           {/* ── Main Footer Grid ─────────────────────────────────── */}

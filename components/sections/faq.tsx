@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 const FAQS = [
@@ -44,7 +43,6 @@ const FAQS = [
 ];
 
 export function FAQSection() {
-  const { ref, isInView } = useInView(0.05);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFAQ = (index: number) => {
@@ -52,12 +50,12 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" ref={ref} className="relative py-16 lg:py-24 border-t border-border/40">
+    <section id="faq" className="relative py-16 lg:py-24 border-t border-border/40">
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="mx-auto max-w-3xl text-center mb-16"
         >
           <motion.div
@@ -86,7 +84,7 @@ export function FAQSection() {
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="mx-auto max-w-3xl"
         >
           {FAQS.map((faq, index) => {

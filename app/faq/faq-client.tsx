@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
-import { useInView } from "@/hooks/use-interactions";
 import { cn } from "@/lib/utils";
 
 // ── FAQ Data ──────────────────────────────────────────────────────────────────
@@ -53,7 +52,6 @@ const FAQS = [
 // ── FAQ Client Component ──────────────────────────────────────────────────────
 
 export function FAQClient() {
-  const { ref, isInView } = useInView(0.05);
   const [activeCategory, setActiveCategory] = useState("All");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [searchQuery, setSearchQuery] = useState("");
@@ -76,14 +74,13 @@ export function FAQClient() {
 
   return (
     <div
-      ref={ref}
       className={cn("mx-auto w-full pb-24", LAYOUT.maxWidth, LAYOUT.paddingX)}
     >
       {/* Header */}
       <motion.header
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="py-16 md:py-24 max-w-3xl"
       >
         <motion.div
@@ -113,7 +110,7 @@ export function FAQClient() {
       <motion.div
         variants={fadeUp}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="relative mb-8 max-w-2xl"
       >
         <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground/50" />
@@ -133,7 +130,7 @@ export function FAQClient() {
       <motion.div
         variants={fadeUp}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="flex flex-wrap items-center gap-2 mb-12"
       >
         {FAQ_CATEGORIES.map((category) => (
@@ -159,7 +156,7 @@ export function FAQClient() {
       <motion.div
         variants={staggerContainer}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="mx-auto max-w-3xl"
       >
         {filteredFAQs.map((faq, index) => {
@@ -236,7 +233,7 @@ export function FAQClient() {
       <motion.div
         variants={fadeUp}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="mx-auto mt-16 max-w-2xl"
       >
         <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-foreground/[0.02] p-8 text-center sm:p-12">
