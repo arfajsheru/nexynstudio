@@ -20,7 +20,13 @@ import {
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 // ── Background ───────────────────────────────────────────────────────────────
 
 function ContactBg() {
@@ -89,22 +95,38 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
       )}
 
       {as === "select" ? (
-        <select
-          className={cn(baseClasses, "appearance-none")}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChange={handleChange}
-          {...(props as React.SelectHTMLAttributes<HTMLSelectElement>)}
+        <Select
+          value={props.value as string}
+          onValueChange={(val) => {
+            setHasValue(true);
+            if (props.onChange) {
+              props.onChange({ target: { value: val } } as any);
+            }
+          }}
+          onOpenChange={(open) => {
+            if (open) {
+              setIsFocused(true);
+              props.onFocus?.({} as any);
+            } else {
+              setIsFocused(false);
+              setHasValue(!!props.value);
+              props.onBlur?.({ target: { value: props.value } } as any);
+            }
+          }}
         >
-          <option value="" disabled>
-            Select an option
-          </option>
-          {options?.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+          <SelectTrigger 
+            className={cn(baseClasses, "shadow-none focus:ring-0 text-left data-[size=default]:h-[52px]", !props.value && "[&>span]:opacity-0")}
+          >
+            <SelectValue placeholder="" />
+          </SelectTrigger>
+          <SelectContent>
+            {options?.map((opt) => (
+              <SelectItem key={opt} value={opt}>
+                {opt}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       ) : as === "textarea" ? (
         <textarea
           className={baseClasses}
@@ -265,7 +287,7 @@ export function ContactSection() {
                       Phone
                     </div>
                     <div className="mt-0.5 text-[13px] font-medium text-foreground">
-                      +91 XXXXX XXXXX
+                      +91 9913690041
                     </div>
                   </div>
                 </div>
