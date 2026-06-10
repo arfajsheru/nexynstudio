@@ -41,9 +41,9 @@ export function Preloader() {
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl font-extrabold tracking-[0.25em] text-foreground sm:text-6xl"
+              className="text-4xl font-extrabold tracking-[0.25em] text-foreground sm:text-6xl text-center"
             >
-              NEXYN
+              NEXYN STUDIOS
             </motion.h1>
             <motion.div
               initial={{ width: 0 }}
