@@ -6,7 +6,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-
+import { StickyCTA } from "@/components/ui/sticky-cta";
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -131,7 +131,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-svh font-sans">
         <ThemeProvider>{children}</ThemeProvider>
-        {/* ── JSON-LD Structured Data ──────────────────────────── */}
+        <StickyCTA />
+        {/* -- JSON-LD Structured Data -- */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

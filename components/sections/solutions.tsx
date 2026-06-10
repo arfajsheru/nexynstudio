@@ -15,6 +15,7 @@ import {
   BarChart3,
   Zap,
   Activity,
+  Lock,
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
@@ -422,7 +423,15 @@ export function SolutionsSection() {
   const activeTab = SOLUTIONS.find((s) => s.id === activeId) ?? SOLUTIONS[0];
 
   return (
-    <section id="solutions" className="relative overflow-hidden py-16 lg:py-24">
+    <section id="solutions" className="relative overflow-hidden py-24 lg:py-32">
+      {/* Dynamic Background Glow */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-30 z-0">
+        <div 
+          className="w-[800px] h-[800px] rounded-full blur-[120px] transition-colors duration-1000 ease-in-out" 
+          style={{ background: `radial-gradient(circle, ${ACCENT[activeTab.id as keyof typeof ACCENT]}30 0%, transparent 70%)` }} 
+        />
+      </div>
+
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
         <motion.div
           variants={staggerContainer}
@@ -431,186 +440,189 @@ export function SolutionsSection() {
           className="flex flex-col"
         >
           {/* ── Header ─────────────────────────────────────────────── */}
-          <motion.div variants={fadeUp} className="mb-12 text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+          <motion.div variants={fadeUp} className="mb-16 md:mb-24 md:text-center">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/50 backdrop-blur-md px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
               <span className="h-1 w-1 rounded-full bg-foreground/40" />
               Core Capabilities
             </div>
-            <h2 className="mx-auto mb-4 max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[44px]">
+            <h2 className="mx-auto mb-5 max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-[56px]">
               Solutions We{" "}
               <span className="text-foreground/50">Build & Scale</span>
             </h2>
-            <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-              We engineer scalable platforms tailored to your specific industry requirements — from manufacturing floors to global sales teams.
+            <p className="mx-auto max-w-2xl text-[16px] leading-relaxed text-muted-foreground sm:text-[18px]">
+              We engineer premium, scalable platforms tailored exactly to your industry requirements — transforming how your team operates.
             </p>
           </motion.div>
 
-          {/* ── Tab pills ──────────────────────────────────────────── */}
-          <motion.div variants={fadeUp} className="mb-6 flex flex-wrap justify-center gap-2">
-            {SOLUTIONS.map((s) => {
-              const isActive = activeId === s.id;
-              const Icon = s.icon;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => setActiveId(s.id)}
-                  className={cn(
-                    "flex items-center gap-2 rounded-full border px-4 py-2 text-[12px] font-semibold transition-all duration-200",
-                    isActive
-                      ? "border-foreground/30 bg-foreground text-background shadow-sm"
-                      : "border-border/50 bg-background text-muted-foreground hover:border-foreground/20 hover:text-foreground"
-                  )}
-                >
-                  <Icon className="h-3.5 w-3.5" />
-                  {s.title}
-                </button>
-              );
-            })}
-          </motion.div>
+          {/* ── Split Layout: Vertical Accordion Tabs & Sticky Showcase ── */}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+            
+            {/* Left: Vertical Interactive Tabs (lg:col-span-5) */}
+            <div className="flex flex-col lg:col-span-5 w-full order-2 lg:order-1 relative z-20">
+              <div className="flex flex-col space-y-2">
+                {SOLUTIONS.map((s) => {
+                  const isActive = activeId === s.id;
+                  const Icon = s.icon;
+                  const accentColor = ACCENT[s.id as keyof typeof ACCENT];
 
-          {/* ── Main content: 2-column layout ──────────────────────── */}
-          <motion.div variants={fadeUp}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeId}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="grid grid-cols-1 gap-4 lg:grid-cols-12"
-              >
-                {/* ── Left: Info panel ───────────────────────────── */}
-                <div className="flex flex-col gap-4 lg:col-span-5">
-
-                  {/* Identity card */}
-                  <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-background p-7">
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
-                    <div className="mb-5 flex items-center gap-3">
-                      {/* Icon with accent dot */}
-                      <div className="relative">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-border/50 bg-foreground/5">
-                          <activeTab.icon className="h-5 w-5 text-foreground/70" />
-                        </div>
-                        <span
-                          className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full ring-2 ring-background"
-                          style={{ background: ACCENT[activeTab.id as keyof typeof ACCENT] }}
-                        />
-                      </div>
-                      <div>
-                        <div className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                          {activeTab.tag}
-                        </div>
-                        <h3 className="text-xl font-bold tracking-tight text-foreground">
-                          {activeTab.title}
-                        </h3>
-                      </div>
-                    </div>
-
-                    <p className="mb-5 text-[14px] leading-relaxed text-muted-foreground">
-                      {activeTab.desc}
-                    </p>
-
-                    {/* Impact callout */}
-                    <div className="rounded-xl border border-border/40 bg-foreground/[0.02] px-4 py-3.5">
-                      <div className="mb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-foreground/50">
-                        Business Impact
-                      </div>
-                      <div className="text-[13px] leading-relaxed text-muted-foreground">
-                        {activeTab.impact}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Features card */}
-                  <div className="rounded-2xl border border-border/50 bg-background p-6">
-                    <div className="mb-4 text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                      Key Features
-                    </div>
-                    <ul className="space-y-3">
-                      {activeTab.benefits.map((b) => (
-                        <li key={b} className="flex items-center gap-3">
-                          <div
-                            className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-                            style={{ background: `${ACCENT[activeTab.id as keyof typeof ACCENT]}18` }}
-                          >
-                            <CheckCircle2
-                              className="h-3 w-3"
-                              style={{ color: ACCENT[activeTab.id as keyof typeof ACCENT] }}
-                            />
-                          </div>
-                          <span className="text-[13px] font-medium text-foreground">{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-6 flex items-center gap-2 text-[12px] font-semibold text-muted-foreground">
-                      <ArrowRight className="h-3.5 w-3.5" />
-                      Built custom for your business
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* ── Right: Visual preview (tall) ───────────────── */}
-                <div className="lg:col-span-7">
-                  <div className="relative h-full min-h-[440px] overflow-hidden rounded-2xl border border-border/50 bg-background">
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
-
-                    {/* Mock app header bar */}
-                    <div className="flex items-center gap-2 border-b border-border/40 bg-muted/10 px-4 py-3">
-                      <div className="flex gap-1.5">
-                        <div className="h-2 w-2 rounded-full bg-foreground/15" />
-                        <div className="h-2 w-2 rounded-full bg-foreground/15" />
-                        <div className="h-2 w-2 rounded-full bg-foreground/15" />
-                      </div>
-                      <div className="ml-2 flex h-5 flex-1 items-center rounded border border-border/40 bg-background/60 px-2">
-                        <span className="text-[9px] text-muted-foreground">nexynstudios.com / {activeTab.id}</span>
-                      </div>
-                      <div
-                        className="rounded-full border px-2 py-0.5 text-[9px] font-bold"
-                        style={{
-                          borderColor: `${ACCENT[activeTab.id as keyof typeof ACCENT]}40`,
-                          color: ACCENT[activeTab.id as keyof typeof ACCENT],
-                        }}
+                  return (
+                    <div 
+                      key={s.id} 
+                      className={cn(
+                        "group relative rounded-2xl border transition-all duration-300",
+                        isActive 
+                          ? "bg-background/80 border-border/60 shadow-lg backdrop-blur-xl" 
+                          : "border-transparent bg-transparent hover:bg-background/40"
+                      )}
+                    >
+                      <button
+                        onClick={() => setActiveId(s.id)}
+                        className="flex w-full items-center gap-4 px-5 py-5 text-left focus:outline-none"
                       >
-                        LIVE
-                      </div>
-                    </div>
+                        <div className={cn(
+                          "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-300",
+                          isActive ? "bg-foreground/5" : "bg-muted/50 group-hover:bg-muted/80"
+                        )}>
+                          <Icon 
+                            className={cn("h-6 w-6 transition-colors duration-300", isActive ? "text-foreground" : "text-muted-foreground")} 
+                            style={isActive ? { color: accentColor } : {}}
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted-foreground mb-1">
+                            {s.tag}
+                          </div>
+                          <h3 className={cn(
+                            "text-lg font-bold tracking-tight transition-colors duration-300",
+                            isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground/80"
+                          )}>
+                            {s.title}
+                          </h3>
+                        </div>
+                      </button>
 
-                    {/* Visual content */}
-                    <div className="flex h-[calc(100%-44px)] flex-col bg-muted/[0.02] p-4">
-                      {activeTab.visual}
+                      <AnimatePresence initial={false}>
+                        {isActive && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-5 pb-6 pt-1">
+                              <p className="mb-5 text-[14px] leading-relaxed text-muted-foreground">
+                                {s.desc}
+                              </p>
+                              <div className="rounded-xl border border-border/40 bg-foreground/[0.02] px-4 py-3.5 mb-5">
+                                <div className="mb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-foreground/50">
+                                  Business Impact
+                                </div>
+                                <div className="text-[13px] leading-relaxed text-muted-foreground">
+                                  {s.impact}
+                                </div>
+                              </div>
+                              <ul className="space-y-3">
+                                {s.benefits.map((b) => (
+                                  <li key={b} className="flex items-center gap-3">
+                                    <div
+                                      className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                                      style={{ background: `${accentColor}18` }}
+                                    >
+                                      <CheckCircle2
+                                        className="h-3 w-3"
+                                        style={{ color: accentColor }}
+                                      />
+                                    </div>
+                                    <span className="text-[13px] font-medium text-foreground">{b}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
+                  );
+                })}
+              </div>
+
+              {/* CTA */}
+              <motion.div
+                variants={fadeUp}
+                className="mt-8 flex items-center gap-4 rounded-2xl border border-border/50 bg-background/50 p-5 backdrop-blur-md"
+              >
+                <div className="flex-1 text-[13px] text-muted-foreground">
+                  <span className="font-bold text-foreground">Ready to scale?</span> We build tailored solutions that fit your exact workflow.
+                </div>
+                <a
+                  href="#contact"
+                  className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-foreground px-4 py-2.5 text-[12px] font-semibold text-background transition-opacity hover:opacity-85"
+                >
+                  Discuss Project
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right: Sticky Visual Showcase (lg:col-span-7) */}
+            <div className="lg:col-span-7 lg:sticky lg:top-32 order-1 lg:order-2">
+              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-[600px] rounded-3xl border border-border/40 bg-background/30 p-2 md:p-3 shadow-2xl backdrop-blur-xl">
+                
+                {/* Glow behind the mockup */}
+                <div 
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 blur-[80px] rounded-full transition-colors duration-700 pointer-events-none"
+                  style={{ background: ACCENT[activeTab.id as keyof typeof ACCENT], opacity: 0.15 }}
+                />
+
+                {/* Mockup Frame */}
+                <div className="relative h-full w-full overflow-hidden rounded-[20px] border border-border/50 bg-background/80 shadow-inner flex flex-col">
+                  {/* Mock browser header */}
+                  <div className="flex items-center gap-2 border-b border-border/30 bg-muted/20 px-4 py-3 backdrop-blur-md">
+                    <div className="flex gap-1.5">
+                      <div className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+                      <div className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+                    </div>
+                    <div className="ml-3 flex h-6 flex-1 items-center justify-center rounded-md border border-border/30 bg-background/50 px-3 max-w-[200px] mx-auto shadow-sm">
+                      <span className="text-[10px] text-muted-foreground font-medium flex items-center gap-1.5">
+                        <Lock className="h-2.5 w-2.5 opacity-50" />
+                        nexynstudios.com / {activeTab.id}
+                      </span>
+                    </div>
+                    <div className="w-12" /> {/* Spacer to balance flex */}
+                  </div>
+
+                  {/* Inner Content with Animation */}
+                  <div className="relative flex-1 bg-muted/[0.03] overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeId}
+                        initial={{ opacity: 0, scale: 0.96, filter: "blur(4px)" }}
+                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, scale: 1.02, filter: "blur(4px)" }}
+                        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        className="absolute inset-0 p-4 md:p-6"
+                      >
+                        {/* Floating wrapper for the visual */}
+                        <motion.div 
+                          className="h-full w-full rounded-xl border border-border/30 bg-background shadow-lg overflow-hidden"
+                          animate={{ y: [0, -6, 0] }}
+                          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          {activeTab.visual}
+                        </motion.div>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
                 </div>
-
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-
-          {/* ── Solution count + CTA strip ─────────────────────────── */}
-          <motion.div
-            variants={fadeUp}
-            className="mt-6 flex flex-col items-center justify-between gap-4 rounded-2xl border border-border/50 bg-background/30 px-6 py-4 sm:flex-row"
-          >
-            <div className="flex items-center gap-3 text-[13px] text-muted-foreground">
-              <Activity className="h-4 w-4" />
-              <span>
-                <span className="font-bold text-foreground">{SOLUTIONS.length} core solutions</span>{" "}
-                — each built from scratch for your exact requirements.
-              </span>
+              </div>
             </div>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-xl bg-foreground px-5 py-2.5 text-[13px] font-semibold text-background transition-opacity hover:opacity-85"
-            >
-              Discuss Your Solution
-              <ArrowRight className="h-3.5 w-3.5" />
-            </a>
-          </motion.div>
 
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
+
