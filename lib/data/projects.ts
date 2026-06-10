@@ -15,11 +15,13 @@ export type ProjectDetail = {
   features: { title: string; description: string }[];
   developmentProcess: string;
   results: { metric: string; value: string }[];
+  accentColor: string;
 };
 
 export const PROJECTS: ProjectDetail[] = [
   {
     slug: "furnix-crm",
+    accentColor: "#6366f1", // Indigo
     name: "Furnix CRM",
     category: "Custom Software",
     industry: "Manufacturing & Retail",
@@ -49,6 +51,7 @@ export const PROJECTS: ProjectDetail[] = [
   },
   {
     slug: "scan-and-pack",
+    accentColor: "#10b981", // Emerald
     name: "Scan & Pack System",
     category: "Mobile App",
     industry: "Logistics & Fulfillment",
@@ -77,6 +80,7 @@ export const PROJECTS: ProjectDetail[] = [
   },
   {
     slug: "health-manage-platform",
+    accentColor: "#06b6d4", // Cyan
     name: "Healthcare Management Platform",
     category: "Web App",
     industry: "Healthcare",
@@ -105,6 +109,7 @@ export const PROJECTS: ProjectDetail[] = [
   },
   {
     slug: "real-estate-crm",
+    accentColor: "#f97316", // Orange
     name: "Real Estate CRM",
     category: "Web App",
     industry: "PropTech",
@@ -133,6 +138,7 @@ export const PROJECTS: ProjectDetail[] = [
   },
   {
     slug: "ecommerce-platform",
+    accentColor: "#a855f7", // Purple
     name: "E-Commerce Platform",
     category: "Website",
     industry: "Retail & E-Commerce",
@@ -161,6 +167,7 @@ export const PROJECTS: ProjectDetail[] = [
   },
   {
     slug: "logistics-tracking",
+    accentColor: "#3b82f6", // Blue
     name: "Logistics Tracking System",
     category: "Custom Software",
     industry: "Supply Chain",
