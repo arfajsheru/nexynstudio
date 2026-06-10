@@ -25,12 +25,12 @@ import { cn } from "@/lib/utils";
 // Used ONLY on micro-elements (icon dot, chart line, stat delta)
 // — everything else stays on-theme black/white.
 const ACCENT = {
-  crm:           "#6366f1",
-  erp:           "#a855f7",
-  lead:          "#f97316",
-  inventory:     "#10b981",
+  crm: "#6366f1",
+  erp: "#a855f7",
+  lead: "#f97316",
+  inventory: "#10b981",
   manufacturing: "#3b82f6",
-  dashboards:    "#06b6d4",
+  dashboards: "#06b6d4",
 } as const;
 
 // ── Rich visual components per solution ───────────────────────────────────────
@@ -38,18 +38,18 @@ const ACCENT = {
 function CrmVisual() {
   const c = ACCENT.crm;
   const pipeline = [
-    { label: "Active",   count: 48, pct: 100 },
-    { label: "Review",   count: 31, pct: 65  },
-    { label: "Testing",  count: 18, pct: 38  },
-    { label: "Deployed", count: 9,  pct: 19  },
+    { label: "Active", count: 48, pct: 100 },
+    { label: "Review", count: 31, pct: 65 },
+    { label: "Testing", count: 18, pct: 38 },
+    { label: "Deployed", count: 9, pct: 19 },
   ];
   return (
     <div className="flex h-full flex-col gap-3 p-1">
       <div className="grid grid-cols-3 gap-2">
         {[
           { label: "Total Deals", value: "$283K", delta: "+12%" },
-          { label: "Win Rate",    value: "64%",   delta: "+4%"  },
-          { label: "Active",      value: "31",    delta: "+7"   },
+          { label: "Win Rate", value: "64%", delta: "+4%" },
+          { label: "Active", value: "31", delta: "+7" },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border border-border/50 bg-background/60 px-2.5 py-2">
             <div className="text-[9px] text-muted-foreground">{s.label}</div>
@@ -75,9 +75,9 @@ function CrmVisual() {
       <div className="flex-1 rounded-lg border border-border/50 bg-background/40 p-3">
         <div className="mb-2 text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Recent Deals</div>
         {[
-          { i: "SM", name: "Sarah Mitchell", status: "Active",    val: "$24k" },
-          { i: "JC", name: "James Chen",     status: "Follow Up", val: "$18k" },
-          { i: "AP", name: "Aria Patel",     status: "Proposal",  val: "$41k" },
+          { i: "SM", name: "Sarah Mitchell", status: "Active", val: "$24k" },
+          { i: "JC", name: "James Chen", status: "Follow Up", val: "$18k" },
+          { i: "AP", name: "Aria Patel", status: "Proposal", val: "$41k" },
         ].map((c2) => (
           <div key={c2.name} className="flex items-center gap-2 mb-2 last:mb-0">
             <div className="h-6 w-6 shrink-0 flex items-center justify-center rounded-full bg-foreground/10 text-[8px] font-bold text-foreground">
@@ -111,9 +111,9 @@ function ErpVisual() {
       <div className="flex-1 rounded-lg border border-border/50 bg-background/40 p-3">
         <div className="mb-2 text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Real-Time Overview</div>
         {[
-          { label: "Revenue",   val: "$1.2M", bar: 80 },
-          { label: "Expenses",  val: "$420K", bar: 35 },
-          { label: "Headcount", val: "148",   bar: 60 },
+          { label: "Revenue", val: "$1.2M", bar: 80 },
+          { label: "Expenses", val: "$420K", bar: 35 },
+          { label: "Headcount", val: "148", bar: 60 },
         ].map((r) => (
           <div key={r.label} className="mb-2 last:mb-0">
             <div className="mb-1 flex justify-between">
@@ -144,7 +144,7 @@ function LeadVisual() {
       <div className="grid grid-cols-2 gap-2">
         {[
           { label: "Leads/Day", value: "124", delta: "+18%" },
-          { label: "Qualified", value: "89%", delta: "+6%"  },
+          { label: "Qualified", value: "89%", delta: "+6%" },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border border-border/50 bg-background/60 px-3 py-2">
             <div className="text-[9px] text-muted-foreground">{s.label}</div>
@@ -187,10 +187,10 @@ function LeadVisual() {
 function InventoryVisual() {
   const c = ACCENT.inventory;
   const items = [
-    { name: "Product A", stock: 240, status: "OK",  pct: 80 },
-    { name: "Product B", stock: 18,  status: "Low", pct: 15 },
-    { name: "Product C", stock: 512, status: "OK",  pct: 95 },
-    { name: "Product D", stock: 35,  status: "Low", pct: 22 },
+    { name: "Product A", stock: 240, status: "OK", pct: 80 },
+    { name: "Product B", stock: 18, status: "Low", pct: 15 },
+    { name: "Product C", stock: 512, status: "OK", pct: 95 },
+    { name: "Product D", stock: 35, status: "Low", pct: 22 },
   ];
   return (
     <div className="flex h-full flex-col gap-3 p-1">
@@ -242,9 +242,9 @@ function ManufacturingVisual() {
     <div className="flex h-full flex-col gap-3 p-1">
       <div className="grid grid-cols-3 gap-2">
         {[
-          { label: "OEE",    value: "78%", delta: "+3%" },
-          { label: "Output", value: "2.4K",delta: "+9%" },
-          { label: "Defect", value: "0.4%",delta: "-12%"},
+          { label: "OEE", value: "78%", delta: "+3%" },
+          { label: "Output", value: "2.4K", delta: "+9%" },
+          { label: "Defect", value: "0.4%", delta: "-12%" },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border border-border/50 bg-background/60 px-2 py-2">
             <div className="text-[9px] text-muted-foreground">{s.label}</div>
@@ -274,8 +274,8 @@ function ManufacturingVisual() {
         <div className="flex-1 space-y-2">
           {[
             { label: "Production Schedule", pct: 92 },
-            { label: "Machine Uptime",       pct: 88 },
-            { label: "Quality Pass Rate",    pct: 99 },
+            { label: "Machine Uptime", pct: 88 },
+            { label: "Quality Pass Rate", pct: 99 },
           ].map((r) => (
             <div key={r.label}>
               <div className="mb-0.5 flex justify-between">
@@ -307,8 +307,8 @@ function DashboardsVisual() {
     <div className="flex h-full flex-col gap-3 p-1">
       <div className="grid grid-cols-2 gap-2">
         {[
-          { label: "Revenue",  value: "$4.8M", delta: "+22%" },
-          { label: "Users",    value: "12.4K", delta: "+38%" },
+          { label: "Revenue", value: "$4.8M", delta: "+22%" },
+          { label: "Users", value: "12.4K", delta: "+38%" },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border border-border/50 bg-background/60 px-3 py-2">
             <div className="text-[9px] text-muted-foreground">{s.label}</div>
@@ -426,9 +426,9 @@ export function SolutionsSection() {
     <section id="solutions" className="relative overflow-hidden py-24 lg:py-32">
       {/* Dynamic Background Glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-30 z-0">
-        <div 
-          className="w-[800px] h-[800px] rounded-full blur-[120px] transition-colors duration-1000 ease-in-out" 
-          style={{ background: `radial-gradient(circle, ${ACCENT[activeTab.id as keyof typeof ACCENT]}30 0%, transparent 70%)` }} 
+        <div
+          className="w-[800px] h-[800px] rounded-full blur-[120px] transition-colors duration-1000 ease-in-out"
+          style={{ background: `radial-gradient(circle, ${ACCENT[activeTab.id as keyof typeof ACCENT]}30 0%, transparent 70%)` }}
         />
       </div>
 
@@ -456,7 +456,7 @@ export function SolutionsSection() {
 
           {/* ── Split Layout: Vertical Accordion Tabs & Sticky Showcase ── */}
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-start">
-            
+
             {/* Left: Vertical Interactive Tabs (lg:col-span-5) */}
             <div className="flex flex-col lg:col-span-5 w-full order-2 lg:order-1 relative z-20">
               <div className="flex flex-col space-y-2">
@@ -466,12 +466,12 @@ export function SolutionsSection() {
                   const accentColor = ACCENT[s.id as keyof typeof ACCENT];
 
                   return (
-                    <div 
-                      key={s.id} 
+                    <div
+                      key={s.id}
                       className={cn(
                         "group relative rounded-2xl border transition-all duration-300",
-                        isActive 
-                          ? "bg-background/80 border-border/60 shadow-lg backdrop-blur-xl" 
+                        isActive
+                          ? "bg-background/80 border-border/60 shadow-lg backdrop-blur-xl"
                           : "border-transparent bg-transparent hover:bg-background/40"
                       )}
                     >
@@ -483,8 +483,8 @@ export function SolutionsSection() {
                           "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-all duration-300",
                           isActive ? "bg-foreground/5" : "bg-muted/50 group-hover:bg-muted/80"
                         )}>
-                          <Icon 
-                            className={cn("h-6 w-6 transition-colors duration-300", isActive ? "text-foreground" : "text-muted-foreground")} 
+                          <Icon
+                            className={cn("h-6 w-6 transition-colors duration-300", isActive ? "text-foreground" : "text-muted-foreground")}
                             style={isActive ? { color: accentColor } : {}}
                           />
                         </div>
@@ -568,9 +568,9 @@ export function SolutionsSection() {
             {/* Right: Sticky Visual Showcase (lg:col-span-7) */}
             <div className="lg:col-span-7 lg:sticky lg:top-32 order-1 lg:order-2">
               <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-[600px] rounded-3xl border border-border/40 bg-background/30 p-2 md:p-3 shadow-2xl backdrop-blur-xl">
-                
+
                 {/* Glow behind the mockup */}
-                <div 
+                <div
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 blur-[80px] rounded-full transition-colors duration-700 pointer-events-none"
                   style={{ background: ACCENT[activeTab.id as keyof typeof ACCENT], opacity: 0.15 }}
                 />
@@ -605,7 +605,7 @@ export function SolutionsSection() {
                         className="absolute inset-0 p-4 md:p-6"
                       >
                         {/* Floating wrapper for the visual */}
-                        <motion.div 
+                        <motion.div
                           className="h-full w-full rounded-xl border border-border/30 bg-background shadow-lg overflow-hidden"
                           animate={{ y: [0, -6, 0] }}
                           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}

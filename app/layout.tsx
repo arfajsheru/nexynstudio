@@ -7,6 +7,9 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { StickyCTA } from "@/components/ui/sticky-cta";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
+import { CustomCursor } from "@/components/ui/custom-cursor";
+import { Preloader } from "@/components/ui/preloader";
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -130,8 +133,14 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-svh font-sans">
-        <ThemeProvider>{children}</ThemeProvider>
-        <StickyCTA />
+        <ThemeProvider>
+          <SmoothScroll>
+            <Preloader />
+            <CustomCursor />
+            {children}
+            <StickyCTA />
+          </SmoothScroll>
+        </ThemeProvider>
         {/* -- JSON-LD Structured Data -- */}
         <script
           type="application/ld+json"

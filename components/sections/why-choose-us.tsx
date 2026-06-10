@@ -82,7 +82,7 @@ export function WhyChooseUsSection() {
                 <div className="absolute inset-0 bg-foreground/[0.015] -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-[0.16,1,0.3,1]" />
 
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[120px_1fr_auto] gap-6 lg:gap-12 items-center">
-                  
+
                   {/* Number */}
                   <div className="flex items-center gap-4">
                     <span className="text-[64px] lg:text-[80px] font-bold tracking-tighter leading-none text-foreground/[0.06] group-hover:text-foreground/20 transition-colors duration-700 select-none">

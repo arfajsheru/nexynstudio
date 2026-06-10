@@ -8,6 +8,7 @@ import { useCountUp } from "@/hooks/use-interactions";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
 
 // ─── Hero Background & Visuals ──────────────────────────────────────────────
 
@@ -15,7 +16,7 @@ function HeroBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden bg-background" aria-hidden="true">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 mix-blend-luminosity dark:opacity-40"
         style={{ backgroundImage: 'url(/herobackground.png)' }}
       />
@@ -85,7 +86,7 @@ function StatCard({
   return (
     <div ref={ref} className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/30 p-5 text-left backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-muted/30 dark:border-border/30 dark:bg-card/20 dark:hover:border-foreground/30 dark:hover:bg-card/40">
       <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-      
+
       <div className="relative flex flex-col gap-1">
         <span className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           {count}
@@ -145,7 +146,7 @@ export function HeroSection() {
           <motion.div variants={fadeUp} className="mb-6 relative flex overflow-hidden rounded-full p-[1px]">
             {/* Spinning gradient border - Optimized inset and will-change */}
             <div className="absolute inset-[-200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,hsl(var(--foreground))_50%,transparent_100%)] opacity-30 will-change-transform dark:opacity-40" />
-            
+
             {/* Inner badge content */}
             <div className="relative inline-flex items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground backdrop-blur-xl">
               <span className="relative flex h-1.5 w-1.5">
@@ -181,23 +182,27 @@ export function HeroSection() {
             variants={fadeUp}
             className="mt-8 flex flex-col items-center gap-4 sm:flex-row"
           >
-            <a
-              href={HERO_CONTENT.primaryCta.href}
-              className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-7 text-sm font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12"
-            >
-              {HERO_CONTENT.primaryCta.label}
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href={HERO_CONTENT.secondaryCta.href}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-background px-7 text-sm font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
-            >
-              {HERO_CONTENT.secondaryCta.label}
-            </a>
+            <MagneticWrapper range={50} strength={0.4}>
+              <a
+                href={HERO_CONTENT.primaryCta.href}
+                className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-7 text-sm font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12"
+              >
+                {HERO_CONTENT.primaryCta.label}
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </a>
+            </MagneticWrapper>
+            <MagneticWrapper range={50} strength={0.4}>
+              <a
+                href={HERO_CONTENT.secondaryCta.href}
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-background px-7 text-sm font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
+              >
+                {HERO_CONTENT.secondaryCta.label}
+              </a>
+            </MagneticWrapper>
           </motion.div>
 
           {/* Trust Strip */}
-          <motion.div 
+          <motion.div
             variants={fadeUp}
             className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-3 px-4 sm:mt-16 sm:gap-x-8"
           >
