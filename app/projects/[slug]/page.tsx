@@ -228,7 +228,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Next Project Nav */}
+       
         <div className={cn("mx-auto w-full border-y border-border/40", LAYOUT.maxWidth, LAYOUT.paddingX)}>
           <Link href={`/projects/${nextProject.slug}`} className="group block py-16 lg:py-24">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
