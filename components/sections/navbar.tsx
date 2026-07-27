@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ArrowRight } from "lucide-react"
+import { Menu, X, ArrowRight, Home, Briefcase, FolderGit2, Info, Mail } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { NAV_ITEMS, NAV_CTA, SITE_CONFIG } from "@/lib/constants"
@@ -12,6 +12,14 @@ import { cn } from "@/lib/utils"
 const SECTION_IDS = ["home", ...NAV_ITEMS.map((item) => item.href.split("#")[1]).filter(Boolean)] as string[]
 
 const SCROLL_THRESHOLD = 20
+
+const navIcons = {
+  Home: Home,
+  Services: Briefcase,
+  Portfolio: FolderGit2,
+  About: Info,
+  Contact: Mail,
+}
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -225,19 +233,22 @@ export function Navbar() {
                       }
                     }
 
+                    const IconComponent = navIcons[item.label as keyof typeof navIcons] || Info
+
                     return (
                       <Link
                         key={item.label}
                         href={item.href}
                         onClick={(e) => handleNavClick(e, item.href)}
                         className={cn(
-                          "rounded-lg px-4 py-3 text-base font-medium transition-colors duration-200 block",
+                          "rounded-xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-200 flex items-center gap-3",
                           isActive
-                            ? "bg-muted/60 text-foreground"
-                            : "text-muted-foreground hover:bg-muted/40 hover:text-foreground"
+                            ? "bg-foreground/5 text-foreground border border-foreground/5"
+                            : "text-muted-foreground hover:bg-muted/30 hover:text-foreground"
                         )}
                         aria-current={isActive ? "page" : undefined}
                       >
+                        <IconComponent className="h-4.5 w-4.5 text-foreground/50 shrink-0" />
                         <motion.span
                           initial={{ opacity: 0, x: -12 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -255,7 +266,7 @@ export function Navbar() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25, duration: 0.2 }}
-                  className="mt-4 border-t border-border pt-4"
+                  className="mt-6 flex justify-center border-t border-border pt-5"
                 >
                   <Link
                     href={NAV_CTA.href}
@@ -264,9 +275,9 @@ export function Navbar() {
                       if (NAV_CTA.href.startsWith("http")) return
                       handleNavClick(e, NAV_CTA.href)
                     }}
-                    className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-foreground px-4 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+                    className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-foreground px-5 text-xs font-bold text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98] shadow-md shadow-foreground/5 border border-foreground/10"
                   >
-                    <WhatsAppIcon className="h-5 w-5" />
+                    <WhatsAppIcon className="h-4 w-4" />
                     {NAV_CTA.label}
                   </Link>
                 </motion.div>

@@ -29,10 +29,10 @@ export function ProjectsSection() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 lg:mb-20">
             <motion.div variants={fadeUp} className="max-w-2xl">
               <h2 className="text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-                Case <span className="font-serif italic text-foreground/60">Studies</span>
+                Selected <span className="font-serif italic text-foreground/60">Projects</span>
               </h2>
               <p className="mt-4 text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
-                Explore how we have engineered custom systems and applications that delivered tangible business results.
+                Explore our engineered custom systems, web apps, and digital solutions that deliver real business impact.
               </p>
             </motion.div>
 

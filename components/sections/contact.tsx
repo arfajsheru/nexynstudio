@@ -235,31 +235,41 @@ export function ContactSection() {
       <ContactBg />
 
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
+        {/* Centered Header */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="mb-12 flex flex-col items-center text-center"
+        >
+          <motion.div variants={fadeUp}>
+            <h2 className="mb-4 text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              Start Your <span className="font-serif italic text-foreground/60">Project</span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+              Let&apos;s discuss your requirements and build a high-performance system for your business.
+            </p>
+            <div className="mx-auto mt-4 h-[1px] w-12 bg-gradient-to-r from-transparent via-foreground/30 to-transparent" />
+          </motion.div>
+        </motion.div>
+
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12"
+          className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12"
         >
-          {/* ── Left Side: Header & Info (40%) ────────────────────── */}
-          <div className="flex flex-col lg:col-span-5">
-            <motion.div variants={fadeUp} className="mb-12">
-              <h2 className="mb-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground lg:text-[40px]">
-                Start Your <span className="font-serif italic text-foreground/60">Project</span>
-              </h2>
-              <p className="max-w-sm text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
-                Let's discuss your requirements and build a high-performance system for your business.
-              </p>
-            </motion.div>
-
+          {/* ── Left Side: Info & Map (40%) ────────────────────── */}
+          <div className="flex flex-col lg:col-span-5 gap-6">
             {/* Compact Contact Info Card */}
             <motion.div
               variants={fadeUp}
-              className="mt-auto rounded-xl border border-border/50 bg-background/30 p-5"
+              className="rounded-xl border border-border/50 bg-background/30 p-5"
             >
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div className="flex items-start gap-3">
-                  <Mail className="mt-0.5 h-4 w-4 text-foreground/50" />
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" />
                   <div>
                     <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
                       Email
@@ -274,7 +284,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="mt-0.5 h-4 w-4 text-foreground/50" />
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" />
                   <div>
                     <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
                       Phone
@@ -285,20 +295,20 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 text-foreground/50" />
+                <div className="flex items-start gap-3 sm:col-span-2 border-t border-border/30 pt-4">
+                  <MapPin className="mt-1 h-4 w-4 shrink-0 text-foreground/50" />
                   <div>
                     <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                      Location
+                      Office Address
                     </div>
-                    <div className="mt-0.5 text-[13px] font-medium text-foreground">
-                      Malad, Mumbai, Maharashtra, India
+                    <div className="mt-0.5 text-[13px] font-medium leading-relaxed text-foreground">
+                      102, A wing, Nehal CHS, Last Mahada, Malwani, Malad (w), Mumbai 400095
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <Clock className="mt-0.5 h-4 w-4 text-foreground/50" />
+                <div className="flex items-start gap-3 sm:col-span-2 border-t border-border/30 pt-4">
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" />
                   <div>
                     <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
                       Business Hours
@@ -308,6 +318,25 @@ export function ContactSection() {
                     </div>
                   </div>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Interactive Map Embed */}
+            <motion.div
+              variants={fadeUp}
+              className="overflow-hidden rounded-2xl border border-border/50 bg-background/30 p-2"
+            >
+              <div className="relative h-[250px] w-full overflow-hidden rounded-xl">
+                <iframe
+                  src="https://maps.google.com/maps?q=Nehal%20CHS,%20Malwani,%20Malad%20West,%20Mumbai%20400095&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2) opacity(0.85)" }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Office Location Map"
+                />
               </div>
             </motion.div>
           </div>

@@ -2,7 +2,7 @@ import {
   Navbar,
   HeroSection,
   ServicesSection,
-  ProjectsSection,
+  FeaturedProjectSection,
   ChallengesSection,
   SolutionsSection,
   IndustriesSection,
@@ -31,7 +31,7 @@ export default function Page() {
       <main>
         <HeroSection />
         <ServicesSection />
-        <ProjectsSection />
+        <FeaturedProjectSection />
         {/* <ChallengesSection /> */}
         {/* <SolutionsSection /> */}
         <IndustriesSection />

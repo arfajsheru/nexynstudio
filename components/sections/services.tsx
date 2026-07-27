@@ -246,15 +246,15 @@ export function ServicesSection() {
           {/* ── Header ──────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-14 text-center">
             <div className="flex justify-center mb-3">
-              <Sparkles className="w-5 h-5 text-indigo-400/80 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_8px_rgba(129,140,248,0.5)]" />
+              <Sparkles className="w-5 h-5 text-foreground/80 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]" />
             </div>
             <h2 className="mx-auto max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Services We <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-serif italic">Engineer</span>
+              Services We <span className="font-serif italic text-foreground">Engineer</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
               Custom software, scalable web platforms, and mobile apps built to solve your unique operational bottlenecks.
             </p>
-            <div className="mx-auto mt-4 h-[1px] w-12 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
+            <div className="mx-auto mt-4 h-[1px] w-12 bg-gradient-to-r from-transparent via-foreground/30 to-transparent" />
           </motion.div>
 
           {/* ── 3-column grid, all 6 services ───────────────────── */}
