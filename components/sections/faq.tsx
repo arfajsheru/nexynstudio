@@ -58,26 +58,18 @@ export function FAQSection() {
           whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="mx-auto max-w-3xl text-center mb-16"
         >
-          <motion.div
-            variants={fadeUp}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground"
-          >
-            <span className="h-1 w-1 rounded-full bg-foreground/40" />
-            Frequently Asked Questions
-          </motion.div>
-
           <motion.h2
             variants={fadeUp}
-            className="mb-4 text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl"
+            className="mb-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl"
           >
-            Questions We Often Receive
+            Common <span className="font-serif italic text-foreground/60">Queries</span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="text-[14px] leading-relaxed text-muted-foreground max-w-xl mx-auto"
+            className="text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground max-w-xl mx-auto"
           >
-            Everything you need to know about our process, pricing, and how we build enterprise-grade software.
+            Find quick answers to our development methodology, project timelines, and post-launch support.
           </motion.p>
         </motion.div>
 

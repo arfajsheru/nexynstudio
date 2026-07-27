@@ -65,16 +65,11 @@ export function AfterLaunchSection() {
         >
           {/* ── Header ─────────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-16 lg:mb-24 flex flex-col items-center text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-foreground/50" />
-              Long-Term Partnership
-            </div>
             <h2 className="mx-auto text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl max-w-3xl">
-              What Happens <br className="hidden sm:block" />
-              <span className="text-foreground/50">After Launch</span>
+              Post-Launch <span className="font-serif italic text-foreground/60">Support</span>
             </h2>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Launch day is just the beginning. We stay by your side to ensure your software continues to perform, scale, and evolve.
+            <p className="mt-4 max-w-xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+              Our partnership continues after deployment. We handle hosting, continuous monitoring, and updates.
             </p>
           </motion.div>
 

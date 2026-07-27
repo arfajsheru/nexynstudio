@@ -147,20 +147,12 @@ export function TechStackSection() {
           whileInView="visible" viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col items-center"
         >
-          {/* ── Header ─────────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-10 lg:mb-14 text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-              <span className="h-1 w-1 rounded-full bg-foreground/40" />
-              Engineering Foundation
-            </div>
-            <h2 className="mb-5 text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl">
-              Technology{" "}
-              <span className="text-foreground/50">Architecture</span>
+            <h2 className="mb-5 text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              Future-Proof <span className="font-serif italic text-foreground/60">Technologies</span>
             </h2>
-            <p className="mx-auto max-w-2xl text-[14px] leading-relaxed text-muted-foreground">
-              We leverage a battle-tested, modern stack designed for
-              performance, security, and long-term maintainability across every
-              layer of your application.
+            <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+              Leveraging modern, fast, and secure frameworks to build robust and scalable digital products.
             </p>
           </motion.div>
 

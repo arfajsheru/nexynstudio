@@ -244,18 +244,11 @@ export function ContactSection() {
           {/* ── Left Side: Header & Info (40%) ────────────────────── */}
           <div className="flex flex-col lg:col-span-5">
             <motion.div variants={fadeUp} className="mb-12">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-                <span className="h-1 w-1 rounded-full bg-foreground/40" />
-                Let's Build Something Great
-              </div>
-              <h2 className="mb-4 text-3xl font-bold leading-[1.15] tracking-tight text-foreground lg:text-[40px]">
-                Let's Discuss Your Next{" "}
-                <span className="text-foreground/50">Digital Product</span>
+              <h2 className="mb-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground lg:text-[40px]">
+                Start Your <span className="font-serif italic text-foreground/60">Project</span>
               </h2>
-              <p className="max-w-sm text-[14px] leading-relaxed text-muted-foreground">
-                Whether you're planning a custom software platform or digital
-                growth strategy, our team is ready to help turn your vision into
-                reality.
+              <p className="max-w-sm text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+                Let's discuss your requirements and build a high-performance system for your business.
               </p>
             </motion.div>
 

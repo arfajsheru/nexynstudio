@@ -82,15 +82,11 @@ export function ProcessSection() {
         >
           {/* Header */}
           <motion.div variants={fadeUp} className="mb-16 lg:mb-20 text-center flex flex-col items-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-foreground/50" />
-              Software Delivery Journey
-            </div>
             <h2 className="mx-auto text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl max-w-3xl">
-              From Idea to <span className="text-foreground/50">Production</span>
+              Our <span className="font-serif italic text-foreground/60">Development</span> Process
             </h2>
-            <p className="mt-6 max-w-2xl text-[15px] sm:text-base leading-relaxed text-muted-foreground">
-              We systematically transform complex business bottlenecks into robust, scalable digital products through a refined development pipeline.
+            <p className="mt-4 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+              From collaborative strategy to production deployment, we build high-performance systems in clear milestones.
             </p>
           </motion.div>
 

@@ -57,15 +57,11 @@ export function IndustriesSection() {
         >
           {/* ── Header ─────────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-10 lg:mb-14 text-center relative z-20">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground backdrop-blur-sm">
-              <Network className="h-3.5 w-3.5" />
-              Ecosystem
-            </div>
-            <h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Industries We <span className="text-foreground/40">Serve</span>
+            <h2 className="mx-auto mb-5 max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              Industries We <span className="font-serif italic text-foreground/60">Scale</span>
             </h2>
-            <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              A unified software ecosystem connecting diverse industries. We architect secure, scalable, and tailored solutions for modern enterprises.
+            <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+              Sleek, purpose-built platforms tailored exactly to your specific industry guidelines and workflows.
             </p>
           </motion.div>
 

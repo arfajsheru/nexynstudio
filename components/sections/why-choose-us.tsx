@@ -58,15 +58,11 @@ export function WhyChooseUsSection() {
         >
           {/* ── Header ─────────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-12 lg:mb-16 text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-foreground/50" />
-              The Nexyn Standard
-            </div>
-            <h2 className="mx-auto mb-6 max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Why Companies <span className="text-foreground/40">Choose Nexyn</span>
+            <h2 className="mx-auto mb-5 max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              Why Partner <span className="font-serif italic text-foreground/60">With Us</span>
             </h2>
-            <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              Deep technical expertise combined with a relentless focus on business outcomes. Software that actually moves the needle.
+            <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+              Deep technical expertise combined with a relentless focus on business outcomes and reliable delivery.
             </p>
           </motion.div>
 

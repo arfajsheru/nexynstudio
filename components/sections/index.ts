@@ -12,3 +12,4 @@ export { FAQSection } from "./faq";
 export { ContactSection } from "./contact";
 export { CTASection } from "./cta";
 export { FooterSection } from "./footer";
+export { ProjectsSection } from "./projects";

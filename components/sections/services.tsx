@@ -14,6 +14,7 @@ import {
   ArrowRight,
   X,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
@@ -58,7 +59,7 @@ const SERVICES = [
       "Scalable Design Systems for consistent future development",
       "Conversion Rate Optimization (CRO) driven design",
     ],
-    caps: ["Design Systems", "Prototyping", "User Research"],
+    caps: ["UI/UX Design", "Wireframes", "Design Systems"],
     img: imgDesign,
     imgAlt: "UI/UX Design",
   },
@@ -244,21 +245,16 @@ export function ServicesSection() {
         >
           {/* ── Header ──────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-14 text-center">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-              <span className="h-1 w-1 rounded-full bg-foreground/40" />
-              What We Build
+            <div className="flex justify-center mb-3">
+              <Sparkles className="w-5 h-5 text-indigo-400/80 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_8px_rgba(129,140,248,0.5)]" />
             </div>
-
-            <h2 className="mx-auto max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-[48px]">
-              Technology Solutions Designed{" "}
-              <span className="text-foreground/50">For Business Growth</span>
+            <h2 className="mx-auto max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              Services We <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-serif italic">Engineer</span>
             </h2>
-
-            <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-              We help businesses automate operations, improve productivity,
-              strengthen customer relationships, and accelerate growth through
-              modern software solutions and digital experiences.
+            <p className="mx-auto mt-4 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
+              Custom software, scalable web platforms, and mobile apps built to solve your unique operational bottlenecks.
             </p>
+            <div className="mx-auto mt-4 h-[1px] w-12 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
           </motion.div>
 
           {/* ── 3-column grid, all 6 services ───────────────────── */}
