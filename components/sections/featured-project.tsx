@@ -21,7 +21,7 @@ import { LAYOUT } from "@/lib/constants"
 import { fadeUp, staggerContainer } from "@/lib/motion"
 import { cn } from "@/lib/utils"
 
-// // Featured Project = UWF 
+// // Featured Project = UWF
 const uwf = PROJECTS.find((p) => p.slug === "united-welfare-foundation")!
 
 const STATS = [
@@ -86,81 +86,76 @@ export function FeaturedProjectSection() {
           {/*  HERO CARD: full-width, image left + content right  */}
           <motion.div variants={fadeUp} className="w-full pb-16">
             <div className="mx-auto w-full max-w-[1440px]">
-              <div className="mx-4 overflow-hidden rounded-3xl border border-border bg-white dark:bg-neutral-900 shadow-2xl shadow-black/10 md:mx-6">
-                <div className="grid min-h-[520px] grid-cols-1 lg:grid-cols-[58%_42%]">
+              <div className="mx-4 overflow-hidden rounded-3xl border border-border bg-white shadow-2xl shadow-black/10 md:mx-6 dark:bg-neutral-900">
+                <div className="grid min-h-[520px] grid-cols-1 lg:grid-cols-2">
                   {/* ── LEFT: MacBook Pro Mockup Showcase ─────────────────────────── */}
-                  <div className="group relative flex flex-col items-center justify-center p-8 md:p-12 lg:p-16 bg-neutral-950 overflow-hidden border-b lg:border-b-0 lg:border-r border-border/40 min-h-[460px] lg:min-h-[560px]">
+                  <div className="group relative flex min-h-[460px] flex-col items-center justify-center overflow-hidden border-b border-border/40 bg-gradient-to-b from-[#0a0a0a] to-[#050505] p-8 md:p-12 lg:min-h-[560px] lg:border-r lg:border-b-0 lg:p-16">
                     {/* Glowing aesthetic background orbs */}
-                    <div className="absolute -top-32 -left-32 w-80 h-80 bg-white/[0.015] rounded-full blur-[100px] pointer-events-none" />
-                    <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-white/[0.015] rounded-full blur-[100px] pointer-events-none" />
-                    
-                    {/* Subtle grid pattern for texture */}
-                    <div 
-                      className="pointer-events-none absolute inset-0 opacity-[0.03]"
-                      style={{
-                        backgroundImage: "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
-                        backgroundSize: "24px 24px"
-                      }}
-                    />
+                    <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-white/[0.02] blur-[120px]" />
+                    <div className="pointer-events-none absolute -right-32 -bottom-32 h-96 w-96 rounded-full bg-white/[0.02] blur-[120px]" />
+
+                    {/* Soft spotlight behind the laptop */}
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.045)_0%,_transparent_65%)]" />
 
                     {/* Web Platform label at the top */}
-                    <div className="absolute top-6 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-[0.3em] text-white/20 uppercase select-none pointer-events-none">
+                    <div className="pointer-events-none absolute top-6 left-1/2 -translate-x-1/2 text-[10px] font-extrabold tracking-[0.35em] text-white/40 uppercase select-none">
                       Web Platform
                     </div>
 
-                    {/* Floating pill badge from the image */}
+                    {/* Realistic MacBook Mockup Wrapper */}
                     <Link
                       href={`/projects/${uwf.slug}`}
-                      className="group/btn relative z-20 mb-8 inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-2.5 text-[11px] font-extrabold tracking-wider uppercase transition-all duration-500 opacity-100 translate-y-0 lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0 hover:scale-[1.02] hover:opacity-90"
+                      className="relative w-full max-w-[480px] sm:max-w-[500px] block transition-transform hover:-translate-y-2 duration-500 group/laptop z-10"
                     >
-                      United Welfare Foundation
-                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                    </Link>
-
-                    {/* Realistic MacBook Pro Mockup */}
-                    <div className="relative w-full max-w-[480px] sm:max-w-[500px] transform-gpu transition-all duration-500 hover:scale-[1.02] z-10">
-                      {/* MacBook Screen Lid */}
-                      <div className="relative w-full rounded-t-[16px] rounded-b-[3px] bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] p-[2px] shadow-[0_8px_40px_rgba(0,0,0,0.4)] ring-1 ring-white/10">
-                        {/* Screen Outer Bezel */}
-                        <div className="relative w-full aspect-[16/10] bg-[#0c0c0c] rounded-t-[14px] rounded-b-[2px] p-[5px] md:p-[7px] flex flex-col shadow-[inset_0_0_15px_rgba(0,0,0,0.8)]">
-                          {/* Notch / Camera */}
-                          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[16%] h-[8px] md:h-[10px] bg-[#0d0d0d] rounded-b-[4px] z-30 flex justify-center items-center">
-                            <div className="w-1 h-1 rounded-full bg-[#1e293b] border border-[#334155]/60 shadow-[0_0_2px_rgba(0,0,0,0.5)]" />
-                          </div>
-                          
-                          {/* Screen Content Container with Glossy overlay */}
-                          <div className="relative w-full h-full overflow-hidden rounded-[2px] bg-neutral-900">
-                            <Image
-                              src={uwf.featuredImage}
-                              alt={uwf.name}
-                              fill
-                              className="object-cover object-top"
-                              sizes="(max-width: 1024px) 100vw, 55vw"
-                              priority
-                            />
-                            {/* Screen glass reflection overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.08] pointer-events-none mix-blend-overlay" />
-                            <div className="absolute top-0 right-0 left-1/2 h-full bg-gradient-to-r from-transparent via-white/[0.01] to-transparent pointer-events-none transform -skew-x-12" />
-                          </div>
-
-                          {/* Display bottom logo stripe */}
-                          <div className="h-[10px] md:h-[12px] w-full flex items-center justify-center -mb-0.5 mt-0.5 z-20">
-                            <span className="text-[5px] md:text-[6px] text-[#555] font-bold tracking-[0.35em] uppercase opacity-95">MacBook Pro</span>
-                          </div>
+                      {/* Top Ribbon Tooltip */}
+                      <div className="absolute top-1 left-1/2 -translate-x-1/2 opacity-0 group-hover/laptop:opacity-100 group-hover/laptop:-translate-y-full transition-all duration-500 ease-[0.16,1,0.3,1] z-0 flex justify-center pointer-events-none">
+                        <div 
+                          className="flex items-center gap-2 px-6 py-2.5 rounded-t-xl bg-neutral-900 text-white text-[11px] font-bold tracking-widest uppercase shadow-[0_-10px_20px_rgba(0,0,0,0.3)] border-t border-x border-white/10 whitespace-nowrap"
+                        >
+                          <span>United Welfare Foundation</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </div>
                       </div>
 
-                      {/* MacBook Keyboard Deck / Base */}
-                      <div className="relative w-[114%] -ml-[7%] h-2.5 md:h-3.5 bg-gradient-to-b from-[#e8e8e8] via-[#dedede] to-[#8c8c8c] rounded-t-[1px] rounded-b-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.8)] flex justify-center items-start border-b-[2px] border-[#555555]">
-                        {/* Hinge groove */}
-                        <div className="absolute top-0 inset-x-0 h-[1px] bg-[#111] opacity-75" />
-                        {/* Display opening notch/lip */}
-                        <div className="w-[18%] h-0.5 md:h-1 bg-[#b8b8b8] rounded-b-[4px] shadow-[inset_0_1px_1.5px_rgba(0,0,0,0.3)]" />
+                      {/* MacBook Mockup container */}
+                      <div className="relative z-10 w-full mx-auto shadow-2xl">
+                        {/* MacBook Screen / Lid */}
+                        <div className="relative w-full rounded-t-[14px] rounded-b-[4px] bg-gradient-to-b from-[#e5e5e5] to-[#b5b5b5] p-[2px] ring-1 ring-black/10">
+                          <div className="relative w-full aspect-[16/10] bg-black rounded-t-[12px] rounded-b-[2px] p-[6px] md:p-[8px] flex flex-col shadow-inner overflow-hidden">
+                            {/* Notch */}
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[18%] h-[12px] md:h-[14px] bg-black rounded-b-[6px] z-30 flex justify-center items-center">
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#111] border border-[#222]" />
+                            </div>
+                            
+                            {/* Screen Content */}
+                            <div className="relative w-full h-full bg-neutral-900 overflow-hidden rounded-[2px]">
+                              <Image
+                                src={uwf.featuredImage}
+                                alt={uwf.name}
+                                fill
+                                className="object-cover object-top"
+                                sizes="(max-width: 1024px) 100vw, 55vw"
+                                priority
+                              />
+                            </div>
+                            
+                            {/* MacBook Pro text */}
+                            <div className="h-[12px] md:h-[16px] w-full flex items-center justify-center -mb-1 mt-1 z-20">
+                              <span className="text-[6px] md:text-[7px] text-[#444] font-semibold tracking-[0.3em] uppercase">MacBook Pro</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* MacBook Base */}
+                        <div className="relative w-[114%] -ml-[7%] h-3 md:h-4 bg-gradient-to-b from-[#e0e0e0] to-[#999999] rounded-t-[1px] rounded-b-2xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex justify-center items-start border-b-[2px] border-[#666666]">
+                          {/* Trackpad Indentation */}
+                          <div className="w-[18%] h-1 md:h-1.5 bg-[#c2c2c2] rounded-b-[4px] shadow-inner" />
+                        </div>
                       </div>
-                    </div>
+                    </Link>
 
                     {/* Bottom background text shadow effect for depth */}
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-[0.3em] text-white/20 uppercase select-none pointer-events-none">
+                    <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-extrabold tracking-[0.35em] text-white/40 uppercase select-none">
                       Custom Software
                     </div>
                   </div>
@@ -199,7 +194,7 @@ export function FeaturedProjectSection() {
                         {uwf.techStack.map((t) => (
                           <span
                             key={t}
-                            className="rounded-md border border-neutral-200 dark:border-neutral-800/80 bg-neutral-100 dark:bg-neutral-900 px-2 py-0.5 text-[10px] font-semibold text-neutral-600 dark:text-neutral-300"
+                            className="rounded-md border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-[10px] font-semibold text-neutral-600 dark:border-neutral-800/80 dark:bg-neutral-900 dark:text-neutral-300"
                           >
                             {t}
                           </span>
@@ -208,13 +203,13 @@ export function FeaturedProjectSection() {
                     </div>
 
                     {/* Stats Row */}
-                    <div className="mb-8 grid grid-cols-2 gap-3 border-t border-neutral-200 dark:border-neutral-800/80 pt-5">
+                    <div className="mb-8 grid grid-cols-2 gap-3 border-t border-neutral-200 pt-5 dark:border-neutral-800/80">
                       {STATS.map((s) => (
                         <div key={s.label} className="flex flex-col gap-0.5">
                           <span className="text-xl font-extrabold tracking-tight text-foreground">
                             {s.value}
                           </span>
-                          <span className="text-[10px] font-medium tracking-wider text-neutral-500 dark:text-neutral-400 uppercase">
+                          <span className="text-[10px] font-medium tracking-wider text-neutral-500 uppercase dark:text-neutral-400">
                             {s.label}
                           </span>
                         </div>
