@@ -196,8 +196,14 @@ export const PROJECTS: ProjectDetail[] = [
     completionYear: "2026",
     shortDescription:
       "A feature-rich React Native mobile app for Nexyn Chat — delivering real-time chat, push notifications, offline syncing, contact directory integrations, and optimized performance for iOS and Android.",
-    featuredImage: "/projects/nexyn-chat-mobile/image1.png",
-    galleryImages: [],
+    featuredImage: "/projects/nexyn-chat-mobile/image1.jpg",
+    galleryImages: [
+      "/projects/nexyn-chat-mobile/ss1.jpg",
+      "/projects/nexyn-chat-mobile/ss2.jpg",
+      "/projects/nexyn-chat-mobile/ss3.jpg",
+      "/projects/nexyn-chat-mobile/ss4.jpg",
+      "/projects/nexyn-chat-mobile/ss5.jpg",
+    ],
     techStack: [
       "React Native",
       "TypeScript",

@@ -14,11 +14,13 @@ import { cn } from "@/lib/utils";
 interface ScreenshotGalleryProps {
   images: string[];
   projectName: string;
+  aspectRatio?: "portrait" | "landscape";
 }
 
-export function ScreenshotGallery({ images, projectName }: ScreenshotGalleryProps) {
+export function ScreenshotGallery({ images, projectName, aspectRatio = "landscape" }: ScreenshotGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const isPortrait = aspectRatio === "portrait";
 
   // Lock body scroll when lightbox is open
   useEffect(() => {
@@ -83,7 +85,10 @@ export function ScreenshotGallery({ images, projectName }: ScreenshotGalleryProp
             <button
               key={idx}
               onClick={() => openAt(idx)}
-              className="group relative shrink-0 h-32 w-52 overflow-hidden rounded-xl border border-border/40 bg-muted/10 transition-all duration-300 hover:border-foreground/30 hover:shadow-xl hover:shadow-black/20 hover:scale-[1.03] focus:outline-none"
+              className={cn(
+                "group relative shrink-0 overflow-hidden rounded-xl border border-border/40 bg-muted/10 transition-all duration-300 hover:border-foreground/30 hover:shadow-xl hover:shadow-black/20 hover:scale-[1.03] focus:outline-none",
+                isPortrait ? "h-64 w-[144px]" : "h-32 w-52"
+              )}
             >
               <img
                 src={src}
@@ -144,7 +149,10 @@ export function ScreenshotGallery({ images, projectName }: ScreenshotGalleryProp
               </div>
 
               {/* Image + side nav area */}
-              <div className="pointer-events-auto flex items-center gap-3 sm:gap-5 w-full max-w-6xl">
+              <div className={cn(
+                "pointer-events-auto flex items-center gap-3 sm:gap-5 w-full",
+                isPortrait ? "max-w-xl justify-center" : "max-w-6xl"
+              )}>
                 {/* Prev arrow */}
                 <button
                   onClick={(e) => { e.stopPropagation(); prev(); }}
@@ -155,7 +163,10 @@ export function ScreenshotGallery({ images, projectName }: ScreenshotGalleryProp
                 </button>
 
                 {/* Image container */}
-                <div className="relative flex-1 overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-black/50">
+                <div className={cn(
+                  "relative flex-1 overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-black/50",
+                  isPortrait ? "max-w-[340px] aspect-[9/19.5] h-[65vh]" : ""
+                )}>
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={activeIndex}
@@ -165,7 +176,10 @@ export function ScreenshotGallery({ images, projectName }: ScreenshotGalleryProp
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
-                      className="w-full max-h-[70vh] object-contain"
+                      className={cn(
+                        "w-full h-full",
+                        isPortrait ? "object-cover" : "max-h-[70vh] object-contain"
+                      )}
                       draggable={false}
                     />
                   </AnimatePresence>
@@ -188,7 +202,8 @@ export function ScreenshotGallery({ images, projectName }: ScreenshotGalleryProp
                     key={i}
                     onClick={() => setActiveIndex(i)}
                     className={cn(
-                      "relative shrink-0 h-12 w-20 overflow-hidden rounded-lg border transition-all duration-200",
+                      "relative shrink-0 overflow-hidden rounded-lg border transition-all duration-200",
+                      isPortrait ? "h-16 w-9" : "h-12 w-20",
                       i === activeIndex
                         ? "border-white/80 scale-105 shadow-lg"
                         : "border-white/20 opacity-50 hover:opacity-80 hover:border-white/40"

@@ -203,6 +203,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
             <ScreenshotGallery
               images={project.galleryImages}
               projectName={project.name}
+              aspectRatio={project.category === "Mobile App" ? "portrait" : "landscape"}
             />
           </div>
         )}
