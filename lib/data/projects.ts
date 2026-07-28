@@ -116,4 +116,142 @@ export const PROJECTS: ProjectDetail[] = [
       { metric: "Processing Time", value: "−70%" },
     ],
   },
+  {
+    slug: "nexyn-chat-web",
+    shortName: "Chat Web",
+    accentColor: "#10b981",
+    name: "Nexyn Chat Web",
+    category: "Web App",
+    industry: "Communication & Collaboration",
+    clientType: "B2B / SaaS Product",
+    completionYear: "2026",
+    shortDescription:
+      "A modern, real-time messaging web client inspired by WhatsApp — featuring secure chat authentication, end-to-end typing indicators, media transfers, and clean desktop browser integrations.",
+    featuredImage: "/projects/nexyn-chat-web/image1.png",
+    galleryImages: [],
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Socket.io",
+      "Express.js",
+      "MongoDB",
+      "Zustand",
+    ],
+    challenge:
+      "Building a real-time messaging web application that handles concurrent chat connections, state synchronization, and instant typing indicators without causing rendering bottlenecks in the browser.",
+    research:
+      "We analyzed common user patterns on WhatsApp Web to design a layout optimized for multi-pane chat lists, quick message search, and media management. Ensuring light/dark mode consistency and robust socket reconnection strategies were key user needs.",
+    solution:
+      "Developed a high-performance messaging interface utilizing WebSocket connections for instant message transmission, Zustand for global state management, and optimized asset loading for file/image attachments. Reconnections are handled gracefully with offline message caching.",
+    features: [
+      {
+        title: "Real-Time Messaging",
+        description:
+          "Instant peer-to-peer and group messaging utilizing Socket.io websockets for sub-100ms delivery.",
+      },
+      {
+        title: "Message Read Status & Receipts",
+        description:
+          "Delivered, read, and typing indicators synchronizing across active client sessions instantly.",
+      },
+      {
+        title: "Media & File Sharing",
+        description:
+          "Upload and drag-and-drop sharing of documents, images, and voice recordings with auto-compression.",
+      },
+      {
+        title: "Global Message Search",
+        description:
+          "Indexed message history permitting users to search through chats, links, and shared files instantly.",
+      },
+      {
+        title: "Chat Archive & Pinning",
+        description:
+          "Organize the chat panel by pinning important threads and archiving older conversations.",
+      },
+      {
+        title: "Responsive Web Interface",
+        description:
+          "Dual-pane desktop interface transitioning to a focused single-pane layout for tablets and mobile browsers.",
+      },
+    ],
+    developmentProcess:
+      "Developed using an agile scrum methodology over 5 weeks. Week 1-2 focused on WebSocket architecture and database design. Week 3-4 implemented chat views, state persistence, and attachments. Week 5 completed integration testing, performance optimization, and Vercel hosting.",
+    results: [
+      { metric: "Message Delivery", value: "<100ms" },
+      { metric: "Active Connections", value: "10k+" },
+      { metric: "File Sharing", value: "Instant" },
+      { metric: "Browser Compatibility", value: "100%" },
+    ],
+  },
+  {
+    slug: "nexyn-chat-mobile",
+    shortName: "Chat App",
+    accentColor: "#10b981",
+    name: "Nexyn Chat Mobile",
+    category: "Mobile App",
+    industry: "Communication & Collaboration",
+    clientType: "B2B / SaaS Product",
+    completionYear: "2026",
+    shortDescription:
+      "A feature-rich React Native mobile app for Nexyn Chat — delivering real-time chat, push notifications, offline syncing, contact directory integrations, and optimized performance for iOS and Android.",
+    featuredImage: "/projects/nexyn-chat-mobile/image1.png",
+    galleryImages: [],
+    techStack: [
+      "React Native",
+      "TypeScript",
+      "Expo",
+      "SQLite",
+      "Socket.io Client",
+      "Tailwind CSS",
+      "Firebase Cloud Messaging",
+    ],
+    challenge:
+      "Maintaining reliable real-time message syncing when the mobile device goes background, dealing with poor cellular networks, and managing large local databases of chat histories on device.",
+    research:
+      "Studied mobile messaging workflows, push notification patterns, and local storage database engines. Evaluated database query performance under high load to prevent frame drops in mobile scroll views.",
+    solution:
+      "Built a cross-platform React Native app with SQLite for local message caching, enabling immediate offline rendering. Leveraged Firebase Cloud Messaging for instant background push alerts and Socket.io for active foreground real-time syncing.",
+    features: [
+      {
+        title: "Push Notifications",
+        description:
+          "Stay connected with background push notifications for new messages and calls via FCM.",
+      },
+      {
+        title: "Offline Chat Caching",
+        description:
+          "Access all past messages and media instantly offline with local SQLite database queries.",
+      },
+      {
+        title: "Contact List Integration",
+        description:
+          "Sync phone address book contacts to automatically identify available chat partners.",
+      },
+      {
+        title: "Real-Time Location Sharing",
+        description:
+          "Share live coordinates with contacts directly inside the chat window.",
+      },
+      {
+        title: "Image & Video Capture",
+        description:
+          "Direct in-app camera access to shoot, compress, and send media in real-time.",
+      },
+      {
+        title: "Low Data Mode",
+        description:
+          "Optimize data usage by dynamically scaling and compressing shared media files.",
+      },
+    ],
+    developmentProcess:
+      "Developed over 6 weeks. Week 1-2: Setup Expo environment, database sync adapters, and authentication. Week 3-4: Chat listing, push alerts, address book integrations. Week 5: Offline cache sync, SQLite optimizations. Week 6: Beta testing on TestFlight and Google Play Console.",
+    results: [
+      { metric: "Push Notification Latency", value: "<1s" },
+      { metric: "Offline Load Time", value: "Immediate" },
+      { metric: "Network Usage Saved", value: "−40%" },
+      { metric: "Crash-free Sessions", value: "99.9%" },
+    ],
+  },
 ];
