@@ -151,7 +151,7 @@ export default function RootLayout({
               "name": SITE_CONFIG.name,
               "image": SITE_CONFIG.url + SITE_CONFIG.ogImage,
               "url": SITE_CONFIG.url,
-              "telephone": "+91 9913690041",
+              "telephone": "+91 85910 13795",
               "email": "nexynstudios@gmail.com",
               "address": {
                 "@type": "PostalAddress",

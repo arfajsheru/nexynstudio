@@ -290,7 +290,7 @@ export function ContactSection() {
                       Phone
                     </div>
                     <div className="mt-0.5 text-[13px] font-medium text-foreground">
-                      +91 9913690041
+                      +91 85910 13795
                     </div>
                   </div>
                 </div>

@@ -124,7 +124,7 @@ We encourage you to review this Privacy Policy periodically to stay informed abo
     content: `If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
 
 • **Email**: hello@nexynstudios.com
-• **WhatsApp**: +91 99136 90041
+• **WhatsApp**: +91 85910 13795
 • **Address**: Malad, Mumbai, Maharashtra, India
 
 **Nexyn Studios**

@@ -21,7 +21,7 @@ export const NAV_ITEMS = [
 
 export const NAV_CTA = {
   label: "Chat with us",
-  href: "https://wa.me/919913690041",
+  href: "https://wa.me/918591013795",
 } as const;
 
 // ─── Hero ───────────────────────────────────────────────────────────────────
