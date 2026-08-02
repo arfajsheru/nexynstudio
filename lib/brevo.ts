@@ -10,7 +10,7 @@ export async function sendEmail({
   replyTo?: { email: string; name?: string };
 }) {
   const BREVO_API_KEY = process.env.BREVO_API_KEY;
-  const BREVO_SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL || "hello@nexynstudios.com";
+  const BREVO_SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL || "nexynstudios@gmail.com";
   const BREVO_SENDER_NAME = process.env.BREVO_SENDER_NAME || "Nexyn Studios";
 
   console.log(`[BREVO] Attempting to send email to: ${to.map(t => t.email).join(', ')}`);

@@ -223,7 +223,7 @@ export function ContactSection() {
     } catch (error) {
       console.error("Form submission error:", error);
       setStatus("idle");
-      alert("Something went wrong. Please try again or email us directly at hello@nexynstudios.com");
+      alert("Something went wrong. Please try again or email us directly at nexynstudios@gmail.com");
     }
   };
 
@@ -275,10 +275,10 @@ export function ContactSection() {
                       Email
                     </div>
                     <a
-                      href="mailto:hello@nexynstudios.com"
+                      href="mailto:nexynstudios@gmail.com"
                       className="mt-0.5 block text-[13px] font-medium text-foreground hover:text-foreground/70 transition-colors"
                     >
-                      hello@nexynstudios.com
+                      nexynstudios@gmail.com
                     </a>
                   </div>
                 </div>

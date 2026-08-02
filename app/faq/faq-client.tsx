@@ -45,7 +45,7 @@ const FAQS = [
   // Support
   { category: "Support", question: "Do you provide post-launch support?", answer: "Yes, we offer comprehensive maintenance and support plans. Our standard plan includes bug fixes, security patches, server monitoring, and minor enhancements. Premium plans include priority support with guaranteed response times." },
   { category: "Support", question: "What are your support hours?", answer: "Our standard support hours are Monday to Saturday, 9 AM to 7 PM IST. For premium support clients, we offer extended hours and emergency response availability." },
-  { category: "Support", question: "How do I report issues or request features?", answer: "You can reach us via email (hello@nexynstudios.com), WhatsApp, or through your dedicated project channel. For post-launch support, we provide a ticketing system where you can track the status of your requests." },
+  { category: "Support", question: "How do I report issues or request features?", answer: "You can reach us via email (nexynstudios@gmail.com), WhatsApp, or through your dedicated project channel. For post-launch support, we provide a ticketing system where you can track the status of your requests." },
   { category: "Support", question: "Do you offer training for the software you build?", answer: "Yes, we provide comprehensive training sessions for your team after deployment. This includes documentation, video walkthroughs, and live training calls to ensure your team is confident using the new system." },
 ];
 

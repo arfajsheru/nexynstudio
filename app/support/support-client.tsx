@@ -27,8 +27,8 @@ const CONTACT_METHODS = [
     icon: Mail,
     title: "Email Us",
     description: "Get a response within 24 hours on business days.",
-    action: "hello@nexynstudios.com",
-    href: "mailto:hello@nexynstudios.com",
+    action: "nexynstudios@gmail.com",
+    href: "mailto:nexynstudios@gmail.com",
     badge: "Recommended",
   },
   {

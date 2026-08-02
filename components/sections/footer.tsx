@@ -117,10 +117,10 @@ export function FooterSection() {
               <ul className="flex flex-col gap-3">
                 <li>
                   <a
-                    href="mailto:hello@nexynstudios.com"
+                    href="mailto:nexynstudios@gmail.com"
                     className="text-[13px] text-muted-foreground transition-colors duration-200 hover:text-foreground"
                   >
-                    hello@nexynstudios.com
+                    nexynstudios@gmail.com
                   </a>
                 </li>
                 <li>

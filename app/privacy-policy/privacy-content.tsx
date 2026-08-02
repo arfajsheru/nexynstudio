@@ -94,7 +94,7 @@ While we strive to protect your personal information, no method of transmission 
 • **Data Portability**: Request your data in a structured, commonly used format.
 • **Objection**: Object to the processing of your personal data for certain purposes.
 
-To exercise any of these rights, please contact us at hello@nexynstudios.com. We will respond to your request within 30 business days.`,
+To exercise any of these rights, please contact us at nexynstudios@gmail.com. We will respond to your request within 30 business days.`,
   },
   {
     id: "data-retention",
@@ -123,7 +123,7 @@ We encourage you to review this Privacy Policy periodically to stay informed abo
     title: "Contact Information",
     content: `If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
 
-• **Email**: hello@nexynstudios.com
+• **Email**: nexynstudios@gmail.com
 • **WhatsApp**: +91 85910 13795
 • **Address**: Malad, Mumbai, Maharashtra, India
 
