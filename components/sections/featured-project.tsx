@@ -14,7 +14,7 @@ export function FeaturedProjectSection() {
     <>
       {/*  Full-width Featured Section  */}
       <section
-        id="featured-project"
+        id="portfolio"
         className="relative w-full overflow-hidden border-t border-border/10 bg-gradient-to-b from-background via-muted/30 to-background"
       >
         {/* Subtle grid background */}

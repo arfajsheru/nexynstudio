@@ -9,7 +9,7 @@ import { NAV_ITEMS, NAV_CTA, SITE_CONFIG } from "@/lib/constants"
 import { useActiveSection, useMediaQuery } from "@/hooks/use-interactions"
 import { cn } from "@/lib/utils"
 
-const SECTION_IDS = ["home", ...NAV_ITEMS.map((item) => item.href.split("#")[1]).filter(Boolean)] as string[]
+const SECTION_IDS = ["home", "portfolio", ...NAV_ITEMS.map((item) => item.href.split("#")[1]).filter(Boolean)] as string[]
 
 const SCROLL_THRESHOLD = 20
 
@@ -113,6 +113,8 @@ export function Navbar() {
                   isActive = activeSection === "home" || !activeSection
                 } else if (item.href.startsWith("/#")) {
                   isActive = activeSection === sectionId
+                } else if (item.label === "Portfolio") {
+                  isActive = activeSection === "portfolio"
                 }
               } else {
                 if (item.href !== "/" && !item.href.startsWith("/#")) {
@@ -226,6 +228,8 @@ export function Navbar() {
                         isActive = activeSection === "home" || !activeSection
                       } else if (item.href.startsWith("/#")) {
                         isActive = activeSection === sectionId
+                      } else if (item.label === "Portfolio") {
+                        isActive = activeSection === "portfolio"
                       }
                     } else {
                       if (item.href !== "/" && !item.href.startsWith("/#")) {
