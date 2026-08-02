@@ -18,6 +18,7 @@ export type ProjectDetail = {
   developmentProcess: string;
   results: { metric: string; value: string }[];
   accentColor: string;
+  aspectRatio?: string;
 };
 
 export const PROJECTS: ProjectDetail[] = [
@@ -120,6 +121,7 @@ export const PROJECTS: ProjectDetail[] = [
     slug: "nexyn-chat-web",
     shortName: "Chat Web",
     accentColor: "#10b981",
+    aspectRatio: "3356/1924",
     name: "Nexyn Chat Web",
     category: "Web App",
     industry: "Communication & Collaboration",
@@ -128,7 +130,20 @@ export const PROJECTS: ProjectDetail[] = [
     shortDescription:
       "A modern, real-time messaging web client inspired by WhatsApp — featuring secure chat authentication, end-to-end typing indicators, media transfers, and clean desktop browser integrations.",
     featuredImage: "/projects/nexyn-chat-web/image1.png",
-    galleryImages: [],
+    galleryImages: [
+      "/projects/nexyn-chat-web/ss1.png",
+      "/projects/nexyn-chat-web/ss2.png",
+      "/projects/nexyn-chat-web/ss3.png",
+      "/projects/nexyn-chat-web/ss4.png",
+      "/projects/nexyn-chat-web/ss5.png",
+      "/projects/nexyn-chat-web/ss6.png",
+      "/projects/nexyn-chat-web/ss7.png",
+      "/projects/nexyn-chat-web/ss8.png",
+      "/projects/nexyn-chat-web/ss9.png",
+      "/projects/nexyn-chat-web/ss10.png",
+      "/projects/nexyn-chat-web/ss11.png",
+      "/projects/nexyn-chat-web/ss12.png",
+    ],
     techStack: [
       "Next.js",
       "TypeScript",

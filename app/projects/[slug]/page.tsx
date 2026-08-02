@@ -158,18 +158,21 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
                   {/* MacBook Screen Lid */}
                   <div className="relative w-full rounded-t-[18px] rounded-b-[4px] bg-gradient-to-b from-[#e5e5e5] via-[#d4d4d4] to-[#a3a3a3] p-[2.5px] shadow-[0_4px_30px_rgba(0,0,0,0.15)] ring-1 ring-black/15">
                     {/* Screen Outer Bezel */}
-                    <div className="relative w-full aspect-[16/10] bg-[#0c0c0c] rounded-t-[16px] rounded-b-[2px] p-[6px] md:p-[9px] flex flex-col shadow-[inset_0_0_15px_rgba(0,0,0,0.8)]">
+                    <div className="relative w-full bg-[#0c0c0c] rounded-t-[16px] rounded-b-[2px] p-[6px] md:p-[9px] flex flex-col shadow-[inset_0_0_15px_rgba(0,0,0,0.8)]">
                       {/* Notch / Camera */}
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[16%] h-[12px] md:h-[14px] bg-[#0d0d0d] rounded-b-[6px] z-30 flex justify-center items-center">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#1e293b] border border-[#334155]/60 shadow-[0_0_2px_rgba(0,0,0,0.5)]" />
                       </div>
                       
                       {/* Screen Content Container with Glossy overlay */}
-                      <div className="relative w-full h-full overflow-hidden rounded-[3px] bg-white shadow-[0_0_30px_rgba(0,0,0,0.2)_inset]">
+                      <div 
+                        className="relative w-full overflow-hidden rounded-[3px] bg-neutral-950 shadow-[0_0_30px_rgba(0,0,0,0.2)_inset]"
+                        style={{ aspectRatio: project.aspectRatio || "16/10" }}
+                      >
                         <img
                           src={img}
                           alt={`${project.name} screen ${i + 1}`}
-                          className="w-full h-full object-cover object-top"
+                          className="w-full h-full object-cover"
                         />
                         {/* Screen glass reflection overlay */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-white/[0.12] pointer-events-none mix-blend-overlay" />

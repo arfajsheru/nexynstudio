@@ -149,19 +149,22 @@ export function FeaturedProjectSection() {
                             <div className="relative z-10 mx-auto w-full shadow-2xl">
                               {/* MacBook Screen / Lid */}
                               <div className="relative w-full rounded-t-[14px] rounded-b-[4px] bg-gradient-to-b from-[#e5e5e5] to-[#b5b5b5] p-[2px] ring-1 ring-black/10">
-                                <div className="relative flex aspect-[16/10] w-full flex-col overflow-hidden rounded-t-[12px] rounded-b-[2px] bg-black p-[6px] shadow-inner md:p-[8px]">
+                                <div className="relative flex w-full flex-col overflow-hidden rounded-t-[12px] rounded-b-[2px] bg-black p-[6px] shadow-inner md:p-[8px]">
                                   {/* Notch */}
                                   <div className="absolute top-0 left-1/2 z-30 flex h-[12px] w-[18%] -translate-x-1/2 items-center justify-center rounded-b-[6px] bg-black md:h-[14px]">
                                     <div className="h-1.5 w-1.5 rounded-full border border-[#222] bg-[#111]" />
                                   </div>
 
                                   {/* Screen Content */}
-                                  <div className="relative h-full w-full overflow-hidden rounded-[2px] bg-neutral-900">
+                                  <div 
+                                    className="relative w-full overflow-hidden rounded-[2px] bg-neutral-950"
+                                    style={{ aspectRatio: project.aspectRatio || "16/10" }}
+                                  >
                                     <Image
                                       src={project.featuredImage}
                                       alt={project.name}
                                       fill
-                                      className="object-cover object-top"
+                                      className="object-cover"
                                       sizes="(max-width: 1024px) 100vw, 55vw"
                                       priority
                                     />

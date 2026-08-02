@@ -57,7 +57,7 @@ export function PortfolioClient() {
                     <div className="relative z-10 w-full mx-auto shadow-2xl">
                       {/* MacBook Screen / Lid */}
                       <div className="relative w-full rounded-t-[14px] rounded-b-[4px] bg-gradient-to-b from-[#e5e5e5] to-[#b5b5b5] p-[2px] ring-1 ring-black/10">
-                        <div className="relative w-full aspect-[16/10] bg-black rounded-t-[12px] rounded-b-[2px] p-[6px] md:p-[8px] flex flex-col shadow-inner overflow-hidden">
+                        <div className="relative w-full bg-black rounded-t-[12px] rounded-b-[2px] p-[6px] md:p-[8px] flex flex-col shadow-inner overflow-hidden">
                           
                           {/* Notch */}
                           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[18%] h-[12px] md:h-[14px] bg-black rounded-b-[6px] z-30 flex justify-center items-center">
@@ -65,7 +65,10 @@ export function PortfolioClient() {
                           </div>
                           
                           {/* Screen Content */}
-                          <div className="relative w-full h-full bg-background overflow-hidden rounded-[2px]">
+                          <div 
+                            className="relative w-full bg-neutral-950 overflow-hidden rounded-[2px]"
+                            style={{ aspectRatio: project.aspectRatio || "16/10" }}
+                          >
                             <img
                               src={project.featuredImage}
                               alt={project.name}
