@@ -6,6 +6,7 @@ import {
   FooterSection,
 } from "@/components/sections";
 import { PageHero } from "@/components/common/page-hero";
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
@@ -208,6 +209,19 @@ export default function ContactPage() {
 
         {/* Quick contact methods */}
         <ContactInfoStrip />
+
+        {/* Headquarters & Consultation Room Showcase Placeholder */}
+        <div className="mx-auto w-full max-w-[1440px] px-4 py-8 md:px-6">
+          <SEOImagePlaceholder
+            width={1200}
+            height={400}
+            aspectRatio="3:1"
+            category="Office & Consultation Workspace"
+            title="Nexyn Studios Consultation Room & Client Meeting Space Photo"
+            seoAlt="Nexyn Studios Software Consulting Office in Malad West Mumbai India"
+            className="w-full shadow-md"
+          />
+        </div>
 
         {/* Full contact form + Google Map */}
         <ContactSection />

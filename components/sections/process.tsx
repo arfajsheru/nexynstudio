@@ -5,6 +5,7 @@ import { Search, Map, PenTool, Code2, ShieldCheck, Rocket, Headphones, ArrowRigh
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
 
 const PROCESS_STAGES = [
   { 
@@ -185,6 +186,19 @@ export function ProcessSection() {
               </div>
             </motion.div>
           </div>
+
+          {/* ── Process Workflow Visual Placeholder ── */}
+          <motion.div variants={fadeUp} className="mt-14 w-full">
+            <SEOImagePlaceholder
+              width={1200}
+              height={450}
+              aspectRatio="16:6"
+              category="Agile Engineering & Sprint Workflow Visual"
+              title="Agile Software Development Lifecycle & Milestone Timeline Illustration"
+              seoAlt="Nexyn Studios 7-Stage Software Development Process Diagram and Sprint Roadmap"
+              className="w-full shadow-lg"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

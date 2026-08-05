@@ -1,33 +1,26 @@
-import type { Metadata } from "next";
-import { Geist, Playfair_Display } from "next/font/google";
-import Script from "next/script";
+import type { Metadata } from "next"
+import { Geist, Inter } from "next/font/google"
+import Script from "next/script"
 
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import { SITE_CONFIG } from "@/lib/constants";
-import { cn } from "@/lib/utils";
-import { StickyCTA } from "@/components/ui/sticky-cta";
-import { SmoothScroll } from "@/components/ui/smooth-scroll";
-import { CustomCursor } from "@/components/ui/custom-cursor";
-import { Preloader } from "@/components/ui/preloader";
-
-// ─── Fonts ────────────────────────────────────────────────────────────────────
-
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { SITE_CONFIG } from "@/lib/constants"
+import { cn } from "@/lib/utils"
+import { StickyCTA } from "@/components/ui/sticky-cta"
+import { SmoothScroll } from "@/components/ui/smooth-scroll"
+import { CustomCursor } from "@/components/ui/custom-cursor"
+import { Preloader } from "@/components/ui/preloader"
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
+})
 
-// Serif used for italic accent words in headlines
-const playfair = Playfair_Display({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-inter",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
@@ -50,14 +43,14 @@ export const metadata: Metadata = {
     "DevOps services",
     "digital marketing agency",
     "IT consulting",
-    
+
     // Tech & Stacks
     "Next.js developers",
     "React.js agency",
     "Node.js backend",
     "cloud deployment",
     "AWS infrastructure",
-    
+
     // Business Needs
     "CRM software development",
     "ERP systems",
@@ -67,11 +60,11 @@ export const metadata: Metadata = {
     "enterprise software solutions",
     "legacy system modernization",
     "scalable web applications",
-    
+
     // Brand
     "Nexyn Studios",
     "Nexyn",
-    "Nexyn technology partner"
+    "Nexyn technology partner",
   ],
   authors: [{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }],
   creator: SITE_CONFIG.name,
@@ -108,18 +101,18 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", geist.variable, playfair.variable)}
+      className={cn("antialiased", geist.variable, inter.variable)}
     >
       <head>
         <Script
@@ -155,30 +148,30 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
-              "name": SITE_CONFIG.name,
-              "image": SITE_CONFIG.url + SITE_CONFIG.ogImage,
-              "url": SITE_CONFIG.url,
-              "telephone": "+91 85910 13795",
-              "email": "nexynstudios@gmail.com",
-              "address": {
+              name: SITE_CONFIG.name,
+              image: SITE_CONFIG.url + SITE_CONFIG.ogImage,
+              url: SITE_CONFIG.url,
+              telephone: "+91 85910 13795",
+              email: "nexynstudios@gmail.com",
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Malad, Mumbai",
-                "addressRegion": "Maharashtra",
-                "addressCountry": "IN"
+                addressLocality: "Malad, Mumbai",
+                addressRegion: "Maharashtra",
+                addressCountry: "IN",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": "19.1828", 
-                "longitude": "72.8402"
+                latitude: "19.1828",
+                longitude: "72.8402",
               },
-              "sameAs": [
+              sameAs: [
                 "https://linkedin.com/company/nexynstudios",
-                "https://twitter.com/nexynstudios"
-              ]
+                "https://twitter.com/nexynstudios",
+              ],
             }),
           }}
         />
       </body>
     </html>
-  );
+  )
 }

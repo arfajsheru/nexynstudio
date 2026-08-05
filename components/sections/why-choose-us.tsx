@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
 
 const REASONS = [
   {
@@ -113,6 +114,18 @@ export function WhyChooseUsSection() {
             ))}
           </div>
 
+          {/* ── Feature Media Showcase Placeholder (SEO Image) ── */}
+          <motion.div variants={fadeUp} className="mt-14 w-full">
+            <SEOImagePlaceholder
+              width={1200}
+              height={500}
+              aspectRatio="21:9"
+              category="Architecture & Software Craftsmanship Showcase"
+              title="Enterprise System Architecture & Clean Code Blueprint Graphic"
+              seoAlt="Why Choose Nexyn Studios — Scalable Cloud Infrastructure and Engineering Quality Diagram"
+              className="w-full shadow-lg"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

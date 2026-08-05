@@ -7,6 +7,7 @@ import {
   FooterSection,
 } from "@/components/sections";
 import { PageHero } from "@/components/common/page-hero";
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -188,6 +189,19 @@ export default function ServicesPage() {
 
         {/* All 6 service cards — click to open detail modal */}
         <ServicesSection />
+
+        {/* Services Capability & Stack Overview Placeholder */}
+        <div className="mx-auto w-full max-w-[1440px] px-4 py-12 md:px-6">
+          <SEOImagePlaceholder
+            width={1200}
+            height={500}
+            aspectRatio="21:9"
+            category="Custom Software Architecture & Stack Overview"
+            title="End-to-End Enterprise Software Engineering Infrastructure Illustration"
+            seoAlt="Nexyn Studios Custom Software Development Services Overview and Tech Stack Infrastructure Diagram"
+            className="w-full shadow-lg"
+          />
+        </div>
 
         {/* CTA strip */}
         <CTASection />

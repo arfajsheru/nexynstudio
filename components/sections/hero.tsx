@@ -9,6 +9,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
 
 // ─── Hero Background & Visuals ──────────────────────────────────────────────
 
@@ -216,10 +217,23 @@ export function HeroSection() {
             ))}
           </motion.div>
 
+          {/* Hero Showcase Image Placeholder (SEO Optimized) */}
+          <motion.div variants={fadeUp} className="mt-10 w-full max-w-4xl">
+            <SEOImagePlaceholder
+              width={1200}
+              height={675}
+              aspectRatio="16:9"
+              category="Hero Software Preview Image"
+              title="Interactive Platform & SaaS Application Preview Image"
+              seoAlt="Nexyn Studios Custom Software Platform Dashboard Showcase"
+              className="w-full shadow-2xl"
+            />
+          </motion.div>
+
           {/* Integrated Stats Grid */}
           <motion.div
             variants={fadeUp}
-            className="mt-8 grid w-full max-w-[1200px] grid-cols-2 gap-3 px-2 sm:mt-10 sm:grid-cols-4 sm:gap-4 sm:px-0"
+            className="mt-10 grid w-full max-w-[1200px] grid-cols-2 gap-3 px-2 sm:grid-cols-4 sm:gap-4 sm:px-0"
           >
             {STATS.map((stat) => (
               <StatCard

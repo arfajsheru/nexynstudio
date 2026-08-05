@@ -12,6 +12,7 @@ import {
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
 
 const AFTER_LAUNCH_ITEMS = [
   {
@@ -98,6 +99,19 @@ export function AfterLaunchSection() {
               </motion.div>
             ))}
           </div>
+
+          {/* ── Post Launch Dashboard Image Placeholder ── */}
+          <motion.div variants={fadeUp} className="mt-16 w-full">
+            <SEOImagePlaceholder
+              width={1200}
+              height={480}
+              aspectRatio="2.5:1"
+              category="Post-Launch Dashboard & System Status Visual"
+              title="24/7 System Monitoring, Security Audit & Analytics Control Panel"
+              seoAlt="Nexyn Studios Continuous Maintenance Dashboard and Performance Monitoring Interface"
+              className="w-full shadow-lg"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

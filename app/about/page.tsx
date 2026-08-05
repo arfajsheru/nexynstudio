@@ -6,6 +6,7 @@ import {
   FooterSection,
 } from "@/components/sections";
 import { PageHero } from "@/components/common/page-hero";
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
 import Link from "next/link";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -188,6 +189,19 @@ function MissionVision() {
           </div>
         </div>
 
+        {/* Team & Studio Media Showcase Placeholder */}
+        <div className="mb-16 w-full">
+          <SEOImagePlaceholder
+            width={1200}
+            height={550}
+            aspectRatio="16:7"
+            category="Company Culture & Team Photo"
+            title="Nexyn Studios Engineering Team & Software Architects Photo"
+            seoAlt="Nexyn Studios Leadership Team and Senior Software Engineers Collaboration in Mumbai Studio"
+            className="w-full shadow-lg"
+          />
+        </div>
+
         {/* Core Values */}
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -233,6 +247,19 @@ function MissionVision() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Office & Studio Environment Showcase Placeholder */}
+        <div className="mt-16 w-full">
+          <SEOImagePlaceholder
+            width={1200}
+            height={400}
+            aspectRatio="3:1"
+            category="Office Studio & Engineering Environment"
+            title="Nexyn Studios Malad West Mumbai Headquarters Photo"
+            seoAlt="Nexyn Studios Custom Software Engineering Workstation and Office Setup in Mumbai"
+            className="w-full shadow-md"
+          />
         </div>
 
         {/* Internal links */}
