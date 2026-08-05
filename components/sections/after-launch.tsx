@@ -1,4 +1,4 @@
-"use client";
+  "use client";
 
 import { motion } from "framer-motion";
 import {
@@ -106,9 +106,10 @@ export function AfterLaunchSection() {
               width={1200}
               height={480}
               aspectRatio="2.5:1"
-              category="Post-Launch Dashboard & System Status Visual"
+              category="System Status & Analytics"
               title="24/7 System Monitoring, Security Audit & Analytics Control Panel"
               seoAlt="Nexyn Studios Continuous Maintenance Dashboard and Performance Monitoring Interface"
+              imageUrl="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
               className="w-full shadow-lg"
             />
           </motion.div>

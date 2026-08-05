@@ -196,9 +196,10 @@ export default function ServicesPage() {
             width={1200}
             height={500}
             aspectRatio="21:9"
-            category="Custom Software Architecture & Stack Overview"
-            title="End-to-End Enterprise Software Engineering Infrastructure Illustration"
+            category="Software Architecture & Cloud Stack"
+            title="End-to-End Enterprise Software Engineering & Infrastructure"
             seoAlt="Nexyn Studios Custom Software Development Services Overview and Tech Stack Infrastructure Diagram"
+            imageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
             className="w-full shadow-lg"
           />
         </div>

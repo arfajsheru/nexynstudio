@@ -120,9 +120,10 @@ export function WhyChooseUsSection() {
               width={1200}
               height={500}
               aspectRatio="21:9"
-              category="Architecture & Software Craftsmanship Showcase"
-              title="Enterprise System Architecture & Clean Code Blueprint Graphic"
-              seoAlt="Why Choose Nexyn Studios — Scalable Cloud Infrastructure and Engineering Quality Diagram"
+              category="Architecture & Engineering Showcase"
+              title="Enterprise System Architecture & Scalable Infrastructure Blueprint"
+              seoAlt="Why Choose Nexyn Studios — Scalable Cloud Infrastructure and High Performance System Architecture Diagram"
+              imageUrl="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80"
               className="w-full shadow-lg"
             />
           </motion.div>

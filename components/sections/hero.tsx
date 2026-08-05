@@ -1,25 +1,28 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Check } from "lucide-react";
-import { HERO_CONTENT, LAYOUT, TRUST_ROW, STATS } from "@/lib/constants";
-import { fadeUp, staggerContainer, fadeIn } from "@/lib/motion";
-import { useCountUp } from "@/hooks/use-interactions";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { cn } from "@/lib/utils";
-import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
-import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder";
+import { motion } from "framer-motion"
+import { ArrowRight, ChevronDown, Check } from "lucide-react"
+import { HERO_CONTENT, LAYOUT, TRUST_ROW, STATS } from "@/lib/constants"
+import { fadeUp, staggerContainer, fadeIn } from "@/lib/motion"
+import { useCountUp } from "@/hooks/use-interactions"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
+import { cn } from "@/lib/utils"
+import { MagneticWrapper } from "@/components/ui/magnetic-wrapper"
+import { SEOImagePlaceholder } from "@/components/ui/seo-image-placeholder"
 
 // ─── Hero Background & Visuals ──────────────────────────────────────────────
 
 function HeroBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden bg-background" aria-hidden="true">
+    <div
+      className="pointer-events-none absolute inset-0 overflow-hidden bg-background"
+      aria-hidden="true"
+    >
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 mix-blend-luminosity dark:opacity-40"
-        style={{ backgroundImage: 'url(/herobackground.png)' }}
+        style={{ backgroundImage: "url(/herobackground.png)" }}
       />
 
       {/* Fine grid — radially masked so it stays center-focused */}
@@ -33,7 +36,7 @@ function HeroBackground() {
       />
       {/* Dark-mode grid */}
       <div
-        className="absolute inset-0 hidden dark:block [mask-image:radial-gradient(ellipse_70%_55%_at_50%_10%,black_40%,transparent_100%)]"
+        className="absolute inset-0 hidden [mask-image:radial-gradient(ellipse_70%_55%_at_50%_10%,black_40%,transparent_100%)] dark:block"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
@@ -43,7 +46,7 @@ function HeroBackground() {
 
       {/* Tight centered top glow — contained, not bleeding to sides */}
       <div
-        className="absolute left-1/2 top-0 -translate-x-1/2 h-[360px] w-[600px] dark:opacity-25"
+        className="absolute top-0 left-1/2 h-[360px] w-[600px] -translate-x-1/2 dark:opacity-25"
         style={{
           background:
             "radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.10) 0%, rgba(139,92,246,0.04) 50%, transparent 75%)",
@@ -54,9 +57,10 @@ function HeroBackground() {
 
       {/* Hairline beam from the top */}
       <div
-        className="absolute left-1/2 top-0 -translate-x-1/2 w-px h-[180px]"
+        className="absolute top-0 left-1/2 h-[180px] w-px -translate-x-1/2"
         style={{
-          background: "linear-gradient(to bottom, rgba(99,102,241,0.30), transparent)",
+          background:
+            "linear-gradient(to bottom, rgba(99,102,241,0.30), transparent)",
         }}
       />
 
@@ -66,7 +70,7 @@ function HeroBackground() {
       <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-background to-transparent" />
       <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-background to-transparent" />
     </div>
-  );
+  )
 }
 
 // ─── Stat Card Component ────────────────────────────────────────────────────
@@ -76,16 +80,19 @@ function StatCard({
   suffix,
   label,
 }: {
-  value: number;
-  suffix: string;
-  label: string;
+  value: number
+  suffix: string
+  label: string
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const count = useCountUp(value, isInView, 1500);
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const count = useCountUp(value, isInView, 1500)
 
   return (
-    <div ref={ref} className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/30 p-5 text-left backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-muted/30 dark:border-border/30 dark:bg-card/20 dark:hover:border-foreground/30 dark:hover:bg-card/40">
+    <div
+      ref={ref}
+      className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/30 p-5 text-left backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-muted/30 dark:border-border/30 dark:bg-card/20 dark:hover:border-foreground/30 dark:hover:bg-card/40"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
       <div className="relative flex flex-col gap-1">
@@ -98,7 +105,7 @@ function StatCard({
         </span>
       </div>
     </div>
-  );
+  )
 }
 
 // ─── Scroll Indicator ───────────────────────────────────────────────────────
@@ -111,18 +118,18 @@ function ScrollIndicator() {
     >
       <button
         onClick={() => {
-          window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+          window.scrollBy({ top: window.innerHeight, behavior: "smooth" })
         }}
         className="flex flex-col items-center gap-1.5 text-muted-foreground/40 transition-colors duration-300 hover:text-muted-foreground"
         aria-label="Scroll down"
       >
-        <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
+        <span className="text-[10px] font-medium tracking-[0.2em] uppercase">
           Scroll
         </span>
         <ChevronDown className="h-3.5 w-3.5 animate-[bounce_2s_infinite]" />
       </button>
     </motion.div>
-  );
+  )
 }
 
 // ─── Hero Section (Main Export) ──────────────────────────────────────────────
@@ -135,7 +142,13 @@ export function HeroSection() {
     >
       <HeroBackground />
 
-      <div className={cn("relative z-10 mx-auto w-full flex-1 flex flex-col justify-center", LAYOUT.maxWidth, LAYOUT.paddingX)}>
+      <div
+        className={cn(
+          "relative z-10 mx-auto flex w-full flex-1 flex-col justify-center",
+          LAYOUT.maxWidth,
+          LAYOUT.paddingX
+        )}
+      >
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -144,12 +157,15 @@ export function HeroSection() {
           className="flex flex-col items-center text-center"
         >
           {/* Animated Trust Badge */}
-          <motion.div variants={fadeUp} className="mb-6 relative flex overflow-hidden rounded-full p-[1px]">
+          <motion.div
+            variants={fadeUp}
+            className="relative mb-6 flex overflow-hidden rounded-full p-[1px]"
+          >
             {/* Spinning gradient border - Optimized inset and will-change */}
             <div className="absolute inset-[-200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,hsl(var(--foreground))_50%,transparent_100%)] opacity-30 will-change-transform dark:opacity-40" />
 
             {/* Inner badge content */}
-            <div className="relative inline-flex items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground backdrop-blur-xl">
+            <div className="relative inline-flex items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-[11px] font-medium tracking-wide text-muted-foreground uppercase backdrop-blur-xl">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -161,7 +177,7 @@ export function HeroSection() {
           {/* Headline - Guaranteed to fit 2 lines perfectly */}
           <motion.h1
             variants={fadeUp}
-            className="mx-auto w-full max-w-[1440px] text-[36px] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[48px] md:text-[60px] lg:text-[72px]"
+            className="mx-auto w-full max-w-[1440px] text-[36px] leading-[1.1] font-bold tracking-tight text-foreground sm:text-[48px] md:text-[60px] lg:text-[72px]"
           >
             {HERO_CONTENT.headlinePart1}
             <br />
@@ -186,7 +202,7 @@ export function HeroSection() {
             <MagneticWrapper range={50} strength={0.4}>
               <a
                 href={HERO_CONTENT.primaryCta.href}
-                className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-7 text-sm font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12"
+                className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-7 text-sm font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:opacity-90 hover:shadow-xl hover:shadow-foreground/10 active:scale-[0.98] sm:h-12"
               >
                 {HERO_CONTENT.primaryCta.label}
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -217,15 +233,16 @@ export function HeroSection() {
             ))}
           </motion.div>
 
-          {/* Hero Showcase Image Placeholder (SEO Optimized) */}
-          <motion.div variants={fadeUp} className="mt-10 w-full max-w-4xl">
+          {/* Hero Software Dashboard Preview Media (Dummy Image + SEO Tags) */}
+          <motion.div variants={fadeUp} className="mt-10 w-full max-w-5xl">
             <SEOImagePlaceholder
               width={1200}
               height={675}
               aspectRatio="16:9"
-              category="Hero Software Preview Image"
-              title="Interactive Platform & SaaS Application Preview Image"
-              seoAlt="Nexyn Studios Custom Software Platform Dashboard Showcase"
+              category="Hero Platform Preview"
+              title="Enterprise Custom Software & Analytics Dashboard Showcase"
+              seoAlt="Nexyn Studios Custom Software Development Platform Analytics Dashboard Interface Preview"
+              imageUrl="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80"
               className="w-full shadow-2xl"
             />
           </motion.div>
@@ -233,7 +250,7 @@ export function HeroSection() {
           {/* Integrated Stats Grid */}
           <motion.div
             variants={fadeUp}
-            className="mt-10 grid w-full max-w-[1200px] grid-cols-2 gap-3 px-2 sm:grid-cols-4 sm:gap-4 sm:px-0"
+            className="mt-8 grid w-full max-w-[1200px] grid-cols-2 gap-3 px-2 sm:mt-10 sm:grid-cols-4 sm:gap-4 sm:px-0"
           >
             {STATS.map((stat) => (
               <StatCard
@@ -249,5 +266,5 @@ export function HeroSection() {
 
       <ScrollIndicator />
     </section>
-  );
+  )
 }

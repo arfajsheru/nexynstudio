@@ -217,8 +217,9 @@ export default function ContactPage() {
             height={400}
             aspectRatio="3:1"
             category="Office & Consultation Workspace"
-            title="Nexyn Studios Consultation Room & Client Meeting Space Photo"
+            title="Nexyn Studios Client Meeting & Strategy Space"
             seoAlt="Nexyn Studios Software Consulting Office in Malad West Mumbai India"
+            imageUrl="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80"
             className="w-full shadow-md"
           />
         </div>

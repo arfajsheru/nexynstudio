@@ -193,9 +193,10 @@ export function ProcessSection() {
               width={1200}
               height={450}
               aspectRatio="16:6"
-              category="Agile Engineering & Sprint Workflow Visual"
-              title="Agile Software Development Lifecycle & Milestone Timeline Illustration"
+              category="Agile Process & Engineering Workflow"
+              title="Agile Software Development Lifecycle & Milestone Planning"
               seoAlt="Nexyn Studios 7-Stage Software Development Process Diagram and Sprint Roadmap"
+              imageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
               className="w-full shadow-lg"
             />
           </motion.div>

@@ -195,9 +195,10 @@ function MissionVision() {
             width={1200}
             height={550}
             aspectRatio="16:7"
-            category="Company Culture & Team Photo"
-            title="Nexyn Studios Engineering Team & Software Architects Photo"
+            category="Company Culture & Engineering Team"
+            title="Nexyn Studios Engineering Team & Software Architects"
             seoAlt="Nexyn Studios Leadership Team and Senior Software Engineers Collaboration in Mumbai Studio"
+            imageUrl="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
             className="w-full shadow-lg"
           />
         </div>
@@ -255,9 +256,10 @@ function MissionVision() {
             width={1200}
             height={400}
             aspectRatio="3:1"
-            category="Office Studio & Engineering Environment"
-            title="Nexyn Studios Malad West Mumbai Headquarters Photo"
-            seoAlt="Nexyn Studios Custom Software Engineering Workstation and Office Setup in Mumbai"
+            category="Mumbai Headquarters Studio"
+            title="Nexyn Studios Malad West Engineering Workspace"
+            seoAlt="Nexyn Studios Custom Software Engineering Workstation and Modern Tech Office Setup in Mumbai"
+            imageUrl="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
             className="w-full shadow-md"
           />
         </div>
