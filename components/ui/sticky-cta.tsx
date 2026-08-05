@@ -51,7 +51,7 @@ export function StickyCTA() {
             </div>
             
             <a
-              href="#contact"
+              href="/contact"
               className="group flex h-9 items-center justify-center gap-2 rounded-full bg-foreground px-5 text-[12px] font-semibold text-background transition-all hover:bg-foreground/90 hover:scale-[1.02] active:scale-95"
             >
               Start Building

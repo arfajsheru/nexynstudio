@@ -9,18 +9,18 @@ import { cn } from "@/lib/utils";
 
 const FOOTER_LINKS = {
   Services: [
-    { label: "Custom Software", href: "/#services" },
-    { label: "Web Applications", href: "/#services" },
-    { label: "Mobile Apps", href: "/#services" },
-    { label: "CRM Systems", href: "/#services" },
-    { label: "Business Automation", href: "/#services" },
+    { label: "Custom Software", href: "/services" },
+    { label: "Web Applications", href: "/services" },
+    { label: "Mobile Apps", href: "/services" },
+    { label: "CRM Systems", href: "/services" },
+    { label: "Business Automation", href: "/services" },
   ],
   Company: [
-    { label: "About Us", href: "/#about" },
-    { label: "Our Process", href: "/#process" },
+    { label: "About Us", href: "/about" },
+    { label: "Our Process", href: "/about" },
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Technology", href: "/#tech-stack" },
-    { label: "Careers", href: "/#careers" },
+    { label: "Contact", href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
   ],
   Resources: [
     { label: "Blog", href: "/blog" },

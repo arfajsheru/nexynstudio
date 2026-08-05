@@ -351,7 +351,7 @@ export function ServicesSection() {
 
                   <div className="mt-auto pt-6 border-t border-border/30">
                     <a
-                      href="#contact"
+                      href="/contact"
                       onClick={() => setSelectedService(null)}
                       className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-[14px] font-semibold text-background transition-all hover:bg-foreground/90 hover:shadow-lg"
                     >

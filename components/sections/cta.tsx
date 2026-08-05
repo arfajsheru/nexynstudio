@@ -66,14 +66,14 @@ export function CTASection() {
             className="flex flex-col items-center gap-4 sm:flex-row"
           >
             <a
-              href="#contact"
+              href="/contact"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-[13px] font-semibold text-background transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-foreground/10"
             >
               Schedule Consultation
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#services"
+              href="/services"
               className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-8 py-3.5 text-[13px] font-semibold text-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/5"
             >
               View Services

@@ -176,7 +176,7 @@ export function ProcessSection() {
 
               <div className="pt-6">
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="inline-flex items-center gap-2 text-xs font-bold text-foreground hover:opacity-85 transition-opacity"
                 >
                   Schedule a discovery call
