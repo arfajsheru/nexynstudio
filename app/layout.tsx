@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Inter } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
@@ -10,16 +10,23 @@ import { StickyCTA } from "@/components/ui/sticky-cta";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { Preloader } from "@/components/ui/preloader";
+
+// ─── Fonts ────────────────────────────────────────────────────────────────────
+
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const inter = Inter({
+// Serif used for italic accent words in headlines
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-serif",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -112,7 +119,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", geist.variable, inter.variable)}
+      className={cn("antialiased", geist.variable, playfair.variable)}
     >
       <head>
         <Script
