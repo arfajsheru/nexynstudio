@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ArrowRight, Home, Briefcase, FolderGit2, Info, Mail } from "lucide-react"
+import { Menu, X, ArrowRight, Home, Briefcase, FolderGit2, Info, Mail, Layers, Globe, Smartphone, Sparkles, BookOpen, FileText, HelpCircle, LifeBuoy } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { NAV_ITEMS, NAV_CTA, SITE_CONFIG } from "@/lib/constants"
@@ -17,6 +17,7 @@ const navIcons = {
   Home: Home,
   Services: Briefcase,
   Portfolio: FolderGit2,
+  Resources: BookOpen,
   About: Info,
   Contact: Mail,
 }
@@ -27,9 +28,73 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
+const SERVICES_DROPDOWN = [
+  {
+    label: "Custom Software",
+    desc: "Bespoke CRM, ERP, and internal systems",
+    href: "/services?service=software",
+    icon: Layers,
+  },
+  {
+    label: "Web Applications",
+    desc: "High-performance Next.js & React platforms",
+    href: "/services?service=web",
+    icon: Globe,
+  },
+  {
+    label: "Mobile Apps",
+    desc: "React Native iOS & Android cross-platform apps",
+    href: "/services?service=mobile",
+    icon: Smartphone,
+  },
+  {
+    label: "CRM Systems",
+    desc: "Automated sales pipelines & operational hubs",
+    href: "/services?service=software",
+    icon: Briefcase,
+  },
+  {
+    label: "Business Automation",
+    desc: "Workflow triggers & system integrations",
+    href: "/services?service=software",
+    icon: Sparkles,
+  },
+];
+
+const RESOURCES_DROPDOWN = [
+  {
+    label: "Blog",
+    desc: "Engineering insights, design & automation guidelines",
+    href: "/blog",
+    icon: BookOpen,
+  },
+  {
+    label: "Case Studies",
+    desc: "Detailed project architectures we delivered",
+    href: "/case-studies",
+    icon: FileText,
+  },
+  {
+    label: "FAQ",
+    desc: "Frequently asked questions on process & pricing",
+    href: "/faq",
+    icon: HelpCircle,
+  },
+  {
+    label: "Support",
+    desc: "Customer onboarding protocols & maintenance",
+    href: "/support",
+    icon: LifeBuoy,
+  },
+];
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false)
+  const [isMobileResourcesOpen, setIsMobileResourcesOpen] = useState(false)
   const activeSection = useActiveSection(SECTION_IDS)
   const isDesktop = useMediaQuery("(min-width: 1024px)")
   const isMobileMenuVisible = isMobileOpen && !isDesktop
@@ -122,6 +187,172 @@ export function Navbar() {
                 }
               }
 
+              if (item.label === "Services") {
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={cn(
+                        "relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors duration-200",
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {item.label}
+                      <svg
+                        className={cn(
+                          "h-3.5 w-3.5 transition-transform duration-200 opacity-60",
+                          isServicesOpen && "rotate-180"
+                        )}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </Link>
+
+                    <AnimatePresence>
+                      {isServicesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute left-1/2 top-full z-50 mt-1 w-[380px] -translate-x-1/2 rounded-2xl border border-border bg-background/95 p-3 shadow-2xl backdrop-blur-xl"
+                        >
+                          <div className="grid gap-1">
+                            {SERVICES_DROPDOWN.map((sub) => {
+                              const SubIcon = sub.icon;
+                              return (
+                                <Link
+                                  key={sub.label}
+                                  href={sub.href}
+                                  onClick={(e) => {
+                                    setIsServicesOpen(false);
+                                    handleNavClick(e, sub.href);
+                                  }}
+                                  className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-muted/50"
+                                >
+                                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-foreground/[0.04] transition-colors group-hover:bg-foreground/[0.08]">
+                                    <SubIcon className="h-4.5 w-4.5 text-foreground/75" />
+                                  </div>
+                                  <div className="min-w-0 text-left">
+                                    <div className="text-xs font-semibold text-foreground flex items-center gap-1">
+                                      {sub.label}
+                                      <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                                    </div>
+                                    <div className="mt-0.5 text-[10.5px] leading-relaxed text-muted-foreground">
+                                      {sub.desc}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              if (item.label === "Resources") {
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setIsResourcesOpen(true)}
+                    onMouseLeave={() => setIsResourcesOpen(false)}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={cn(
+                        "relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors duration-200",
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {item.label}
+                      <svg
+                        className={cn(
+                          "h-3.5 w-3.5 transition-transform duration-200 opacity-60",
+                          isResourcesOpen && "rotate-180"
+                        )}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </Link>
+
+                    <AnimatePresence>
+                      {isResourcesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute left-1/2 top-full z-50 mt-1 w-[380px] -translate-x-1/2 rounded-2xl border border-border bg-background/95 p-3 shadow-2xl backdrop-blur-xl"
+                        >
+                          <div className="grid gap-1">
+                            {RESOURCES_DROPDOWN.map((sub) => {
+                              const SubIcon = sub.icon;
+                              return (
+                                <Link
+                                  key={sub.label}
+                                  href={sub.href}
+                                  onClick={(e) => {
+                                    setIsResourcesOpen(false);
+                                    handleNavClick(e, sub.href);
+                                  }}
+                                  className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-muted/50"
+                                >
+                                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-foreground/[0.04] transition-colors group-hover:bg-foreground/[0.08]">
+                                    <SubIcon className="h-4.5 w-4.5 text-foreground/75" />
+                                  </div>
+                                  <div className="min-w-0 text-left">
+                                    <div className="text-xs font-semibold text-foreground flex items-center gap-1">
+                                      {sub.label}
+                                      <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                                    </div>
+                                    <div className="mt-0.5 text-[10.5px] leading-relaxed text-muted-foreground">
+                                      {sub.desc}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={item.label}
@@ -148,7 +379,7 @@ export function Navbar() {
                     />
                   )}
                 </Link>
-              )
+              );
             })}
           </div>
 
@@ -213,7 +444,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-              className="absolute top-16 right-0 left-0 border-b border-border bg-background/95 backdrop-blur-xl"
+              className="absolute top-16 right-0 left-0 border-b border-border bg-background/95 backdrop-blur-xl max-h-[calc(100vh-4rem)] overflow-y-auto pb-8 scrollbar-hide"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mx-auto max-w-7xl px-6 py-6">
@@ -239,6 +470,138 @@ export function Navbar() {
 
                     const IconComponent = navIcons[item.label as keyof typeof navIcons] || Info
 
+                    if (item.label === "Services") {
+                      return (
+                        <div key={item.label} className="flex flex-col">
+                          <button
+                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                            className={cn(
+                              "w-full rounded-xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-200 flex items-center justify-between",
+                              isActive
+                                ? "bg-foreground/5 text-foreground"
+                                : "text-muted-foreground hover:bg-muted/30 hover:text-foreground"
+                            )}
+                          >
+                            <div className="flex items-center gap-3">
+                              <IconComponent className="h-4.5 w-4.5 text-foreground/50 shrink-0" />
+                              <span>{item.label}</span>
+                            </div>
+                            <svg
+                              className={cn(
+                                "h-4 w-4 transition-transform duration-200 text-muted-foreground",
+                                isMobileServicesOpen && "rotate-180"
+                              )}
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+
+                          <AnimatePresence>
+                            {isMobileServicesOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden pl-7 flex flex-col gap-1 mt-1 border-l border-border/60 ml-6"
+                              >
+                                {SERVICES_DROPDOWN.map((sub) => {
+                                  const SubIcon = sub.icon;
+                                  return (
+                                    <Link
+                                      key={sub.label}
+                                      href={sub.href}
+                                      onClick={(e) => {
+                                        setIsMobileOpen(false);
+                                        handleNavClick(e, sub.href);
+                                      }}
+                                      className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[12.5px] font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/20 transition-all text-left"
+                                    >
+                                      <SubIcon className="h-3.5 w-3.5 text-foreground/40" />
+                                      {sub.label}
+                                    </Link>
+                                  );
+                                })}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    }
+
+                    if (item.label === "Resources") {
+                      return (
+                        <div key={item.label} className="flex flex-col">
+                          <button
+                            onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
+                            className={cn(
+                              "w-full rounded-xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-200 flex items-center justify-between",
+                              isActive
+                                ? "bg-foreground/5 text-foreground"
+                                : "text-muted-foreground hover:bg-muted/30 hover:text-foreground"
+                            )}
+                          >
+                            <div className="flex items-center gap-3">
+                              <IconComponent className="h-4.5 w-4.5 text-foreground/50 shrink-0" />
+                              <span>{item.label}</span>
+                            </div>
+                            <svg
+                              className={cn(
+                                "h-4 w-4 transition-transform duration-200 text-muted-foreground",
+                                isMobileResourcesOpen && "rotate-180"
+                              )}
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+
+                          <AnimatePresence>
+                            {isMobileResourcesOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden pl-7 flex flex-col gap-1 mt-1 border-l border-border/60 ml-6"
+                              >
+                                {RESOURCES_DROPDOWN.map((sub) => {
+                                  const SubIcon = sub.icon;
+                                  return (
+                                    <Link
+                                      key={sub.label}
+                                      href={sub.href}
+                                      onClick={(e) => {
+                                        setIsMobileOpen(false);
+                                        handleNavClick(e, sub.href);
+                                      }}
+                                      className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[12.5px] font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/20 transition-all text-left"
+                                    >
+                                      <SubIcon className="h-3.5 w-3.5 text-foreground/40" />
+                                      {sub.label}
+                                    </Link>
+                                  );
+                                })}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    }
+
                     return (
                       <Link
                         key={item.label}
@@ -262,7 +625,7 @@ export function Navbar() {
                           {item.label}
                         </motion.span>
                       </Link>
-                    )
+                    );
                   })}
                 </div>
 

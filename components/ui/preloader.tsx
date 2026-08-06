@@ -64,11 +64,27 @@ export function Preloader() {
   const [progress, setProgress] = useState(0);
   const [exiting, setExiting] = useState(false);
 
-  const totalDuration = 2600; // total preloader time in ms
-  const wordInterval = 380;   // how long each word shows
+  const totalDuration = 1800; // total preloader time in ms (down from 2600)
+  const wordInterval = 260;   // how long each word shows (down from 380)
+
+  // Check sessionStorage on mount to bypass preloader for returning visits in same session
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const shown = sessionStorage.getItem("nexyn-preloader-shown");
+      if (shown) {
+        setVisible(false);
+        document.body.style.overflow = "unset";
+      } else {
+        document.body.style.overflow = "hidden";
+      }
+    }
+  }, []);
 
   // Progress counter
   useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("nexyn-preloader-shown")) {
+      return;
+    }
     const start = performance.now();
     let raf: number;
 
@@ -86,6 +102,9 @@ export function Preloader() {
 
   // Cycle words
   useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("nexyn-preloader-shown")) {
+      return;
+    }
     const interval = setInterval(() => {
       setWordIndex((i) => (i + 1) % WORDS.length);
     }, wordInterval);
@@ -94,13 +113,17 @@ export function Preloader() {
 
   // Exit sequence
   useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("nexyn-preloader-shown")) {
+      return;
+    }
     const exitTimer = setTimeout(() => {
       setExiting(true);
       document.body.style.overflow = "unset";
-    }, totalDuration - 600);
+    }, totalDuration - 500);
 
     const hideTimer = setTimeout(() => {
       setVisible(false);
+      sessionStorage.setItem("nexyn-preloader-shown", "true");
     }, totalDuration + 100);
 
     document.body.style.overflow = "hidden";

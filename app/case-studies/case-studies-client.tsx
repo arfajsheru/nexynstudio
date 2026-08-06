@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   TrendingUp,
@@ -14,87 +15,68 @@ import {
 import { LAYOUT } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+import { PROJECTS } from "@/lib/data/projects";
 
-// ── Case Studies Data ─────────────────────────────────────────────────────────
+// ── Case Studies Data (Dynamic from projects) ──────────────────────────────────
 
-const INDUSTRIES = [
-  "All",
-  "E-Commerce",
-  "Healthcare",
-  "Real Estate",
-  "FinTech",
-];
+const CASE_STUDIES = PROJECTS.map((project) => {
+  const results = project.results.slice(0, 3).map((res) => {
+    let icon = TrendingUp;
+    const metricLower = res.metric.toLowerCase();
+    if (metricLower.includes("time") || metricLower.includes("latency") || metricLower.includes("compatibility")) {
+      icon = Clock;
+    } else if (
+      metricLower.includes("student") ||
+      metricLower.includes("user") ||
+      metricLower.includes("connection") ||
+      metricLower.includes("session") ||
+      metricLower.includes("active")
+    ) {
+      icon = Users;
+    } else if (
+      metricLower.includes("amount") ||
+      metricLower.includes("usage") ||
+      metricLower.includes("revenue") ||
+      metricLower.includes("growth") ||
+      metricLower.includes("volume") ||
+      metricLower.includes("sharing") ||
+      metricLower.includes("saved")
+    ) {
+      icon = BarChart3;
+    } else if (
+      metricLower.includes("request") ||
+      metricLower.includes("delivery") ||
+      metricLower.includes("load") ||
+      metricLower.includes("speed") ||
+      metricLower.includes("offline")
+    ) {
+      icon = Zap;
+    }
 
-const CASE_STUDIES = [
-  {
-    slug: "ecommerce-platform-scalability",
-    client: "ShopNest India",
-    industry: "E-Commerce",
-    title: "Scaling an E-Commerce Platform to Handle 10x Traffic Growth",
-    challenge:
-      "ShopNest was experiencing severe slowdowns during sale events, losing lakhs in revenue due to crashes and abandoned carts. Their legacy PHP monolith couldn't handle peak loads.",
-    solution:
-      "We rebuilt their entire stack with Next.js for the storefront and Node.js microservices for the backend. Implemented auto-scaling on AWS, Redis caching, and a custom order management system.",
-    results: [
-      { icon: TrendingUp, value: "3x", label: "Revenue Growth" },
-      { icon: Zap, value: "200ms", label: "Page Load Time" },
-      { icon: Users, value: "10x", label: "Concurrent Users" },
-    ],
+    return {
+      icon,
+      value: res.value,
+      label: res.metric,
+    };
+  });
+
+  return {
+    slug: project.slug,
+    client: project.shortName || project.clientType,
+    industry: project.industry.includes("/") ? project.industry.split("/")[0].trim() : project.industry,
+    category: project.category,
+    aspectRatio: project.aspectRatio,
+    title: project.name,
+    challenge: project.challenge,
+    solution: project.solution,
+    featuredImage: project.featuredImage,
+    results,
     imageWidth: 700,
     imageHeight: 400,
-  },
-  {
-    slug: "healthcare-patient-management",
-    client: "MedConnect Clinic Network",
-    industry: "Healthcare",
-    title: "Building a Custom Patient Management System for 50+ Clinics",
-    challenge:
-      "MedConnect operated across 50+ clinics in Maharashtra with no unified system. Patient records were scattered, appointment scheduling was manual, and billing was inconsistent.",
-    solution:
-      "We developed a cloud-based Patient Management System with role-based access, automated appointment scheduling, digital prescriptions, and integrated billing with Razorpay for online payments.",
-    results: [
-      { icon: Clock, value: "60%", label: "Faster Operations" },
-      { icon: BarChart3, value: "45%", label: "Revenue Increase" },
-      { icon: Users, value: "50+", label: "Clinics Onboarded" },
-    ],
-    imageWidth: 700,
-    imageHeight: 400,
-  },
-  {
-    slug: "real-estate-crm-platform",
-    client: "PropVault Realty",
-    industry: "Real Estate",
-    title: "Custom CRM That Increased Lead Conversions by 85%",
-    challenge:
-      "PropVault's sales team relied on spreadsheets and WhatsApp groups to manage leads. They were losing 40% of their leads due to poor follow-up tracking and no visibility into the sales pipeline.",
-    solution:
-      "We built a custom CRM with automated lead capture from 12+ sources, intelligent follow-up scheduling, WhatsApp integration for instant responses, and real-time analytics dashboards.",
-    results: [
-      { icon: TrendingUp, value: "85%", label: "Better Conversion" },
-      { icon: Zap, value: "12+", label: "Lead Sources Integrated" },
-      { icon: Clock, value: "50%", label: "Faster Follow-up" },
-    ],
-    imageWidth: 700,
-    imageHeight: 400,
-  },
-  {
-    slug: "fintech-payment-dashboard",
-    client: "PayScale Solutions",
-    industry: "FinTech",
-    title: "Enterprise Payment Dashboard Processing ₹50Cr+ Monthly",
-    challenge:
-      "PayScale needed a real-time dashboard to monitor transactions across multiple payment gateways. Their existing tools were fragmented and lacked the compliance features required by RBI regulations.",
-    solution:
-      "We engineered a unified payment analytics dashboard with real-time transaction monitoring, automated reconciliation, fraud detection alerts, and compliance reporting — all built on a secure, encrypted infrastructure.",
-    results: [
-      { icon: BarChart3, value: "₹50Cr+", label: "Monthly Volume" },
-      { icon: Zap, value: "99.99%", label: "Uptime" },
-      { icon: Clock, value: "Real-time", label: "Monitoring" },
-    ],
-    imageWidth: 700,
-    imageHeight: 400,
-  },
-];
+  };
+});
+
+
 
 // ── Image Placeholder ─────────────────────────────────────────────────────────
 
@@ -134,6 +116,7 @@ function CaseStudyCard({
   index: number;
 }) {
   const isReversed = index % 2 !== 0;
+  const isMobile = study.category === "Mobile App";
 
   return (
     <motion.article
@@ -141,20 +124,111 @@ function CaseStudyCard({
       className="group overflow-hidden rounded-2xl border border-border/50 bg-foreground/[0.01] transition-all duration-300 hover:border-foreground/20 hover:shadow-xl"
     >
       <div
-        className={cn(
-          "grid grid-cols-1 lg:grid-cols-2 gap-0",
-          isReversed && "lg:[direction:rtl]",
-        )}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-0"
       >
-        <ImagePlaceholder
-          width={study.imageWidth}
-          height={study.imageHeight}
-          className="aspect-[16/10] lg:aspect-auto lg:min-h-[400px] rounded-none"
-        />
+        <Link
+          href={`/projects/${study.slug}`}
+          className={cn(
+            "relative flex min-h-[380px] lg:min-h-[460px] items-center justify-center overflow-hidden bg-gradient-to-b from-[#0f172a] to-[#020617] p-8 lg:p-12",
+            isReversed && "lg:order-2"
+          )}
+        >
+          {/* Glowing background orbs */}
+          <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-white/[0.015] blur-[80px]" />
+          <div className="pointer-events-none absolute -right-24 -bottom-24 h-64 w-64 rounded-full bg-white/[0.015] blur-[80px]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.035)_0%,_transparent_70%)]" />
+
+          {study.featuredImage ? (
+            isMobile ? (
+              /* Realistic iPhone Mockup Wrapper */
+              <div
+                className="relative z-10 mx-auto block w-[180px] transition-transform duration-500 group-hover:scale-[1.03] sm:w-[200px]"
+              >
+                <div className="relative z-10 aspect-[9/19] w-full rounded-[2.5rem] bg-gradient-to-b from-[#e5e5e5] via-[#fdfdfd] to-[#888888] p-[2.5px] shadow-2xl ring-1 ring-black/20">
+                  <div className="relative h-full w-full overflow-hidden rounded-[2.3rem] bg-black p-[5px] md:p-[6px]">
+                    {/* Dynamic Island */}
+                    <div className="absolute top-2.5 left-1/2 z-20 flex h-[16px] w-[35%] -translate-x-1/2 items-center justify-end rounded-full bg-black pr-1.5">
+                      <div className="h-1.5 w-1.5 rounded-full border border-[#222] bg-[#111]" />
+                    </div>
+
+                    {/* Screen Content */}
+                    <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-neutral-900">
+                      <Image
+                        src={study.featuredImage}
+                        alt={study.title}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 1024px) 100vw, 30vw"
+                        priority={index < 2}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Physical Buttons */}
+                  <div className="absolute top-[80px] -left-[3px] h-[22px] w-[3px] rounded-l-[2px] bg-[#a3a3a3]" />
+                  <div className="absolute top-[115px] -left-[3px] h-[38px] w-[3px] rounded-l-[2px] bg-[#a3a3a3]" />
+                  <div className="absolute top-[165px] -left-[3px] h-[38px] w-[3px] rounded-l-[2px] bg-[#a3a3a3]" />
+                  <div className="absolute top-[120px] -right-[3px] h-[50px] w-[3px] rounded-r-[2px] bg-[#a3a3a3]" />
+                </div>
+              </div>
+            ) : (
+              /* Realistic MacBook Mockup Wrapper */
+              <div
+                className="relative z-10 mx-auto block w-full max-w-[420px] transition-transform duration-500 group-hover:scale-[1.02] sm:max-w-[460px] lg:max-w-[480px]"
+              >
+                <div className="relative z-10 mx-auto w-full shadow-2xl">
+                  {/* MacBook Screen / Lid */}
+                  <div className="relative w-full rounded-t-[12px] rounded-b-[4px] bg-gradient-to-b from-[#e5e5e5] to-[#b5b5b5] p-[2px] ring-1 ring-black/10">
+                    <div className="relative flex w-full flex-col overflow-hidden rounded-t-[10px] rounded-b-[2px] bg-black p-[5px] shadow-inner md:p-[6px]">
+                      {/* Notch */}
+                      <div className="absolute top-0 left-1/2 z-30 flex h-[10px] w-[18%] -translate-x-1/2 items-center justify-center rounded-b-[5px] bg-black md:h-[12px]">
+                        <div className="h-1 w-1 rounded-full border border-[#222] bg-[#111]" />
+                      </div>
+
+                      {/* Screen Content */}
+                      <div 
+                        className="relative w-full overflow-hidden rounded-[1.5px] bg-neutral-950"
+                        style={{ aspectRatio: study.aspectRatio || "16/10" }}
+                      >
+                        <Image
+                          src={study.featuredImage}
+                          alt={study.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          priority={index < 2}
+                        />
+                      </div>
+
+                      {/* MacBook Pro text */}
+                      <div className="z-20 mt-0.5 -mb-0.5 flex h-[10px] w-full items-center justify-center md:h-[12px]">
+                        <span className="text-[5px] font-semibold tracking-[0.3em] text-[#444] uppercase">
+                          MacBook Pro
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* MacBook Base */}
+                  <div className="relative -ml-[7%] flex h-2.5 w-[114%] items-start justify-center rounded-t-[1px] rounded-b-xl border-b-[1.5px] border-[#555555] bg-gradient-to-b from-[#e0e0e0] to-[#999999] shadow-[0_15px_30px_rgba(0,0,0,0.3)] md:h-3.5">
+                    {/* Trackpad Indentation */}
+                    <div className="h-0.5 w-[18%] rounded-b-[3px] bg-[#c2c2c2] shadow-inner md:h-1" />
+                  </div>
+                </div>
+              </div>
+            )
+          ) : (
+            <ImagePlaceholder
+              width={study.imageWidth}
+              height={study.imageHeight}
+              className="w-full h-full rounded-none"
+            />
+          )}
+        </Link>
         <div
           className={cn(
             "flex flex-col justify-center p-8 lg:p-10",
-            isReversed && "lg:[direction:ltr]",
+            isReversed && "lg:order-1"
           )}
         >
           {/* Industry + Client */}
@@ -168,9 +242,11 @@ function CaseStudyCard({
           </div>
 
           {/* Title */}
-          <h2 className="mb-4 text-xl font-bold leading-snug tracking-tight text-foreground lg:text-2xl">
-            {study.title}
-          </h2>
+          <Link href={`/projects/${study.slug}`}>
+            <h2 className="mb-4 text-xl font-bold leading-snug tracking-tight text-foreground lg:text-2xl hover:text-foreground/80 transition-colors">
+              {study.title}
+            </h2>
+          </Link>
 
           {/* Challenge & Solution */}
           <div className="mb-6 space-y-3">
@@ -212,26 +288,23 @@ function CaseStudyCard({
           </div>
 
           {/* CTA */}
-          <div className="mt-6 flex items-center gap-2 text-[13px] font-semibold text-foreground transition-colors group-hover:text-foreground/70">
+          <Link
+            href={`/projects/${study.slug}`}
+            className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-foreground transition-colors hover:text-foreground/70"
+          >
             Read Full Case Study
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </div>
+          </Link>
         </div>
       </div>
     </motion.article>
   );
 }
 
+
 // ── Case Studies Client ───────────────────────────────────────────────────────
 
 export function CaseStudiesClient() {
-  const [activeIndustry, setActiveIndustry] = useState("All");
-
-  const filtered = CASE_STUDIES.filter((s) => {
-    if (activeIndustry === "All") return true;
-    return s.industry === activeIndustry;
-  });
-
   return (
     <div
       className={cn("mx-auto w-full pb-24", LAYOUT.maxWidth, LAYOUT.paddingX)}
@@ -266,29 +339,6 @@ export function CaseStudiesClient() {
         </motion.p>
       </motion.header>
 
-      {/* Industry Filters */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="flex flex-wrap items-center gap-2 mb-12"
-      >
-        {INDUSTRIES.map((industry) => (
-          <button
-            key={industry}
-            onClick={() => setActiveIndustry(industry)}
-            className={cn(
-              "px-5 py-2 text-sm font-medium rounded-full border transition-all duration-200",
-              activeIndustry === industry
-                ? "bg-foreground text-background border-foreground"
-                : "bg-background text-muted-foreground border-border/40 hover:border-foreground/30 hover:text-foreground",
-            )}
-          >
-            {industry}
-          </button>
-        ))}
-      </motion.div>
-
       {/* Case Study Cards */}
       <motion.div
         variants={staggerContainer}
@@ -296,18 +346,10 @@ export function CaseStudiesClient() {
         whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         className="flex flex-col gap-8"
       >
-        {filtered.map((study, index) => (
+        {CASE_STUDIES.map((study, index) => (
           <CaseStudyCard key={study.slug} study={study} index={index} />
         ))}
       </motion.div>
-
-      {filtered.length === 0 && (
-        <div className="py-24 text-center">
-          <p className="text-lg text-muted-foreground">
-            No case studies found in this industry.
-          </p>
-        </div>
-      )}
     </div>
   );
 }

@@ -81,7 +81,7 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
     Icon ? "pl-10" : "pl-4",
     error
       ? "border-destructive/50 focus:border-destructive"
-      : "border-border/50 focus:border-foreground/30 focus:bg-background",
+      : "border-border focus:border-foreground/40 focus:bg-background",
     as === "textarea" ? "min-h-[100px] resize-none pt-6 pb-3" : "h-[52px] pt-5 pb-1.5",
     className
   );
@@ -261,11 +261,11 @@ export function ContactSection() {
           className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12"
         >
           {/* ── Left Side: Info & Map (40%) ────────────────────── */}
-          <div className="flex flex-col lg:col-span-5 gap-6">
+          <div className="flex flex-col lg:col-span-5 gap-6 h-full">
             {/* Compact Contact Info Card */}
             <motion.div
               variants={fadeUp}
-              className="rounded-xl border border-border/50 bg-background/30 p-5"
+              className="rounded-xl border border-border bg-background/30 p-5"
             >
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div className="flex items-start gap-3">
@@ -324,14 +324,15 @@ export function ContactSection() {
             {/* Interactive Map Embed */}
             <motion.div
               variants={fadeUp}
-              className="overflow-hidden rounded-2xl border border-border/50 bg-background/30 p-2"
+              className="overflow-hidden rounded-2xl border border-border bg-background/30 p-2 flex flex-col flex-1 min-h-[300px]"
             >
-              <div className="relative h-[250px] w-full overflow-hidden rounded-xl">
+              <div className="relative w-full flex-1 min-h-[250px] overflow-hidden rounded-xl">
                 <iframe
                   src="https://maps.google.com/maps?q=Nehal%20CHS,%20Malwani,%20Malad%20West,%20Mumbai%20400095&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2) opacity(0.85)" }}
+                  className="absolute inset-0 w-full h-full border-0"
+                  style={{ filter: "grayscale(1) invert(0.9) contrast(1.2) opacity(0.85)" }}
                   allowFullScreen={false}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -346,7 +347,7 @@ export function ContactSection() {
             variants={fadeUp}
             className="lg:col-span-7"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-background/40 p-6 sm:p-8 backdrop-blur-sm">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-background/40 p-6 sm:p-8 backdrop-blur-sm">
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
 
               <AnimatePresence mode="wait">
@@ -381,7 +382,7 @@ export function ContactSection() {
                           consent: false,
                         });
                       }}
-                      className="mt-8 rounded-lg border border-border/50 px-5 py-2 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
+                      className="mt-8 rounded-lg border border-border px-5 py-2 text-[13px] font-medium text-foreground transition-colors hover:bg-muted"
                     >
                       Submit Another Inquiry
                     </button>

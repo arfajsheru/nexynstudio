@@ -34,13 +34,14 @@ const SERVICES = [
     icon: Layers,
     tag: "Custom Development",
     title: "Custom Software",
-    desc: "Business software built precisely around your workflows — CRM, ERP, portals, and automation tools engineered for how your team actually works.",
+    desc: "Custom CRM, ERP, and bespoke portal systems engineered precisely around your internal business workflows to eliminate manual overhead, improve data integrity, and scale operations.",
     features: [
-      "Custom CRM & ERP Systems tailored to your business operations",
-      "End-to-end Workflow Automation to reduce manual tasks",
-      "Scalable Admin & Customer Portals for better data management",
-      "Third-party API Integrations to connect your existing tools",
-      "Legacy System Modernization with zero downtime",
+      "Custom CRM & ERP platforms tailored entirely to your sales pipelines and inventory rules.",
+      "End-to-end workflow automation to streamline operations and eliminate human errors.",
+      "High-security multi-tenant Admin Portals and Client dashboards with role-based access.",
+      "Seamless integration with third-party APIs (payment gateways, logistics, SMS, WhatsApp).",
+      "Legacy application migration and modernization with zero downtime to guarantee business continuity.",
+      "Comprehensive database performance tuning and optimization for maximum efficiency.",
     ],
     caps: ["CRM & ERP", "Workflow Automation", "Admin Portals"],
     img: imgSoftware,
@@ -51,13 +52,14 @@ const SERVICES = [
     icon: Palette,
     tag: "Design First",
     title: "UI/UX Design",
-    desc: "Research-driven interfaces that are intuitive, beautiful, and optimised to turn every visitor into a loyal, paying customer for your business.",
+    desc: "Conversion-optimized, modern user interfaces designed after extensive research to match your company's branding, improve retention, and create a premium experience.",
     features: [
-      "Comprehensive User Research & Competitor Analysis",
-      "Wireframing & Interactive Prototyping",
-      "High-fidelity UI Design tailored to your brand identity",
-      "Scalable Design Systems for consistent future development",
-      "Conversion Rate Optimization (CRO) driven design",
+      "User research, user personas mapping, and detailed competitor analysis.",
+      "Interactive wireframing, high-fidelity mockups, and clickable prototypes.",
+      "Modern, responsive UI design tailored to your global brand identity.",
+      "Scalable, production-ready Design Systems & Component Sheets for fast engineering.",
+      "Conversion Rate Optimization (CRO) to maximize customer registrations and sales.",
+      "A/B testing guidelines, user flow audits, and accessibility compliance checks.",
     ],
     caps: ["UI/UX Design", "Wireframes", "Design Systems"],
     img: imgDesign,
@@ -68,13 +70,14 @@ const SERVICES = [
     icon: Globe,
     tag: "Performance Focused",
     title: "Web Development",
-    desc: "Modern, fast, and scalable websites and web applications built for growth — from marketing sites to complex customer-facing platforms.",
+    desc: "SEO-optimized, lighting-fast websites and custom web applications powered by modern frontend frameworks to deliver seamless performance on all devices.",
     features: [
-      "High-performance Next.js and React applications",
-      "Headless CMS integration for easy content management",
-      "SEO-optimized architecture and server-side rendering",
-      "Responsive, mobile-first layouts and smooth animations",
-      "Robust e-commerce platforms and secure payment gateways",
+      "High-performance React & Next.js applications with Server-Side Rendering (SSR).",
+      "Headless CMS integration (Sanity, Strapi) for easy, real-time content management.",
+      "Fully responsive mobile-first layouts with smooth, physics-based micro-animations.",
+      "Robust e-commerce storefronts, secure payment processors, and custom cart flows.",
+      "Advanced Technical SEO configuration to rank higher on search engines from day one.",
+      "W3C standards compliance, security hardening, and Vercel/AWS cloud optimization.",
     ],
     caps: ["Web Apps", "Corporate Sites", "Customer Portals"],
     img: imgWeb,
@@ -85,13 +88,14 @@ const SERVICES = [
     icon: Smartphone,
     tag: "Cross Platform",
     title: "Mobile Apps",
-    desc: "Native and cross-platform apps for iOS and Android, built around your users' needs to drive engagement and measurable business results.",
+    desc: "Premium iOS and Android mobile applications engineered with native components to deliver exceptional performance, high-speed interactions, and offline capability.",
     features: [
-      "Cross-platform development using React Native",
-      "Native iOS (Swift) and Android (Kotlin) development",
-      "Intuitive mobile-first UX and engaging micro-interactions",
-      "Secure backend API development and real-time database integration",
-      "App Store and Google Play Store deployment & ASO",
+      "Cross-platform mobile application development using React Native framework.",
+      "Native iOS (Swift/Objective-C) and Android (Kotlin/Java) app engineering.",
+      "Mobile-first UX design, haptic feedback integration, and modern gesture controls.",
+      "Secure server-side API development, offline synchronization, and caching.",
+      "App Store (Apple) and Google Play Store submission, compliance guidelines, and ASO.",
+      "Real-time push notifications, chat relay integration, and geo-location tracking.",
     ],
     caps: ["iOS & Android", "React Native", "API Integration"],
     img: imgMobile,
@@ -102,13 +106,14 @@ const SERVICES = [
     icon: Cloud,
     tag: "Production Ready",
     title: "Cloud & DevOps",
-    desc: "Reliable cloud infrastructure with automated deployments, continuous monitoring, and scalable architecture that keeps your systems always online.",
+    desc: "High-availability, enterprise-grade cloud systems configured with automated pipelines, continuous monitoring, and container security to prevent any downtime.",
     features: [
-      "AWS, Google Cloud (GCP), and Azure architecture setup",
-      "Automated CI/CD Pipelines for seamless deployments",
-      "Containerization using Docker and Kubernetes",
-      "24/7 Server Monitoring and automated alert systems",
-      "Database scaling, migration, and backup solutions",
+      "AWS, Google Cloud (GCP), and Azure cloud infrastructure provisioning & security.",
+      "Fully automated CI/CD pipelines (GitHub Actions) for fast, risk-free code deployments.",
+      "Microservices containerization using Docker engines and Kubernetes orchestration.",
+      "24/7 server health monitoring, automatic failover setups, and CPU load balancing.",
+      "Automated encrypted database backups, cloud migration, and recovery drills.",
+      "SSL/TLS management, firewall configurations, and server security hardening.",
     ],
     caps: ["AWS & GCP", "CI/CD Pipelines", "24/7 Monitoring"],
     img: imgCloud,
@@ -119,13 +124,14 @@ const SERVICES = [
     icon: TrendingUp,
     tag: "Growth Driven",
     title: "Digital Marketing",
-    desc: "Data-driven campaigns that attract qualified traffic, generate high-intent leads, and deliver consistent growth with maximum ROI on every budget.",
+    desc: "Data-driven, ROI-focused lead generation campaigns and SEO strategies designed to target high-intent search queries and acquire qualified clients consistently.",
     features: [
-      "Search Engine Optimization (SEO) to drive organic traffic",
-      "High-converting Pay-Per-Click (PPC) and Social Media ad campaigns",
-      "Comprehensive Lead Generation funnels and landing pages",
-      "Email Marketing automation and drip campaigns",
-      "Advanced Analytics setup and ROI tracking dashboards",
+      "Technical SEO auditing, keyword optimization, and content authority strategies.",
+      "High-converting Google PPC, Meta (Facebook/Instagram), and LinkedIn Ads campaigns.",
+      "Landing page conversion audits and lead capture funnel optimizations.",
+      "Automated email sequences, client nurturing drip flows, and newsletter engines.",
+      "Google Analytics 4 (GA4) configuration, tag manager triggers, and event tracking.",
+      "Detailed monthly ROI dashboards, campaign analytics, and strategic review calls.",
     ],
     caps: ["SEO", "Paid Ads", "Lead Generation"],
     img: imgMarketing,
@@ -157,7 +163,7 @@ function ServiceCard({ s, onClick }: { s: (typeof SERVICES)[0], onClick: () => v
       onClick={onClick}
       className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-foreground/[0.01] transition-all duration-300 hover:-translate-y-1 hover:border-foreground/40 hover:bg-foreground/[0.02] hover:shadow-xl"
     >
-      {/* ── Image: fixed 220px height, object-cover ── */}
+      {/* ── Image ── */}
       <div className="relative h-[220px] w-full overflow-hidden bg-muted/10">
         <Image
           src={s.img}
@@ -166,13 +172,11 @@ function ServiceCard({ s, onClick }: { s: (typeof SERVICES)[0], onClick: () => v
           className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        {/* Subtle gradient overlay at the bottom of the image for contrast */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-40" />
       </div>
 
-      {/* ── Content ─────────────────────────────────────────── */}
+      {/* ── Content ── */}
       <div className="flex flex-1 flex-col p-6">
-
         {/* Icon + tag */}
         <div className="mb-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -208,7 +212,6 @@ function ServiceCard({ s, onClick }: { s: (typeof SERVICES)[0], onClick: () => v
             ))}
           </div>
 
-          {/* Prominent Arrow Button */}
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/10 text-foreground transition-all duration-300 group-hover:bg-foreground group-hover:text-background">
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </div>
@@ -230,8 +233,40 @@ export function ServicesSection() {
     }
     return () => {
       document.body.style.overflow = "unset";
-    }
+    };
   }, [selectedService]);
+
+  const closeModal = () => {
+    setSelectedService(null);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("service");
+      window.history.pushState({}, "", url.pathname + url.search);
+    }
+  };
+
+  // Open modal if "service" query param is present in URL
+  useEffect(() => {
+    const handleUrlQuery = () => {
+      const params = new URLSearchParams(window.location.search);
+      const serviceKey = params.get("service");
+      if (serviceKey) {
+        const match = SERVICES.find((s) => s.key === serviceKey);
+        if (match) {
+          setSelectedService(match);
+        }
+      }
+    };
+
+    handleUrlQuery();
+    window.addEventListener("popstate", handleUrlQuery);
+    const interval = setInterval(handleUrlQuery, 500);
+
+    return () => {
+      window.removeEventListener("popstate", handleUrlQuery);
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <section id="services" className="relative overflow-hidden py-16 lg:py-24">
@@ -243,7 +278,7 @@ export function ServicesSection() {
           initial="hidden"
           whileInView="visible" viewport={{ once: true, margin: "-50px" }}
         >
-          {/* ── Header ──────────────────────────────────────────── */}
+          {/* ── Header ── */}
           <motion.div variants={fadeUp} className="mb-14 text-center">
             <div className="flex justify-center mb-3">
               <Sparkles className="w-5 h-5 text-foreground/80 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]" />
@@ -257,7 +292,7 @@ export function ServicesSection() {
             <div className="mx-auto mt-4 h-[1px] w-12 bg-gradient-to-r from-transparent via-foreground/30 to-transparent" />
           </motion.div>
 
-          {/* ── 3-column grid, all 6 services ───────────────────── */}
+          {/* ── Grid ── */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
               <ServiceCard
@@ -270,7 +305,7 @@ export function ServicesSection() {
         </motion.div>
       </div>
 
-      {/* ── Service Details Modal ─────────────────────────────── */}
+      {/* ── Service Details Modal ── */}
       <AnimatePresence>
         {selectedService && (
           <>
@@ -279,7 +314,7 @@ export function ServicesSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedService(null)}
+              onClick={closeModal}
               className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
             />
 
@@ -290,24 +325,24 @@ export function ServicesSection() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ type: "spring", duration: 0.5, bounce: 0 }}
-                className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-3xl border border-border/40 bg-background shadow-2xl pointer-events-auto lg:flex-row"
+                className="relative flex w-full max-w-xl lg:max-w-[1120px] flex-col overflow-hidden rounded-3xl border border-border bg-background shadow-2xl pointer-events-auto lg:flex-row lg:h-[620px]"
               >
                 {/* Close Button */}
                 <button
-                  onClick={() => setSelectedService(null)}
+                  onClick={closeModal}
                   className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-background/60 backdrop-blur-md border border-border text-foreground transition-colors hover:bg-muted lg:right-6 lg:top-6"
                 >
                   <X className="h-5 w-5" />
                 </button>
 
                 {/* Left Side: Image */}
-                <div className="relative h-[250px] w-full shrink-0 bg-muted/10 lg:h-auto lg:w-[45%]">
+                <div className="relative h-[220px] w-full shrink-0 bg-muted/10 lg:h-full lg:w-[42%]">
                   <Image
                     src={selectedService.img}
                     alt={selectedService.imgAlt}
                     fill
                     className="object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-80 lg:bg-gradient-to-r" />
 
@@ -319,7 +354,7 @@ export function ServicesSection() {
                 </div>
 
                 {/* Right Side: Content */}
-                <div className="flex flex-1 flex-col p-6 sm:p-8 lg:p-12 max-h-[60vh] lg:max-h-[85vh] overflow-y-auto scrollbar-hide">
+                <div className="flex flex-1 flex-col p-6 sm:p-8 lg:p-12 overflow-y-auto scrollbar-hide h-[400px] lg:h-full">
                   <h3 className="mb-4 text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
                     {selectedService.title}
                   </h3>
@@ -337,7 +372,7 @@ export function ServicesSection() {
                       <motion.li
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 + i * 0.05 }}
+                        transition={{ delay: 0.1 + i * 0.04 }}
                         key={i}
                         className="flex items-start gap-3"
                       >
@@ -352,7 +387,7 @@ export function ServicesSection() {
                   <div className="mt-auto pt-6 border-t border-border/30">
                     <a
                       href="/contact"
-                      onClick={() => setSelectedService(null)}
+                      onClick={closeModal}
                       className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-[14px] font-semibold text-background transition-all hover:bg-foreground/90 hover:shadow-lg"
                     >
                       Discuss Your Project
@@ -368,4 +403,3 @@ export function ServicesSection() {
     </section>
   );
 }
-

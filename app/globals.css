@@ -85,8 +85,8 @@
     --destructive:       oklch(0.57 0.22 27);
 
     /* Borders & inputs — subtle but visible */
-    --border:            oklch(0.88 0.004 260);   /* Was 0.922 — now more defined */
-    --input:             oklch(0.88 0.004 260);
+    --border:            oklch(0.80 0.006 260);   /* Stronger light border */
+    --input:             oklch(0.80 0.006 260);
     --ring:              oklch(0.55 0.01 260);
 
     /* Charts */
@@ -146,8 +146,8 @@
     --destructive:       oklch(0.70 0.19 22);
 
     /* Borders — more visible in dark */
-    --border:            oklch(1 0 0 / 12%);      /* Slightly stronger than before */
-    --input:             oklch(1 0 0 / 16%);
+    --border:            oklch(1 0 0 / 26%);      /* Stronger border in dark mode */
+    --input:             oklch(1 0 0 / 32%);      /* Stronger input border in dark mode */
     --ring:              oklch(0.55 0.01 260);
 
     /* Charts */

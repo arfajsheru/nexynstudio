@@ -81,7 +81,7 @@ export function FAQClient() {
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="py-16 md:py-24 max-w-3xl"
+        className="py-16 md:py-24 max-w-3xl text-center mx-auto"
       >
         <motion.div
           variants={fadeUp}
@@ -111,7 +111,7 @@ export function FAQClient() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="relative mb-8 max-w-2xl"
+        className="relative mb-8 max-w-2xl mx-auto"
       >
         <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground/50" />
         <input
@@ -131,7 +131,7 @@ export function FAQClient() {
         variants={fadeUp}
         initial="hidden"
         whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="flex flex-wrap items-center gap-2 mb-12"
+        className="flex flex-wrap justify-center items-center gap-2 mb-12"
       >
         {FAQ_CATEGORIES.map((category) => (
           <button

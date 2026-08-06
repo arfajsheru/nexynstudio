@@ -1,15 +1,14 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Clock, ArrowRight, Calendar, ImageIcon } from "lucide-react";
-import { LAYOUT } from "@/lib/constants";
-import { fadeUp, staggerContainer } from "@/lib/motion";
-import { cn } from "@/lib/utils";
+import { useState } from "react"
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { Clock, ArrowRight, Calendar } from "lucide-react"
+import { LAYOUT } from "@/lib/constants"
+import { fadeUp, staggerContainer } from "@/lib/motion"
+import { cn } from "@/lib/utils"
 
 // ── Blog Post Data ────────────────────────────────────────────────────────────
-
-const CATEGORIES = ["All", "Engineering", "Design", "Business", "DevOps"];
 
 const BLOG_POSTS = [
   {
@@ -21,8 +20,7 @@ const BLOG_POSTS = [
     date: "May 28, 2025",
     readTime: "7 min read",
     featured: true,
-    imageWidth: 800,
-    imageHeight: 450,
+    image: "/blog/why-custom-crm-beats-off-the-shelf.png",
   },
   {
     slug: "nextjs-vs-react-spa-for-enterprise",
@@ -33,8 +31,7 @@ const BLOG_POSTS = [
     date: "May 15, 2025",
     readTime: "9 min read",
     featured: false,
-    imageWidth: 600,
-    imageHeight: 340,
+    image: "/blog/nextjs-vs-react-spa-for-enterprise.png",
   },
   {
     slug: "design-system-saves-development-time",
@@ -45,8 +42,7 @@ const BLOG_POSTS = [
     date: "May 3, 2025",
     readTime: "6 min read",
     featured: false,
-    imageWidth: 600,
-    imageHeight: 340,
+    image: "/blog/design-system-saves-development-time.png",
   },
   {
     slug: "ci-cd-pipeline-guide-startups",
@@ -57,8 +53,7 @@ const BLOG_POSTS = [
     date: "Apr 22, 2025",
     readTime: "11 min read",
     featured: false,
-    imageWidth: 600,
-    imageHeight: 340,
+    image: "/blog/ci-cd-pipeline-guide-startups.png",
   },
   {
     slug: "business-automation-mistakes",
@@ -69,8 +64,7 @@ const BLOG_POSTS = [
     date: "Apr 10, 2025",
     readTime: "5 min read",
     featured: false,
-    imageWidth: 600,
-    imageHeight: 340,
+    image: "/blog/business-automation-mistakes.png",
   },
   {
     slug: "mobile-first-ux-principles",
@@ -81,38 +75,20 @@ const BLOG_POSTS = [
     date: "Mar 28, 2025",
     readTime: "8 min read",
     featured: false,
-    imageWidth: 600,
-    imageHeight: 340,
+    image: "/blog/mobile-first-ux-principles.png",
   },
-];
-
-// ── Image Placeholder Component ───────────────────────────────────────────────
-
-function ImagePlaceholder({
-  width,
-  height,
-  className,
-}: {
-  width: number;
-  height: number;
-  className?: string;
-}) {
-  return (
-    <div
-      className={cn(
-        "flex items-center justify-center rounded-xl border-2 border-dashed border-border/60 bg-muted/20 transition-colors group-hover:border-foreground/20 group-hover:bg-muted/30",
-        className,
-      )}
-    >
-      <div className="flex flex-col items-center gap-2 text-muted-foreground/40">
-        <ImageIcon className="h-8 w-8" />
-        <span className="text-[11px] font-mono font-semibold tracking-wide">
-          {width} × {height}
-        </span>
-      </div>
-    </div>
-  );
-}
+  {
+    slug: "api-first-development-specifications",
+    title: "API-First Development: Why We Design API Specs Before Writing Code",
+    excerpt:
+      "Designing your API specifications before writing any backend logic accelerates development, improves frontend integration speed, and reduces refactoring cycles.",
+    category: "Engineering",
+    date: "Mar 20, 2025",
+    readTime: "7 min read",
+    featured: false,
+    image: "/blog/api-first-development.png",
+  },
+]
 
 // ── Blog Card Component ───────────────────────────────────────────────────────
 
@@ -120,31 +96,36 @@ function BlogCard({
   post,
   featured = false,
 }: {
-  post: (typeof BLOG_POSTS)[0];
-  featured?: boolean;
+  post: (typeof BLOG_POSTS)[0]
+  featured?: boolean
 }) {
   if (featured) {
     return (
       <motion.article
         variants={fadeUp}
-        className="group cursor-pointer overflow-hidden rounded-2xl border border-border/50 bg-foreground/[0.01] transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/[0.02] hover:shadow-xl"
+        className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-foreground/[0.01] transition-all duration-300 hover:border-foreground/20 hover:bg-foreground/[0.02] hover:shadow-xl"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-          <ImagePlaceholder
-            width={post.imageWidth}
-            height={post.imageHeight}
-            className="aspect-[16/10] lg:aspect-auto lg:min-h-[360px] rounded-none rounded-t-2xl lg:rounded-t-none lg:rounded-l-2xl"
-          />
+        <div className="grid grid-cols-1 gap-0 lg:grid-cols-2">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-t-2xl bg-muted/20 lg:aspect-auto lg:min-h-[360px] lg:rounded-t-none lg:rounded-l-2xl">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </div>
           <div className="flex flex-col justify-center p-8 lg:p-10">
             <div className="mb-4 flex items-center gap-3">
-              <span className="rounded-full bg-foreground/[0.06] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+              <span className="rounded-full bg-foreground/[0.06] px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-muted-foreground uppercase">
                 {post.category}
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground/60">
+              <span className="text-[10px] font-bold tracking-[0.14em] text-muted-foreground/60 uppercase">
                 Featured
               </span>
             </div>
-            <h2 className="mb-3 text-2xl font-bold leading-snug tracking-tight text-foreground lg:text-3xl">
+            <h2 className="mb-3 text-2xl leading-snug font-bold tracking-tight text-foreground lg:text-3xl">
               {post.title}
             </h2>
             <p className="mb-6 text-[14px] leading-relaxed text-muted-foreground">
@@ -167,29 +148,33 @@ function BlogCard({
           </div>
         </div>
       </motion.article>
-    );
+    )
   }
 
   return (
     <motion.article
       variants={fadeUp}
-      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border/50 bg-foreground/[0.01] transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-foreground/[0.02] hover:shadow-xl"
+      className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-foreground/[0.01] transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:bg-foreground/[0.02] hover:shadow-xl"
     >
-      <ImagePlaceholder
-        width={post.imageWidth}
-        height={post.imageHeight}
-        className="aspect-[16/9] rounded-none rounded-t-2xl"
-      />
+      <div className="relative aspect-[16/9] overflow-hidden rounded-t-2xl bg-muted/20">
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="mb-3 flex items-center gap-3">
-          <span className="rounded-full bg-foreground/[0.06] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+          <span className="rounded-full bg-foreground/[0.06] px-3 py-1 text-[10px] font-bold tracking-[0.14em] text-muted-foreground uppercase">
             {post.category}
           </span>
         </div>
-        <h3 className="mb-2 text-[17px] font-bold leading-snug tracking-tight text-foreground line-clamp-2">
+        <h3 className="mb-2 line-clamp-2 text-[17px] leading-snug font-bold tracking-tight text-foreground">
           {post.title}
         </h3>
-        <p className="mb-5 text-[13px] leading-[1.6] text-muted-foreground line-clamp-3">
+        <p className="mb-5 line-clamp-3 text-[13px] leading-[1.6] text-muted-foreground">
           {post.excerpt}
         </p>
         <div className="mt-auto flex items-center justify-between border-t border-border/30 pt-4">
@@ -207,21 +192,14 @@ function BlogCard({
         </div>
       </div>
     </motion.article>
-  );
+  )
 }
 
 // ── Blog Client Component ─────────────────────────────────────────────────────
 
 export function BlogClient() {
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredPosts = BLOG_POSTS.filter((post) => {
-    if (activeCategory === "All") return true;
-    return post.category === activeCategory;
-  });
-
-  const featuredPost = filteredPosts.find((post) => post.featured);
-  const regularPosts = filteredPosts.filter((post) => !post.featured);
+  const featuredPost = BLOG_POSTS.find((post) => post.featured)
+  const regularPosts = BLOG_POSTS.filter((post) => !post.featured)
 
   return (
     <div
@@ -231,60 +209,40 @@ export function BlogClient() {
       <motion.header
         variants={staggerContainer}
         initial="hidden"
-        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="py-16 md:py-24 max-w-3xl"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="mx-auto max-w-3xl py-16 text-center md:py-24"
       >
         <motion.div
           variants={fadeUp}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/40 bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground"
+          className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-foreground/[0.02] px-4 py-1.5 text-[11px] font-semibold tracking-[0.12em] text-muted-foreground uppercase"
         >
           <span className="h-1 w-1 rounded-full bg-foreground/40" />
           Insights & Articles
         </motion.div>
         <motion.h1
           variants={fadeUp}
-          className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-6"
+          className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-6xl"
         >
           Our <span className="text-muted-foreground">Blog</span>
         </motion.h1>
         <motion.p
           variants={fadeUp}
-          className="text-lg md:text-xl text-muted-foreground leading-relaxed"
+          className="text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
           Engineering insights, design thinking, and business automation
-          strategies from the team building enterprise software at Nexyn Studios.
+          strategies from the team building enterprise software at Nexyn
+          Studios.
         </motion.p>
       </motion.header>
-
-      {/* Category Filters */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="flex flex-wrap items-center gap-2 mb-12"
-      >
-        {CATEGORIES.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={cn(
-              "px-5 py-2 text-sm font-medium rounded-full border transition-all duration-200",
-              activeCategory === category
-                ? "bg-foreground text-background border-foreground"
-                : "bg-background text-muted-foreground border-border/40 hover:border-foreground/30 hover:text-foreground",
-            )}
-          >
-            {category}
-          </button>
-        ))}
-      </motion.div>
 
       {/* Featured Post */}
       {featuredPost && (
         <motion.div
           variants={staggerContainer}
           initial="hidden"
-          whileInView="visible" viewport={{ once: true, margin: "-50px" }}
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
           className="mb-12"
         >
           <BlogCard post={featuredPost} featured />
@@ -295,21 +253,14 @@ export function BlogClient() {
       <motion.div
         variants={staggerContainer}
         initial="hidden"
-        whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
       >
         {regularPosts.map((post) => (
           <BlogCard key={post.slug} post={post} />
         ))}
       </motion.div>
-
-      {filteredPosts.length === 0 && (
-        <div className="py-24 text-center">
-          <p className="text-lg text-muted-foreground">
-            No articles found in this category.
-          </p>
-        </div>
-      )}
     </div>
-  );
+  )
 }

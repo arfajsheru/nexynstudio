@@ -171,7 +171,7 @@ export function PrivacyContent() {
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible" viewport={{ once: true, margin: "-50px" }}
-        className="py-16 md:py-24 max-w-3xl"
+        className="py-16 md:py-24 max-w-3xl text-center mx-auto"
       >
         <motion.div
           variants={fadeUp}
