@@ -6,7 +6,7 @@ export const SITE_CONFIG = {
   description:
     "Premium custom software engineering, bespoke CRM/ERP systems, and scalable web & mobile apps for enterprises in Malad, Mumbai. Get a free tech audit today.",
   url: "https://nexynstudios.com",
-  ogImage: "/og-image.png",
+  ogImage: "/og-image.jpg",
 } as const;
 
 // ─── Navigation ─────────────────────────────────────────────────────────────
