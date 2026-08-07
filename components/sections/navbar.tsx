@@ -88,6 +88,27 @@ const RESOURCES_DROPDOWN = [
   },
 ];
 
+const PORTFOLIO_DROPDOWN = [
+  {
+    label: "United Welfare Foundation",
+    desc: "Scholarship CRM & portal system",
+    href: "/projects/united-welfare-foundation",
+    icon: Layers,
+  },
+  {
+    label: "Nexyn Chat Web",
+    desc: "Real-time web messaging platform",
+    href: "/projects/nexyn-chat-web",
+    icon: Globe,
+  },
+  {
+    label: "Nexyn Chat Mobile",
+    desc: "React Native iOS & Android chat app",
+    href: "/projects/nexyn-chat-mobile",
+    icon: Smartphone,
+  },
+];
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
@@ -95,6 +116,8 @@ export function Navbar() {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const [isResourcesOpen, setIsResourcesOpen] = useState(false)
   const [isMobileResourcesOpen, setIsMobileResourcesOpen] = useState(false)
+  const [isPortfolioOpen, setIsPortfolioOpen] = useState(false)
+  const [isMobilePortfolioOpen, setIsMobilePortfolioOpen] = useState(false)
   const activeSection = useActiveSection(SECTION_IDS)
   const isDesktop = useMediaQuery("(min-width: 1024px)")
   const isMobileMenuVisible = isMobileOpen && !isDesktop
@@ -353,6 +376,89 @@ export function Navbar() {
                 );
               }
 
+              if (item.label === "Portfolio") {
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setIsPortfolioOpen(true)}
+                    onMouseLeave={() => setIsPortfolioOpen(false)}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className={cn(
+                        "relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors duration-200",
+                        isActive
+                          ? "text-foreground"
+                          : "text-muted-foreground hover:text-foreground"
+                      )}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {item.label}
+                      <svg
+                        className={cn(
+                          "h-3.5 w-3.5 transition-transform duration-200 opacity-60",
+                          isPortfolioOpen && "rotate-180"
+                        )}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2.5}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </Link>
+
+                    <AnimatePresence>
+                      {isPortfolioOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute left-1/2 top-full z-50 mt-1 w-[380px] -translate-x-1/2 rounded-2xl border border-border bg-background/95 p-3 shadow-2xl backdrop-blur-xl"
+                        >
+                          <div className="grid gap-1">
+                            {PORTFOLIO_DROPDOWN.map((sub) => {
+                              const SubIcon = sub.icon;
+                              return (
+                                <Link
+                                  key={sub.label}
+                                  href={sub.href}
+                                  onClick={(e) => {
+                                    setIsPortfolioOpen(false);
+                                    handleNavClick(e, sub.href);
+                                  }}
+                                  className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-muted/50"
+                                >
+                                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-foreground/[0.04] transition-colors group-hover:bg-foreground/[0.08]">
+                                    <SubIcon className="h-4.5 w-4.5 text-foreground/75" />
+                                  </div>
+                                  <div className="min-w-0 text-left">
+                                    <div className="text-xs font-semibold text-foreground flex items-center gap-1">
+                                      {sub.label}
+                                      <ArrowRight className="h-3 w-3 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                                    </div>
+                                    <div className="mt-0.5 text-[10.5px] leading-relaxed text-muted-foreground">
+                                      {sub.desc}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={item.label}
@@ -579,6 +685,72 @@ export function Navbar() {
                                 className="overflow-hidden pl-7 flex flex-col gap-1 mt-1 border-l border-border/60 ml-6"
                               >
                                 {RESOURCES_DROPDOWN.map((sub) => {
+                                  const SubIcon = sub.icon;
+                                  return (
+                                    <Link
+                                      key={sub.label}
+                                      href={sub.href}
+                                      onClick={(e) => {
+                                        setIsMobileOpen(false);
+                                        handleNavClick(e, sub.href);
+                                      }}
+                                      className="flex items-center gap-2.5 rounded-lg px-3 py-2 text-[12.5px] font-semibold text-muted-foreground hover:text-foreground hover:bg-muted/20 transition-all text-left"
+                                    >
+                                      <SubIcon className="h-3.5 w-3.5 text-foreground/40" />
+                                      {sub.label}
+                                    </Link>
+                                  );
+                                })}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    }
+
+                    if (item.label === "Portfolio") {
+                      return (
+                        <div key={item.label} className="flex flex-col">
+                          <button
+                            onClick={() => setIsMobilePortfolioOpen(!isMobilePortfolioOpen)}
+                            className={cn(
+                              "w-full rounded-xl px-4 py-3.5 text-[15px] font-semibold transition-all duration-200 flex items-center justify-between",
+                              isActive
+                                ? "bg-foreground/5 text-foreground"
+                                : "text-muted-foreground hover:bg-muted/30 hover:text-foreground"
+                            )}
+                          >
+                            <div className="flex items-center gap-3">
+                              <IconComponent className="h-4.5 w-4.5 text-foreground/50 shrink-0" />
+                              <span>{item.label}</span>
+                            </div>
+                            <svg
+                              className={cn(
+                                "h-4 w-4 transition-transform duration-200 text-muted-foreground",
+                                isMobilePortfolioOpen && "rotate-180"
+                              )}
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+
+                          <AnimatePresence>
+                            {isMobilePortfolioOpen && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden pl-7 flex flex-col gap-1 mt-1 border-l border-border/60 ml-6"
+                              >
+                                {PORTFOLIO_DROPDOWN.map((sub) => {
                                   const SubIcon = sub.icon;
                                   return (
                                     <Link
