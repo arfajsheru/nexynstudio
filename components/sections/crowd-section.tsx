@@ -1,136 +1,163 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Users, Sparkles, ShieldCheck, Zap, HeartHandshake } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Sparkles, Activity, Play, Gauge, Shield, RefreshCw } from "lucide-react";
 import { CrowdCanvas } from "@/components/ui/crowd-canvas";
 import { LAYOUT } from "@/lib/constants";
-import { fadeUp, staggerContainer, fadeIn } from "@/lib/motion";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { MagneticWrapper } from "@/components/ui/magnetic-wrapper";
 
+// Speech / Thought Bubbles floating above the walking crowd
+const THOUGHT_BUBBLES = [
+  { id: 1, text: "🚀 Deploying Next.js 16 App", x: "12%", y: "45%", delay: 0 },
+  { id: 2, text: "⚡ Custom CRM Automation", x: "32%", y: "25%", delay: 1.5 },
+  { id: 3, text: "🔒 Enterprise Security Built-in", x: "55%", y: "50%", delay: 3 },
+  { id: 4, text: "📈 99.9% Uptime Guarantee", x: "74%", y: "30%", delay: 4.5 },
+  { id: 5, text: "💡 Tailored ERP Systems", x: "86%", y: "60%", delay: 2 },
+];
+
 export function CrowdSection() {
+  const [crowdSpeed, setCrowdSpeed] = useState<number>(1);
+  const [activeBubble, setActiveBubble] = useState<number | null>(null);
+
   return (
-    <section className="relative w-full overflow-hidden bg-background py-16 lg:py-28">
-      {/* Background ambient lighting */}
+    <section className="relative w-full overflow-hidden bg-background py-20 lg:py-32">
+      {/* Background Radial Spotlights */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] opacity-30 dark:opacity-20 blur-[120px]"
+        className="pointer-events-none absolute left-1/4 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] opacity-25 dark:opacity-15 blur-[140px]"
         style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(99,102,241,0.35) 0%, rgba(139,92,246,0.2) 45%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute right-1/4 bottom-1/4 translate-x-1/2 h-[500px] w-[500px] opacity-20 dark:opacity-10 blur-[130px]"
+        style={{
+          background: "radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
 
       <div className={cn("relative z-10 mx-auto w-full", LAYOUT.maxWidth, LAYOUT.paddingX)}>
-        {/* Main Floating Glass Container */}
-        <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-b from-background/95 via-muted/15 to-background/80 p-8 sm:p-12 lg:p-16 shadow-2xl backdrop-blur-2xl dark:border-border/30 dark:from-card/40 dark:via-card/20 dark:to-background/60">
-          
-          {/* Top Hairline Beam Accent */}
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 h-px w-[60%] bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
-
-          {/* Grid pattern overlay */}
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-              backgroundSize: "36px 36px",
-            }}
-            aria-hidden="true"
-          />
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="relative z-10 flex flex-col items-center text-center"
-          >
-            {/* Live Indicator Pill Badge */}
-            <motion.div variants={fadeUp} className="mb-6">
-              <div className="inline-flex items-center gap-2.5 rounded-full border border-indigo-500/20 bg-indigo-500/[0.06] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-indigo-600 dark:text-indigo-400 backdrop-blur-md shadow-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500" />
-                </span>
-                <span>Active Client & Team Eco-System</span>
-              </div>
+        {/* Main Section Header Grid */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end"
+        >
+          {/* Left Column: Headline & Subtitle */}
+          <div className="lg:col-span-8 flex flex-col items-start text-left">
+            <motion.div variants={fadeUp} className="mb-4 inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted-foreground backdrop-blur-md">
+              <Activity className="h-3 w-3 text-foreground/40" />
+              <span>Interactive Crowd Experience</span>
             </motion.div>
 
-            {/* Headline with Gradient & Serif Emphasis */}
             <motion.h2
               variants={fadeUp}
-              className="mb-6 max-w-4xl text-3xl font-bold leading-[1.12] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+              className="text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl"
             >
-              Built for People, <br />
-              <span className="bg-gradient-to-r from-foreground via-foreground/90 to-foreground/50 bg-clip-text text-transparent font-serif italic">
-                Engineered for Infinite Growth
-              </span>
+              Software Built for{" "}
+              <span className="font-serif italic text-foreground/50">
+                Real Humans
+              </span>{" "}
+              <br className="hidden sm:inline" />
+              & Growing Businesses
             </motion.h2>
 
-            {/* Subtitle */}
             <motion.p
               variants={fadeUp}
-              className="mb-10 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg"
+              className="mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg"
             >
-              From ambitious startups to scaling enterprises, we partner with teams
-              across India to engineer high-velocity software, custom CRMs, and robust ERP systems.
+              We don&apos;t just write code; we design seamless digital experiences for thousands of daily active users across custom CRM, ERP, and web applications.
             </motion.p>
+          </div>
 
-            {/* Action Buttons */}
-            <motion.div variants={fadeUp} className="mb-14 flex flex-col items-center gap-4 sm:flex-row">
-              <MagneticWrapper range={50} strength={0.4}>
-                <a
-                  href="/contact"
-                  className="group inline-flex h-12 items-center justify-center gap-2.5 rounded-xl bg-foreground px-8 text-sm font-semibold text-background shadow-xl transition-all duration-300 hover:opacity-90 hover:shadow-2xl active:scale-[0.98]"
-                >
-                  <Sparkles className="h-4 w-4 text-indigo-400" />
-                  <span>Start Your Project</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </MagneticWrapper>
-
-              <MagneticWrapper range={50} strength={0.4}>
-                <a
-                  href="/portfolio"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-border bg-background/60 px-8 text-sm font-medium text-foreground backdrop-blur-md transition-all duration-300 hover:bg-muted/80 active:scale-[0.98] dark:border-border/50 dark:bg-card/40"
-                >
-                  <span>Explore Case Studies</span>
-                </a>
-              </MagneticWrapper>
-            </motion.div>
-
-            {/* Feature Highlights Row */}
+          {/* Right Column: Interactive Radar Controls */}
+          <div className="lg:col-span-4 flex flex-col items-start lg:items-end">
             <motion.div
               variants={fadeUp}
-              className="grid w-full max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 mb-20"
+              className="w-full lg:w-auto rounded-2xl border border-border/60 bg-background/80 p-4 shadow-xl backdrop-blur-xl dark:border-border/30 dark:bg-card/40"
             >
-              <div className="flex items-center justify-center gap-2.5 rounded-xl border border-border/30 bg-background/40 px-4 py-3 text-xs font-medium text-muted-foreground backdrop-blur-sm dark:bg-card/20">
-                <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>Enterprise Security</span>
+              <div className="mb-3 flex items-center justify-between gap-4 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                <span className="flex items-center gap-1.5">
+                  <Gauge className="h-3.5 w-3.5 text-indigo-500" />
+                  Pace Control
+                </span>
+                <span className="text-[10px] text-indigo-500 font-mono">
+                  {crowdSpeed === 0.5 ? "Slow" : crowdSpeed === 1 ? "Normal" : "Rush Hour"}
+                </span>
               </div>
-              <div className="flex items-center justify-center gap-2.5 rounded-xl border border-border/30 bg-background/40 px-4 py-3 text-xs font-medium text-muted-foreground backdrop-blur-sm dark:bg-card/20">
-                <Zap className="h-4 w-4 text-amber-500 shrink-0" />
-                <span>High Performance</span>
-              </div>
-              <div className="flex items-center justify-center gap-2.5 rounded-xl border border-border/30 bg-background/40 px-4 py-3 text-xs font-medium text-muted-foreground backdrop-blur-sm dark:bg-card/20">
-                <HeartHandshake className="h-4 w-4 text-indigo-500 shrink-0" />
-                <span>Dedicated Support</span>
+
+              <div className="flex items-center gap-2">
+                {[
+                  { label: "Relaxed", speed: 0.5 },
+                  { label: "Normal", speed: 1.0 },
+                  { label: "Rush", speed: 1.8 },
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => setCrowdSpeed(item.speed)}
+                    className={cn(
+                      "flex-1 rounded-xl px-3 py-2 text-xs font-medium transition-all duration-200",
+                      crowdSpeed === item.speed
+                        ? "bg-foreground text-background shadow-md font-semibold"
+                        : "bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground"
+                    )}
+                  >
+                    {item.label}
+                  </button>
+                ))}
               </div>
             </motion.div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Glowing Ground Baseline Beam where people walk */}
-          <div className="absolute inset-x-0 bottom-[140px] sm:bottom-[170px] h-px w-full bg-gradient-to-r from-transparent via-indigo-500/40 via-purple-500/30 to-transparent z-10 pointer-events-none" />
+        {/* Unique Stage Card with Canvas & Floating Thought Bubbles */}
+        <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-b from-background/90 via-muted/20 to-background/95 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl dark:border-border/30 dark:from-card/50 dark:to-background/80">
+          
+          {/* Top Hairline Light Accent */}
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 h-px w-3/4 bg-gradient-to-r from-transparent via-border to-transparent" />
 
-          {/* Animated Walking Crowd Stage Container */}
-          <div className="relative h-[240px] sm:h-[300px] lg:h-[340px] w-full overflow-hidden rounded-b-2xl">
-            {/* Side Fades for Smooth Entry & Exit */}
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
+          {/* Interactive Floating Thought Bubbles Layer */}
+          <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+            {THOUGHT_BUBBLES.map((bubble) => (
+              <motion.div
+                key={bubble.id}
+                initial={{ opacity: 0, y: 15, scale: 0.9 }}
+                animate={{
+                  opacity: [0, 0.9, 0.9, 0],
+                  y: [15, 0, -10, -25],
+                  scale: [0.9, 1, 1, 0.95],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  repeatDelay: 3,
+                  delay: bubble.delay,
+                  ease: "easeInOut",
+                }}
+                className="absolute hidden sm:inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/90 px-3.5 py-1.5 text-xs font-semibold text-foreground shadow-lg backdrop-blur-md dark:border-border/40 dark:bg-card/90"
+                style={{ left: bubble.x, top: bubble.y }}
+              >
+                <span>{bubble.text}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Main Stage Walking Canvas */}
+          <div className="relative h-[280px] sm:h-[360px] lg:h-[400px] w-full overflow-hidden rounded-2xl">
             
+            {/* Left & Right Smooth Entry Fades */}
+            <div className="absolute inset-y-0 left-0 w-20 sm:w-32 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
+
             {/* Crowd Canvas */}
             <CrowdCanvas
+              key={crowdSpeed}
               src="/images/peeps/all-peeps.png"
               rows={15}
               cols={7}
@@ -138,7 +165,34 @@ export function CrowdSection() {
             />
 
             {/* Bottom Gradient Fade */}
-            <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-background via-background/60 to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent z-20 pointer-events-none" />
+          </div>
+
+          {/* Bottom Callout Row */}
+          <div className="relative z-30 mt-8 flex flex-col items-center justify-between gap-6 border-t border-border/30 pt-6 sm:flex-row">
+            <div className="flex items-center gap-3 text-left">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400">
+                <Shield className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-foreground">
+                  Ready To Build Your Custom Solution?
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  Get a free tech audit & architecture consultation today.
+                </div>
+              </div>
+            </div>
+
+            <MagneticWrapper range={50} strength={0.4}>
+              <a
+                href="/contact"
+                className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-7 text-sm font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12"
+              >
+                Book Consultation
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </a>
+            </MagneticWrapper>
           </div>
 
         </div>
