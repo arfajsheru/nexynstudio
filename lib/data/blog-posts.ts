@@ -23,7 +23,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "Aug 10, 2026",
     readTime: "7 min read",
     featured: true,
-    image: "/blog/website-development-cost-in-mumbai.png",
+    image: "/blog/website-development-cost-in-mumbai.svg",
     excerpt: "What is the true cost of building a website in Mumbai? We break down estimated rates for simple portfolios, Shopify/headless e-commerce storefronts, and custom React web apps.",
     internalLinks: [
       { label: "Web Development Services", href: "/services/web-development" },
@@ -63,7 +63,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Software Development",
     date: "Aug 05, 2026",
     readTime: "6 min read",
-    image: "/blog/how-to-choose-a-web-development-company.png",
+    image: "/blog/how-to-choose-a-web-development-company.svg",
     featured: false,
     excerpt: "Selecting the wrong tech partner can lead to delayed launches and buggy code. Learn how to audit portfolios, evaluate communication, and ask the right technical questions.",
     internalLinks: [
@@ -99,7 +99,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Technology",
     date: "Jul 28, 2026",
     readTime: "8 min read",
-    image: "/blog/nextjs-vs-react.png",
+    image: "/blog/nextjs-vs-react.svg",
     featured: false,
     excerpt: "Next.js vs React: We break down the differences in rendering models, dynamic routing systems, search indexation, and when to choose which framework.",
     internalLinks: [
