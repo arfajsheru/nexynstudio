@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import { SITE_CONFIG } from "@/lib/constants";
 import {
   Navbar,
@@ -8,12 +9,74 @@ import {
 } from "@/components/sections";
 import { PageHero } from "@/components/common/page-hero";
 
+const QUERY_PARAM_SLUG_MAP: Record<string, string> = {
+  software: "custom-development",
+  "custom-development": "custom-development",
+  design: "ui-ux-design",
+  "ui-ux-design": "ui-ux-design",
+  web: "web-development",
+  "web-development": "web-development",
+  mobile: "mobile-app-development",
+  "mobile-app-development": "mobile-app-development",
+  cloud: "cloud-devops",
+  "cloud-devops": "cloud-devops",
+  marketing: "ai-automation",
+  "ai-automation": "ai-automation",
+  ai: "ai-automation",
+};
+
+interface ServicesPageProps {
+  searchParams?: Promise<{ service?: string }>;
+}
+
+export default async function ServicesPage({ searchParams }: ServicesPageProps) {
+  const resolvedParams = searchParams ? await searchParams : undefined;
+  const serviceParam = resolvedParams?.service?.toLowerCase();
+
+  if (serviceParam && QUERY_PARAM_SLUG_MAP[serviceParam]) {
+    redirect(`/services/${QUERY_PARAM_SLUG_MAP[serviceParam]}`);
+  }
+
+  return (
+    <>
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
+
+      <Navbar />
+
+      <main>
+        {/* Page Hero with breadcrumb */}
+        <PageHero
+          breadcrumbs={[{ label: "Services" }]}
+          badge="What We Build"
+          headline="Software Solutions We"
+          headlineAccent="Engineer"
+          description="From custom CRM & ERP systems to web apps, mobile platforms, and cloud infrastructure — every solution is purpose-built for your specific business challenges and growth goals."
+          primaryCta={{ label: "Get Free Consultation", href: "/contact" }}
+          secondaryCta={{ label: "View Our Work", href: "/portfolio" }}
+        />
+
+        {/* All 6 service cards — click to navigate to dedicated service pages */}
+        <ServicesSection />
+
+        {/* CTA strip */}
+        <CTASection />
+      </main>
+
+      <FooterSection />
+    </>
+  );
+}
+
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "Software Development Services in Mumbai | Custom CRM, Web & Mobile Apps",
+  title: "Software Development Services in Mumbai | Custom CRM, Web, Mobile & AI",
   description:
-    "Nexyn Studios offers custom software development, CRM & ERP systems, web applications, mobile apps, UI/UX design, Cloud & DevOps, and digital marketing services in Mumbai. Get a free consultation today.",
+    "Nexyn Studios offers custom software development, CRM & ERP systems, web applications, mobile apps, UI/UX design, Cloud & DevOps, and AI & Automation services in Mumbai. Get a free consultation today.",
   keywords: [
     "custom software development Mumbai",
     "CRM development company Mumbai",
@@ -23,8 +86,8 @@ export const metadata: Metadata = {
     "React Next.js development agency",
     "UI UX design services",
     "cloud DevOps solutions",
-    "digital marketing agency Mumbai",
-    "business automation software",
+    "AI automation services",
+    "business process automation",
     "SaaS MVP development",
     "enterprise software company",
     "software development services India",
@@ -40,7 +103,7 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     title: "Software Development Services | Nexyn Studios Mumbai",
     description:
-      "Custom software, CRM & ERP systems, web apps, mobile apps, Cloud & DevOps — engineered for Mumbai businesses by Nexyn Studios.",
+      "Custom software, CRM & ERP systems, web apps, mobile apps, Cloud & DevOps, AI & Automation — engineered for Mumbai businesses by Nexyn Studios.",
     images: [
       {
         url: SITE_CONFIG.ogImage,
@@ -54,7 +117,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Software Development Services | Nexyn Studios Mumbai",
     description:
-      "Custom software, CRM & ERP, web apps, mobile apps, Cloud & DevOps by Nexyn Studios.",
+      "Custom software, CRM & ERP, web apps, mobile apps, Cloud & DevOps, AI & Automation by Nexyn Studios.",
     images: [SITE_CONFIG.ogImage],
   },
   robots: {
@@ -77,7 +140,7 @@ const servicesSchema = {
   "@type": "ItemList",
   name: "Software Development Services by Nexyn Studios",
   description:
-    "Complete range of custom software development, web, mobile, and digital services offered by Nexyn Studios in Mumbai.",
+    "Complete range of custom software development, web, mobile, AI & automation, and cloud services offered by Nexyn Studios in Mumbai.",
   url: `${SITE_CONFIG.url}/services`,
   itemListElement: [
     {
@@ -150,50 +213,15 @@ const servicesSchema = {
       position: 6,
       item: {
         "@type": "Service",
-        name: "Digital Marketing",
+        name: "AI & Automation",
         description:
-          "Data-driven SEO, PPC, and lead generation campaigns for measurable ROI.",
+          "AI-powered business automation, intelligent workflows, and custom AI agent integrations.",
         provider: { "@type": "Organization", name: SITE_CONFIG.name },
         areaServed: "Mumbai, India",
-        serviceType: "Digital Marketing",
+        serviceType: "AI & Automation Services",
       },
     },
   ],
 };
 
-// ─── Services Page ────────────────────────────────────────────────────────────
 
-export default function ServicesPage() {
-  return (
-    <>
-      {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
-      />
-
-      <Navbar />
-
-      <main>
-        {/* Page Hero with breadcrumb */}
-        <PageHero
-          breadcrumbs={[{ label: "Services" }]}
-          badge="What We Build"
-          headline="Software Solutions We"
-          headlineAccent="Engineer"
-          description="From custom CRM & ERP systems to web apps, mobile platforms, and cloud infrastructure — every solution is purpose-built for your specific business challenges and growth goals."
-          primaryCta={{ label: "Get Free Consultation", href: "/contact" }}
-          secondaryCta={{ label: "View Our Work", href: "/portfolio" }}
-        />
-
-        {/* All 6 service cards — click to open detail modal */}
-        <ServicesSection />
-
-        {/* CTA strip */}
-        <CTASection />
-      </main>
-
-      <FooterSection />
-    </>
-  );
-}

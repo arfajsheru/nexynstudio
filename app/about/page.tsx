@@ -78,7 +78,7 @@ const organizationSchema = {
   logo: `${SITE_CONFIG.url}/logo-black.png`,
   image: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`,
   description:
-    "Nexyn Studios is a Mumbai-based custom software development company specialising in CRM & ERP systems, web applications, mobile apps, Cloud & DevOps, and digital marketing.",
+    "Nexyn Studios is a Mumbai-based custom software development company specialising in CRM & ERP systems, web applications, mobile apps, Cloud & DevOps, and AI & Automation.",
   foundingDate: "2024",
   address: {
     "@type": "PostalAddress",

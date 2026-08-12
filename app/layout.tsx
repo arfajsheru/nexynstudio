@@ -17,7 +17,6 @@ const geist = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 // Serif used for italic accent words in headlines
@@ -25,8 +24,6 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -48,7 +45,7 @@ export const metadata: Metadata = {
     "UI/UX design agency",
     "cloud architecture",
     "DevOps services",
-    "digital marketing agency",
+    "AI automation services",
     "IT consulting",
     
     // Tech & Stacks

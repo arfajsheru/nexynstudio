@@ -9,11 +9,12 @@ import { cn } from "@/lib/utils";
 
 const FOOTER_LINKS = {
   Services: [
-    { label: "Custom Software", href: "/services?service=software" },
-    { label: "Web Applications", href: "/services?service=web" },
-    { label: "Mobile Apps", href: "/services?service=mobile" },
-    { label: "CRM Systems", href: "/services?service=software" },
-    { label: "Business Automation", href: "/services?service=software" },
+    { label: "Custom Software", href: "/services/custom-development" },
+    { label: "UI/UX Design", href: "/services/ui-ux-design" },
+    { label: "Web Applications", href: "/services/web-development" },
+    { label: "Mobile Apps", href: "/services/mobile-app-development" },
+    { label: "Cloud & DevOps", href: "/services/cloud-devops" },
+    { label: "AI & Automation", href: "/services/ai-automation" },
   ],
   Company: [
     { label: "About Us", href: "/about" },

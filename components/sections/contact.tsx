@@ -460,7 +460,7 @@ export function ContactSection() {
                         "Web Development",
                         "Mobile App Development",
                         "UI/UX Design",
-                        "Digital Marketing",
+                        "AI & Automation",
                         "Cloud & DevOps Solutions",
                       ]}
                       error={errors.service}

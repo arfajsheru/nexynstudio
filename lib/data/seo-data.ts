@@ -13,6 +13,11 @@ export interface BenefitItem {
   desc: string;
 }
 
+export interface FeatureOffering {
+  title: string;
+  desc: string;
+}
+
 export interface PageData {
   slug: string;
   title: string;
@@ -22,8 +27,12 @@ export interface PageData {
   badge: string;
   headlineAccent: string;
   description: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   overviewTitle: string;
   overviewContent: string;
+  whatWeOfferTitle?: string;
+  whatWeOffer?: FeatureOffering[];
   capabilities: string[];
   technologies: string[];
   processTitle: string;
@@ -36,300 +45,576 @@ export interface PageData {
 
 // ─── SERVICES PAGES ─────────────────────────────────────────────────────────
 export const SERVICE_PAGES: Record<string, PageData> = {
-  "web-development": {
-    slug: "web-development",
-    title: "Web Development Services Mumbai | Custom Web Apps & Sites",
-    metaDescription: "Nexyn Studios delivers high-performance web development services in Mumbai. We build responsive, SEO-optimised Next.js and React web apps engineered for scale.",
-    keywords: ["web development services Mumbai", "Nextjs development company", "React development agency", "custom web applications", "mumbai web studio"],
-    h1: "Web Development Services in Mumbai",
-    badge: "Scale Your Web Presence",
-    headlineAccent: "Built for Performance",
-    description: "We architect and engineer lighting-fast, SEO-optimized web applications and corporate websites. Leveraging React and Next.js to deliver top-tier speed and scalability.",
-    overviewTitle: "Modern Web Engineering for Enterprise Growth",
-    overviewContent: "At Nexyn Studios, we build web solutions that do not just look stunning but are engineered to convert. We focus on modern frameworks, server-side rendering (SSR), and technical SEO from day one. By prioritizing Core Web Vitals, we ensure your web application ranks higher, loads instantly, and handles high volumes of concurrent users effortlessly.",
-    capabilities: [
-      "Next.js Server-Side Rendering (SSR) & Static Site Generation (SSG)",
-      "Headless CMS integration (Sanity, Strapi, Contentful)",
-      "Custom E-commerce storefronts and shopping cart workflows",
-      "Interactive analytics dashboards and customer portals",
-      "Technical SEO configuration and W3C standards compliance",
-      "Performance tuning, caching strategies, and secure deployments"
+  "custom-development": {
+    slug: "custom-development",
+    title: "Custom Software Development Services | Enterprise CRM & ERP Solutions",
+    metaDescription: "Nexyn Studios provides bespoke custom software development services in Mumbai. We build enterprise CRM, ERP, client portals, and custom workflow software.",
+    keywords: [
+      "custom software development",
+      "custom software development services",
+      "custom CRM development",
+      "ERP software development",
+      "enterprise software company",
+      "workflow automation software",
+      "custom portal development",
+      "software development company Mumbai"
     ],
-    technologies: ["Next.js", "React.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
-    processTitle: "Our Web Development Cycle",
-    process: [
-      { title: "Architecture & Schema Design", desc: "Map database relations, API schemas, and layout wireframes for maximum efficiency." },
-      { title: "Frontend & API Integration", desc: "Build pixel-perfect interfaces with smooth micro-animations connected to robust APIs." },
-      { title: "Security & Optimization", desc: "Hardening headers, SSL configurations, image compression, and Core Web Vitals audit." }
-    ],
-    benefitsTitle: "Why Partner with Nexyn Studios for Web Apps?",
-    benefits: [
-      { title: "SEO-First Implementation", desc: "We map keywords, structure headings, and bundle dynamic schemas so your site ranks well naturally." },
-      { title: "Performance Engineering", desc: "Sub-second load times keep users engaged and decrease bounce rates across mobile and desktop." },
-      { title: "Zero Proprietary Lock-in", desc: "Built with standard TypeScript, React, and PostgreSQL so your in-house teams can easily manage it later." }
-    ],
-    faqs: [
-      { question: "What web frameworks do you specialize in?", answer: "We specialize in React and Next.js for front-end rendering, and Node.js or NestJS for server-side business logic." },
-      { question: "How do you ensure the website is SEO friendly?", answer: "We implement dynamic metadata, canonical URLs, breadcrumb schemas, proper heading hierarchies (H1/H2), and target sub-second page loads." }
-    ],
-    internalLinks: [
-      { label: "Next.js Development", href: "/technologies/nextjs-development" },
-      { label: "React Development", href: "/technologies/react-development" },
-      { label: "E-commerce Solutions", href: "/solutions/ecommerce-solutions" },
-      { label: "Custom Web Applications", href: "/solutions/custom-web-applications" }
-    ]
-  },
-  "mobile-app-development": {
-    slug: "mobile-app-development",
-    title: "Mobile App Development Mumbai | Custom iOS & Android Apps",
-    metaDescription: "Leading mobile app development company in Mumbai. We build premium, cross-platform iOS & Android apps using React Native for native-grade performance.",
-    keywords: ["mobile app development Mumbai", "React Native app development", "iOS app development", "Android app development", "cross platform apps"],
-    h1: "Mobile App Development Services in Mumbai",
-    badge: "Cross-Platform Mobility",
-    headlineAccent: "Engage Users on Every Screen",
-    description: "We design and build feature-rich iOS and Android mobile applications using native components. Delivering exceptional performance, gesture interactions, and offline caching.",
-    overviewTitle: "High-Performance Cross-Platform Apps",
-    overviewContent: "Nexyn Studios is a premier mobile app development studio in Mumbai. We leverage React Native and Expo to build applications that compile directly to native code, sharing a single codebase to cut your development cost and time-to-market in half. We focus on low-data modes, offline synchronization, and seamless backend API integrations.",
-    capabilities: [
-      "Cross-platform app development using React Native",
-      "Local database caching using SQLite for offline access",
-      "Firebase Cloud Messaging (FCM) push notifications integration",
-      "Camera, geo-location, and biometric sensor hardware integrations",
-      "App Store (Apple) and Google Play Store compliance & deployment",
-      "ASO (App Store Optimization) and user behavior tracking setup"
-    ],
-    technologies: ["React Native", "TypeScript", "Expo", "SQLite", "Firebase", "Node.js"],
-    processTitle: "Our Mobile Sprints",
-    process: [
-      { title: "UX Mapping & Prototyping", desc: "Detailed mapping of mobile gesture flows, screen layouts, and offline data sync rules." },
-      { title: "Development & Testing", desc: "Iterative sprints with live builds shared via TestFlight and Google Play Console beta." },
-      { title: "Store Submission & Launch", desc: "App compliance checks, store description setup, assets packaging, and submission." }
-    ],
-    benefitsTitle: "Benefits of Cross-Platform Mobile Apps",
-    benefits: [
-      { title: "One Codebase, Two Platforms", desc: "Build once for both iOS and Android, drastically reducing maintenance and feature release cycles." },
-      { title: "Native Response & Speed", desc: "Compiled React Native code guarantees fluid 60fps animations and rapid gesture responses." },
-      { title: "Offline-First Synchronization", desc: "Allow users to interact with files and message feeds offline; sync changes once reconnected." }
-    ],
-    faqs: [
-      { question: "Do you build native apps or hybrid apps?", answer: "We focus on React Native, which builds native-like applications by compiling to actual iOS and Android components for high performance." },
-      { question: "How do you handle push notifications?", answer: "We integrate Firebase Cloud Messaging (FCM) or Apple Push Notification service (APNs) for real-time background and foreground alerts." }
-    ],
-    internalLinks: [
-      { label: "React Native Development", href: "/technologies/react-native-development" },
-      { label: "Node.js Backend", href: "/technologies/nodejs-development" },
-      { label: "SaaS Product Development", href: "/solutions/saas-product-development" }
-    ]
-  },
-  "software-development": {
-    slug: "software-development",
-    title: "Software Development Company Mumbai | Custom ERP & CRM Solutions",
-    metaDescription: "Nexyn Studios is a top custom software development company in Mumbai. We design and build bespoke CRM, ERP, and database automation systems for enterprise scaling.",
-    keywords: ["software development company Mumbai", "custom software development", "bespoke ERP development", "enterprise software solutions", "custom CRM software"],
-    h1: "Custom Software Development in Mumbai",
-    badge: "Enterprise Grade Systems",
-    headlineAccent: "Eliminate Operational Bottlenecks",
-    description: "We architect custom software, relational database architectures, and secure client-partner portals designed to fit your unique operational workflows.",
+    h1: "Custom Software Development Services",
+    badge: "Enterprise-Grade Architecture",
+    headlineAccent: "Engineered Around Your Business",
+    description: "Software engineered around the way your business actually works. We build custom CRMs, ERP platforms, bespoke portals, and enterprise workflow engines to eliminate manual overhead.",
+    heroImage: "/images/services/custom-development.png",
+    heroImageAlt: "Custom Software Development Dashboard and Architecture",
     overviewTitle: "Bespoke Enterprise Systems Tailored to Your Rules",
-    overviewContent: "Off-the-shelf software forces you to change your workflow to fit its limitations. At Nexyn Studios, we build custom software that adapts to *your* business logic. We design secure multi-role dashboards, automated notification triggers, and advanced reporting features that help you save thousands of hours and eliminate manual spreadsheets.",
+    overviewContent: "Off-the-shelf software forces your business to compromise its operational workflows to fit rigid vendor limitations. At Nexyn Studios, we reverse that paradigm. We architect custom software platforms designed specifically around your proprietary processes, data structures, and multi-tier team permissions. From custom CRMs and ERP engines to high-security client portals, our custom software solutions help organizations eliminate spreadsheet fragmentation, increase data integrity, and scale operations seamlessly.",
+    whatWeOfferTitle: "What We Build in Custom Software",
+    whatWeOffer: [
+      {
+        title: "Custom CRM Systems",
+        desc: "Bespoke lead management, sales pipeline tracking, automated client communications, and deal analytics built for your exact sales funnel."
+      },
+      {
+        title: "ERP Platforms",
+        desc: "Centralized inventory tracking, multi-branch supply chain operations, order processing, and automated financial auditing tools."
+      },
+      {
+        title: "Client & Partner Portals",
+        desc: "High-security client dashboards featuring role-based access control, real-time status reporting, document sharing, and client onboarding."
+      },
+      {
+        title: "Workflow Automation Engines",
+        desc: "Rule-based event triggers that eliminate manual data copy-pasting, generate automated reports, and connect disconnected software."
+      },
+      {
+        title: "Internal Admin Tools",
+        desc: "Custom operational dashboards for team activity management, staff permissions, compliance tracking, and administrative controls."
+      },
+      {
+        title: "Legacy Software Modernization",
+        desc: "Seamless upgrade of legacy monolithic databases and legacy applications to cloud-native microservices with zero downtime."
+      }
+    ],
     capabilities: [
-      "Bespoke CRM & ERP platforms tailored entirely to your workflow",
-      "Multi-role user authentication with granular permission controls",
-      "Database schema design and query execution optimization",
-      "Automated PDF document and client report generation",
-      "Legacy software modernization and database migrations",
-      "Custom third-party integrations (payment, SMS, CRM, Logistics)"
+      "Bespoke CRM & ERP platforms tailored entirely to your sales pipelines and inventory rules",
+      "End-to-end workflow automation to streamline operations and eliminate human errors",
+      "High-security multi-tenant Admin Portals and Client dashboards with role-based access",
+      "Seamless integration with third-party APIs (payment gateways, logistics, SMS, WhatsApp)",
+      "Legacy application migration and database modernization with zero business downtime",
+      "Database schema design, index tuning, and high-concurrency query execution optimization"
     ],
-    technologies: ["Next.js", "TypeScript", "Node.js", "NestJS", "PostgreSQL", "Prisma", "AWS"],
-    processTitle: "Enterprise Software Delivery",
+    technologies: ["Next.js", "TypeScript", "Node.js", "NestJS", "PostgreSQL", "Prisma", "Docker", "AWS"],
+    processTitle: "Our Custom Development Process",
     process: [
-      { title: "Requirements Blueprinting", desc: "Detailed mapping of database schemas, role scopes, and workflow step rules." },
-      { title: "Agile Development Sprints", desc: "Bi-weekly milestone deliveries with feedback collection and continuous integrations." },
-      { title: "Deploy & Data Migration", desc: "Secure staging setup, legacy data sanitization, migration script execution, and production launch." }
+      { title: "01 — Discovery & Requirements", desc: "Comprehensive mapping of your business rules, operational bottlenecks, database structures, and security scopes." },
+      { title: "02 — Architecture & Database Design", desc: "Designing relational database schemas, API contracts, permission hierarchies, and system interfaces." },
+      { title: "03 — Wireframing & UX Design", desc: "Creating high-fidelity clickable mockups to validate operational flows with key stakeholders before coding." },
+      { title: "04 — Agile Engineering", desc: "Iterative bi-weekly development sprints with continuous integrations and regular demo feedback sessions." },
+      { title: "05 — Quality & Security Audit", desc: "Rigorous automated testing, role privilege verification, SQL injection protection, and performance load testing." },
+      { title: "06 — Deployment & Data Migration", desc: "Staged deployment to private virtual clouds, legacy data sanitization, migration scripts, and production launch." },
+      { title: "07 — Support & SLA Maintenance", desc: "Dedicated ongoing technical support, proactive monitoring, security updates, and continuous feature updates." }
     ],
-    benefitsTitle: "Why Custom Software is the Right Choice",
+    benefitsTitle: "Business Impact & Key Benefits",
     benefits: [
-      { title: "Unlimited Scalability", desc: "No per-user licensing fees. Scale your user base from 10 to 10,000 without additional software costs." },
-      { title: "Control Your Process", desc: "Own your code, data, and workflows. Modify software rules as your business strategies evolve." },
-      { title: "Enhanced Access Security", desc: "Deploy on private virtual clouds with rigid firewalls and strict role-based access control." }
+      { title: "Zero Subscription Fees", desc: "Own your source code with zero per-user monthly software licensing fees as your headcount grows." },
+      { title: "Perfect Operational Fit", desc: "Software adapts precisely to your internal workflow rules rather than forcing staff to adapt to rigid tools." },
+      { title: "Higher Team Velocity", desc: "Automate manual data entry and repetitive tasks to increase operational output by over 40%." },
+      { title: "Enterprise Data Security", desc: "Deploy in private cloud environments with role-based access control, encrypted databases, and audit logs." },
+      { title: "Seamless Interoperability", desc: "Unify your databases, payment pathways, logistics APIs, and communication tools into a single platform." },
+      { title: "Long-Term Scalability", desc: "Modular cloud architecture designed to handle millions of records and high user concurrency without performance degradation." }
     ],
     faqs: [
-      { question: "Can you migrate data from our existing excel spreadsheets?", answer: "Yes. We write custom database migration scripts to clean, structure, and import your spreadsheet data into a relational database." },
-      { question: "How do you handle security?", answer: "We implement secure session tokens, encryption at rest and in transit, strict database roles, and host on virtual private clouds." }
+      { question: "Why choose custom software development over off-the-shelf SaaS?", answer: "Custom software gives you full ownership of source code, zero per-seat subscription fees, total security control, and a platform built exactly around your proprietary business workflows." },
+      { question: "Can you migrate data from our existing Excel spreadsheets or legacy database?", answer: "Yes. We write custom database migration scripts to extract, sanitize, format, and import legacy data into a structured relational database with full data integrity checks." },
+      { question: "Who owns the intellectual property (IP) and source code?", answer: "You retain 100% ownership of all source code, database architecture, assets, and intellectual property developed during the project." },
+      { question: "How do you ensure data security and role permissions?", answer: "We enforce strict Role-Based Access Control (RBAC), session token authentication, database encryption at rest and in transit, and host on isolated virtual private clouds." },
+      { question: "How long does a custom software development project take?", answer: "Timeline depends on feature scope. Typical MVP solutions take 6–10 weeks, while large enterprise ERPs are delivered in phased milestones over 12–16 weeks." },
+      { question: "What post-launch support and maintenance do you provide?", answer: "We provide SLA-backed maintenance packages including server monitoring, automated database backups, security patching, and ongoing feature updates." }
     ],
     internalLinks: [
-      { label: "PostgreSQL Database Services", href: "/technologies/postgresql-development" },
-      { label: "Custom CRM Development", href: "/solutions/custom-crm-development" },
-      { label: "Business Automation Software", href: "/solutions/business-automation" }
-    ]
-  },
-  "ecommerce-development": {
-    slug: "ecommerce-development",
-    title: "E-commerce Website Development Mumbai | Headless Commerce Agency",
-    metaDescription: "Scale online sales with custom e-commerce website development in Mumbai. We build high-converting storefronts, headless checkout flows, and CRM integrations.",
-    keywords: ["ecommerce website development Mumbai", "custom ecommerce solutions", "headless commerce developer", "online store development", "payment gateway integration"],
-    h1: "E-commerce Development Services in Mumbai",
-    badge: "Drive Online Sales",
-    headlineAccent: "Bespoke Shopping Experiences",
-    description: "We build fast, secure e-commerce portals, custom shopping cart checkouts, and seamless API integrations with inventory and logistics software.",
-    overviewTitle: "Custom & Headless E-commerce for Maximum Conversions",
-    overviewContent: "Templates limit your e-commerce growth. We build custom React/Next.js e-commerce storefronts that sync directly with your warehousing, ERP, and payment processing tools. By separating the frontend layout from backend APIs (headless commerce), we enable sub-second page speeds, unique layout controls, and enhanced SEO performance.",
-    capabilities: [
-      "Headless e-commerce storefront design using Next.js & React",
-      "Seamless payment gateway integrations (Razorpay, Stripe, PayPal)",
-      "Bespoke shopping cart logic and multi-tier discount engines",
-      "Inventory database tracking and automated invoice generator",
-      "Logistics API integrations (Shiprocket, Delhivery, custom shipping)",
-      "Technical SEO optimization for thousands of product listings"
-    ],
-    technologies: ["Next.js", "React.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
-    processTitle: "E-commerce Sprints",
-    process: [
-      { title: "Checkout Flow Design", desc: "Optimizing layout steps to minimize cart abandonment and secure checkout gates." },
-      { title: "Product Inventory Coding", desc: "Relational database setup for categories, products, prices, and stock updates." },
-      { title: "Payment & Shipping Sync", desc: "API connections with payment processors and local logistics networks." }
-    ],
-    benefitsTitle: "Benefits of Custom E-commerce Storefronts",
-    benefits: [
-      { title: "Blazing Fast Page Load", desc: "NextJS static pre-rendering lets pages load instantly, significantly boosting product conversion rates." },
-      { title: "Bespoke Shopping Funnels", desc: "Design any cart layout, upsell strategy, or custom registration form without platform limits." },
-      { title: "Direct ERP Integration", desc: "Automate stock changes and invoice creation by linking the store directly to your ERP." }
-    ],
-    faqs: [
-      { question: "Why should I choose custom e-commerce over Shopify?", answer: "Custom e-commerce offers significantly faster speeds, lower processing fees, and complete control over layouts and database syncing." },
-      { question: "Is my customers' payment data secure?", answer: "Yes. All transactions are securely routed via tokenized API pathways directly to major PCI-compliant gateways (like Razorpay or Stripe)." }
-    ],
-    internalLinks: [
+      { label: "AI & Automation Services", href: "/services/ai-automation" },
       { label: "Web Development Services", href: "/services/web-development" },
-      { label: "E-commerce Solutions", href: "/solutions/ecommerce-solutions" },
-      { label: "PostgreSQL Databases", href: "/technologies/postgresql-development" }
-    ]
-  },
-  "saas-development": {
-    slug: "saas-development",
-    title: "SaaS Product & MVP Development Company | Nexyn Studios",
-    metaDescription: "Partner with a leading SaaS development company in Mumbai. We build secure multi-tenant architectures, subscription systems, and scalable MVPs.",
-    keywords: ["saas development company", "SaaS MVP development", "multi tenant architecture", "subscription software development", "SaaS developers"],
-    h1: "SaaS Product & MVP Development Services",
-    badge: "Build Your Product",
-    headlineAccent: "From MVP to Enterprise Scale",
-    description: "We design, code, and deploy cloud-native software-as-a-service products featuring secure tenancy separation, subscription billing, and robust database layers.",
-    overviewTitle: "Scalable SaaS Architecture Designed for Long-Term Growth",
-    overviewContent: "Launching a SaaS product requires more than basic coding; it demands a solid architecture. We build SaaS platforms with clear multi-tenant isolation, structured API gateways, and subscription systems. Our goal is to help you launch a secure, reliable MVP quickly, while ensuring the architecture can handle millions of events as your product grows.",
-    capabilities: [
-      "Multi-tenant database architectures (shared DB with schema isolation or isolated DBs)",
-      "Secure SaaS user onboarding and invite workflows",
-      "Stripe/Razorpay billing subscriptions and webhook event listeners",
-      "Interactive data dashboards and drag-and-drop analytics portals",
-      "API gateway engineering and rate-limiting configurations",
-      "Continuous deployment pipelines on AWS or GCP virtual clouds"
-    ],
-    technologies: ["Next.js", "TypeScript", "Node.js", "NestJS", "PostgreSQL", "Prisma", "Docker"],
-    processTitle: "SaaS Sprints to Launch",
-    process: [
-      { title: "Data Isolation Design", desc: "Selecting and setting up tenant structures, DB role access, and table constraints." },
-      { title: "Billing & Auth Pipelines", desc: "Integrating social logins, invitation tokens, and subscription webhook managers." },
-      { title: "Scalability Hardening", desc: "Setting up CDN caches, query caching, API rate limiters, and server alerts." }
-    ],
-    benefitsTitle: "Why Build Your SaaS with Nexyn Studios?",
-    benefits: [
-      { title: "Robust Tenant Isolation", desc: "Strict database level checks guarantee that no client can ever access another client's data." },
-      { title: "Flexible Billing Integrations", desc: "Support per-seat charges, flat-rate tiers, usage pricing, or custom coupon codes easily." },
-      { title: "Rapid MVP Launch Strategy", desc: "We focus on key core features to launch your product to early adopters in weeks, not months." }
-    ],
-    faqs: [
-      { question: "How do you secure data in a multi-tenant SaaS?", answer: "We apply Row-Level Security (RLS) policies in PostgreSQL and verify tenant identifiers on every API call." },
-      { question: "Can we modify subscription options later?", answer: "Yes, we build modular billing pipelines linked to Stripe/Razorpay so you can alter tiers dynamically." }
-    ],
-    internalLinks: [
-      { label: "SaaS Product Development", href: "/solutions/saas-product-development" },
-      { label: "NestJS Development Services", href: "/technologies/nestjs-development" },
-      { label: "Node.js Backend Solutions", href: "/technologies/nodejs-development" }
+      { label: "Cloud & DevOps Infrastructure", href: "/services/cloud-devops" },
+      { label: "UI/UX Product Design", href: "/services/ui-ux-design" }
     ]
   },
   "ui-ux-design": {
     slug: "ui-ux-design",
-    title: "UI/UX Design Agency Mumbai | Premium Web & App Interfaces",
-    metaDescription: "Top UI/UX design agency in Mumbai. Nexyn Studios creates research-driven interfaces, interactive wireframes, and scalable design systems for websites & apps.",
-    keywords: ["ui ux design agency Mumbai", "user experience design company", "wireframes and prototypes", "custom design systems", "conversion optimization design"],
-    h1: "UI/UX Design Agency in Mumbai",
-    badge: "User Centered Design",
-    headlineAccent: "Beautiful, Intuitive Interfaces",
-    description: "We conduct user research, wireframe layouts, and build unified design systems that elevate your digital products and optimize customer journeys.",
-    overviewTitle: "Research-Driven UI/UX for Higher Conversion Rates",
-    overviewContent: "Visuals are only half the battle. Good design is about how your application works, how users navigate, and how easily they complete actions. We create conversion-optimized design systems in Figma that match your brand identity, improve customer engagement, and enable our engineering team to build interfaces quickly.",
+    title: "UI/UX Design Services | Modern SaaS & Product Design Agency",
+    metaDescription: "Nexyn Studios delivers research-driven UI/UX design services. We create modern product interfaces, clickable wireframes, design systems, and conversion funnels.",
+    keywords: [
+      "UI UX design services",
+      "UI UX design agency Mumbai",
+      "SaaS product design",
+      "design system agency",
+      "user experience design",
+      "wireframes and prototypes",
+      "conversion rate optimization",
+      "Figma design system"
+    ],
+    h1: "UI/UX Design Services",
+    badge: "User-Centered Aesthetics",
+    headlineAccent: "Intuitive & High-Converting Interfaces",
+    description: "Conversion-optimized, modern user interfaces designed after extensive research to match your company branding, improve retention, and create a premium product experience.",
+    heroImage: "/images/services/ui-ux-design.png",
+    heroImageAlt: "Modern UI/UX Design System Workspace and SaaS Interface",
+    overviewTitle: "Research-Driven Product Design for High Conversion",
+    overviewContent: "Visuals are only half the battle. Exceptional product design is about how your application works, how effortlessly users navigate, and how seamlessly they accomplish key actions. At Nexyn Studios, our UI/UX design process begins with deep user persona research, user journey mapping, and competitor flow audits. We create unified Figma design systems that maintain brand identity across all screens, increase product retention, and accelerate engineering handoffs.",
+    whatWeOfferTitle: "Our UI/UX Design Offerings",
+    whatWeOffer: [
+      {
+        title: "User Research & Persona Mapping",
+        desc: "In-depth user journey analysis, stakeholder interviews, user persona mapping, and usability friction audits."
+      },
+      {
+        title: "Wireframing & Interactive Prototypes",
+        desc: "Low-fidelity structural blueprints and interactive clickable prototypes to test user flows before writing code."
+      },
+      {
+        title: "SaaS Dashboard & Interface Design",
+        desc: "Sleek, modern UI design for complex web applications, analytics dashboards, and enterprise portals."
+      },
+      {
+        title: "Scalable Design Systems",
+        desc: "Comprehensive UI component libraries in Figma with standardized color tokens, spacing rules, and typography scales."
+      },
+      {
+        title: "Mobile App UX Design",
+        desc: "Native iOS & Android screen designs with touch-target optimization, haptic feedback rules, and fluid gesture navigation."
+      },
+      {
+        title: "Conversion Rate Optimization (CRO)",
+        desc: "Targeted redesigns of landing pages, checkout flows, and user onboarding steps to maximize registrations and sales."
+      }
+    ],
     capabilities: [
-      "User research, persona creation, and competitor flow audits",
-      "Low-fidelity wireframing and interactive clickable prototypes",
-      "High-fidelity visual design for complex web & mobile layouts",
-      "Scalable Figma design systems (spacing, colors, typography tokens)",
-      "Conversion Rate Optimization (CRO) and user-experience audits",
-      "Accessibility compliance checks (WCAG guidelines, focus states)"
+      "User research, user personas mapping, and detailed competitor analysis",
+      "Interactive wireframing, high-fidelity mockups, and clickable prototypes",
+      "Modern, responsive UI design tailored to your global brand identity",
+      "Scalable, production-ready Design Systems & Component Sheets for fast engineering",
+      "Conversion Rate Optimization (CRO) to maximize customer registrations and sales",
+      "A/B testing guidelines, user flow audits, and accessibility compliance checks"
     ],
-    technologies: ["Figma", "Tailwind CSS", "CSS variables", "Framer Motion", "Google Fonts"],
-    processTitle: "Our Design Process",
+    technologies: ["Figma", "Tailwind CSS", "CSS Variables", "Framer Motion", "Google Fonts", "Design Systems"],
+    processTitle: "Our Design Methodology",
     process: [
-      { title: "User Persona Research", desc: "Interview stakeholders, research competitors, and outline primary task priorities." },
-      { title: "Wireframes & Prototypes", desc: "Mapping structure in gray-scale, verifying layouts, and refining user flows." },
-      { title: "Design System Bundling", desc: "Designing visual UI tokens, buttons, fields, states, and hand-off components." }
+      { title: "01 — Discovery & User Research", desc: "Interviewing stakeholders, reviewing current analytics, and mapping target user personas and pain points." },
+      { title: "02 — Information Architecture", desc: "Structuring content hierarchy, navigation trees, and core user task flows." },
+      { title: "03 — Wireframing & Layout Blueprint", desc: "Drafting gray-scale wireframes to establish structural layout and element placement without visual distraction." },
+      { title: "04 — Visual UI Design", desc: "Applying brand visual identity, modern color palettes, typography scales, and glassmorphic card elements." },
+      { title: "05 — Design System Creation", desc: "Bundling atomic UI components, button states, form fields, and token variables in Figma." },
+      { title: "06 — Interactive Prototype Testing", desc: "Building clickable prototypes to conduct usability walkthroughs and gather real user feedback." },
+      { title: "07 — Developer Handoff", desc: "Delivering pixel-perfect Figma specs, asset exports, design tokens, and CSS guidelines to engineering teams." }
     ],
-    benefitsTitle: "How Unified UI/UX Benefits Your Business",
+    benefitsTitle: "Measurable Business Outcomes",
     benefits: [
-      { title: "Lower Customer Drop-offs", desc: "Clear call-to-actions and clean form structures keep users moving smoothly through your checkout or signup funnel." },
-      { title: "Accelerated Frontend Sprints", desc: "A robust design system allows engineers to reuse pre-styled components, reducing frontend coding time by 40%." },
-      { title: "Stronger Brand Positioning", desc: "Custom, modern design creates a premium brand impression, building trust with enterprises and customers alike." }
+      { title: "Lower Customer Churn", desc: "Intuitive user flows remove friction, resulting in higher product adoption and customer retention." },
+      { title: "Accelerated Frontend Sprints", desc: "Production-ready design systems allow developers to reuse component specs, reducing coding time by 40%." },
+      { title: "Higher Conversion Rates", desc: "Optimizing landing pages and onboarding steps directly converts more site visitors into paying clients." },
+      { title: "Premium Brand Impression", desc: "State-of-the-art SaaS aesthetics build immediate trust and credibility with enterprise buyers." },
+      { title: "Accessibility Compliance", desc: "WCAG-compliant contrast ratios and focus states ensure your app is accessible on all screens." },
+      { title: "Reduced Support Tickets", desc: "Clear interface hierarchy and self-explanatory navigation reduce user confusion and support requests." }
     ],
     faqs: [
-      { question: "What design tools do you use?", answer: "We design entirely in Figma, exporting assets and providing live link access to your team." },
-      { question: "Do you design for both web and mobile?", answer: "Yes, we design responsive layouts that scale gracefully from desktop monitors to tablets and mobile screens." }
+      { question: "What design tools do you use for UI/UX projects?", answer: "We design exclusively in Figma, providing live link access, interactive prototypes, and organized component libraries for your team." },
+      { question: "Do you design for both web and mobile platforms?", answer: "Yes. We create responsive UI designs that scale seamlessly from ultra-wide desktop monitors to tablets and native mobile viewports." },
+      { question: "What is included in a design system handoff?", answer: "Our design systems include typography tokens, color schemes, component variants (hover, active, disabled states), icon sets, spacing rules, and responsive specs." },
+      { question: "Can you audit and redesign our existing digital product?", answer: "Yes. We conduct UX audits to identify drop-off points, accessibility flaws, and visual inconsistencies, followed by a targeted redesign plan." },
+      { question: "How do you ensure developers implement the design accurately?", answer: "We provide Figma inspect specs, CSS token values, asset exports, and conduct visual QA checks with developers before launch." },
+      { question: "How long does a full UI/UX design project take?", answer: "Initial wireframes and core screen designs take 2–4 weeks. Complete product design systems take 4–6 weeks depending on screen count." }
     ],
     internalLinks: [
       { label: "Web Development Services", href: "/services/web-development" },
       { label: "Mobile App Development", href: "/services/mobile-app-development" },
-      { label: "TypeScript Web Development", href: "/technologies/typescript-development" }
+      { label: "Custom Software Development", href: "/services/custom-development" }
     ]
   },
-  "business-automation": {
-    slug: "business-automation",
-    title: "Business Automation Software Mumbai | Custom CRM & Workflow Tools",
-    metaDescription: "Automate manual tasks with custom business automation software in Mumbai. Nexyn Studios builds bespoke workflow engines, API integrations, and admin portals.",
-    keywords: ["business automation software", "workflow automation tools", "custom database integration", "operations management software", "custom API developer"],
-    h1: "Business Automation Software in Mumbai",
-    badge: "Automate Operations",
-    headlineAccent: "Eliminate Manual Overhead",
-    description: "We design and build bespoke database dashboards, automated status workflows, and custom email/WhatsApp notifications that streamline your daily operations.",
-    overviewTitle: "Transform Bloated Workflows into Lean Systems",
-    overviewContent: "If your staff spends hours copy-pasting customer details, chasing approvals, or manual data entry in spreadsheets, you are losing valuable time and money. We build custom business automation tools that connect your systems, trigger notifications, automate PDF report creation, and provide single-source dashboards.",
+  "web-development": {
+    slug: "web-development",
+    title: "Web Development Services | Next.js & React Web Applications",
+    metaDescription: "Nexyn Studios provides high-performance web development services in Mumbai. We build responsive Next.js & React web applications engineered for speed, SEO, and scale.",
+    keywords: [
+      "web development services",
+      "web development company Mumbai",
+      "Nextjs development company",
+      "React web application developer",
+      "custom web apps",
+      "SEO web development",
+      "headless CMS development",
+      "frontend engineering agency"
+    ],
+    h1: "Web Development Services",
+    badge: "Performance & SEO Focused",
+    headlineAccent: "Lighting-Fast Web Applications",
+    description: "SEO-optimized, lightning-fast websites and custom web applications powered by modern frontend frameworks to deliver seamless performance on all devices.",
+    heroImage: "/images/services/web-development.png",
+    heroImageAlt: "High-Performance Next.js Web Development Architecture",
+    overviewTitle: "Modern Web Engineering for Business Growth",
+    overviewContent: "Your web application is often the primary touchpoint for acquiring new clients and showcasing your software solutions. Slow loading speeds, broken mobile layouts, or poor search engine indexation directly destroy growth opportunities. At Nexyn Studios, we build high-performance web applications using React, Next.js, and TypeScript. By leveraging Server-Side Rendering (SSR) and edge-network caching, we ensure sub-second page loads, top Core Web Vitals metrics, and immediate search engine indexing.",
+    whatWeOfferTitle: "Our Web Development Solutions",
+    whatWeOffer: [
+      {
+        title: "Next.js Web Applications",
+        desc: "Server-Side Rendered (SSR) & Static Site Generated (SSG) web applications designed for blazing speed and search rank domination."
+      },
+      {
+        title: "Headless CMS Platforms",
+        desc: "Decoupled web platforms integrated with Sanity, Strapi, or Contentful for real-time marketing content management."
+      },
+      {
+        title: "Custom E-Commerce Storefronts",
+        desc: "High-converting online store layouts, custom shopping cart logic, secure checkout flows, and payment gateway sync."
+      },
+      {
+        title: "Enterprise Web Portals",
+        desc: "Interactive analytics dashboards, multi-user customer portals, and real-time operations web applications."
+      },
+      {
+        title: "Progressive Web Apps (PWAs)",
+        desc: "Web applications featuring offline support, native-like mobile installability, and push notification triggers."
+      },
+      {
+        title: "API & Database Integrations",
+        desc: "Robust RESTful and GraphQL API connections linking your web app to core backend databases and third-party tools."
+      }
+    ],
     capabilities: [
-      "Bespoke multi-tier approval workflows and database pipelines",
-      "Automated PDF document and invoice generation engines",
-      "Custom API integrations (payment, CRM, logistics, WhatsApp alerts)",
-      "Multi-role user permission panels and audit trails logs",
-      "Database schema synchronization and operations dashboarding",
-      "Real-time event logging and status tracking pipelines"
+      "High-performance React & Next.js applications with Server-Side Rendering (SSR)",
+      "Headless CMS integration (Sanity, Strapi) for easy, real-time content management",
+      "Fully responsive mobile-first layouts with smooth, physics-based micro-animations",
+      "Robust e-commerce storefronts, secure payment processors, and custom cart flows",
+      "Advanced Technical SEO configuration to rank higher on search engines from day one",
+      "W3C standards compliance, security hardening, and Vercel/AWS cloud optimization"
     ],
-    technologies: ["Next.js", "Node.js", "TypeScript", "PostgreSQL", "Prisma", "Socket.io"],
-    processTitle: "Automation Sprints",
+    technologies: ["Next.js", "React.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel", "GraphQL"],
+    processTitle: "Our Web Development Process",
     process: [
-      { title: "Process Flow Auditing", desc: "Mapping out each manual task step, system inputs, approval gates, and data outputs." },
-      { title: "Database & Pipeline Coding", desc: "Configuring tables, role privileges, dynamic states, and email/SMS webhooks." },
-      { title: "Operational Live Trials", desc: "Testing systems with real operational teams and adjusting workflows based on feedback." }
+      { title: "01 — Technical Discovery", desc: "Analyzing project goals, SEO target keywords, user journeys, and technical stack requirements." },
+      { title: "02 — Architecture & Database Schema", desc: "Mapping dynamic route structures, database relations, state management rules, and API endpoints." },
+      { title: "03 — Frontend Development", desc: "Building responsive, component-driven interfaces using Next.js, React, TypeScript, and Tailwind CSS." },
+      { title: "04 — Backend & API Connectivity", desc: "Integrating database query pipelines, authentication handlers, payment gateways, and CMS hooks." },
+      { title: "05 — Core Web Vitals Optimization", desc: "Optimizing Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), images, and JavaScript bundle sizes." },
+      { title: "06 — Cross-Browser & Mobile QA", desc: "Testing layouts across Chrome, Safari, Firefox, Edge, iOS, and Android screens for flawless responsiveness." },
+      { title: "07 — Edge Deployment & Launch", desc: "Deploying to Vercel/AWS global Edge CDNs with SSL security, domain mapping, and analytics setup." }
     ],
-    benefitsTitle: "Why Choose Bespoke Automation Software?",
+    benefitsTitle: "Why Partner with Nexyn Studios",
     benefits: [
-      { title: "Reduce Overhead & Labor", desc: "Automate redundant tasks so your staff can focus on high-value business actions instead of data entry." },
-      { title: "Zero Human Errors", desc: "System validations, auto-generated files, and database constraints prevent data duplication and leaks." },
-      { title: "Real-Time Tracking Stats", desc: "Super Admins see operational bottlenecks and performance metrics instantly on live dashboards." }
+      { title: "SEO-First Architecture", desc: "Server-rendered HTML, dynamic metadata, canonical tags, and structured schemas maximize search engine rankings." },
+      { title: "Sub-Second Page Loads", desc: "Optimized bundle splitting and edge caching keep load times under 1 second, drastically reducing bounce rates." },
+      { title: "Mobile-First Responsiveness", desc: "Pixel-perfect rendering on desktop monitors, tablets, and smartphones ensures zero user drop-off." },
+      { title: "Zero Proprietary Lock-In", desc: "Built with standard TypeScript, Next.js, and PostgreSQL so your internal teams can easily maintain it." },
+      { title: "Enterprise Grade Security", desc: "Protection against OWASP top 10 threats, XSS attacks, CSRF exploits, and automated spam bots." },
+      { title: "Infinite Cloud Scalability", desc: "Serverless and edge deployments automatically scale during high traffic spikes without server downtime." }
     ],
     faqs: [
-      { question: "Can we integrate with third-party software like WhatsApp?", answer: "Yes, we write custom API connectors to send automated status triggers and alerts to WhatsApp, email, or Slack." },
-      { question: "What are the hosting requirements for automation software?", answer: "We set up lightweight, cost-effective servers on cloud providers like AWS or Supabase, optimized for low overhead." }
+      { question: "Why do you recommend Next.js over plain React for web applications?", answer: "Next.js provides Server-Side Rendering (SSR) and Static Site Generation (SSG), which deliver instant page loads and allow search engines to crawl clean HTML for vastly superior SEO compared to client-only React." },
+      { question: "How do you ensure the website ranks well on Google?", answer: "We implement dynamic metadata tags, Open Graph tags, canonical URLs, breadcrumb schemas, proper H1/H2 heading hierarchy, XML sitemaps, and optimize Core Web Vitals for green Lighthouse scores." },
+      { question: "Can we manage website content ourselves after launch?", answer: "Yes. We integrate headless Content Management Systems (like Sanity or Strapi) that allow non-technical team members to edit text, upload blog posts, and update media without writing code." },
+      { question: "Is my web application mobile responsive?", answer: "Every web app we build is designed mobile-first and tested across all major smartphones, tablets, and desktop resolutions." },
+      { question: "Do you integrate payment gateways like Razorpay or Stripe?", answer: "Yes, we build secure PCI-compliant payment integrations supporting credit cards, UPI, net banking, subscriptions, and webhooks." },
+      { question: "What is your web development delivery timeline?", answer: "Standard corporate web apps are delivered in 4–6 weeks. Complex enterprise web portals or e-commerce platforms take 6–10 weeks." }
     ],
     internalLinks: [
-      { label: "Custom CRM Development", href: "/solutions/custom-crm-development" },
-      { label: "Business Automation Solutions", href: "/solutions/business-automation" },
-      { label: "Software Development Services", href: "/services/software-development" }
+      { label: "UI/UX Design Services", href: "/services/ui-ux-design" },
+      { label: "Cloud & DevOps Infrastructure", href: "/services/cloud-devops" },
+      { label: "Custom Software Development", href: "/services/custom-development" },
+      { label: "AI & Automation Services", href: "/services/ai-automation" }
     ]
+  },
+  "mobile-app-development": {
+    slug: "mobile-app-development",
+    title: "Mobile App Development Services | Custom iOS & Android Apps",
+    metaDescription: "Nexyn Studios is a top mobile app development company. We engineer premium cross-platform iOS & Android mobile apps using React Native with native speed & offline sync.",
+    keywords: [
+      "mobile app development services",
+      "mobile app development Mumbai",
+      "React Native app development",
+      "iOS app development agency",
+      "Android app development",
+      "cross platform mobile apps",
+      "mobile product engineering",
+      "App Store deployment"
+    ],
+    h1: "Mobile App Development Services",
+    badge: "Cross-Platform Mobility",
+    headlineAccent: "Native Performance on iOS & Android",
+    description: "Premium iOS and Android mobile applications engineered with native components to deliver exceptional performance, high-speed interactions, and offline capability.",
+    heroImage: "/images/services/mobile-app-development.png",
+    heroImageAlt: "iOS and Android Mobile Application Development Ecosystem",
+    overviewTitle: "High-Performance Mobile Product Engineering",
+    overviewContent: "Mobile users expect instant app launches, 60fps gesture interactions, and reliable offline data availability. Building separate native apps for Apple iOS and Google Android doubles your development costs, delays launch timelines, and fragments feature updates. At Nexyn Studios, we specialize in cross-platform mobile development using React Native and Expo. We write compiled TypeScript code that renders native platform UI components on both iOS and Android, sharing a single codebase to cut time-to-market in half while maintaining native responsiveness.",
+    whatWeOfferTitle: "Our Mobile App Capabilities",
+    whatWeOffer: [
+      {
+        title: "Cross-Platform Mobile Apps",
+        desc: "Feature-rich iOS and Android mobile apps engineered with single-codebase efficiency and zero performance compromise."
+      },
+      {
+        title: "Native Hardware Integration",
+        desc: "Direct hardware access for camera features, biometric authentication (FaceID/Fingerprint), GPS location, and Bluetooth."
+      },
+      {
+        title: "Offline-First Synchronization",
+        desc: "Local SQLite database caching enabling users to work uninterrupted without active internet connectivity."
+      },
+      {
+        title: "Push Notification Engines",
+        desc: "Firebase Cloud Messaging (FCM) integration for automated transactional alerts, background notifications, and user re-engagement."
+      },
+      {
+        title: "Mobile App UI/UX Redesign",
+        desc: "Modernizing legacy mobile applications with modern gesture navigation, haptic feedback, and fluid micro-animations."
+      },
+      {
+        title: "App Store Publishing & ASO",
+        desc: "Complete release management for Apple App Store and Google Play Console compliance, assets packaging, and ASO."
+      }
+    ],
+    capabilities: [
+      "Cross-platform mobile application development using React Native framework",
+      "Native iOS (Swift/Objective-C) and Android (Kotlin/Java) app engineering",
+      "Mobile-first UX design, haptic feedback integration, and modern gesture controls",
+      "Secure server-side API development, offline synchronization, and caching",
+      "App Store (Apple) and Google Play Store submission, compliance guidelines, and ASO",
+      "Real-time push notifications, chat relay integration, and geo-location tracking"
+    ],
+    technologies: ["React Native", "TypeScript", "Expo", "SQLite", "Firebase", "Node.js", "iOS Swift", "Android Kotlin"],
+    processTitle: "Our Mobile App Development Sprint",
+    process: [
+      { title: "01 — Mobile Product Blueprinting", desc: "Defining user stories, mobile hardware requirements, offline data rules, and screen flow architecture." },
+      { title: "02 — Mobile UI/UX Prototyping", desc: "Designing touch-optimized mobile screens, gesture patterns, and interactive clickable prototypes." },
+      { title: "03 — React Native Core Development", desc: "Writing clean, modular TypeScript code and configuring navigation flows and state stores." },
+      { title: "04 — Native Device Integration", desc: "Connecting device sensors, camera plugins, push notification tokens, and local SQLite caches." },
+      { title: "05 — TestFlight & Beta Distribution", desc: "Distributing preview builds to stakeholders via Apple TestFlight and Google Play Beta." },
+      { title: "06 — Store Compliance & Auditing", desc: "Verifying privacy policies, app permissions, assets requirements, and store guidelines." },
+      { title: "07 — Store Publishing & Monitoring", desc: "Submitting to the App Store & Play Store with live crash reporting and analytics monitoring." }
+    ],
+    benefitsTitle: "Why Choose Cross-Platform Mobile Apps",
+    benefits: [
+      { title: "50% Faster Time to Market", desc: "Ship simultaneously to Apple App Store and Google Play Store from a single TypeScript codebase." },
+      { title: "Native 60fps Performance", desc: "Compiled React Native UI components deliver fluid 60fps animations and rapid gesture responses." },
+      { title: "Lower Maintenance Costs", desc: "A single engineering team manages app updates, eliminating the cost of separate iOS and Android teams." },
+      { title: "Offline Data Access", desc: "Local database persistence allows users to interact with content offline and sync automatically when online." },
+      { title: "Instant OTA Updates", desc: "Deploy over-the-air bug fixes directly to user devices without waiting for app store review delays." },
+      { title: "Higher App Store Ratings", desc: "Polished UI/UX, fast launch speeds, and crash-free stability drive higher ratings and organic downloads." }
+    ],
+    faqs: [
+      { question: "Do you build native mobile apps or cross-platform apps?", answer: "We specialize in React Native, which compiles directly to native iOS (Swift) and Android (Kotlin) components. This gives you native performance while keeping a single maintainable codebase." },
+      { question: "Can the mobile app work offline without internet?", answer: "Yes! We implement offline-first architectures using local SQLite database caching. Data saved offline automatically syncs with server APIs once connectivity is restored." },
+      { question: "Do you handle App Store and Google Play Store submissions?", answer: "Yes. We handle the entire submission workflow including developer account setup, build signing, privacy policy declarations, app store screenshots, and guideline compliance." },
+      { question: "How do push notifications work in your mobile apps?", answer: "We integrate Firebase Cloud Messaging (FCM) and Apple APNs to send real-time transactional alerts, marketing notifications, and automated triggers." },
+      { question: "Can you integrate mobile payments like Apple Pay and Google Pay?", answer: "Yes. We integrate Stripe, Razorpay, Apple Pay, and Google Pay SDKs for secure one-touch checkout flows." },
+      { question: "How long does it take to develop a custom mobile app?", answer: "Standard mobile MVP applications take 6–10 weeks from initial design to store submission. Complex apps with multi-role portals take 10–14 weeks." }
+    ],
+    internalLinks: [
+      { label: "Web Development Services", href: "/services/web-development" },
+      { label: "UI/UX Product Design", href: "/services/ui-ux-design" },
+      { label: "Custom Software Development", href: "/services/custom-development" }
+    ]
+  },
+  "cloud-devops": {
+    slug: "cloud-devops",
+    title: "Cloud & DevOps Services | AWS Infrastructure & CI/CD Pipelines",
+    metaDescription: "Nexyn Studios provides high-availability Cloud & DevOps services. We configure AWS/GCP infrastructure, automated CI/CD pipelines, Docker, Kubernetes & 24/7 monitoring.",
+    keywords: [
+      "cloud devops services",
+      "AWS cloud consulting",
+      "DevOps agency",
+      "CI CD pipeline automation",
+      "Kubernetes containerization",
+      "Docker cloud infrastructure",
+      "cloud security and monitoring",
+      "Vercel AWS hosting"
+    ],
+    h1: "Cloud & DevOps Services",
+    badge: "High-Availability Infrastructure",
+    headlineAccent: "Zero-Downtime Cloud Operations",
+    description: "High-availability, enterprise-grade cloud systems configured with automated pipelines, continuous monitoring, and container security to prevent any downtime.",
+    heroImage: "/images/services/cloud-devops.png",
+    heroImageAlt: "Cloud & DevOps Infrastructure Monitoring Dashboard",
+    overviewTitle: "Enterprise Cloud Systems Built for Uptime & Scale",
+    overviewContent: "Unplanned downtime, slow deployment cycles, and unmonitored cloud servers erode customer trust and destroy revenue. Modern software applications demand infrastructure that automatically scales with user traffic while remaining secure against cyber threats. At Nexyn Studios, our DevOps engineers build automated cloud environments on AWS, Google Cloud (GCP), and Vercel. We containerize applications with Docker, orchestrate microservices with Kubernetes, and establish automated CI/CD pipelines so your engineering team can release features with total confidence.",
+    whatWeOfferTitle: "Our Cloud & DevOps Solutions",
+    whatWeOffer: [
+      {
+        title: "Cloud Infrastructure Provisioning",
+        desc: "Designing and deploying secure AWS, GCP, and Azure cloud networks using Infrastructure as Code (Terraform)."
+      },
+      {
+        title: "Automated CI/CD Pipelines",
+        desc: "Building automated testing, container build, and zero-downtime deployment pipelines in GitHub Actions and GitLab."
+      },
+      {
+        title: "Docker & Kubernetes Orchestration",
+        desc: "Containerizing microservices and managing Kubernetes clusters for maximum server resource efficiency and auto-scaling."
+      },
+      {
+        title: "24/7 Monitoring & Incident Response",
+        desc: "Real-time telemetry monitoring with Prometheus, Grafana, and ELK stack for instant crash alerts and automated recovery."
+      },
+      {
+        title: "Cloud Migration & Cost Optimization",
+        desc: "Seamlessly migrating legacy on-premise servers to the cloud while eliminating idle server overhead to reduce monthly cloud bills."
+      },
+      {
+        title: "Security Hardening & Data Backups",
+        desc: "Configuring VPC firewalls, SSL management, IAM security roles, automated encrypted backups, and disaster recovery drills."
+      }
+    ],
+    capabilities: [
+      "AWS, Google Cloud (GCP), and Azure cloud infrastructure provisioning & security",
+      "Fully automated CI/CD pipelines (GitHub Actions) for fast, risk-free code deployments",
+      "Microservices containerization using Docker engines and Kubernetes orchestration",
+      "24/7 server health monitoring, automatic failover setups, and CPU load balancing",
+      "Automated encrypted database backups, cloud migration, and recovery drills",
+      "SSL/TLS management, firewall configurations, and server security hardening"
+    ],
+    technologies: ["AWS", "Google Cloud", "Docker", "Kubernetes", "Terraform", "GitHub Actions", "Nginx", "PostgreSQL"],
+    processTitle: "Our DevOps Implementation Cycle",
+    process: [
+      { title: "01 — Infrastructure Assessment", desc: "Auditing your current server environment, deployment bottlenecks, security risks, and monthly hosting costs." },
+      { title: "02 — Cloud Architecture Design", desc: "Designing virtual private clouds (VPCs), load balancers, auto-scaling groups, and database clusters." },
+      { title: "03 — Infrastructure as Code (IaC)", desc: "Writing automated Terraform scripts to ensure reproducible, version-controlled cloud environments." },
+      { title: "04 — CI/CD Pipeline Automation", desc: "Configuring automated test runs, Docker container builds, and zero-downtime production deployment gates." },
+      { title: "05 — Cloud Security Hardening", desc: "Enforcing least-privilege IAM roles, security group firewalls, SSL encryption, and secret key vaults." },
+      { title: "06 — Migration & Stress Testing", desc: "Executing data migration scripts, load testing concurrent traffic spikes, and verifying failover procedures." },
+      { title: "07 — 24/7 Telemetry Monitoring", desc: "Setting up real-time server health dashboards, alert notifications, and continuous cloud cost optimization." }
+    ],
+    benefitsTitle: "Business Impact & Reliability",
+    benefits: [
+      { title: "99.99% Guaranteed Uptime", desc: "High-availability multi-region cluster setups prevent server crashes during high traffic surges." },
+      { title: "Zero-Downtime Deployments", desc: "Deploy new code updates seamlessly multiple times a day without causing service disruptions for active users." },
+      { title: "Lower Monthly Hosting Bills", desc: "Infrastructure right-sizing and auto-scaling eliminate idle server waste, cutting cloud costs by up to 35%." },
+      { title: "Automated Data Protection", desc: "Encrypted daily backups and automated failover guarantees your databases can be restored in minutes." },
+      { title: "Enterprise Security Compliance", desc: "Strict VPC network isolation, firewall rules, and encrypted storage protect against cyber attacks." },
+      { title: "Accelerated Developer Velocity", desc: "Automated deployment pipelines remove server configuration burden, letting engineers focus on code." }
+    ],
+    faqs: [
+      { question: "What cloud providers do you support?", answer: "We specialize in Amazon Web Services (AWS), Google Cloud Platform (GCP), Vercel, Supabase, and DigitalOcean cloud infrastructure." },
+      { question: "How does an automated CI/CD pipeline benefit our software team?", answer: "Automated CI/CD pipelines run automated code tests, build Docker containers, and deploy updates to production automatically whenever code is pushed to Git. This eliminates manual server uploads and human error." },
+      { question: "Can you help lower our monthly AWS/GCP cloud bill?", answer: "Yes. We audit your resource utilization, right-size database instances, configure auto-scaling policies, and eliminate unattached storage volumes to reduce hosting costs." },
+      { question: "How do you handle zero-downtime deployments?", answer: "We use rolling deployment strategies, green/blue deployments, and Kubernetes pod replacement so new code versions deploy while old versions handle active user traffic." },
+      { question: "What happens if a server crashes?", answer: "Our high-availability setups utilize automated health checks and CPU load balancers to immediately reroute traffic to healthy server instances and trigger automated restarts." },
+      { question: "Do you configure automated database backups?", answer: "Yes, we set up daily automated, encrypted backups to secure cloud storage vaults (like AWS S3) with point-in-time recovery rules." }
+    ],
+    internalLinks: [
+      { label: "Custom Software Development", href: "/services/custom-development" },
+      { label: "Web Development Services", href: "/services/web-development" },
+      { label: "AI & Automation Services", href: "/services/ai-automation" }
+    ]
+  },
+  "ai-automation": {
+    slug: "ai-automation",
+    title: "AI & Automation Services | Intelligent Workflows & AI Integrations",
+    metaDescription: "Nexyn Studios provides AI & Automation services. We build custom AI workflow automation, intelligent agents, AI document parsing, and business process automation.",
+    keywords: [
+      "AI automation services",
+      "business process automation",
+      "custom AI integrations",
+      "intelligent workflow automation",
+      "AI agent development",
+      "LLM integration agency",
+      "document parsing AI",
+      "productivity automation software"
+    ],
+    h1: "AI & Automation Services",
+    badge: "Intelligent Workflows",
+    headlineAccent: "AI-Powered Business Automation",
+    description: "AI-powered business automation, intelligent workflows, custom AI integrations, and productivity systems designed to reduce repetitive work and improve operational efficiency.",
+    heroImage: "/images/services/ai-automation.png",
+    heroImageAlt: "AI Workflow Automation Platform and Intelligent Agent Network",
+    overviewTitle: "Transform Complex Manual Tasks into Intelligent Systems",
+    overviewContent: "Manual repetitive tasks, delayed document processing, and disconnected software applications create operational bottlenecks that slow business expansion. Recent breakthroughs in artificial intelligence enable organizations to automate complex decisions, unstructured data parsing, and multi-step workflows that previously required hours of human labor. At Nexyn Studios, we design custom AI & Automation solutions that integrate directly into your existing enterprise software stack. From autonomous AI agents and automated PDF data extraction to multi-app trigger workflows, we build systems that save thousands of work hours while eliminating human error.",
+    whatWeOfferTitle: "What We Build in AI & Automation",
+    whatWeOffer: [
+      {
+        title: "Custom AI Agent Integrations",
+        desc: "Deploying autonomous AI agents powered by OpenAI, Claude, or custom LLMs to execute complex multi-step business tasks."
+      },
+      {
+        title: "Intelligent Workflow Automation",
+        desc: "Connecting disconnected apps (CRM, ERP, Databases, Slack, WhatsApp) into event-driven trigger pathways that eliminate manual entry."
+      },
+      {
+        title: "AI Document & Data Parsing",
+        desc: "Automated extraction, classification, and validation of unstructured text from PDFs, invoices, receipts, and contracts."
+      },
+      {
+        title: "Predictive Analytics & ML Models",
+        desc: "Custom machine learning algorithms for lead scoring, customer churn prediction, inventory forecasting, and financial trends."
+      },
+      {
+        title: "Customer Support AI Automation",
+        desc: "Intelligent AI assistants trained on your internal knowledge base to handle client support inquiries and lead qualification."
+      },
+      {
+        title: "Operations Process Auditing",
+        desc: "Comprehensive auditing of your company's operational bottlenecks followed by custom automated software implementation."
+      }
+    ],
+    capabilities: [
+      "Custom AI agent architecture tailored to domain-specific business rules",
+      "Multi-app workflow automation connecting internal databases, CRMs, and APIs",
+      "Automated unstructured data extraction from invoices, contracts, and receipts",
+      "Custom LLM fine-tuning, RAG (Retrieval-Augmented Generation), and vector store setups",
+      "Event-driven trigger systems for instant SMS, Email, and WhatsApp notifications",
+      "Real-time AI processing audit logs, latency optimization, and cost management"
+    ],
+    technologies: ["Python", "TypeScript", "OpenAI API", "LangChain", "Pinecone Vector DB", "Node.js", "FastAPI", "PostgreSQL"],
+    processTitle: "Our AI Implementation Process",
+    process: [
+      { title: "01 — Process & Bottleneck Audit", desc: "Analyzing your team's daily repetitive tasks to identify highest ROI automation opportunities." },
+      { title: "02 — AI & Workflow Architecture Plan", desc: "Designing system triggers, AI model selection, database data schemas, and API integration paths." },
+      { title: "03 — Model Selection & Prompt Tuning", desc: "Selecting optimal AI models (GPT-4, Claude, Llama), configuring RAG vector knowledge bases, and prompt rules." },
+      { title: "04 — API & Integration Development", desc: "Coding secure backend event listeners, webhook pathways, and database synchronization logic." },
+      { title: "05 — Accuracy & Safety Audit", desc: "Rigorous testing of AI output accuracy, edge case handling, response speed, and data privacy safeguards." },
+      { title: "06 — Team Deployment & Training", desc: "Deploying automation engines into production with live monitoring and staff operational training." },
+      { title: "07 — Telemetry & Continuous Learning", desc: "Monitoring automation logs, refining model prompts based on usage stats, and expanding capability scopes." }
+    ],
+    benefitsTitle: "Measurable Business Outcomes",
+    benefits: [
+      { title: "70%+ Reduction in Manual Hours", desc: "Automate repetitive data entry, email processing, and manual spreadsheet maintenance." },
+      { title: "Zero Data Entry Error Rate", desc: "Automated validation rules prevent costly human mistakes in invoicing, customer records, and order routing." },
+      { title: "24/7 Uninterrupted Operation", desc: "AI workflows run non-stop around the clock without delays, weekend downtime, or queue backlogs." },
+      { title: "Instant Response Speed", desc: "Process client requests, document parsing, and lead assignments in seconds instead of business days." },
+      { title: "Seamless Software Sync", desc: "Keep your internal CRM, ERP, finance, and communication tools synchronized automatically in real time." },
+      { title: "Rapid ROI Within Weeks", desc: "Immediate reductions in operational labor overhead deliver a fast return on software investment." }
+    ],
+    faqs: [
+      { question: "How can AI & Automation help my business?", answer: "AI and automation eliminate repetitive manual tasks like copying data between systems, parsing PDF invoices, routing client emails, and qualifying leads. This allows your team to focus on high-value business growth." },
+      { question: "Is our company data kept private and secure when using AI?", answer: "Yes! We implement private API configurations and enterprise data controls ensuring your sensitive business data is never used to train public AI models." },
+      { question: "Can you automate workflows between our custom internal software and third-party tools?", answer: "Yes. We build custom API bridges and webhooks connecting your internal CRM, ERP, or database to external apps like WhatsApp, Email, Slack, Razorpay, or Google Workspace." },
+      { question: "What is an AI Agent and how does it work?", answer: "An AI Agent is an autonomous system that understands context, evaluates rules, executes multi-step workflows, and retrieves database information to complete complex tasks without manual intervention." },
+      { question: "How accurate is AI document parsing for invoices and contracts?", answer: "Our AI document parsing pipelines achieve 98%+ data extraction accuracy using OCR, vision models, and strict validation checks to catch discrepancies before saving to your database." },
+      { question: "How long does it take to deploy a custom AI automation workflow?", answer: "Initial workflow automations are deployed in 2–4 weeks. Complex enterprise AI agents with multi-system integrations take 4–8 weeks." }
+    ],
+    internalLinks: [
+      { label: "Custom Software Development", href: "/services/custom-development" },
+      { label: "Cloud & DevOps Infrastructure", href: "/services/cloud-devops" },
+      { label: "Web Development Services", href: "/services/web-development" }
+    ]
+  },
+  // Backward compatibility alias for software-development
+  "software-development": {
+    slug: "custom-development",
+    title: "Custom Software Development Services | Enterprise CRM & ERP Solutions",
+    metaDescription: "Nexyn Studios provides bespoke custom software development services. We build enterprise CRM, ERP, client portals, and custom workflow software.",
+    keywords: ["custom software development", "CRM development", "ERP software"],
+    h1: "Custom Software Development Services",
+    badge: "Enterprise-Grade Architecture",
+    headlineAccent: "Engineered Around Your Business",
+    description: "Software engineered around the way your business actually works.",
+    heroImage: "/images/services/custom-development.png",
+    heroImageAlt: "Custom Software Development Dashboard",
+    overviewTitle: "Bespoke Enterprise Systems Tailored to Your Rules",
+    overviewContent: "Off-the-shelf software forces your business to compromise its operational workflows. At Nexyn Studios, we build custom software platforms designed specifically around your proprietary processes.",
+    capabilities: ["Custom CRM & ERP", "Workflow Automation", "Enterprise Portals"],
+    technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
+    processTitle: "Development Process",
+    process: [{ title: "Discovery", desc: "Requirements gathering." }],
+    benefitsTitle: "Business Benefits",
+    benefits: [{ title: "Zero Subscription Fees", desc: "Full ownership." }],
+    faqs: [{ question: "Why custom software?", answer: "Full control and ownership." }],
+    internalLinks: [{ label: "Custom Software", href: "/services/custom-development" }]
   }
 };
 

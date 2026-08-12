@@ -30,11 +30,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: SITE_CONFIG.name,
       title: page.title,
       description: page.metaDescription,
+      images: page.heroImage
+        ? [
+            {
+              url: `${SITE_CONFIG.url}${page.heroImage}`,
+              width: 1200,
+              height: 630,
+              alt: page.heroImageAlt || page.title,
+            },
+          ]
+        : [SITE_CONFIG.ogImage],
     },
     twitter: {
       card: "summary_large_image",
       title: page.title,
       description: page.metaDescription,
+      images: page.heroImage ? [`${SITE_CONFIG.url}${page.heroImage}`] : [SITE_CONFIG.ogImage],
     },
   };
 }

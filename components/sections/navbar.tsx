@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ArrowRight, Home, Briefcase, FolderGit2, Info, Mail, Layers, Globe, Smartphone, Sparkles, BookOpen, FileText, HelpCircle, LifeBuoy } from "lucide-react"
+import { Menu, X, ArrowRight, Home, Briefcase, FolderGit2, Info, Mail, Layers, Globe, Smartphone, Sparkles, BookOpen, FileText, HelpCircle, LifeBuoy, Palette, Cloud } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { NAV_ITEMS, NAV_CTA, SITE_CONFIG } from "@/lib/constants"
@@ -32,31 +32,37 @@ const SERVICES_DROPDOWN = [
   {
     label: "Custom Software",
     desc: "Bespoke CRM, ERP, and internal systems",
-    href: "/services?service=software",
+    href: "/services/custom-development",
     icon: Layers,
+  },
+  {
+    label: "UI/UX Design",
+    desc: "Conversion-focused web & mobile UI design",
+    href: "/services/ui-ux-design",
+    icon: Palette,
   },
   {
     label: "Web Applications",
     desc: "High-performance Next.js & React platforms",
-    href: "/services?service=web",
+    href: "/services/web-development",
     icon: Globe,
   },
   {
     label: "Mobile Apps",
     desc: "React Native iOS & Android cross-platform apps",
-    href: "/services?service=mobile",
+    href: "/services/mobile-app-development",
     icon: Smartphone,
   },
   {
-    label: "CRM Systems",
-    desc: "Automated sales pipelines & operational hubs",
-    href: "/services?service=software",
-    icon: Briefcase,
+    label: "Cloud & DevOps",
+    desc: "AWS/GCP infrastructure, CI/CD & security",
+    href: "/services/cloud-devops",
+    icon: Cloud,
   },
   {
-    label: "Business Automation",
-    desc: "Workflow triggers & system integrations",
-    href: "/services?service=software",
+    label: "AI & Automation",
+    desc: "AI workflows, intelligent agents & systems",
+    href: "/services/ai-automation",
     icon: Sparkles,
   },
 ];

@@ -158,11 +158,6 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 800px"
               priority
-              onError={(e) => {
-                // If visual asset is missing, allow fallback to avoid blank display
-                const target = e.target as HTMLElement;
-                target.style.display = 'none';
-              }}
             />
           </div>
 
