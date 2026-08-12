@@ -14,6 +14,7 @@ import {
   ContactSection,
   CTASection,
   FooterSection,
+  CrowdSection,
 } from "@/components/sections";
 import { SITE_CONFIG } from "@/lib/constants";
 import { Metadata } from "next";
@@ -113,6 +114,7 @@ export default function Page() {
         <TechStackSection />
         <AfterLaunchSection />
         <FAQSection />
+        <CrowdSection />
         <CTASection />
         <ContactSection />
       </main>
