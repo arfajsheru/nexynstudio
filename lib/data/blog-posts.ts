@@ -271,7 +271,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Business Automation",
     date: "Jun 02, 2026",
     readTime: "7 min read",
-    image: "/blog/how-to-build-a-business-crm.png",
+    image: "/blog/business-crm-development.png",
     featured: false,
     excerpt: "Avoid bloated systems with a custom CRM. Learn how to map sales stages, design user permissions, and connect communication channels.",
     internalLinks: [
@@ -307,7 +307,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "E-commerce",
     date: "May 29, 2026",
     readTime: "8 min read",
-    image: "/blog/ecommerce-website-development-guide.png",
+    image: "/blog/ecommerce-development-guide.png",
     featured: false,
     excerpt: "Custom Next.js vs. Shopify: We compare these e-commerce solutions for load speed, page customization, transaction fees, and search ranking performance.",
     internalLinks: [
@@ -346,7 +346,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Business",
     date: "May 28, 2025",
     readTime: "7 min read",
-    image: "/blog/why-custom-crm-beats-off-the-shelf.png",
+    image: "/blog/custom-crm-vs-off-the-shelf.png",
     featured: false,
     excerpt: "Off-the-shelf CRMs come with bloated features you'll never use and lack the ones you actually need. Here's why building custom is the smarter long-term investment.",
     internalLinks: [
@@ -376,7 +376,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Engineering",
     date: "May 15, 2025",
     readTime: "9 min read",
-    image: "/blog/nextjs-vs-react-spa-for-enterprise.png",
+    image: "/blog/nextjs-vs-react-enterprise.png",
     featured: false,
     excerpt: "We break down the performance, SEO, and developer experience trade-offs between Next.js and traditional React SPAs for large-scale applications.",
     internalLinks: [
@@ -401,7 +401,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Design",
     date: "May 03, 2025",
     readTime: "6 min read",
-    image: "/blog/design-system-saves-development-time.png",
+    image: "/blog/design-system-development.png",
     featured: false,
     excerpt: "A well-structured design system isn't just for designers. Here's how it accelerates development, reduces bugs, and maintains consistency across products.",
     internalLinks: [
@@ -426,7 +426,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "DevOps",
     date: "Apr 22, 2025",
     readTime: "11 min read",
-    image: "/blog/ci-cd-pipeline-guide-startups.png",
+    image: "/blog/ci-cd-pipeline-startups.png",
     featured: false,
     excerpt: "You don't need a DevOps team to set up reliable CI/CD. We walk through our battle-tested pipeline setup using GitHub Actions and Vercel.",
     internalLinks: [
@@ -451,7 +451,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Business",
     date: "Apr 10, 2025",
     readTime: "5 min read",
-    image: "/blog/business-automation-mistakes.png",
+    image: "/blog/business-automation-workflow.png",
     featured: false,
     excerpt: "Automation is powerful, but only when done right. We've seen these costly mistakes repeatedly and here's how to avoid them.",
     internalLinks: [
@@ -476,7 +476,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Design",
     date: "Mar 28, 2025",
     readTime: "8 min read",
-    image: "/blog/mobile-first-ux-principles.png",
+    image: "/blog/mobile-first-ux.png",
     featured: false,
     excerpt: "With over 70% of traffic coming from mobile, designing desktop-first is a recipe for failure. Here are the principles our design team lives by.",
     internalLinks: [
