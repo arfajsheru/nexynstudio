@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User, Share2, Check, Copy } from "lucide-react";
 import { Breadcrumb } from "@/components/common/breadcrumb";
-import { LAYOUT } from "@/lib/constants";
+import { LAYOUT, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
@@ -37,7 +37,7 @@ export function BlogHero({
     }
   };
 
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const shareUrl = `${SITE_CONFIG.url}/blog/${slug}`;
 
   return (
     <header className="relative w-full pt-20 lg:pt-28 pb-10 overflow-hidden bg-background">
