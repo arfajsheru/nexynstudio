@@ -128,7 +128,7 @@ export function PageHero({
           {/* Headline */}
           <motion.h1
             variants={fadeUp}
-            className="mx-auto max-w-4xl text-[36px] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[48px] md:text-[58px] lg:text-[68px]"
+            className="mx-auto max-w-4xl text-[25px] xs:text-[28px] font-bold leading-[1.15] tracking-tight text-foreground sm:text-[48px] md:text-[58px] lg:text-[68px]"
           >
             {headline}
             {headlineAccent && (
@@ -153,21 +153,21 @@ export function PageHero({
           {(primaryCta || secondaryCta) && (
             <motion.div
               variants={fadeUp}
-              className="mt-8 flex flex-col items-center gap-3 sm:flex-row"
+              className="mt-8 flex flex-row items-center justify-center gap-2 xs:gap-3 sm:gap-4 w-full max-w-full px-2"
             >
               {primaryCta && (
                 <Link
                   href={primaryCta.href}
-                  className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-7 text-sm font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12"
+                  className="group inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-foreground px-3.5 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap"
                 >
                   {primaryCta.label}
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4 shrink-0" />
                 </Link>
               )}
               {secondaryCta && (
                 <Link
                   href={secondaryCta.href}
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-background px-7 text-sm font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
+                  className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-xs font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
                 >
                   {secondaryCta.label}
                 </Link>

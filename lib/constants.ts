@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   name: "Nexyn Studios",
   tagline: "Custom Software & CRM Development Company in Mumbai",
   description:
-    "Premium custom software engineering, bespoke CRM/ERP systems, and scalable web & mobile apps for enterprises in Malad, Mumbai. Get a free tech audit today.",
+    "We build custom software, web applications, and CRM/ERP systems for growing businesses in Malad, Mumbai. Direct engineer access, clean code, and fast delivery.",
   url: "https://nexynstudios.com",
   ogImage: "/og-image.jpg",
 } as const;
@@ -32,7 +32,7 @@ export const HERO_CONTENT = {
   headlinePart1: "Custom Software & Business",
   headlinePart2: "Automation Development",
   description:
-    "We architect and build custom software, web applications, and mobile apps. Delivering enterprise-grade business automation designed for long-term growth and reliability.",
+    "We build custom software, CRM systems, and mobile apps that actually fit your business. No cookie-cutter templates, no bloated code — just fast, reliable technology built by engineers in Mumbai.",
   primaryCta: { label: "Get Free Consultation", href: "/contact" },
   secondaryCta: { label: "View Our Work", href: "/portfolio" },
 } as const;
@@ -40,10 +40,10 @@ export const HERO_CONTENT = {
 // ─── Trust Row ──────────────────────────────────────────────────────────────
 
 export const TRUST_ROW = [
-  "Enterprise Grade Architecture",
-  "Fast Delivery",
-  "Ongoing Support",
-  "Scalable Solutions",
+  "Direct Developer Access",
+  "Fast 2-4 Week Sprints",
+  "Clean Maintainable Code",
+  "Ongoing Tech Support",
 ] as const;
 
 // ─── Stats ──────────────────────────────────────────────────────────────────

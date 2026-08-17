@@ -15,4 +15,5 @@ export { FooterSection } from "./footer";
 export { ProjectsSection } from "./projects";
 export { FeaturedProjectSection } from "./featured-project";
 export { CrowdSection } from "./crowd-section";
+export { ProjectEstimator } from "./project-estimator";
 

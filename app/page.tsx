@@ -114,7 +114,6 @@ export default function Page() {
         <TechStackSection />
         <AfterLaunchSection />
         <FAQSection />
-        <CrowdSection />
         <CTASection />
         <ContactSection />
       </main>

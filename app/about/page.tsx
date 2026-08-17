@@ -296,9 +296,6 @@ export default function AboutPage() {
         {/* Company story, mission, vision, values */}
         <MissionVision />
 
-        {/* Crowd & Community Section */}
-        <CrowdSection />
-
         {/* CTA */}
         <CTASection />
       </main>

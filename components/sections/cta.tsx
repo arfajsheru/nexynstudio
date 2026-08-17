@@ -63,18 +63,18 @@ export function CTASection() {
           {/* Buttons */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-col items-center gap-4 sm:flex-row"
+            className="flex flex-row items-center justify-center gap-2 xs:gap-3 sm:gap-4 w-full max-w-full px-2"
           >
             <a
               href="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-3.5 text-[13px] font-semibold text-background transition-all duration-300 hover:opacity-90 hover:shadow-lg hover:shadow-foreground/10"
+              className="group inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-foreground px-3.5 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12 sm:px-8 sm:text-[13px] sm:gap-2 whitespace-nowrap"
             >
               Schedule Consultation
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 sm:h-4 sm:w-4 shrink-0" />
             </a>
             <a
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-8 py-3.5 text-[13px] font-semibold text-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/5"
+              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-border/60 bg-background px-3.5 text-xs font-semibold text-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/5 active:scale-[0.98] sm:h-12 sm:px-8 sm:text-[13px] sm:gap-2 whitespace-nowrap"
             >
               View Services
             </a>

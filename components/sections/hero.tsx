@@ -157,15 +157,19 @@ export function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Headline - Guaranteed to fit 2 lines perfectly */}
+          {/* Headline with stylish mixed typography and varied font sizes */}
           <motion.h1
             variants={fadeUp}
-            className="mx-auto w-full max-w-[1440px] text-[36px] font-bold leading-[1.1] tracking-tight text-foreground sm:text-[48px] md:text-[60px] lg:text-[72px]"
+            className="mx-auto w-full max-w-[1440px] tracking-tight text-foreground"
           >
-            {HERO_CONTENT.headlinePart1}
-            <br />
-            <span className="bg-gradient-to-r from-foreground to-foreground/50 bg-clip-text text-transparent dark:from-foreground dark:to-foreground/60">
-              {HERO_CONTENT.headlinePart2}
+            <span className="block text-[22px] xs:text-[25px] sm:text-[40px] md:text-[52px] lg:text-[62px] font-bold tracking-tight text-foreground">
+              Custom Software
+            </span>
+            <span className="block font-serif italic text-[25px] xs:text-[29px] sm:text-[46px] md:text-[58px] lg:text-[70px] font-normal text-foreground/75 my-0.5 sm:my-1">
+              &amp; Business Automation
+            </span>
+            <span className="block text-[23px] xs:text-[26px] sm:text-[42px] md:text-[54px] lg:text-[64px] font-extrabold tracking-tight bg-gradient-to-r from-foreground via-foreground/90 to-foreground/50 bg-clip-text text-transparent">
+              Development
             </span>
           </motion.h1>
 
@@ -180,21 +184,21 @@ export function HeroSection() {
           {/* CTAs */}
           <motion.div
             variants={fadeUp}
-            className="mt-8 flex flex-col items-center gap-4 sm:flex-row"
+            className="mt-8 flex flex-row items-center justify-center gap-2 xs:gap-3 sm:gap-4 w-full max-w-full px-2"
           >
             <MagneticWrapper range={50} strength={0.4}>
               <a
                 href={HERO_CONTENT.primaryCta.href}
-                className="group inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-7 text-sm font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12"
+                className="group inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-foreground px-3.5 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap"
               >
                 {HERO_CONTENT.primaryCta.label}
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4 shrink-0" />
               </a>
             </MagneticWrapper>
             <MagneticWrapper range={50} strength={0.4}>
               <a
                 href={HERO_CONTENT.secondaryCta.href}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-background px-7 text-sm font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
+                className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-xs font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
               >
                 {HERO_CONTENT.secondaryCta.label}
               </a>
