@@ -146,7 +146,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-svh font-sans">
+      <body className="min-h-svh font-sans" suppressHydrationWarning>
         <ThemeProvider>
           <SmoothScroll>
             <Preloader />

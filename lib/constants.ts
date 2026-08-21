@@ -49,9 +49,9 @@ export const TRUST_ROW = [
 // ─── Stats ──────────────────────────────────────────────────────────────────
 
 export const STATS = [
-  { value: 50, suffix: "+", label: "Projects Delivered" },
-  { value: 25, suffix: "+", label: "Happy Clients" },
-  { value: 10, suffix: "+", label: "Business Solutions" },
+  { value: 5, suffix: "+", label: "Projects Delivered" },
+  { value: 5, suffix: "+", label: "Happy Clients" },
+  { value: 5, suffix: "+", label: "Business Solutions" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
 ] as const;
 
