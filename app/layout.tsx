@@ -13,7 +13,6 @@ import { Preloader } from "@/components/ui/preloader";
 import { CookieBanner } from "@/components/ui/cookie-banner";
 import { ScrollTracker } from "@/components/ui/scroll-tracker";
 import { WhatsAppWidget } from "@/components/ui/whatsapp-widget";
-import { ExitIntentModal } from "@/components/ui/exit-intent-modal";
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
 
@@ -155,7 +154,6 @@ export default function RootLayout({
             {children}
             <StickyCTA />
             <WhatsAppWidget />
-            <ExitIntentModal />
             <CookieBanner />
           </SmoothScroll>
         </ThemeProvider>
