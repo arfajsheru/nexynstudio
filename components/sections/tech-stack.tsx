@@ -149,7 +149,7 @@ export function TechStackSection() {
         >
           <motion.div variants={fadeUp} className="mb-10 lg:mb-14 text-center">
             <h2 className="mb-5 text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Future-Proof <span className="font-serif italic text-foreground/60">Technologies</span>
+              Modern Technologies & <span className="font-serif italic text-foreground/60">Frameworks</span>
             </h2>
             <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
               Leveraging modern, fast, and secure frameworks to build robust and scalable digital products.
@@ -205,7 +205,10 @@ export function TechStackSection() {
                         <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white p-2.5 shadow-sm transition-transform duration-300 group-hover/tech:scale-110">
                           <img
                             src={tech.icon}
-                            alt={tech.name}
+                            alt={`${tech.name} logo`}
+                            width={24}
+                            height={24}
+                            loading="lazy"
                             className="h-full w-full object-contain"
                           />
                         </div>

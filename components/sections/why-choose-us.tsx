@@ -59,10 +59,10 @@ export function WhyChooseUsSection() {
           {/* ── Header ─────────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-12 lg:mb-16 text-center">
             <h2 className="mx-auto mb-5 max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Why Partner <span className="font-serif italic text-foreground/60">With Us</span>
+              Why Choose Nexyn Studios for <span className="font-serif italic text-foreground/60">Software Development</span>
             </h2>
             <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
-              Deep technical expertise combined with a relentless focus on business outcomes and reliable delivery.
+              Direct access to senior software engineers, transparent development sprints, and architecture built for long-term scalability.
             </p>
           </motion.div>
 

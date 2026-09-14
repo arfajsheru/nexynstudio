@@ -245,10 +245,10 @@ export function ContactSection() {
         >
           <motion.div variants={fadeUp}>
             <h2 className="mb-4 text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Start Your <span className="font-serif italic text-foreground/60">Project</span>
+              Start Your <span className="font-serif italic text-foreground/60">Software Project</span>
             </h2>
             <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
-              Let&apos;s discuss your requirements and build a high-performance system for your business.
+              Let&apos;s discuss your project goals, technical requirements, and build a high-performance system for your business.
             </p>
             <div className="mx-auto mt-4 h-[1px] w-12 bg-gradient-to-r from-transparent via-foreground/30 to-transparent" />
           </motion.div>

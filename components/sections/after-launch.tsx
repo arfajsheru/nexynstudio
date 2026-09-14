@@ -66,10 +66,10 @@ export function AfterLaunchSection() {
           {/* ── Header ─────────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-16 lg:mb-24 flex flex-col items-center text-center">
             <h2 className="mx-auto text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl max-w-3xl">
-              Post-Launch <span className="font-serif italic text-foreground/60">Support</span>
+              Post-Launch Software <span className="font-serif italic text-foreground/60">Support</span>
             </h2>
             <p className="mt-4 max-w-xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
-              Our partnership continues after deployment. We handle hosting, continuous monitoring, and updates.
+              Our engineering partnership continues after deployment with active uptime monitoring, security updates, and feature scaling.
             </p>
           </motion.div>
 

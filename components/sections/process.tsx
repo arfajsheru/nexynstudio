@@ -83,10 +83,10 @@ export function ProcessSection() {
           {/* Header */}
           <motion.div variants={fadeUp} className="mb-16 lg:mb-20 text-center flex flex-col items-center">
             <h2 className="mx-auto text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl max-w-3xl">
-              Our <span className="font-serif italic text-foreground/60">Development</span> Process
+              Our Software <span className="font-serif italic text-foreground/60">Development</span> Process
             </h2>
             <p className="mt-4 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
-              From collaborative strategy to production deployment, we build high-performance systems in clear milestones.
+              From technical discovery and UI design to agile engineering and production launch, we build scalable software in structured milestones.
             </p>
           </motion.div>
 

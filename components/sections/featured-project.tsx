@@ -54,8 +54,8 @@ export function FeaturedProjectSection() {
               variants={fadeUp}
               className="text-3xl leading-[1.1] font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl"
             >
-              Our Latest{" "}
-              <span className="font-serif text-foreground/60 italic">Work</span>
+              Featured Software{" "}
+              <span className="font-serif text-foreground/60 italic">Projects</span>
             </motion.h2>
           </div>
 
@@ -115,7 +115,7 @@ export function FeaturedProjectSection() {
                                 <div className="relative h-full w-full overflow-hidden rounded-[2.2rem] bg-neutral-900">
                                   <Image
                                     src={project.featuredImage}
-                                    alt={project.name}
+                                    alt={`${project.name} - ${project.category} case study showcase`}
                                     fill
                                     className="object-cover object-top"
                                     sizes="(max-width: 1024px) 100vw, 30vw"
@@ -162,7 +162,7 @@ export function FeaturedProjectSection() {
                                   >
                                     <Image
                                       src={project.featuredImage}
-                                      alt={project.name}
+                                      alt={`${project.name} - ${project.category} case study showcase`}
                                       fill
                                       className="object-cover"
                                       sizes="(max-width: 1024px) 100vw, 55vw"

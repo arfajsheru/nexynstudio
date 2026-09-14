@@ -2,9 +2,9 @@
 
 export const SITE_CONFIG = {
   name: "Nexyn Studios",
-  tagline: "Custom Software & CRM Development Company in Mumbai",
+  tagline: "Custom Software & Web Development Company in India",
   description:
-    "We build custom software, web applications, and CRM/ERP systems for growing businesses in Malad, Mumbai. Direct engineer access, clean code, and fast delivery.",
+    "Nexyn Studios is a custom software development company in India building web applications, mobile apps, CRM systems, and AI automation solutions.",
   url: "https://nexynstudios.com",
   ogImage: "/og-image.jpg",
 } as const;
@@ -30,9 +30,9 @@ export const NAV_CTA = {
 export const HERO_CONTENT = {
   badge: "Trusted Technology Partner",
   headlinePart1: "Custom Software & Business",
-  headlinePart2: "Automation Development",
+  headlinePart2: "Automation Company in India",
   description:
-    "We build custom software, CRM systems, and mobile apps that actually fit your business. No cookie-cutter templates, no bloated code — just fast, reliable technology built by engineers in Mumbai.",
+    "We engineer custom software, scalable web applications, mobile apps, and CRM systems tailored to your business operations. Direct engineer access, clean code, and fast delivery from Mumbai, India.",
   primaryCta: { label: "Get Free Consultation", href: "/contact" },
   secondaryCta: { label: "View Our Work", href: "/portfolio" },
 } as const;

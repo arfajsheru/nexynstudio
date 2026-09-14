@@ -169,7 +169,7 @@ export function HeroSection() {
               &amp; Business Automation
             </span>
             <span className="block text-[23px] xs:text-[26px] sm:text-[42px] md:text-[54px] lg:text-[64px] font-extrabold tracking-tight bg-gradient-to-r from-foreground via-foreground/90 to-foreground/50 bg-clip-text text-transparent">
-              Development
+              Company in India
             </span>
           </motion.h1>
 

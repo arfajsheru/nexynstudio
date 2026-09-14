@@ -34,7 +34,7 @@ const SERVICES = [
     desc: "Custom CRM, ERP, and bespoke portal systems engineered precisely around your internal business workflows to eliminate manual overhead, improve data integrity, and scale operations.",
     caps: ["CRM & ERP", "Workflow Automation", "Admin Portals"],
     img: imgSoftware,
-    imgAlt: "Custom Software Development",
+    imgAlt: "Custom software development and CRM ERP systems engineering",
   },
   {
     key: "ui-ux-design",
@@ -45,7 +45,7 @@ const SERVICES = [
     desc: "Conversion-optimized, modern user interfaces designed after extensive research to match your company's branding, improve retention, and create a premium experience.",
     caps: ["UI/UX Design", "Wireframes", "Design Systems"],
     img: imgDesign,
-    imgAlt: "UI/UX Design",
+    imgAlt: "UI and UX design systems for web and mobile platforms",
   },
   {
     key: "web-development",
@@ -56,7 +56,7 @@ const SERVICES = [
     desc: "SEO-optimized, lighting-fast websites and custom web applications powered by modern frontend frameworks to deliver seamless performance on all devices.",
     caps: ["Web Apps", "Corporate Sites", "Customer Portals"],
     img: imgWeb,
-    imgAlt: "Web Development",
+    imgAlt: "Web application development and frontend engineering",
   },
   {
     key: "mobile-app-development",
@@ -67,7 +67,7 @@ const SERVICES = [
     desc: "Premium iOS and Android mobile applications engineered with native components to deliver exceptional performance, high-speed interactions, and offline capability.",
     caps: ["iOS & Android", "React Native", "API Integration"],
     img: imgMobile,
-    imgAlt: "Mobile App Development",
+    imgAlt: "iOS and Android mobile application development",
   },
   {
     key: "cloud-devops",
@@ -78,7 +78,7 @@ const SERVICES = [
     desc: "High-availability, enterprise-grade cloud systems configured with automated pipelines, continuous monitoring, and container security to prevent any downtime.",
     caps: ["AWS & GCP", "CI/CD Pipelines", "24/7 Monitoring"],
     img: imgCloud,
-    imgAlt: "Cloud and DevOps",
+    imgAlt: "Cloud architecture and DevOps infrastructure management",
   },
   {
     key: "ai-automation",
@@ -89,7 +89,7 @@ const SERVICES = [
     desc: "AI-powered business automation, intelligent workflows, custom AI integrations, and productivity systems designed to reduce repetitive work and improve operational efficiency.",
     caps: ["AI Workflows", "Custom Agents", "Process Automation"],
     img: imgAI,
-    imgAlt: "AI & Automation",
+    imgAlt: "AI workflow automation and intelligent business systems",
   },
 ];
 
@@ -195,7 +195,7 @@ export function ServicesSection() {
               <Sparkles className="w-5 h-5 text-foreground/80 animate-[spin_8s_linear_infinite] drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]" />
             </div>
             <h2 className="mx-auto max-w-3xl text-3xl font-bold leading-[1.15] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Services We <span className="font-serif italic text-foreground">Engineer</span>
+              Software Development Services We <span className="font-serif italic text-foreground">Engineer</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
               Custom software, scalable web platforms, mobile apps, and AI workflow automation built to solve your operational bottlenecks.

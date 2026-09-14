@@ -58,10 +58,10 @@ export function IndustriesSection() {
           {/* ── Header ─────────────────────────────────────────────── */}
           <motion.div variants={fadeUp} className="mb-10 lg:mb-14 text-center relative z-20">
             <h2 className="mx-auto mb-5 max-w-3xl text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              Industries We <span className="font-serif italic text-foreground/60">Scale</span>
+              Industries We Build Software <span className="font-serif italic text-foreground/60">For</span>
             </h2>
             <p className="mx-auto max-w-2xl text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground">
-              Sleek, purpose-built platforms tailored exactly to your specific industry guidelines and workflows.
+              Purpose-built custom software, CRM systems, and scalable web applications engineered for industry-specific operations.
             </p>
           </motion.div>
 

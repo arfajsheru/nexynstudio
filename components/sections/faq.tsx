@@ -62,14 +62,14 @@ export function FAQSection() {
             variants={fadeUp}
             className="mb-4 text-3xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-4xl lg:text-5xl"
           >
-            Common <span className="font-serif italic text-foreground/60">Queries</span>
+            Frequently Asked <span className="font-serif italic text-foreground/60">Questions</span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
             className="text-[14px] sm:text-[15px] leading-relaxed text-muted-foreground max-w-xl mx-auto"
           >
-            Find quick answers to our development methodology, project timelines, and post-launch support.
+            Clear answers regarding our custom software engineering, pricing models, development timelines, and post-launch support.
           </motion.p>
         </motion.div>
 

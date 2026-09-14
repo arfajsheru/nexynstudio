@@ -19,66 +19,101 @@ import {
 import { SITE_CONFIG } from "@/lib/constants";
 import { Metadata } from "next";
 
-// ─── Schema.org — WebSite (Sitelinks Searchbox signal) ───────────────────────
+// ─── Schema.org — Organization & WebSite Schemas ───────────────────────────────
 
-const websiteSchema = {
+const schemaData = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_CONFIG.name,
-  url: SITE_CONFIG.url,
-  description: SITE_CONFIG.description,
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_CONFIG.url}/?q={search_term_string}`,
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://nexynstudios.com/#organization",
+      name: "Nexyn Studios",
+      url: "https://nexynstudios.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://nexynstudios.com/logo-black.png",
+      },
+      description:
+        "Nexyn Studios is a custom software development company in India specializing in web applications, mobile apps, CRM systems, and AI automation.",
+      telephone: "+91 85910 13795",
+      email: "nexynstudios@gmail.com",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "102, A wing, Nehal CHS, Last Mahada, Malwani, Malad West",
+        addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        postalCode: "400095",
+        addressCountry: "IN",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91 85910 13795",
+        contactType: "customer service",
+        availableLanguage: ["English", "Hindi"],
+      },
     },
-    "query-input": "required name=search_term_string",
-  },
+    {
+      "@type": "WebSite",
+      "@id": "https://nexynstudios.com/#website",
+      url: "https://nexynstudios.com",
+      name: "Nexyn Studios",
+      description:
+        "Custom software development company in India building scalable web applications, mobile solutions, and enterprise CRM platforms.",
+      publisher: {
+        "@id": "https://nexynstudios.com/#organization",
+      },
+    },
+  ],
 };
 
 export const metadata: Metadata = {
   title: {
-    absolute: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    absolute: "Software Development Company in India | Nexyn Studios",
   },
-  description: SITE_CONFIG.description,
+  description:
+    "Nexyn Studios is a custom software development company in India building high-performance web applications, mobile apps, CRM systems, and business automation solutions.",
   keywords: [
-    "custom software development Mumbai",
-    "CRM development company Mumbai",
-    "ERP software Mumbai",
-    "web application development India",
-    "mobile app development Mumbai",
-    "Next.js React development agency",
+    "software development company in India",
+    "custom software development company India",
+    "software development services India",
+    "custom software development services",
+    "software development company",
+    "web development company India",
+    "mobile app development company India",
+    "custom web application development",
+    "CRM development company India",
+    "SaaS development company India",
     "business automation software",
-    "startup tech partner India",
-    "enterprise software solutions",
+    "AI automation services India",
+    "software development company Mumbai",
     "Nexyn Studios",
-    "Malad Mumbai software company",
   ],
   alternates: {
-    canonical: SITE_CONFIG.url,
+    canonical: "https://nexynstudios.com",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_CONFIG.url,
-    siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-    description: SITE_CONFIG.description,
+    url: "https://nexynstudios.com",
+    siteName: "Nexyn Studios",
+    title: "Software Development Company in India | Nexyn Studios",
+    description:
+      "Nexyn Studios is a custom software development company in India building high-performance web applications, mobile apps, CRM systems, and business automation solutions.",
     images: [
       {
-        url: SITE_CONFIG.ogImage,
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: SITE_CONFIG.name,
+        alt: "Nexyn Studios — Software Development Company in India",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-    description: SITE_CONFIG.description,
-    images: [SITE_CONFIG.ogImage],
+    title: "Software Development Company in India | Nexyn Studios",
+    description:
+      "Nexyn Studios is a custom software development company in India building high-performance web applications, mobile apps, CRM systems, and business automation solutions.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -96,10 +131,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      {/* JSON-LD — WebSite Schema */}
+      {/* JSON-LD — Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
       <Navbar />
       <main>
