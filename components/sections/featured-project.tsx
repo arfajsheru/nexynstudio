@@ -166,7 +166,7 @@ export function FeaturedProjectSection() {
                                       fill
                                       className="object-cover"
                                       sizes="(max-width: 1024px) 100vw, 55vw"
-                                      priority
+                                      loading="lazy"
                                     />
                                   </div>
 
@@ -283,6 +283,17 @@ export function FeaturedProjectSection() {
                 </div>
               )
             })}
+          </motion.div>
+
+          {/* ── All Projects & Case Studies CTA Link ── */}
+          <motion.div variants={fadeUp} className="mt-4 pb-16 text-center">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-5 py-2.5 text-xs font-semibold text-foreground backdrop-blur-sm transition-all duration-200 hover:border-foreground/30 hover:bg-muted/60"
+            >
+              <span>Explore All Delivered Projects &amp; Case Studies</span>
+              <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground" />
+            </Link>
           </motion.div>
         </motion.div>
       </section>

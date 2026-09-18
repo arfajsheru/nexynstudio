@@ -84,18 +84,21 @@ function StatCard({
   const count = useCountUp(value, isInView, 1500);
 
   return (
-    <div ref={ref} className="group relative overflow-hidden rounded-xl border border-border/40 bg-background/30 p-5 text-left backdrop-blur-sm transition-colors duration-300 hover:border-foreground/20 hover:bg-muted/30 dark:border-border/30 dark:bg-card/20 dark:hover:border-foreground/30 dark:hover:bg-card/40">
-      <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-      <div className="relative flex flex-col gap-1">
-        <span className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+    <div
+      ref={ref}
+      className="group relative flex flex-col justify-center p-4 sm:p-5 text-left transition-colors duration-200 hover:bg-foreground/[0.02]"
+    >
+      <div className="flex items-baseline gap-0.5">
+        <span className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl tabular-nums">
           {count}
-          <span className="text-foreground/70">{suffix}</span>
         </span>
-        <span className="text-[13px] font-medium text-muted-foreground">
-          {label}
+        <span className="text-sm font-bold text-foreground/75 sm:text-base">
+          {suffix}
         </span>
       </div>
+      <span className="mt-1 text-[11px] sm:text-[12px] font-medium text-muted-foreground tracking-tight">
+        {label}
+      </span>
     </div>
   );
 }
@@ -130,7 +133,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden pt-12 pb-16"
+      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20"
     >
       <HeroBackground />
 
@@ -142,88 +145,80 @@ export function HeroSection() {
           viewport={{ once: true, margin: "-50px" }}
           className="flex flex-col items-center text-center"
         >
-          {/* Animated Trust Badge */}
-          <motion.div variants={fadeUp} className="mb-6 relative flex overflow-hidden rounded-full p-[1px]">
-            {/* Spinning gradient border - Optimized inset and will-change */}
-            <div className="absolute inset-[-200%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,hsl(var(--foreground))_50%,transparent_100%)] opacity-30 will-change-transform dark:opacity-40" />
-
-            {/* Inner badge content */}
-            <div className="relative inline-flex items-center gap-2 rounded-full bg-background/90 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground backdrop-blur-xl">
+          {/* Authentic Studio Status Badge */}
+          <motion.div variants={fadeUp} className="mb-6 inline-flex">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/80 px-3.5 py-1 text-[11px] sm:text-xs font-medium tracking-tight text-muted-foreground shadow-sm backdrop-blur-md transition-colors hover:border-foreground/30 hover:text-foreground">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
               </span>
-              {HERO_CONTENT.badge}
+              <span className="font-semibold text-foreground/90">{HERO_CONTENT.badge}</span>
+              <span className="text-border">/</span>
+              <span>{HERO_CONTENT.status}</span>
             </div>
           </motion.div>
 
-          {/* Headline with stylish mixed typography and varied font sizes */}
+          {/* Headline with balanced, high-impact studio typography */}
           <motion.h1
             variants={fadeUp}
-            className="mx-auto w-full max-w-[1440px] tracking-tight text-foreground"
+            className="mx-auto max-w-4xl text-balance text-3xl font-bold tracking-[-0.03em] text-foreground xs:text-4xl sm:text-5xl md:text-6xl lg:text-[66px] lg:leading-[1.1]"
           >
-            <span className="block text-[22px] xs:text-[25px] sm:text-[40px] md:text-[52px] lg:text-[62px] font-bold tracking-tight text-foreground">
-              Custom Software
-            </span>
-            <span className="block font-serif italic text-[25px] xs:text-[29px] sm:text-[46px] md:text-[58px] lg:text-[70px] font-normal text-foreground/75 my-0.5 sm:my-1">
-              &amp; Business Automation
-            </span>
-            <span className="block text-[23px] xs:text-[26px] sm:text-[42px] md:text-[54px] lg:text-[64px] font-extrabold tracking-tight bg-gradient-to-r from-foreground via-foreground/90 to-foreground/50 bg-clip-text text-transparent">
-              Company in India
+            {HERO_CONTENT.headlinePrefix}{" "}
+            <span className="font-serif italic font-normal text-foreground/75">
+              {HERO_CONTENT.headlineAccent}
             </span>
           </motion.h1>
 
           {/* Description */}
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg"
+            className="mx-auto mt-5 max-w-2xl text-balance text-sm leading-relaxed text-muted-foreground sm:text-base md:text-[17px]"
           >
             {HERO_CONTENT.description}
           </motion.p>
 
-          {/* CTAs */}
+          {/* Compact, Refined CTAs (Sleek, Not Oversized) */}
           <motion.div
             variants={fadeUp}
-            className="mt-8 flex flex-row items-center justify-center gap-2 xs:gap-3 sm:gap-4 w-full max-w-full px-2"
+            className="mt-7 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3"
           >
-            <MagneticWrapper range={50} strength={0.4}>
+            <MagneticWrapper range={35} strength={0.25}>
               <a
                 href={HERO_CONTENT.primaryCta.href}
-                className="group inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-foreground px-3.5 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap"
+                className="group inline-flex h-9 sm:h-10 items-center justify-center gap-2 rounded-lg bg-foreground px-4 sm:px-5 text-xs sm:text-[13px] font-medium text-background shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.15)] transition-all duration-200 hover:opacity-90 active:scale-[0.98] whitespace-nowrap"
               >
-                {HERO_CONTENT.primaryCta.label}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4 shrink-0" />
+                <span>{HERO_CONTENT.primaryCta.label}</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
               </a>
             </MagneticWrapper>
-            <MagneticWrapper range={50} strength={0.4}>
+
+            <MagneticWrapper range={35} strength={0.25}>
               <a
                 href={HERO_CONTENT.secondaryCta.href}
-                className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-xs font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
+                className="inline-flex h-9 sm:h-10 items-center justify-center rounded-lg border border-border/80 bg-background/70 px-4 sm:px-5 text-xs sm:text-[13px] font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:bg-muted/70 hover:border-foreground/30 active:scale-[0.98] whitespace-nowrap"
               >
                 {HERO_CONTENT.secondaryCta.label}
               </a>
             </MagneticWrapper>
           </motion.div>
 
-          {/* Trust Strip */}
+          {/* Minimalist Trust & Credibility Strip */}
           <motion.div
             variants={fadeUp}
-            className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-3 px-4 sm:mt-16 sm:gap-x-8"
+            className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground/80 sm:mt-10 sm:gap-x-7"
           >
             {TRUST_ROW.map((item) => (
-              <div key={item} className="flex items-center gap-1.5">
-                <Check className="h-3.5 w-3.5 text-foreground/50" />
-                <span className="text-[13px] font-medium text-muted-foreground">
-                  {item}
-                </span>
+              <div key={item} className="flex items-center gap-2">
+                <span className="h-1 w-1 rounded-full bg-foreground/35" />
+                <span>{item}</span>
               </div>
             ))}
           </motion.div>
 
-          {/* Integrated Stats Grid */}
+          {/* Sleek Hairline Stats Grid */}
           <motion.div
             variants={fadeUp}
-            className="mt-8 grid w-full max-w-[1200px] grid-cols-2 gap-3 px-2 sm:mt-10 sm:grid-cols-4 sm:gap-4 sm:px-0"
+            className="mt-10 grid w-full max-w-3xl grid-cols-2 divide-x divide-y border-y border-border/40 sm:grid-cols-4 sm:divide-y-0 sm:border-x sm:rounded-xl sm:bg-card/25 sm:backdrop-blur-sm dark:border-border/30"
           >
             {STATS.map((stat) => (
               <StatCard

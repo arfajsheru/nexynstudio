@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Monitor,
@@ -24,9 +25,9 @@ const STACK_LAYERS = [
     subtitle: "User Interface Layer",
     icon: Monitor,
     technologies: [
-      { name: "React", icon: "/icons/react.svg", url: "https://react.dev" },
-      { name: "Next.js", icon: "/icons/nextjs.svg", url: "https://nextjs.org" },
-      { name: "TypeScript", icon: "/icons/typescript.svg", url: "https://www.typescriptlang.org" },
+      { name: "Next.js", icon: "/icons/nextjs.svg", url: "/technologies/nextjs-development", internal: true },
+      { name: "React", icon: "/icons/react.svg", url: "/technologies/react-development", internal: true },
+      { name: "TypeScript", icon: "/icons/typescript.svg", url: "/technologies/typescript-development", internal: true },
       { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg", url: "https://tailwindcss.com" },
       { name: "Framer Motion", icon: "/icons/framer.svg", url: "https://www.framer.com/motion/" },
       { name: "shadcn/ui", icon: "/icons/shadcn.svg", url: "https://ui.shadcn.com" },
@@ -41,8 +42,8 @@ const STACK_LAYERS = [
     subtitle: "Business Logic Layer",
     icon: Server,
     technologies: [
-      { name: "Node.js", icon: "/icons/nodejs.svg", url: "https://nodejs.org" },
-      { name: "NestJS", icon: "/icons/nestjs.svg", url: "https://nestjs.com" },
+      { name: "Node.js", icon: "/icons/nodejs.svg", url: "/technologies/nodejs-development", internal: true },
+      { name: "NestJS", icon: "/icons/nestjs.svg", url: "/technologies/nestjs-development", internal: true },
       { name: "Express", icon: "/icons/express.svg", url: "https://expressjs.com" },
       { name: "GraphQL", icon: "/icons/graphql.svg", url: "https://graphql.org" },
       { name: "Python", icon: "/icons/python.svg", url: "https://www.python.org" },
@@ -57,7 +58,7 @@ const STACK_LAYERS = [
     subtitle: "Cross-Platform Layer",
     icon: Smartphone,
     technologies: [
-      { name: "React Native", icon: "/icons/reactnative.svg", url: "https://reactnative.dev" },
+      { name: "React Native", icon: "/icons/reactnative.svg", url: "/technologies/react-native-development", internal: true },
       { name: "Expo", icon: "/icons/expo.svg", url: "https://expo.dev" },
       { name: "Reanimated", icon: "/icons/react.svg", url: "https://docs.swmansion.com/react-native-reanimated/" },
       { name: "Firebase", icon: "/icons/firebase.svg", url: "https://firebase.google.com" },
@@ -73,10 +74,10 @@ const STACK_LAYERS = [
     subtitle: "Data Persistence Layer",
     icon: Database,
     technologies: [
-      { name: "PostgreSQL", icon: "/icons/postgresql.svg", url: "https://www.postgresql.org" },
+      { name: "PostgreSQL", icon: "/icons/postgresql.svg", url: "/technologies/postgresql-development", internal: true },
       { name: "MongoDB", icon: "/icons/mongodb.svg", url: "https://www.mongodb.com" },
       { name: "MySQL", icon: "/icons/mysql.svg", url: "https://www.mysql.com" },
-      { name: "Redis", icon: "/icons/redis.svg", url: "https://redis.io" },
+      { name: "Redis", icon: "/icons/redis.io", url: "https://redis.io" },
       { name: "Supabase", icon: "/icons/supabase.svg", url: "https://supabase.com" },
       { name: "Prisma", icon: "/icons/prisma.svg", url: "https://www.prisma.io" },
     ],
@@ -194,29 +195,55 @@ export function TechStackSection() {
 
                   {/* Tech Grid (Bento Boxes) */}
                   <div className="relative z-10 mt-auto grid grid-cols-3 sm:grid-cols-4 gap-3">
-                    {layer.technologies.map((tech) => (
-                      <a
-                        key={tech.name}
-                        href={tech.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/tech flex flex-col items-center justify-center gap-2.5 rounded-2xl border border-border/40 bg-foreground/[0.02] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground/[0.05] hover:shadow-md"
-                      >
-                        <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white p-2.5 shadow-sm transition-transform duration-300 group-hover/tech:scale-110">
-                          <img
-                            src={tech.icon}
-                            alt={`${tech.name} logo`}
-                            width={24}
-                            height={24}
-                            loading="lazy"
-                            className="h-full w-full object-contain"
-                          />
-                        </div>
-                        <span className="text-center text-[10px] font-bold text-muted-foreground transition-colors duration-300 group-hover/tech:text-foreground line-clamp-1">
-                          {tech.name}
-                        </span>
-                      </a>
-                    ))}
+                    {layer.technologies.map((tech) => {
+                      const isInternal = "internal" in tech && tech.internal;
+                      const cardClasses =
+                        "group/tech flex flex-col items-center justify-center gap-2.5 rounded-2xl border border-border/40 bg-foreground/[0.02] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground/[0.05] hover:shadow-md";
+
+                      const content = (
+                        <>
+                          <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-white p-2.5 shadow-sm transition-transform duration-300 group-hover/tech:scale-110">
+                            <img
+                              src={tech.icon}
+                              alt={`${tech.name} logo`}
+                              width={24}
+                              height={24}
+                              loading="lazy"
+                              className="h-full w-full object-contain"
+                            />
+                          </div>
+                          <span className="text-center text-[10px] font-bold text-muted-foreground transition-colors duration-300 group-hover/tech:text-foreground line-clamp-1">
+                            {tech.name}
+                          </span>
+                        </>
+                      );
+
+                      if (isInternal) {
+                        return (
+                          <Link
+                            key={tech.name}
+                            href={tech.url}
+                            aria-label={`Explore ${tech.name} development services`}
+                            className={cardClasses}
+                          >
+                            {content}
+                          </Link>
+                        );
+                      }
+
+                      return (
+                        <a
+                          key={tech.name}
+                          href={tech.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Visit official ${tech.name} site`}
+                          className={cardClasses}
+                        >
+                          {content}
+                        </a>
+                      );
+                    })}
                   </div>
                 </motion.div>
               ))}

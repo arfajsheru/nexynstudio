@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
   Factory, 
@@ -18,14 +19,14 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 const INDUSTRIES = [
-  { id: "re", name: "Real Estate", icon: Building2, pos: { x: 50, y: 15 }, mobilePos: { x: 20, y: 15 }, desc: "Property management platforms & high-performance CRMs." },
-  { id: "mfg", name: "Manufacturing", icon: Factory, pos: { x: 15, y: 25 }, mobilePos: { x: 80, y: 15 }, desc: "Real-time production tracking and automated inventory." },
-  { id: "health", name: "Healthcare", icon: Stethoscope, pos: { x: 85, y: 25 }, mobilePos: { x: 20, y: 32 }, desc: "HIPAA-compliant portals and secure clinic management." },
-  { id: "start", name: "Startups", icon: Rocket, pos: { x: 15, y: 50 }, mobilePos: { x: 80, y: 32 }, desc: "Rapid MVP development and cloud scaling architectures." },
-  { id: "edu", name: "Education", icon: GraduationCap, pos: { x: 85, y: 50 }, mobilePos: { x: 20, y: 68 }, desc: "Scalable virtual classrooms and complete LMS solutions." },
-  { id: "fin", name: "Finance", icon: Landmark, pos: { x: 15, y: 75 }, mobilePos: { x: 80, y: 68 }, desc: "Bank-grade secure dashboards, ledgers, and fintech apps." },
-  { id: "ecom", name: "E-Commerce", icon: ShoppingCart, pos: { x: 85, y: 75 }, mobilePos: { x: 20, y: 85 }, desc: "Headless storefronts handling massive traffic spikes." },
-  { id: "log", name: "Logistics", icon: Truck, pos: { x: 50, y: 85 }, mobilePos: { x: 80, y: 85 }, desc: "Complete supply chain visibility and fleet management." },
+  { id: "re", name: "Real Estate", icon: Building2, href: "/industries/real-estate", pos: { x: 50, y: 15 }, mobilePos: { x: 20, y: 15 }, desc: "Property management platforms & high-performance CRMs." },
+  { id: "mfg", name: "Manufacturing", icon: Factory, href: "/industries/manufacturing", pos: { x: 15, y: 25 }, mobilePos: { x: 80, y: 15 }, desc: "Real-time production tracking and automated inventory." },
+  { id: "health", name: "Healthcare", icon: Stethoscope, href: "/industries/healthcare", pos: { x: 85, y: 25 }, mobilePos: { x: 20, y: 32 }, desc: "HIPAA-compliant portals and secure clinic management." },
+  { id: "start", name: "Startups", icon: Rocket, href: "/solutions/saas-product-development", pos: { x: 15, y: 50 }, mobilePos: { x: 80, y: 32 }, desc: "Rapid MVP development and cloud scaling architectures." },
+  { id: "edu", name: "Education", icon: GraduationCap, href: "/industries/education", pos: { x: 85, y: 50 }, mobilePos: { x: 20, y: 68 }, desc: "Scalable virtual classrooms and complete LMS solutions." },
+  { id: "fin", name: "Finance", icon: Landmark, href: "/services/custom-development", pos: { x: 15, y: 75 }, mobilePos: { x: 80, y: 68 }, desc: "Bank-grade secure dashboards, ledgers, and fintech apps." },
+  { id: "ecom", name: "E-Commerce", icon: ShoppingCart, href: "/industries/ecommerce", pos: { x: 85, y: 75 }, mobilePos: { x: 20, y: 85 }, desc: "Headless storefronts handling massive traffic spikes." },
+  { id: "log", name: "Logistics", icon: Truck, href: "/industries/logistics", pos: { x: 50, y: 85 }, mobilePos: { x: 80, y: 85 }, desc: "Complete supply chain visibility and fleet management." },
 ];
 
 export function IndustriesSection() {
@@ -122,8 +123,10 @@ export function IndustriesSection() {
 
             {/* Industry Nodes */}
             {INDUSTRIES.map((ind) => (
-              <div
+              <Link
                 key={ind.id}
+                href={ind.href}
+                aria-label={`Explore ${ind.name} software solutions`}
                 className={cn(
                   "absolute -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2 group cursor-pointer",
                   "left-[var(--x-mobile)] top-[var(--y-mobile)]",
@@ -154,7 +157,7 @@ export function IndustriesSection() {
                   <span className="block text-sm font-semibold mb-1.5">{ind.name}</span>
                   <p className="text-[11px] leading-relaxed opacity-80">{ind.desc}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </motion.div>
 

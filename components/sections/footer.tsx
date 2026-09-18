@@ -10,24 +10,25 @@ import { cn } from "@/lib/utils";
 const FOOTER_LINKS = {
   Services: [
     { label: "Custom Software", href: "/services/custom-development" },
-    { label: "UI/UX Design", href: "/services/ui-ux-design" },
     { label: "Web Applications", href: "/services/web-development" },
     { label: "Mobile Apps", href: "/services/mobile-app-development" },
-    { label: "Cloud & DevOps", href: "/services/cloud-devops" },
+    { label: "UI/UX Design", href: "/services/ui-ux-design" },
     { label: "AI & Automation", href: "/services/ai-automation" },
+    { label: "Cloud & DevOps", href: "/services/cloud-devops" },
+  ],
+  Solutions: [
+    { label: "Custom CRM Systems", href: "/solutions/custom-crm-development" },
+    { label: "SaaS Products", href: "/solutions/saas-product-development" },
+    { label: "Business Automation", href: "/solutions/business-automation" },
+    { label: "Custom Web Apps", href: "/solutions/custom-web-applications" },
+    { label: "E-Commerce Systems", href: "/solutions/ecommerce-solutions" },
   ],
   Company: [
     { label: "About Us", href: "/about" },
-    { label: "Our Process", href: "/about" },
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Contact", href: "/contact" },
-    { label: "Privacy Policy", href: "/privacy-policy" },
-  ],
-  Resources: [
-    { label: "Blog", href: "/blog" },
     { label: "Case Studies", href: "/case-studies" },
-    { label: "FAQ", href: "/faq" },
-    { label: "Support", href: "/support" },
+    { label: "Engineering Blog", href: "/blog" },
+    { label: "FAQs", href: "/faq" },
     { label: "Privacy Policy", href: "/privacy-policy" },
   ],
 };
@@ -61,7 +62,7 @@ export function FooterSection() {
             {/* Brand Column */}
             <motion.div
               variants={fadeUp}
-              className="lg:col-span-4"
+              className="lg:col-span-3"
             >
               <div className="mb-4 text-xl font-bold tracking-tight text-foreground">
                 {SITE_CONFIG.name}
@@ -89,7 +90,7 @@ export function FooterSection() {
               <motion.div
                 key={category}
                 variants={fadeUp}
-                className="lg:col-span-2 lg:col-start-auto"
+                className="lg:col-span-2"
               >
                 <div className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-foreground">
                   {category}
@@ -111,7 +112,7 @@ export function FooterSection() {
             ))}
 
             {/* Contact Column */}
-            <motion.div variants={fadeUp} className="lg:col-span-2">
+            <motion.div variants={fadeUp} className="lg:col-span-3">
               <div className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-foreground">
                 Get In Touch
               </div>
@@ -135,6 +136,21 @@ export function FooterSection() {
                 </li>
               </ul>
             </motion.div>
+          </div>
+
+          {/* ── Regional Presence & Location Links ─────────────────── */}
+          <div className="border-t border-border/30 pt-6 pb-2 text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span className="font-semibold text-foreground/80">Regional Presence:</span>
+              <Link href="/locations/mumbai" className="hover:text-foreground transition-colors">Mumbai (HQ)</Link>
+              <span className="text-border">•</span>
+              <Link href="/locations/thane" className="hover:text-foreground transition-colors">Thane</Link>
+              <span className="text-border">•</span>
+              <Link href="/locations/navi-mumbai" className="hover:text-foreground transition-colors">Navi Mumbai</Link>
+            </div>
+            <div className="text-[11px] text-muted-foreground/70">
+              Serving Clients Across India &amp; Worldwide
+            </div>
           </div>
 
           {/* ── Bottom Bar ────────────────────────────────────────── */}

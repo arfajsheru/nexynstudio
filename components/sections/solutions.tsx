@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Users,
@@ -362,6 +363,7 @@ const SOLUTIONS = [
     desc: "Custom Customer Relationship Management systems built exactly for your sales pipeline — not a one-size-fits-all tool.",
     impact: "Close more deals, eliminate lost leads, and give your team full pipeline visibility from prospect to payment.",
     benefits: ["Custom Sales Pipelines", "Automated Outreach", "Performance Tracking"],
+    href: "/solutions/custom-crm-development",
     visual: <CrmVisual />,
   },
   {
@@ -372,6 +374,7 @@ const SOLUTIONS = [
     desc: "Enterprise Resource Planning software that unites HR, finance, operations and logistics in one unified hub.",
     impact: "Reduce operational overhead and gain a single source of truth across your entire business.",
     benefits: ["Unified Database", "Real-Time Reporting", "Department Integration"],
+    href: "/solutions/business-automation",
     visual: <ErpVisual />,
   },
   {
@@ -382,6 +385,7 @@ const SOLUTIONS = [
     desc: "Intelligent lead scoring and distribution platforms for high-volume sales teams handling thousands of daily inquiries.",
     impact: "Prioritize high-value prospects and route leads to the right agents in seconds — not hours.",
     benefits: ["Automated Lead Scoring", "Smart Routing", "Multi-channel Intake"],
+    href: "/solutions/saas-product-development",
     visual: <LeadVisual />,
   },
   {
@@ -392,6 +396,7 @@ const SOLUTIONS = [
     desc: "Real-time stock tracking and order fulfillment systems for growing commerce businesses.",
     impact: "Prevent stockouts, reduce carrying costs, and automate purchase orders before you run low.",
     benefits: ["Barcode Scanning", "Low Stock Alerts", "Supplier Portal"],
+    href: "/solutions/ecommerce-solutions",
     visual: <InventoryVisual />,
   },
   {
@@ -402,6 +407,7 @@ const SOLUTIONS = [
     desc: "Production tracking and quality control systems for modern factory floors and industrial operations.",
     impact: "Increase yield, track raw materials, and monitor machine performance in real time.",
     benefits: ["Production Scheduling", "Quality Checklists", "Machine Integration"],
+    href: "/industries/manufacturing",
     visual: <ManufacturingVisual />,
   },
   {
@@ -412,6 +418,7 @@ const SOLUTIONS = [
     desc: "Executive business intelligence dashboards compiling live data from multiple sources into one command center.",
     impact: "Make confident, data-driven decisions with real-time KPIs built for your specific business goals.",
     benefits: ["Data Visualization", "Custom Reports", "Automated Exports"],
+    href: "/solutions/custom-web-applications",
     visual: <DashboardsVisual />,
   },
 ] as const;
@@ -538,6 +545,18 @@ export function SolutionsSection() {
                                   </li>
                                 ))}
                               </ul>
+
+                              {s.href && (
+                                <div className="mt-5 border-t border-border/40 pt-4">
+                                  <Link
+                                    href={s.href}
+                                    className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-foreground transition-colors hover:text-foreground/75"
+                                  >
+                                    <span>Explore {s.title} Architecture &amp; Features</span>
+                                    <ArrowRight className="h-3 w-3" />
+                                  </Link>
+                                </div>
+                              )}
                             </div>
                           </motion.div>
                         )}
@@ -555,13 +574,13 @@ export function SolutionsSection() {
                 <div className="flex-1 text-[13px] text-muted-foreground">
                   <span className="font-bold text-foreground">Ready to scale?</span> We build tailored solutions that fit your exact workflow.
                 </div>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-foreground px-4 py-2.5 text-[12px] font-semibold text-background transition-opacity hover:opacity-85"
                 >
                   Discuss Project
                   <ArrowRight className="h-3.5 w-3.5" />
-                </a>
+                </Link>
               </motion.div>
             </div>
 

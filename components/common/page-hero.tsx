@@ -19,6 +19,7 @@ interface PageHeroProps {
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   className?: string;
+  renderBreadcrumbSchema?: boolean;
 }
 
 // ─── Hero Background (same aesthetic as homepage) ────────────────────────────
@@ -87,6 +88,7 @@ export function PageHero({
   primaryCta,
   secondaryCta,
   className,
+  renderBreadcrumbSchema,
 }: PageHeroProps) {
   return (
     <section
@@ -112,7 +114,7 @@ export function PageHero({
         >
           {/* Breadcrumb */}
           <motion.div variants={fadeUp} className="mb-6">
-            <Breadcrumb items={breadcrumbs} />
+            <Breadcrumb items={breadcrumbs} renderJsonLd={renderBreadcrumbSchema} />
           </motion.div>
 
           {/* Badge */}

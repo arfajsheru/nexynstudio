@@ -28,30 +28,31 @@ export const NAV_CTA = {
 // ─── Hero ───────────────────────────────────────────────────────────────────
 
 export const HERO_CONTENT = {
-  badge: "Trusted Technology Partner",
-  headlinePart1: "Custom Software & Business",
-  headlinePart2: "Automation Company in India",
+  badge: "Bespoke Software Studio",
+  status: "Available for new projects",
+  headlinePrefix: "Custom Software Development Company",
+  headlineAccent: "engineered to scale your business.",
   description:
-    "We engineer custom software, scalable web applications, mobile apps, and CRM systems tailored to your business operations. Direct engineer access, clean code, and fast delivery from Mumbai, India.",
-  primaryCta: { label: "Get Free Consultation", href: "/contact" },
-  secondaryCta: { label: "View Our Work", href: "/portfolio" },
+    "We partner directly with founders and growth-stage companies to build high-performance web applications, multi-tier CRMs, and internal systems. 100% source code ownership, zero bloated SaaS subscriptions, and fast 2–4 week sprints.",
+  primaryCta: { label: "Start a Project", href: "/contact" },
+  secondaryCta: { label: "View Case Studies", href: "/portfolio" },
 } as const;
 
 // ─── Trust Row ──────────────────────────────────────────────────────────────
 
 export const TRUST_ROW = [
-  "Direct Developer Access",
-  "Fast 2-4 Week Sprints",
-  "Clean Maintainable Code",
-  "Ongoing Tech Support",
+  "Direct Senior Developer Access",
+  "Fast 2–4 Week Sprints",
+  "100% Code & IP Ownership",
+  "Zero Per-Seat SaaS Tax",
 ] as const;
 
 // ─── Stats ──────────────────────────────────────────────────────────────────
 
 export const STATS = [
-  { value: 5, suffix: "+", label: "Projects Delivered" },
-  { value: 5, suffix: "+", label: "Happy Clients" },
-  { value: 5, suffix: "+", label: "Business Solutions" },
+  { value: 10, suffix: "+", label: "Custom Systems Shipped" },
+  { value: 99, suffix: ".9%", label: "Architecture Uptime" },
+  { value: 100, suffix: "%", label: "Full Code Ownership" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
 ] as const;
 

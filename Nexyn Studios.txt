@@ -1,0 +1,263 @@
+Nexyn Studios
+Engineering Excellence
+
+## Nexyn Studios
+
+Have a project idea or need custom CRM/Software? Chat directly with our engineers.
+[Home](http://localhost:3000/)
+[Services](http://localhost:3000/services)
+[Portfolio](http://localhost:3000/portfolio)
+[Resources](http://localhost:3000/blog)
+[About](http://localhost:3000/about)
+[Contact](http://localhost:3000/contact)
+[Chat with us](https://wa.me/918591013795)
+
+# Custom Software& Business AutomationCompany in India
+
+We engineer custom software, scalable web applications, mobile apps, and CRM systems tailored to your business operations. Direct engineer access, clean code, and fast delivery from Mumbai, India.
+[Get Free Consultation](http://localhost:3000/contact)
+[View Our Work](http://localhost:3000/portfolio)
+
+## Software Development Services We Engineer
+
+Custom software, scalable web platforms, mobile apps, and AI workflow automation built to solve your operational bottlenecks.
+[Custom DevelopmentCustom SoftwareCustom CRM, ERP, and bespoke portal systems engineered precisely around your internal business workflows to eliminate manual overhead, improve data integrity, and scale operations.CRM & ERPWorkflow Automation](http://localhost:3000/services/custom-development)
+
+### Custom Software
+Custom CRM, ERP, and bespoke portal systems engineered precisely around your internal business workflows to eliminate manual overhead, improve data integrity, and scale operations.
+[Design FirstUI/UX DesignConversion-optimized, modern user interfaces designed after extensive research to match your company's branding, improve retention, and create a premium experience.UI/UX DesignWireframes](http://localhost:3000/services/ui-ux-design)
+
+### UI/UX Design
+Conversion-optimized, modern user interfaces designed after extensive research to match your company's branding, improve retention, and create a premium experience.
+[Performance FocusedWeb DevelopmentSEO-optimized, lighting-fast websites and custom web applications powered by modern frontend frameworks to deliver seamless performance on all devices.Web AppsCorporate Sites](http://localhost:3000/services/web-development)
+
+### Web Development
+SEO-optimized, lighting-fast websites and custom web applications powered by modern frontend frameworks to deliver seamless performance on all devices.
+[Cross PlatformMobile AppsPremium iOS and Android mobile applications engineered with native components to deliver exceptional performance, high-speed interactions, and offline capability.iOS & AndroidReact Native](http://localhost:3000/services/mobile-app-development)
+
+### Mobile Apps
+Premium iOS and Android mobile applications engineered with native components to deliver exceptional performance, high-speed interactions, and offline capability.
+[Production ReadyCloud & DevOpsHigh-availability, enterprise-grade cloud systems configured with automated pipelines, continuous monitoring, and container security to prevent any downtime.AWS & GCPCI/CD Pipelines](http://localhost:3000/services/cloud-devops)
+
+### Cloud & DevOps
+High-availability, enterprise-grade cloud systems configured with automated pipelines, continuous monitoring, and container security to prevent any downtime.
+[Intelligent WorkflowsAI & AutomationAI-powered business automation, intelligent workflows, custom AI integrations, and productivity systems designed to reduce repetitive work and improve operational efficiency.AI WorkflowsCustom Agents](http://localhost:3000/services/ai-automation)
+
+### AI & Automation
+AI-powered business automation, intelligent workflows, custom AI integrations, and productivity systems designed to reduce repetitive work and improve operational efficiency.
+
+## Featured Software Projects
+
+[United Welfare FoundationMacBook Pro](http://localhost:3000/projects/united-welfare-foundation)
+
+### United Welfare Foundation
+A full-stack scholarship management portal for UWF — enabling students to apply for financial aid, with multi-tier approval workflows, treasury reviews, and real-time disbursement tracking.
+[View Full Case Study](http://localhost:3000/projects/united-welfare-foundation)
+[Visit Portal](https://portal.unitedwelfarefoundation.com/)
+[Nexyn Chat WebMacBook Pro](http://localhost:3000/projects/nexyn-chat-web)
+
+### Nexyn Chat Web
+A modern, real-time messaging web client inspired by WhatsApp — featuring secure chat authentication, end-to-end typing indicators, media transfers, and clean desktop browser integrations.
+[View Full Case Study](http://localhost:3000/projects/nexyn-chat-web)
+[Nexyn Chat Mobile](http://localhost:3000/projects/nexyn-chat-mobile)
+
+### Nexyn Chat Mobile
+A feature-rich React Native mobile app for Nexyn Chat — delivering real-time chat, push notifications, offline syncing, contact directory integrations, and optimized performance for iOS and Android.
+[View Full Case Study](http://localhost:3000/projects/nexyn-chat-mobile)
+
+## Industries We Build Software For
+Purpose-built custom software, CRM systems, and scalable web applications engineered for industry-specific operations.
+Property management platforms & high-performance CRMs.
+Real-time production tracking and automated inventory.
+HIPAA-compliant portals and secure clinic management.
+Rapid MVP development and cloud scaling architectures.
+Scalable virtual classrooms and complete LMS solutions.
+Bank-grade secure dashboards, ledgers, and fintech apps.
+Headless storefronts handling massive traffic spikes.
+Complete supply chain visibility and fleet management.
+
+## Why Choose Nexyn Studios for Software Development
+Direct access to senior software engineers, transparent development sprints, and architecture built for long-term scalability.
+
+### Custom Solutions
+We don't force your business into generic templates. Every line of code is written specifically to solve your unique operational bottlenecks.
+
+### Scalable Architecture
+Enterprise-grade cloud infrastructure that handles 10 users just as flawlessly as 10,000. Your software grows with you.
+
+### Fast Delivery
+Modern frameworks and agile methodologies to ship functional software rapidly, ensuring a fast return on investment.
+
+### Business-Focused
+We are business strategists first, developers second. Every decision is guided by how it grows your revenue and reduces costs.
+
+### Modern Tech Stack
+Leveraging Next.js, React, and Node.js to ensure your product is lightning fast, highly secure, and easy to maintain.
+
+### Dedicated Support
+Our partnership doesn't end at launch. We provide ongoing monitoring, updates, and technical support indefinitely.
+
+## Our Software Development Process
+
+From technical discovery and UI design to agile engineering and production launch, we build scalable software in structured milestones.
+
+### Discovery
+Deep dive into your business operations and market landscape to identify exact bottlenecks.
+
+### Planning
+System architecture and data modeling to ensure scalable foundations.
+
+### Design
+Creating intuitive, high-fidelity prototypes centered around user experience.
+
+### Development
+Agile engineering sprints transforming design into robust, scalable code.
+
+### Testing
+Rigorous QA testing, security audits, and edge-case simulations.
+
+### Deployment
+Seamless cloud infrastructure setup and zero-downtime launch.
+
+### Support
+Continuous monitoring, maintenance, and iteration as you scale.
+
+### Ready to start?
+Let's discuss how our structured engineering process can turn your ideas into a robust, scaling product.
+[Schedule a discovery call](http://localhost:3000/contact)
+
+## Modern Technologies & Frameworks
+
+Leveraging modern, fast, and secure frameworks to build robust and scalable digital products.
+
+### Frontend
+User Interface Layer
+[React](https://react.dev)
+[Next.js](https://nextjs.org)
+[TypeScript](https://www.typescriptlang.org)
+[Tailwind CSS](https://tailwindcss.com)
+[Framer Motion](https://www.framer.com/motion/)
+[shadcn/ui](https://ui.shadcn.com)
+[GSAP](https://gsap.com)
+[Vue](https://vuejs.org)
+
+### Backend
+Business Logic Layer
+[Node.js](https://nodejs.org)
+[NestJS](https://nestjs.com)
+[Express](https://expressjs.com)
+[GraphQL](https://graphql.org)
+[Python](https://www.python.org)
+[Java](https://www.java.com)
+[PHP](https://www.php.net)
+
+### Mobile App
+Cross-Platform Layer
+[React Native](https://reactnative.dev)
+[Expo](https://expo.dev)
+[Reanimated](https://docs.swmansion.com/react-native-reanimated/)
+[Firebase](https://firebase.google.com)
+[Redux](https://redux-toolkit.js.org)
+[Android](https://developer.android.com)
+[Apple](https://developer.apple.com)
+
+### Database
+Data Persistence Layer
+[PostgreSQL](https://www.postgresql.org)
+[MongoDB](https://www.mongodb.com)
+[MySQL](https://www.mysql.com)
+[Redis](https://redis.io)
+[Supabase](https://supabase.com)
+[Prisma](https://www.prisma.io)
+
+### Cloud & DevOps
+Infrastructure Layer
+[AWS](https://aws.amazon.com)
+[Google Cloud](https://cloud.google.com)
+[Docker](https://www.docker.com)
+[Kubernetes](https://kubernetes.io)
+[Vercel](https://vercel.com)
+
+### Tools & Ecosystem
+Productivity Layer
+[OpenAI](https://openai.com)
+[Figma](https://www.figma.com)
+[GitHub](https://github.com)
+[Git](https://git-scm.com)
+[Postman](https://www.postman.com)
+
+## Post-Launch Software Support
+
+Our engineering partnership continues after deployment with active uptime monitoring, security updates, and feature scaling.
+
+### Dedicated Support
+A dedicated point of contact for all technical issues, available within hours — not days.
+
+### Performance Monitoring
+Real-time uptime monitoring, error tracking, and performance alerts so issues are caught before your users notice.
+
+### Continuous Updates
+Regular security patches, framework upgrades, and dependency updates to keep your software current and secure.
+
+### Growth Analytics
+Ongoing analysis of user behaviour and system performance to identify optimization and expansion opportunities.
+
+### Security Audits
+Periodic vulnerability assessments and penetration testing to ensure your platform remains impenetrable.
+
+### Feature Roadmap
+Collaborative planning for new features and enhancements aligned with your evolving business goals.
+
+## Frequently Asked Questions
+Clear answers regarding our custom software engineering, pricing models, development timelines, and post-launch support.
+The cost depends on the scope, complexity, and specific requirements of your project. After an initial consultation to understand your needs, we provide a detailed proposal with transparent pricing and timelines.
+
+## Ready To Build Software That Actually Works?
+Tell us about your business challenges. We'll show you exactly how custom software can solve them — with a free consultation and project estimate.
+[Schedule Consultation](http://localhost:3000/contact)
+[View Services](http://localhost:3000/services)
+
+## Start Your Software Project
+Let's discuss your project goals, technical requirements, and build a high-performance system for your business.
+[nexynstudios@gmail.com](mailto:nexynstudios@gmail.com)
+Nexyn Studios is a custom software development company in India building web applications, mobile apps, CRM systems, and AI automation solutions.
+- [Custom Software](http://localhost:3000/services/custom-development)
+- [UI/UX Design](http://localhost:3000/services/ui-ux-design)
+- [Web Applications](http://localhost:3000/services/web-development)
+- [Mobile Apps](http://localhost:3000/services/mobile-app-development)
+- [Cloud & DevOps](http://localhost:3000/services/cloud-devops)
+- [AI & Automation](http://localhost:3000/services/ai-automation)
+[Custom Software](http://localhost:3000/services/custom-development)
+[UI/UX Design](http://localhost:3000/services/ui-ux-design)
+[Web Applications](http://localhost:3000/services/web-development)
+[Mobile Apps](http://localhost:3000/services/mobile-app-development)
+[Cloud & DevOps](http://localhost:3000/services/cloud-devops)
+[AI & Automation](http://localhost:3000/services/ai-automation)
+- [About Us](http://localhost:3000/about)
+- [Our Process](http://localhost:3000/about)
+- [Portfolio](http://localhost:3000/portfolio)
+- [Contact](http://localhost:3000/contact)
+- [Privacy Policy](http://localhost:3000/privacy-policy)
+[About Us](http://localhost:3000/about)
+[Our Process](http://localhost:3000/about)
+[Portfolio](http://localhost:3000/portfolio)
+[Contact](http://localhost:3000/contact)
+[Privacy Policy](http://localhost:3000/privacy-policy)
+- [Blog](http://localhost:3000/blog)
+- [Case Studies](http://localhost:3000/case-studies)
+- [FAQ](http://localhost:3000/faq)
+- [Support](http://localhost:3000/support)
+- [Privacy Policy](http://localhost:3000/privacy-policy)
+[Blog](http://localhost:3000/blog)
+[Case Studies](http://localhost:3000/case-studies)
+[FAQ](http://localhost:3000/faq)
+[Support](http://localhost:3000/support)
+[Privacy Policy](http://localhost:3000/privacy-policy)
+- [nexynstudios@gmail.com](mailto:nexynstudios@gmail.com)
+- [Chat with us](https://wa.me/918591013795)
+[nexynstudios@gmail.com](mailto:nexynstudios@gmail.com)
+[Chat with us](https://wa.me/918591013795)
+© 2026 Nexyn Studios. All rights reserved.
+[Privacy](http://localhost:3000/privacy-policy)
+[Terms](http://localhost:3000/privacy-policy)
+[Cookies](http://localhost:3000/privacy-policy#cookies)

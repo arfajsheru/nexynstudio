@@ -157,36 +157,6 @@ export default function RootLayout({
             <CookieBanner />
           </SmoothScroll>
         </ThemeProvider>
-        {/* -- JSON-LD Structured Data -- */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": SITE_CONFIG.name,
-              "image": SITE_CONFIG.url + SITE_CONFIG.ogImage,
-              "url": SITE_CONFIG.url,
-              "telephone": "+91 85910 13795",
-              "email": "nexynstudios@gmail.com",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Malad, Mumbai",
-                "addressRegion": "Maharashtra",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": "19.1828", 
-                "longitude": "72.8402"
-              },
-              "sameAs": [
-                "https://linkedin.com/company/nexynstudios",
-                "https://twitter.com/nexynstudios"
-              ]
-            }),
-          }}
-        />
       </body>
     </html>
   );

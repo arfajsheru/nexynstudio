@@ -12,11 +12,12 @@ export interface BreadcrumbItem {
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
   className?: string;
+  renderJsonLd?: boolean;
 }
 
 // ─── Breadcrumb Component ─────────────────────────────────────────────────────
 
-export function Breadcrumb({ items, className }: BreadcrumbProps) {
+export function Breadcrumb({ items, className, renderJsonLd = true }: BreadcrumbProps) {
   const allItems: BreadcrumbItem[] = [{ label: "Home", href: "/" }, ...items];
 
   // Schema.org BreadcrumbList JSON-LD
@@ -35,10 +36,12 @@ export function Breadcrumb({ items, className }: BreadcrumbProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      {renderJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
       <nav
         aria-label="Breadcrumb"
         className={cn("flex items-center", className)}

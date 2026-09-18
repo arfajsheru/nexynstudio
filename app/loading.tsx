@@ -27,9 +27,9 @@ export default function Loading() {
 
         {/* Text */}
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-foreground">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-foreground">
             Nexyn Studios
-          </h2>
+          </p>
           <div className="flex items-center gap-1">
             <span className="h-1 w-1 animate-bounce rounded-full bg-muted-foreground/60" style={{ animationDelay: "0ms" }} />
             <span className="h-1 w-1 animate-bounce rounded-full bg-muted-foreground/60" style={{ animationDelay: "150ms" }} />
