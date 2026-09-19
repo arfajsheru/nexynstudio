@@ -67,7 +67,7 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: false,
     excerpt: "Selecting the wrong tech partner can lead to delayed launches and buggy code. Learn how to audit portfolios, evaluate communication, and ask the right technical questions.",
     internalLinks: [
-      { label: "Software Development Services", href: "/services/software-development" },
+      { label: "Custom Software Development", href: "/services/custom-development" },
       { label: "About Nexyn Studios", href: "/about" }
     ],
     content: `
@@ -104,7 +104,8 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Next.js vs React: We break down the differences in rendering models, dynamic routing systems, search indexation, and when to choose which framework.",
     internalLinks: [
       { label: "Next.js Development", href: "/technologies/nextjs-development" },
-      { label: "React Development", href: "/technologies/react-development" }
+      { label: "React Development", href: "/technologies/react-development" },
+      { label: "Enterprise Next.js vs SPA", href: "/blog/nextjs-vs-react-spa-for-enterprise" }
     ],
     content: `
       <p class="text-base text-muted-foreground leading-relaxed">
@@ -203,7 +204,7 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: false,
     excerpt: "Learn how professional software companies manage custom builds—from initial schema normalization to database deployment and security audits.",
     internalLinks: [
-      { label: "Software Development Services", href: "/services/software-development" },
+      { label: "Custom Software Development", href: "/services/custom-development" },
       { label: "PostgreSQL Database Services", href: "/technologies/postgresql-development" }
     ],
     content: `
@@ -239,8 +240,8 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: false,
     excerpt: "Ready to launch a SaaS product? We detail cost components including tenant data isolation, user authentication, subscription billing, and cloud servers.",
     internalLinks: [
-      { label: "SaaS Development Services", href: "/services/saas-development" },
-      { label: "SaaS Product Development", href: "/solutions/saas-product-development" }
+      { label: "SaaS Product Development", href: "/solutions/saas-product-development" },
+      { label: "Custom Software Development", href: "/services/custom-development" }
     ],
     content: `
       <p class="text-base text-muted-foreground leading-relaxed">
@@ -276,7 +277,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Avoid bloated systems with a custom CRM. Learn how to map sales stages, design user permissions, and connect communication channels.",
     internalLinks: [
       { label: "Custom CRM Development", href: "/solutions/custom-crm-development" },
-      { label: "Business Automation", href: "/services/business-automation" }
+      { label: "Business Automation Solutions", href: "/solutions/business-automation" }
     ],
     content: `
       <p class="text-base text-muted-foreground leading-relaxed">
@@ -312,7 +313,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Custom Next.js vs. Shopify: We compare these e-commerce solutions for load speed, page customization, transaction fees, and search ranking performance.",
     internalLinks: [
       { label: "E-commerce Solutions", href: "/solutions/ecommerce-solutions" },
-      { label: "E-commerce Development Services", href: "/services/ecommerce-development" }
+      { label: "Web Development Services", href: "/services/web-development" }
     ],
     content: `
       <p class="text-base text-muted-foreground leading-relaxed">
@@ -380,7 +381,8 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: false,
     excerpt: "We break down the performance, SEO, and developer experience trade-offs between Next.js and traditional React SPAs for large-scale applications.",
     internalLinks: [
-      { label: "Next.js Development", href: "/technologies/nextjs-development" }
+      { label: "Next.js Development", href: "/technologies/nextjs-development" },
+      { label: "Next.js vs React Guide", href: "/blog/nextjs-vs-react" }
     ],
     content: `
       <p class="text-base text-muted-foreground leading-relaxed">
@@ -430,7 +432,8 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: false,
     excerpt: "You don't need a DevOps team to set up reliable CI/CD. We walk through our battle-tested pipeline setup using GitHub Actions and Vercel.",
     internalLinks: [
-      { label: "Software Development Services", href: "/services/software-development" }
+      { label: "Cloud & DevOps Infrastructure", href: "/services/cloud-devops" },
+      { label: "Custom Software Development", href: "/services/custom-development" }
     ],
     content: `
       <p class="text-base text-muted-foreground leading-relaxed">
@@ -455,7 +458,8 @@ export const BLOG_POSTS: BlogPost[] = [
     featured: false,
     excerpt: "Automation is powerful, but only when done right. We've seen these costly mistakes repeatedly and here's how to avoid them.",
     internalLinks: [
-      { label: "Business Automation Software", href: "/services/business-automation" }
+      { label: "Business Automation Solutions", href: "/solutions/business-automation" },
+      { label: "Custom CRM Development", href: "/solutions/custom-crm-development" }
     ],
     content: `
       <p class="text-base text-muted-foreground leading-relaxed">

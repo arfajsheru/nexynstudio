@@ -24,12 +24,18 @@ export async function POST(req: Request) {
     } = body;
 
     // 1. Basic Server-Side Validation
-    if (!fullName || !email || !phone || !service || !budget || !details) {
+    if (!fullName || !email || !phone || !details) {
       console.warn("[API CONTACT ERROR] Missing required fields");
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    // 2. Generate Lead ID and Timestamp
+    // 2. Fallbacks for optional fields
+    const resolvedService = service || "General Software Inquiry";
+    const resolvedBudget = budget || "Flexible / To be discussed";
+    const resolvedTimeline = timeline || "To be discussed";
+    const resolvedPreferredContact = preferredContact || "Email";
+
+    // 3. Generate Lead ID and Timestamp
     const timestamp = new Date().toISOString();
     const leadId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
     console.log(`[API CONTACT] Generated Lead ID: ${leadId}`);
@@ -40,15 +46,15 @@ export async function POST(req: Request) {
       email,
       phone,
       company: company || "",
-      service,
-      budget,
-      timeline: timeline || "",
+      service: resolvedService,
+      budget: resolvedBudget,
+      timeline: resolvedTimeline,
       message: details,
-      preferredContact,
+      preferredContact: resolvedPreferredContact,
       createdAt: timestamp,
     };
 
-    // 3. Persist Data to data/leads.json
+    // 4. Persist Data to data/leads.json
     try {
       const dataFilePath = path.join(process.cwd(), "data", "leads.json");
       let existingLeads = [];
@@ -63,20 +69,20 @@ export async function POST(req: Request) {
       console.error("[API CONTACT ERROR] Error saving lead to local JSON:", err);
     }
 
-    // 4. Send Internal Lead Notification (To Admin)
+    // 5. Send Internal Lead Notification (To Admin)
     const adminEmail = process.env.ADMIN_EMAIL;
     if (adminEmail) {
       console.log(`[API CONTACT] Triggering Admin Notification Email to ${adminEmail}...`);
       await sendEmail({
         to: [{ email: adminEmail, name: "Nexyn Admin" }],
-        subject: `New Lead: ${fullName} - ${service}`,
+        subject: `New Lead: ${fullName} - ${resolvedService}`,
         htmlContent: getInternalLeadEmailHTML({
           name: fullName,
           email,
           phone,
           company: company || "N/A",
-          service,
-          budget,
+          service: resolvedService,
+          budget: resolvedBudget,
           message: details,
           timestamp: new Date().toLocaleString(),
         }),
@@ -86,14 +92,14 @@ export async function POST(req: Request) {
       console.warn("[API CONTACT] ADMIN_EMAIL is not defined in .env.local. Skipping admin notification.");
     }
 
-    // 5. Send Client Auto-Reply
+    // 6. Send Client Auto-Reply
     console.log(`[API CONTACT] Triggering Client Auto-Reply Email to ${email}...`);
     await sendEmail({
       to: [{ email, name: fullName }],
       subject: "Thank you for contacting Nexyn Studios",
       htmlContent: getClientAutoReplyEmailHTML({
         name: fullName,
-        service,
+        service: resolvedService,
       }),
     });
 

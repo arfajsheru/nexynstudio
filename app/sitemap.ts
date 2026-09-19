@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { SITE_CONFIG } from '@/lib/constants'
 import { SERVICE_PAGES, TECHNOLOGY_PAGES, INDUSTRY_PAGES, SOLUTION_PAGES, LOCATION_PAGES } from '@/lib/data/seo-data'
 import { BLOG_POSTS } from '@/lib/data/blog-posts'
+import { PROJECTS } from '@/lib/data/projects'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date()
@@ -118,8 +119,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
+  // ── Project Detail Pages (Priority 0.8) ───────────────────────────────────
+  const projectPages: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
+    url: `${SITE_CONFIG.url}/projects/${project.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }))
+
   return [
     ...corePages,
+    ...projectPages,
     ...servicePages,
     ...technologyPages,
     ...industryPages,

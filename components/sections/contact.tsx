@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
@@ -47,6 +48,7 @@ function ContactBg() {
 // ── Floating Label Input Component ───────────────────────────────────────────
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement> {
+  id?: string;
   label: string;
   as?: "input" | "textarea" | "select";
   options?: string[];
@@ -54,9 +56,11 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement | HTMLTe
   icon?: React.ElementType;
 }
 
-function FloatingInput({ label, as = "input", options, error, icon: Icon, className, ...props }: InputProps) {
+function FloatingInput({ id, label, as = "input", options, error, icon: Icon, className, ...props }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(!!props.value);
+
+  const inputId = id || label.toLowerCase().replace(/[^a-z0-9]/g, "-");
 
   const handleBlur = (e: React.FocusEvent<any>) => {
     setIsFocused(false);
@@ -115,6 +119,7 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
           }}
         >
           <SelectTrigger 
+            id={inputId}
             className={cn(baseClasses, "shadow-none focus:ring-0 text-left data-[size=default]:h-[52px]", !props.value && "[&>span]:opacity-0")}
           >
             <SelectValue placeholder="" />
@@ -129,6 +134,7 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
         </Select>
       ) : as === "textarea" ? (
         <textarea
+          id={inputId}
           className={baseClasses}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -138,6 +144,7 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
         />
       ) : (
         <input
+          id={inputId}
           className={baseClasses}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -148,6 +155,7 @@ function FloatingInput({ label, as = "input", options, error, icon: Icon, classN
       )}
 
       <label
+        htmlFor={inputId}
         className={cn(
           "pointer-events-none absolute transition-all duration-300 z-10",
           Icon ? "left-10" : "left-4",
@@ -179,6 +187,7 @@ export function ContactSection() {
     email: "",
     company: "",
     service: "",
+    budget: "",
     details: "",
     preferredContact: "Email",
     consent: false,
@@ -287,11 +296,14 @@ export function ContactSection() {
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" />
                   <div>
                     <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                      Phone
+                      Phone & WhatsApp
                     </div>
-                    <div className="mt-0.5 text-[13px] font-medium text-foreground">
+                    <a
+                      href="tel:+918591013795"
+                      className="mt-0.5 block text-[13px] font-medium text-foreground hover:text-foreground/70 transition-colors"
+                    >
                       +91 85910 13795
-                    </div>
+                    </a>
                   </div>
                 </div>
 
@@ -302,7 +314,7 @@ export function ContactSection() {
                       Office Address
                     </div>
                     <div className="mt-0.5 text-[13px] font-medium leading-relaxed text-foreground">
-                      102, A wing, Nehal CHS, Last Mahada, Malwani, Malad (w), Mumbai 400095
+                      102, A wing, Nehal CHS, Last Mahada, Malwani, Malad West, Mumbai 400095
                     </div>
                   </div>
                 </div>
@@ -314,7 +326,7 @@ export function ContactSection() {
                       Business Hours
                     </div>
                     <div className="mt-0.5 text-[13px] font-medium text-foreground">
-                      Mon-Sat, 9AM-7PM
+                      Mon–Sat: 9:00 AM – 7:00 PM IST
                     </div>
                   </div>
                 </div>
@@ -336,7 +348,7 @@ export function ContactSection() {
                   allowFullScreen={false}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Office Location Map"
+                  title="Nexyn Studios Mumbai Office Location"
                 />
               </div>
             </motion.div>
@@ -365,7 +377,7 @@ export function ContactSection() {
                       Thank You For Reaching Out
                     </h3>
                     <p className="max-w-sm text-[13px] text-muted-foreground">
-                      Our team will review your requirements and contact you shortly
+                      Our engineering team will review your specifications and contact you
                       to discuss the next steps.
                     </p>
                     <button
@@ -377,6 +389,7 @@ export function ContactSection() {
                           email: "",
                           company: "",
                           service: "",
+                          budget: "",
                           details: "",
                           preferredContact: "Email",
                           consent: false,
@@ -399,9 +412,11 @@ export function ContactSection() {
                   >
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <FloatingInput
+                        id="fullName"
                         icon={User}
                         label="Full Name"
                         required
+                        autoComplete="name"
                         value={formState.fullName}
                         onChange={(e) => {
                           setFormState({ ...formState, fullName: e.target.value });
@@ -410,10 +425,12 @@ export function ContactSection() {
                         error={errors.fullName}
                       />
                       <FloatingInput
+                        id="phone"
                         icon={Phone}
                         label="Phone Number"
                         required
                         type="tel"
+                        autoComplete="tel"
                         value={formState.phone}
                         onChange={(e) => {
                           setFormState({ ...formState, phone: e.target.value });
@@ -425,10 +442,12 @@ export function ContactSection() {
 
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <FloatingInput
+                        id="email"
                         icon={Mail}
                         label="Email Address"
                         required
                         type="email"
+                        autoComplete="email"
                         value={formState.email}
                         onChange={(e) => {
                           setFormState({ ...formState, email: e.target.value });
@@ -437,8 +456,10 @@ export function ContactSection() {
                         error={errors.email}
                       />
                       <FloatingInput
+                        id="company"
                         icon={Building}
                         label="Company Name"
+                        autoComplete="organization"
                         value={formState.company}
                         onChange={(e) =>
                           setFormState({ ...formState, company: e.target.value })
@@ -446,32 +467,55 @@ export function ContactSection() {
                       />
                     </div>
 
-                    <FloatingInput
-                      icon={Briefcase}
-                      label="Service Required (Optional)"
-                      as="select"
-                      value={formState.service}
-                      onChange={(e) => {
-                        setFormState({ ...formState, service: e.target.value });
-                        if (errors.service) setErrors({ ...errors, service: "" });
-                      }}
-                      options={[
-                        "Custom Software Development",
-                        "Web Development",
-                        "Mobile App Development",
-                        "UI/UX Design",
-                        "AI & Automation",
-                        "Cloud & DevOps Solutions",
-                      ]}
-                      error={errors.service}
-                    />
+                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                      <FloatingInput
+                        id="service"
+                        icon={Briefcase}
+                        label="Service Required (Optional)"
+                        as="select"
+                        value={formState.service}
+                        onChange={(e) => {
+                          setFormState({ ...formState, service: e.target.value });
+                          if (errors.service) setErrors({ ...errors, service: "" });
+                        }}
+                        options={[
+                          "Custom Software Development",
+                          "Web Development",
+                          "Mobile App Development",
+                          "UI/UX Design",
+                          "AI & Automation",
+                          "Cloud & DevOps Solutions",
+                        ]}
+                        error={errors.service}
+                      />
+                      <FloatingInput
+                        id="budget"
+                        icon={Wallet}
+                        label="Estimated Budget (Optional)"
+                        as="select"
+                        value={formState.budget}
+                        onChange={(e) => {
+                          setFormState({ ...formState, budget: e.target.value });
+                          if (errors.budget) setErrors({ ...errors, budget: "" });
+                        }}
+                        options={[
+                          "Flexible / Discussion",
+                          "₹1L – ₹3L",
+                          "₹3L – ₹5L",
+                          "₹5L – ₹10L",
+                          "₹10L+",
+                        ]}
+                        error={errors.budget}
+                      />
+                    </div>
 
                     <FloatingInput
+                      id="details"
                       icon={MessageSquare}
-                      label="Notes"
+                      label="Project Scope / Details"
                       as="textarea"
                       required
-                      placeholder="Tell us about your project goals, business challenges and expected outcomes."
+                      placeholder="Tell us about your project goals, technical requirements, and timeline."
                       value={formState.details}
                       onChange={(e) => {
                         setFormState({ ...formState, details: e.target.value });
@@ -524,7 +568,11 @@ export function ContactSection() {
                           )}
                         />
                         <span className="text-[12px] leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors">
-                          I agree to be contacted regarding my project inquiry.
+                          I agree to be contacted regarding my project inquiry and accept the{" "}
+                          <Link href="/privacy-policy" className="underline hover:text-foreground">
+                            Privacy Policy
+                          </Link>
+                          .
                         </span>
                       </label>
                       {errors.consent && (
@@ -546,7 +594,7 @@ export function ContactSection() {
                         </>
                       ) : (
                         <>
-                          Schedule Free Consultation
+                          Submit Project Inquiry
                           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </>
                       )}

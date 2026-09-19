@@ -63,7 +63,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
         
         {/* Back Navigation */}
         <div className={cn("mx-auto w-full mb-8 lg:mb-12", LAYOUT.maxWidth, LAYOUT.paddingX)}>
-          <Link href="/#portfolio" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <Link href="/portfolio" className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="w-4 h-4" />
             Back to Portfolio
           </Link>
