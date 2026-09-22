@@ -33,7 +33,8 @@ export const HERO_CONTENT = {
   headlinePrefix: "Custom Software Development Company",
   headlineAccent: "engineered to scale your business.",
   description:
-    "We partner directly with founders and growth-stage companies to build high-performance web applications, multi-tier CRMs, and internal systems. 100% source code ownership, zero bloated SaaS subscriptions, and fast 2–4 week sprints.",
+    "We partner directly with founders and growth-stage companies to build high-performance web applications, CRMs, and internal systems.",
+  descriptionSuffix: " 100% source code ownership, zero bloated SaaS subscriptions, and fast 2–4 week sprints.",
   primaryCta: { label: "Start a Project", href: "/contact" },
   secondaryCta: { label: "View Case Studies", href: "/portfolio" },
 } as const;

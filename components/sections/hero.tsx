@@ -161,7 +161,7 @@ export function HeroSection() {
           {/* Headline with balanced, high-impact studio typography */}
           <motion.h1
             variants={fadeUp}
-            className="mx-auto max-w-4xl text-balance text-3xl font-bold tracking-[-0.03em] text-foreground xs:text-4xl sm:text-5xl md:text-6xl lg:text-[66px] lg:leading-[1.1]"
+            className="mx-auto max-w-[95%] md:max-w-5xl lg:max-w-6xl xl:max-w-7xl text-balance text-3xl font-extrabold tracking-[-0.03em] text-foreground sm:text-4xl md:text-5xl lg:text-[72px] xl:text-[84px] lg:leading-[1.05]"
           >
             {HERO_CONTENT.headlinePrefix}{" "}
             <span className="font-serif italic font-normal text-foreground/75">
@@ -172,9 +172,10 @@ export function HeroSection() {
           {/* Description */}
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-5 max-w-2xl text-balance text-sm leading-relaxed text-muted-foreground sm:text-base md:text-[17px]"
+            className="mx-auto mt-5 max-w-[90%] md:max-w-3xl lg:max-w-4xl text-balance text-sm leading-relaxed text-muted-foreground sm:text-base md:text-[19px] md:mt-6"
           >
             {HERO_CONTENT.description}
+            <span className="hidden sm:inline">{HERO_CONTENT.descriptionSuffix}</span>
           </motion.p>
 
           {/* Compact, Refined CTAs (Sleek, Not Oversized) */}
@@ -218,15 +219,16 @@ export function HeroSection() {
           {/* Sleek Hairline Stats Grid */}
           <motion.div
             variants={fadeUp}
-            className="mt-10 grid w-full max-w-3xl grid-cols-2 divide-x divide-y border-y border-border/40 sm:grid-cols-4 sm:divide-y-0 sm:border-x sm:rounded-xl sm:bg-card/25 sm:backdrop-blur-sm dark:border-border/30"
+            className="mt-12 grid w-full max-w-4xl grid-cols-2 gap-px border-y border-border/40 bg-border/40 sm:grid-cols-4 sm:border-x sm:rounded-xl sm:shadow-lg overflow-hidden"
           >
             {STATS.map((stat) => (
-              <StatCard
-                key={stat.label}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
+              <div key={stat.label} className="bg-background sm:bg-background/40 sm:backdrop-blur-md">
+                <StatCard
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  label={stat.label}
+                />
+              </div>
             ))}
           </motion.div>
         </motion.div>
