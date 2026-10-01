@@ -31,42 +31,20 @@ function PageHeroBg() {
       aria-hidden="true"
     >
       {/* Fine grid radially masked */}
-      <div
-        className="absolute inset-0 [mask-image:radial-gradient(ellipse_70%_55%_at_50%_10%,black_40%,transparent_100%)]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(0,0,0,0.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.07) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      {/* Dark-mode grid */}
-      <div
-        className="absolute inset-0 hidden dark:block [mask-image:radial-gradient(ellipse_70%_55%_at_50%_10%,black_40%,transparent_100%)]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
+      <div className="absolute inset-0 bg-grid-masked" />
 
       {/* Top glow */}
       <div
-        className="absolute left-1/2 top-0 -translate-x-1/2 h-[280px] w-[500px] dark:opacity-25"
+        className="absolute left-1/2 top-0 -translate-x-1/2 h-[280px] w-[500px] opacity-75 dark:opacity-25"
         style={{
           background:
             "radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.03) 50%, transparent 75%)",
           filter: "blur(2px)",
-          opacity: 0.75,
         }}
       />
 
       {/* Hairline beam */}
-      <div
-        className="absolute left-1/2 top-0 -translate-x-1/2 w-px h-[140px]"
-        style={{
-          background: "linear-gradient(to bottom, rgba(99,102,241,0.25), transparent)",
-        }}
-      />
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-px h-[140px] bg-gradient-to-b from-indigo-500/25 to-transparent" />
 
       {/* Edge fades */}
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
@@ -108,7 +86,7 @@ export function PageHero({
       >
         <motion.div
           variants={staggerContainer}
-          initial="hidden"
+          initial="visible"
           animate="visible"
           className="flex flex-col items-center text-center"
         >
@@ -155,21 +133,21 @@ export function PageHero({
           {(primaryCta || secondaryCta) && (
             <motion.div
               variants={fadeUp}
-              className="mt-8 flex flex-row items-center justify-center gap-2 xs:gap-3 sm:gap-4 w-full max-w-full px-2"
+              className="mt-8 flex flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-full px-2"
             >
               {primaryCta && (
                 <Link
                   href={primaryCta.href}
-                  className="group inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-foreground px-3.5 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap"
+                  className="group inline-flex min-h-[48px] h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:px-8 sm:text-sm whitespace-nowrap"
                 >
                   {primaryCta.label}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 sm:h-4 sm:w-4 shrink-0" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 shrink-0" />
                 </Link>
               )}
               {secondaryCta && (
                 <Link
                   href={secondaryCta.href}
-                  className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-border bg-background px-3.5 text-xs font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:h-12 sm:px-7 sm:text-sm sm:gap-2 whitespace-nowrap dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
+                  className="inline-flex min-h-[48px] h-12 items-center justify-center gap-2 rounded-full border border-border bg-background px-6 text-xs font-medium text-foreground transition-all duration-300 hover:bg-muted active:scale-[0.98] sm:px-8 sm:text-sm whitespace-nowrap dark:border-input dark:bg-card/30 dark:hover:bg-card/50"
                 >
                   {secondaryCta.label}
                 </Link>

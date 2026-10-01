@@ -238,7 +238,7 @@ const CONTACT_METHODS = [
     icon: MessageCircle,
     label: "WhatsApp",
     value: "+91 85910 13795",
-    href: "/whatsapp",
+    href: "https://wa.me/918591013795?text=Hi%20Nexyn%20Studios%2C%20I%20would%20like%20to%20inquire%20about%20a%20custom%20software%20project.",
     desc: "Direct messaging & quick queries",
   },
   {

@@ -63,12 +63,6 @@ export function Breadcrumb({ items, className, renderJsonLd = true }: Breadcrumb
                 itemScope
                 itemType="https://schema.org/ListItem"
               >
-                {isFirst && (
-                  <Home
-                    className="h-3 w-3 shrink-0 text-muted-foreground/60"
-                    aria-hidden="true"
-                  />
-                )}
                 {!isFirst && (
                   <ChevronRight
                     className="h-3 w-3 shrink-0 text-muted-foreground/30"
@@ -79,7 +73,7 @@ export function Breadcrumb({ items, className, renderJsonLd = true }: Breadcrumb
                 {isLast || !item.href ? (
                   <span
                     aria-current="page"
-                    className="text-foreground/80"
+                    className="inline-flex min-h-[44px] items-center px-1 py-2 text-foreground/80"
                     itemProp="name"
                   >
                     {item.label}
@@ -87,9 +81,15 @@ export function Breadcrumb({ items, className, renderJsonLd = true }: Breadcrumb
                 ) : (
                   <Link
                     href={item.href}
-                    className="transition-colors duration-200 hover:text-foreground"
+                    className="inline-flex min-h-[44px] items-center gap-1.5 rounded-md px-2 py-2 text-muted-foreground transition-colors duration-200 hover:bg-muted/40 hover:text-foreground"
                     itemProp="item"
                   >
+                    {isFirst && (
+                      <Home
+                        className="h-3.5 w-3.5 shrink-0 text-muted-foreground/70"
+                        aria-hidden="true"
+                      />
+                    )}
                     <span itemProp="name">{item.label}</span>
                   </Link>
                 )}

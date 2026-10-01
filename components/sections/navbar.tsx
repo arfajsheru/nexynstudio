@@ -503,18 +503,15 @@ export function Navbar() {
           {/* ── Desktop Right Actions ─────────────────────────────── */}
           <div className="hidden items-center gap-3 lg:flex">
             {/* CTA Button */}
-            <Link
+            <a
               href={NAV_CTA.href}
               target="_blank"
-              onClick={(e) => {
-                if (NAV_CTA.href.startsWith("http")) return
-                handleNavClick(e, NAV_CTA.href)
-              }}
-              className="group inline-flex h-9 items-center gap-2 rounded-lg bg-foreground px-4 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+              rel="nofollow noopener noreferrer"
+              className="group inline-flex min-h-[40px] h-10 items-center gap-2 rounded-lg bg-foreground px-4 text-sm font-medium text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
             >
               <WhatsAppIcon className="h-4 w-4" />
               {NAV_CTA.label}
-            </Link>
+            </a>
           </div>
 
           {/* ── Mobile Menu Button ─────────────────────────────────── */}
@@ -818,18 +815,15 @@ export function Navbar() {
                   transition={{ delay: 0.25, duration: 0.2 }}
                   className="mt-6 flex justify-center border-t border-border pt-5"
                 >
-                  <Link
+                  <a
                     href={NAV_CTA.href}
                     target="_blank"
-                    onClick={(e) => {
-                      if (NAV_CTA.href.startsWith("http")) return
-                      handleNavClick(e, NAV_CTA.href)
-                    }}
-                    className="inline-flex h-9 items-center justify-center gap-2 rounded-full bg-foreground px-5 text-xs font-bold text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98] shadow-md shadow-foreground/5 border border-foreground/10"
+                    rel="nofollow noopener noreferrer"
+                    className="inline-flex min-h-[44px] h-11 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-xs font-bold text-background transition-all duration-200 hover:opacity-90 active:scale-[0.98] shadow-md shadow-foreground/5 border border-foreground/10"
                   >
                     <WhatsAppIcon className="h-4 w-4" />
                     {NAV_CTA.label}
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>

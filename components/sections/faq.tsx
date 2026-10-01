@@ -93,7 +93,7 @@ export function FAQSection() {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="flex w-full items-center justify-between text-left py-2"
+                  className="flex w-full min-h-[48px] items-center justify-between text-left py-3 cursor-pointer"
                 >
                   <span className="text-[15px] font-medium text-foreground pr-8">
                     {faq.question}

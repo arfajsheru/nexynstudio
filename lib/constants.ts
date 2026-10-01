@@ -22,7 +22,7 @@ export const NAV_ITEMS = [
 
 export const NAV_CTA = {
   label: "Chat with us",
-  href: "/whatsapp",
+  href: "https://wa.me/918591013795?text=Hi%20Nexyn%20Studios%2C%20I%20would%20like%20to%20inquire%20about%20a%20custom%20software%20project.",
 } as const;
 
 // ─── Hero ───────────────────────────────────────────────────────────────────
