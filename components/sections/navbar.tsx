@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ArrowRight, Home, Briefcase, FolderGit2, Info, Mail, Layers, Globe, Smartphone, Sparkles, BookOpen, FileText, HelpCircle, LifeBuoy, Palette, Cloud } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { NAV_ITEMS, NAV_CTA, SITE_CONFIG } from "@/lib/constants"
 import { useActiveSection, useMediaQuery } from "@/hooks/use-interactions"
@@ -179,6 +180,7 @@ export function Navbar() {
           className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-6 lg:px-8"
           aria-label="Main navigation"
         >
+
           {/* ── Logo ──────────────────────────────────────────────── */}
           <Link
             href="/"
@@ -187,9 +189,12 @@ export function Navbar() {
             aria-label={`${SITE_CONFIG.name} - Home`}
           >
             <div className="relative flex h-20 items-center sm:h-30 lg:h-30">
-              <img
-                src="/logo-black.png"
+              <Image
+                src="/logo-black.webp"
                 alt="Nexyn Studios Logo"
+                width={200}
+                height={60}
+                priority
                 className="h-full w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] dark:invert"
               />
             </div>

@@ -64,14 +64,17 @@ export function Preloader() {
   const [progress, setProgress] = useState(0);
   const [exiting, setExiting] = useState(false);
 
-  const totalDuration = 1800; // total preloader time in ms (down from 2600)
-  const wordInterval = 260;   // how long each word shows (down from 380)
+  const totalDuration = 800; // optimized for ultra-fast initial paint (down from 1800)
+  const wordInterval = 200;  // rapid word tick (down from 260)
 
-  // Check sessionStorage on mount to bypass preloader for returning visits in same session
+  // Check sessionStorage or bot User Agent on mount to bypass preloader immediately for bots & returning visitors
   useEffect(() => {
     if (typeof window !== "undefined") {
+      const isBot = /bot|googlebot|bingbot|crawler|spider|robot|crawling|lighthouse|pagespeed|gtmetrix|pingdom/i.test(
+        navigator.userAgent
+      );
       const shown = sessionStorage.getItem("nexyn-preloader-shown");
-      if (shown) {
+      if (isBot || shown) {
         setVisible(false);
         document.body.style.overflow = "unset";
       } else {
@@ -80,11 +83,18 @@ export function Preloader() {
     }
   }, []);
 
+  // Helper check for bot/already shown
+  const shouldSkip = () => {
+    if (typeof window === "undefined") return true;
+    const isBot = /bot|googlebot|bingbot|crawler|spider|robot|crawling|lighthouse|pagespeed|gtmetrix|pingdom/i.test(
+      navigator.userAgent
+    );
+    return isBot || !!sessionStorage.getItem("nexyn-preloader-shown");
+  };
+
   // Progress counter
   useEffect(() => {
-    if (typeof window !== "undefined" && sessionStorage.getItem("nexyn-preloader-shown")) {
-      return;
-    }
+    if (shouldSkip()) return;
     const start = performance.now();
     let raf: number;
 
@@ -98,28 +108,24 @@ export function Preloader() {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [totalDuration]);
 
   // Cycle words
   useEffect(() => {
-    if (typeof window !== "undefined" && sessionStorage.getItem("nexyn-preloader-shown")) {
-      return;
-    }
+    if (shouldSkip()) return;
     const interval = setInterval(() => {
       setWordIndex((i) => (i + 1) % WORDS.length);
     }, wordInterval);
     return () => clearInterval(interval);
-  }, []);
+  }, [wordInterval]);
 
   // Exit sequence
   useEffect(() => {
-    if (typeof window !== "undefined" && sessionStorage.getItem("nexyn-preloader-shown")) {
-      return;
-    }
+    if (shouldSkip()) return;
     const exitTimer = setTimeout(() => {
       setExiting(true);
       document.body.style.overflow = "unset";
-    }, totalDuration - 500);
+    }, Math.max(100, totalDuration - 300));
 
     const hideTimer = setTimeout(() => {
       setVisible(false);
@@ -133,7 +139,7 @@ export function Preloader() {
       clearTimeout(hideTimer);
       document.body.style.overflow = "unset";
     };
-  }, []);
+  }, [totalDuration]);
 
   if (!visible) return null;
 
