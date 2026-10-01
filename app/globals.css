@@ -252,4 +252,21 @@
     outline: 2px solid var(--ring);
     outline-offset: 2px;
   }
+
+  /* ── Reusable Grid Patterns (replaces repeated inline styles) ─ */
+  .bg-grid-subtle {
+    background-image: linear-gradient(to right, var(--foreground) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--foreground) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.015;
+  }
+
+  .bg-grid-masked {
+    background-image: linear-gradient(to right, var(--foreground) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--foreground) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, #000 60%, transparent 100%);
+    opacity: 0.025;
+  }
 }

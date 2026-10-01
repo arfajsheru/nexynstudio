@@ -56,6 +56,9 @@ const schemaData = {
       sameAs: [
         "https://linkedin.com/company/nexynstudios",
         "https://twitter.com/nexynstudios",
+        "https://instagram.com/nexynstudios",
+        "https://facebook.com/nexynstudios",
+        "https://github.com/nexynstudios",
       ],
     },
     {
@@ -68,6 +71,24 @@ const schemaData = {
       publisher: {
         "@id": "https://nexynstudios.com/#organization",
       },
+      dateModified: "2026-10-01T12:00:00+05:30",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://nexynstudios.com/#webpage",
+      url: "https://nexynstudios.com",
+      name: "Custom Software Development Company in India | Nexyn Studios",
+      description:
+        "Nexyn Studios is a custom software development company in India. We engineer scalable web applications, mobile apps, CRM systems, and business automations.",
+      isPartOf: {
+        "@id": "https://nexynstudios.com/#website",
+      },
+      about: {
+        "@id": "https://nexynstudios.com/#organization",
+      },
+      datePublished: "2024-01-15T00:00:00+05:30",
+      dateModified: "2026-10-01T12:00:00+05:30",
+      inLanguage: "en-US",
     },
     {
       "@type": "ProfessionalService",
@@ -78,6 +99,7 @@ const schemaData = {
       telephone: "+91 85910 13795",
       email: "nexynstudios@gmail.com",
       priceRange: "₹₹₹",
+      dateModified: "2026-10-01T12:00:00+05:30",
       address: {
         "@type": "PostalAddress",
         streetAddress: "102, A wing, Nehal CHS, Last Mahada, Malwani, Malad West",
@@ -241,6 +263,11 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "https://nexynstudios.com",
+    languages: {
+      "en-US": "https://nexynstudios.com",
+      "en-IN": "https://nexynstudios.com",
+      "x-default": "https://nexynstudios.com",
+    },
   },
   openGraph: {
     type: "website",

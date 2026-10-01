@@ -22,8 +22,7 @@ export function WhatsAppWidget() {
     }
   };
 
-  const whatsappUrl =
-    "https://wa.me/918591013795?text=Hi%20Nexyn%20Studios%2C%20I%20would%20like%20to%20inquire%20about%20a%20custom%20software%20project.";
+  const whatsappUrl = "/whatsapp";
 
   return (
     <div className="fixed bottom-20 right-4 z-40 sm:bottom-6 sm:right-6">
@@ -61,7 +60,7 @@ export function WhatsAppWidget() {
       <motion.a
         href={whatsappUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
         onClick={handleWhatsAppClick}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}

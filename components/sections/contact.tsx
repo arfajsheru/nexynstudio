@@ -33,14 +33,7 @@ import {
 function ContactBg() {
   return (
     <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] [mask-image:radial-gradient(ellipse_80%_100%_at_50%_0%,black_40%,transparent_100%)]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
+      <div className="absolute inset-0 bg-grid-masked" />
     </div>
   );
 }
@@ -276,31 +269,32 @@ export function ContactSection() {
               variants={fadeUp}
               className="rounded-xl border border-border bg-background/30 p-5"
             >
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <address className="not-italic grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div className="flex items-start gap-3">
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" />
+                  <Mail className="mt-1 h-4 w-4 shrink-0 text-foreground/50" />
                   <div>
                     <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
                       Email
                     </div>
                     <a
                       href="mailto:nexynstudios@gmail.com"
-                      className="mt-0.5 block text-[13px] font-medium text-foreground hover:text-foreground/70 transition-colors"
+                      className="mt-0.5 inline-flex min-h-[44px] items-center text-[13px] font-medium text-foreground hover:text-foreground/70 transition-colors"
+                      aria-label="Email Nexyn Studios directly"
                     >
-                      nexynstudios@gmail.com
+                      nexynstudios&#64;gmail&#46;com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-foreground/50" />
+                  <Phone className="mt-1 h-4 w-4 shrink-0 text-foreground/50" />
                   <div>
                     <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                      Phone & WhatsApp
+                      Phone &amp; WhatsApp
                     </div>
                     <a
                       href="tel:+918591013795"
-                      className="mt-0.5 block text-[13px] font-medium text-foreground hover:text-foreground/70 transition-colors"
+                      className="mt-0.5 inline-flex min-h-[44px] items-center text-[13px] font-medium text-foreground hover:text-foreground/70 transition-colors"
                     >
                       +91 85910 13795
                     </a>
@@ -330,7 +324,7 @@ export function ContactSection() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </address>
             </motion.div>
 
             {/* Interactive Map Embed */}
@@ -529,11 +523,16 @@ export function ContactSection() {
                       <label className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
                         Preferred Contact Method (Optional)
                       </label>
-                      <div className="flex flex-wrap gap-5">
+                      <div className="flex flex-wrap gap-2.5 sm:gap-3">
                         {["WhatsApp", "Call", "Email"].map((method) => (
                           <label
                             key={method}
-                            className="flex cursor-pointer items-center gap-2 group"
+                            className={cn(
+                              "flex min-h-[44px] cursor-pointer items-center gap-2.5 rounded-lg border px-3.5 py-2 transition-all",
+                              formState.preferredContact === method
+                                ? "border-foreground/40 bg-foreground/[0.06] text-foreground font-semibold"
+                                : "border-border/60 bg-background/50 text-muted-foreground hover:bg-muted/40 hover:text-foreground"
+                            )}
                           >
                             <input
                               type="radio"
@@ -543,9 +542,9 @@ export function ContactSection() {
                               onChange={(e) =>
                                 setFormState({ ...formState, preferredContact: e.target.value })
                               }
-                              className="h-3.5 w-3.5 accent-foreground transition-all group-hover:scale-110"
+                              className="h-4 w-4 accent-foreground"
                             />
-                            <span className="text-[13px] font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                            <span className="text-[13px]">
                               {method}
                             </span>
                           </label>
@@ -554,7 +553,7 @@ export function ContactSection() {
                     </div>
 
                     <div className="pt-2">
-                      <label className="flex cursor-pointer items-start gap-3 group">
+                      <label className="flex min-h-[44px] cursor-pointer items-start gap-3 py-1 group">
                         <input
                           type="checkbox"
                           checked={formState.consent}
@@ -563,7 +562,7 @@ export function ContactSection() {
                             if (errors.consent) setErrors({ ...errors, consent: "" });
                           }}
                           className={cn(
-                            "mt-0.5 h-3.5 w-3.5 shrink-0 rounded-sm border-border accent-foreground transition-all group-hover:scale-110",
+                            "mt-1 h-4.5 w-4.5 shrink-0 rounded border-border accent-foreground transition-all group-hover:scale-105",
                             errors.consent && "outline outline-1 outline-destructive"
                           )}
                         />
@@ -576,7 +575,7 @@ export function ContactSection() {
                         </span>
                       </label>
                       {errors.consent && (
-                        <p className="mt-1 ml-6 text-[10px] text-destructive">
+                        <p className="mt-1 ml-7 text-[10px] text-destructive">
                           {errors.consent}
                         </p>
                       )}

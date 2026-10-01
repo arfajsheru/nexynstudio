@@ -29,7 +29,7 @@ const STACK_LAYERS = [
       { name: "React", icon: "/icons/react.svg", url: "/technologies/react-development", internal: true },
       { name: "TypeScript", icon: "/icons/typescript.svg", url: "/technologies/typescript-development", internal: true },
       { name: "Tailwind CSS", icon: "/icons/tailwindcss.svg", url: "https://tailwindcss.com" },
-      { name: "Framer Motion", icon: "/icons/framer.svg", url: "https://www.framer.com/motion/" },
+      { name: "Motion", icon: "/icons/framer.svg", url: "https://motion.dev" },
       { name: "shadcn/ui", icon: "/icons/shadcn.svg", url: "https://ui.shadcn.com" },
       { name: "GSAP", icon: "/icons/gsap.svg", url: "https://gsap.com" },
       { name: "Vue", icon: "/icons/vue.svg", url: "https://vuejs.org" },
@@ -125,15 +125,7 @@ export function TechStackSection() {
   return (
     <section className="relative overflow-hidden py-16 lg:py-24 bg-foreground/[0.02]">
       {/* Subtle blueprint grid */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, var(--foreground) 1px, transparent 1px), linear-gradient(to bottom, var(--foreground) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          opacity: 0.015,
-        }}
-      />
+      <div className="pointer-events-none absolute inset-0 bg-grid-subtle" />
 
       <div
         className={cn(
@@ -236,7 +228,7 @@ export function TechStackSection() {
                           key={tech.name}
                           href={tech.url}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="nofollow noopener noreferrer"
                           aria-label={`Visit official ${tech.name} site`}
                           className={cardClasses}
                         >

@@ -96,14 +96,7 @@ const SERVICES = [
 function ServicesBg() {
   return (
     <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-      <div
-        className="absolute inset-0 opacity-[0.025] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black_40%,transparent_100%)]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
+      <div className="absolute inset-0 bg-grid-masked" />
     </div>
   );
 }

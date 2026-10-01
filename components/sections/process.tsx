@@ -177,7 +177,7 @@ export function ProcessSection() {
               <div className="pt-6">
                 <a
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-foreground hover:opacity-85 transition-opacity"
+                  className="inline-flex min-h-[48px] items-center gap-2 rounded-xl border border-border/80 bg-background px-5 py-3 text-xs font-bold text-foreground shadow-sm transition-all hover:bg-muted/60 hover:border-foreground/30 active:scale-[0.98]"
                 >
                   Schedule a discovery call
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />

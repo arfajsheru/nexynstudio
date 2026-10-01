@@ -67,14 +67,14 @@ export function CTASection() {
           >
             <a
               href="/contact"
-              className="group inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-foreground px-3.5 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:h-12 sm:px-8 sm:text-[13px] sm:gap-2 whitespace-nowrap"
+              className="group inline-flex min-h-[48px] h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-xs font-semibold text-background shadow-lg shadow-foreground/5 transition-all duration-300 hover:shadow-xl hover:shadow-foreground/10 hover:opacity-90 active:scale-[0.98] sm:px-8 sm:text-[13px] whitespace-nowrap"
             >
               Schedule Consultation
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 sm:h-4 sm:w-4 shrink-0" />
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
             </a>
             <a
               href="/services"
-              className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-border/60 bg-background px-3.5 text-xs font-semibold text-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/5 active:scale-[0.98] sm:h-12 sm:px-8 sm:text-[13px] sm:gap-2 whitespace-nowrap"
+              className="inline-flex min-h-[48px] h-12 items-center justify-center gap-2 rounded-full border border-border/60 bg-background px-6 text-xs font-semibold text-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-foreground/5 active:scale-[0.98] sm:px-8 sm:text-[13px] whitespace-nowrap"
             >
               View Services
             </a>

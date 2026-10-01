@@ -123,8 +123,8 @@ function ScrollIndicator() {
         onClick={() => {
           window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
         }}
-        className="flex flex-col items-center gap-1.5 text-muted-foreground/40 transition-colors duration-300 hover:text-muted-foreground"
-        aria-label="Scroll down"
+        className="flex min-h-[48px] min-w-[48px] flex-col items-center justify-center p-2 text-muted-foreground/40 transition-colors duration-300 hover:text-muted-foreground"
+        aria-label="Scroll down to content"
       >
         <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
           Scroll
@@ -194,7 +194,7 @@ export function HeroSection() {
             <MagneticWrapper range={35} strength={0.25}>
               <a
                 href={HERO_CONTENT.primaryCta.href}
-                className="group inline-flex h-9 sm:h-10 items-center justify-center gap-2 rounded-lg bg-foreground px-4 sm:px-5 text-xs sm:text-[13px] font-medium text-background shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.15)] transition-all duration-200 hover:opacity-90 active:scale-[0.98] whitespace-nowrap"
+                className="group inline-flex min-h-[44px] h-11 sm:h-11 items-center justify-center gap-2 rounded-xl bg-foreground px-5 sm:px-6 text-xs sm:text-[13px] font-semibold text-background shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.15)] transition-all duration-200 hover:opacity-90 active:scale-[0.98] whitespace-nowrap"
               >
                 <span>{HERO_CONTENT.primaryCta.label}</span>
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
@@ -204,7 +204,7 @@ export function HeroSection() {
             <MagneticWrapper range={35} strength={0.25}>
               <a
                 href={HERO_CONTENT.secondaryCta.href}
-                className="inline-flex h-9 sm:h-10 items-center justify-center rounded-lg border border-border/80 bg-background/70 px-4 sm:px-5 text-xs sm:text-[13px] font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:bg-muted/70 hover:border-foreground/30 active:scale-[0.98] whitespace-nowrap"
+                className="inline-flex min-h-[44px] h-11 sm:h-11 items-center justify-center rounded-xl border border-border/80 bg-background/70 px-5 sm:px-6 text-xs sm:text-[13px] font-semibold text-foreground backdrop-blur-sm transition-all duration-200 hover:bg-muted/70 hover:border-foreground/30 active:scale-[0.98] whitespace-nowrap"
               >
                 {HERO_CONTENT.secondaryCta.label}
               </a>

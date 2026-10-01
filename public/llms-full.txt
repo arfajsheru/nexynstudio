@@ -1,0 +1,55 @@
+# Nexyn Studios — Complete Information Index
+
+> Nexyn Studios is a custom software development company in India specializing in scalable web applications, mobile apps, CRM systems, and AI automation.
+
+## Company Overview
+Nexyn Studios designs, builds, and maintains custom software for startups, growing businesses, and organizations worldwide. We focus on direct communication with engineers, fast 2–4 week sprints, and full IP/source code ownership.
+
+- Website: https://nexynstudios.com
+- Location: 102, A Wing, Nehal CHS, Last Mahada, Malwani, Malad West, Mumbai 400095, Maharashtra, India
+- Phone: +91 85910 13795
+- Email: nexynstudios@gmail.com
+- Hours: Monday - Saturday, 09:00 - 19:00 IST
+
+## Core Services
+
+### Custom Software Development
+URL: https://nexynstudios.com/services/custom-development
+We engineer bespoke CRM platforms, ERP systems, and workflow portals designed around exact organizational requirements.
+
+### Web Application Development
+URL: https://nexynstudios.com/services/web-development
+Full-stack web applications built on Next.js, React, Node.js, and TypeScript, engineered for speed, high SEO scores, and enterprise security.
+
+### Mobile App Development
+URL: https://nexynstudios.com/services/mobile-app-development
+Native and cross-platform apps using React Native and Flutter for iOS and Android, focusing on rapid rendering and native device features.
+
+### UI/UX Design
+URL: https://nexynstudios.com/services/ui-ux-design
+User research, high-fidelity wireframing, interactive prototyping, and unified design systems in Figma.
+
+### AI & Automation
+URL: https://nexynstudios.com/services/ai-automation
+Intelligent automation workflows, custom LLM integrations, retrieval-augmented generation (RAG), and data extraction pipelines.
+
+### Cloud & DevOps
+URL: https://nexynstudios.com/services/cloud-devops
+Containerization with Docker, Kubernetes orchestration, CI/CD automated deployment, and AWS/GCP cloud architecture.
+
+## Solutions
+
+- Custom CRM Systems: https://nexynstudios.com/solutions/custom-crm-development
+- SaaS Product Development: https://nexynstudios.com/solutions/saas-product-development
+- Business Automation: https://nexynstudios.com/solutions/business-automation
+- Custom Web Apps: https://nexynstudios.com/solutions/custom-web-applications
+- E-Commerce Systems: https://nexynstudios.com/solutions/ecommerce-solutions
+
+## Case Studies
+
+- United Welfare Foundation: https://nexynstudios.com/projects/united-welfare-foundation
+  A scholarship management portal managing hundreds of student requests, multi-tier reviews, and aid disbursement tracking.
+- Nexyn Chat Web: https://nexynstudios.com/projects/nexyn-chat-web
+  A real-time messaging application with encrypted chat, typing indicators, and media sharing.
+- Nexyn Chat Mobile: https://nexynstudios.com/projects/nexyn-chat-mobile
+  Cross-platform companion app for mobile users with instant push notifications and offline sync.

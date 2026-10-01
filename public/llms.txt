@@ -1,0 +1,40 @@
+# Nexyn Studios
+
+> Custom software development company in India specializing in scalable web applications, mobile apps, custom CRM systems, and AI automation.
+
+Nexyn Studios is a bespoke software engineering and product studio based in Mumbai, India. We partner directly with founders, growing enterprises, and NGOs worldwide to build robust, high-performance digital systems with 100% source code ownership and zero per-seat subscription fees.
+
+## Core Capabilities & Services
+
+- [Custom Software Development](https://nexynstudios.com/services/custom-development): Bespoke CRM, ERP, and internal workflow automation platforms engineered around operational workflows.
+- [Web Application Development](https://nexynstudios.com/services/web-development): High-performance, scalable web apps built with Next.js, React, Node.js, and TypeScript.
+- [Mobile App Development](https://nexynstudios.com/services/mobile-app-development): Production-grade iOS and Android mobile applications using React Native and Flutter.
+- [UI/UX Design](https://nexynstudios.com/services/ui-ux-design): Design systems, user research, wireframes, and conversion-optimized interfaces.
+- [AI & Business Automation](https://nexynstudios.com/services/ai-automation): Generative AI integrations, intelligent bots, data pipelines, and workflow automation.
+- [Cloud & DevOps](https://nexynstudios.com/services/cloud-devops): AWS infrastructure, Docker containerization, CI/CD pipelines, and high-availability architecture.
+
+## Solutions
+
+- [Custom CRM Systems](https://nexynstudios.com/solutions/custom-crm-development): Tailored CRM platforms replacing bloated SaaS tools with zero recurring license costs.
+- [SaaS Product Development](https://nexynstudios.com/solutions/saas-product-development): Multi-tenant architecture, billing integration, and rapid sprint delivery from MVP to enterprise scale.
+- [E-Commerce Solutions](https://nexynstudios.com/solutions/ecommerce-solutions): High-conversion commerce engines with seamless payment gateways and inventory sync.
+
+## Verified Case Studies
+
+- [United Welfare Foundation](https://nexynstudios.com/projects/united-welfare-foundation): Multi-tier scholarship portal managing student aid applications, committee approvals, treasury reviews, and disbursements.
+- [Nexyn Chat Web](https://nexynstudios.com/projects/nexyn-chat-web): Real-time collaboration platform featuring end-to-end messaging, presence indicators, and document sharing.
+- [Nexyn Chat Mobile](https://nexynstudios.com/projects/nexyn-chat-mobile): Cross-platform mobile messaging app engineered for instant synchronization and fluid mobile UX.
+
+## Engineering Standards
+
+- **Agile Sprints**: Focused 2 to 4 week milestone deliveries with direct senior engineer access.
+- **Code Ownership**: 100% intellectual property and source code handover upon completion.
+- **Architecture**: Modern tech stack (Next.js, TypeScript, PostgreSQL, Prisma, Redis, Docker, AWS/Vercel).
+
+## Contact & Location
+
+- Website: https://nexynstudios.com
+- Email: nexynstudios@gmail.com
+- Telephone: +91 85910 13795
+- Address: 102, A Wing, Nehal CHS, Last Mahada, Malwani, Malad West, Mumbai 400095, Maharashtra, India
+- Working Hours: Monday – Saturday: 9:00 AM – 7:00 PM IST

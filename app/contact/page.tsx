@@ -238,7 +238,7 @@ const CONTACT_METHODS = [
     icon: MessageCircle,
     label: "WhatsApp",
     value: "+91 85910 13795",
-    href: "https://wa.me/918591013795",
+    href: "/whatsapp",
     desc: "Direct messaging & quick queries",
   },
   {
